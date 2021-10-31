@@ -1,7 +1,9 @@
 /////////////////////////////////////////////////////////////////////
 //                                                                   /
 // DESCRIPTION:                                                      /
-// This is a file for changing odysee links into a chosen link in the/
+// This is a file that after installing a greasemonkey extension can /
+// be used to convert odysee.com to librarian.                       /
+// NOTE: I might change this really often because instances may fail./
 // variables.                                                        /
 //                                                                   /
 // LISCENSE INFO (A dedicated liscense file is in the repo.):        /
