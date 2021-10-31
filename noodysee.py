@@ -1,23 +1,28 @@
-# File that is for the future where odysee is not free software. This file
-# replaces odysee.com with a librarian instance. Librarian is a alternative to
-# odysee.com.  How it works: Basically, it takes a argument of a url, parses
-# it, replaces with desired instance of librarian and then opens it with my
-# brave.
-
-# For getting command line args
+# For command line args
 import sys
-# For running system commands. NOTE: Never use os.system for running system commands, just use subprocess.Popen([code])
+# For running commands in shell with subprocess.Popen
 import subprocess
 
-# Get the URL arg
-link = sys.argv[1]
+# Initialize the link variable so the loop works
+link = ""
 
-# This is the instance I want to replace
+# Get link as the first argument if we can
+try:
+    link = sys.argv[1]
+except:
+    # Or prompt for the link
+    # If the users just presses enter it will prompt again
+    while not link:
+        link = input("Odysee link: ")
+
+# Librarian does not accept the LBRY way of using '#' for the claim id
+link = link.replace("#", ":")
+
+# If you want to use a different instance or browser
 instance = "librarian.bcow.xyz"
+browser = 'c:\\users\\stanl\\appData\\local\\bravesoftware\\brave-browser\\application\\brave.exe'
 
-# Use .replace to replace with the variable above
-new = link.replace("odysee.com", instance)
+# Only replace once
+new = link.replace("odysee.com", instance, 1)
 
-# Use subprocess.Popen to run my browser with the argument of the variable
-# "new"
-subprocess.Popen(['c:\\users\\stanl\\appData\\local\\bravesoftware\\brave-browser\\application\\brave.exe', new])
+subprocess.Popen([browser, new])
