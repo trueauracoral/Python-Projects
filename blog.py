@@ -63,7 +63,7 @@ with open(dat["file"], "r+") as file:
         f"""
         <item>
         <title>{dat['title']}</title>
-        <link>{dat['link']}</title>
+        <link>{dat['link']}</link>
         <pubDate>{dat['date']}</pubDate>
         </item>\n\n\n
         </channel>
