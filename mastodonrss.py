@@ -27,7 +27,7 @@ except:
     # Or prompt for the link
     # If the users just presses enter it will prompt again
     while not link:
-        link = input("Odysee link: ")
+        link = input("Mastodon link: ")
 
 # VARIABLES
 browser = 'c:\\users\\stanl\\appData\\local\\bravesoftware\\brave-browser\\application\\brave.exe'
