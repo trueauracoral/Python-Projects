@@ -15,7 +15,7 @@
 
 # For command line args
 import sys
-# For running commands in shell with subprocess.Popen
+# For running commands in shell with subprocess.Popen or subprocess.run
 import subprocess
 
 # Initialize the link variable so the loop works
@@ -33,14 +33,16 @@ except:
 # Librarian does not accept the LBRY way of using '#' for the claim id
 link = link.replace("#", ":")
 
-# If you want to use a different instance or browser
+# If you want to use a different instance, browser or clipboard manager
 instance = "librarian.bcow.xyz"
 browser = 'c:\\users\\stanl\\appData\\local\\bravesoftware\\brave-browser\\application\\brave.exe'
+clipboard = 'clip'
 
 # Only replace once
 new = link.replace("odysee.com", instance, 1)
 
 # Copy to clipboard
-subprocess.run('clip', universal_newlines=True, input=new)
+subprocess.run(clipboard, universal_newlines=True, input=new)
 
+# Run the browser variable with the new url arg.
 subprocess.Popen([browser, new])
