@@ -1,5 +1,6 @@
 # Import all of tkinter GUI stuff
 from tkinter import *
+import subprocess
 
 # Important variable
 root = Tk()
@@ -32,14 +33,34 @@ help_ = Label(root, text = "Instructions: \n Enter a freedom respecting social m
 # Place help info on screen
 help_.pack()
 
+# MASTODON
+feild_mastodon = Entry(root, width=50)
+feild_mastodon.pack()
+feild_mastodon.insert(0, "Put a mastodon url:")
+
+def click_mastodon():
+    new = feild_mastodon.get() + ".rss"
+    myLabel = Label(root, text=feild_mastodon.get() + ".rss is copied!")
+    myLabel.pack()
+
+    # Copy to clipboard
+    subprocess.run('clip', universal_newlines=True, input=new)
+
+button_mastodon = Button(root, text="Enter", command=click_mastodon)
+button_mastodon.pack()
+
 # LIBRARIAN
 feild_librarian = Entry(root, width=50)
 feild_librarian.pack()
-feild_librarian.insert(0, "Put a url:")
+feild_librarian.insert(0, "Put a librarian url:")
 
 def click_librarian():
-    myLabel = Label(root, text=feild_librarian.get() + "/rss")
+    new = feild_librarian.get() + "/rss"
+    myLabel = Label(root, text=feild_librarian.get() + "/rss is copied!")
     myLabel.pack()
+
+    # Copy to clipboard
+    subprocess.run('clip', universal_newlines=True, input=new)
 
 button_librarian = Button(root, text="Enter", command=click_librarian)
 button_librarian.pack()
@@ -47,11 +68,15 @@ button_librarian.pack()
 # Teddit
 feild_teddit = Entry(root, width=50)
 feild_teddit.pack()
-feild_teddit.insert(0, "Put a url:")
+feild_teddit.insert(0, "Put a teddit url:")
 
 def click_teddit():
-    myLabel = Label(root, text=feild_teddit.get() + "?api&type=rss")
+    new = feild_teddit.get() + "?api&type=rss"
+    myLabel = Label(root, text=feild_teddit.get() + "?api&type=rss is copied!")
     myLabel.pack()
+
+    # Copy to clipboard
+    subprocess.run('clip', universal_newlines=True, input=new)
 
 button_teddit = Button(root, text="Enter", command=click_teddit)
 button_teddit.pack()
