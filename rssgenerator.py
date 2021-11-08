@@ -6,23 +6,30 @@ import subprocess
 # VARIABLES
 browser = 'c:\\users\\stanl\\appData\\local\\bravesoftware\\brave-browser\\application\\brave.exe'
 clipboard = ["clip"]
+norm="\033[00m"
+ital="\033[03m"
+bold="\033[01m"
+red="\033[96m"
+black="\033[90m"
+red="\033[91m"
+green="\033[92m"
+yellow="\033[93m"
+blue="\033[94m"
+magenta="\033[95m"
+cyan="\033[96m"
+white="\033[97m"
 
-print(
-'''
-                 
-|===============================|
-|         RSS Generator         |
-|   Type help for more info     |
-|===============================|
-'''
-)
-        
+print("|===============================|")
+print(ital+"|         RSS Generator         |"+norm)
+print(bold+"|   Type help for more info     |"+norm)
+print("|===============================|")
+
 while True:
-    command = input(": ") # the : will be the presented function
+    command = input(bold+":"+norm) # the : will be the presented function
 
     if command == "help":
         print(
-'''
+bold+'''
 Enter a freedom respecting social media: 
 mastodon - Twitter alternative
 teddit - Reddit viewer
@@ -30,7 +37,7 @@ librarian - LBRY viewer
 
 Now enter a link you want the RSS of and it will open in your
 browser.
-'''
+'''+norm
     )
 
     elif command == "mastodon":
