@@ -19,7 +19,7 @@ magenta="\033[95m"
 cyan="\033[96m"
 white="\033[97m"
 
-print("|===============================|")
+print("\n|===============================|")
 print(ital+"|         RSS Generator         |"+norm)
 print(bold+"|   Type help for more info     |"+norm)
 print("|===============================|")
@@ -72,6 +72,9 @@ browser.
         
     elif command == "quit":
         break
+
+    elif command != "":
+        print(bold+"Not a correct command :( type help ")
         
 # Copy to clipboard
 subprocess.run(clipboard, universal_newlines=True, input=new)
