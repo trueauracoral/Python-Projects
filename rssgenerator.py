@@ -37,6 +37,9 @@ librarian - LBRY viewer
 
 Now enter a link you want the RSS of and it will open in your
 browser.
+Other commands:
+quit - Quits the program or you can use control + c
+help - brings up this screen
 '''+norm
     )
 
