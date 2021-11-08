@@ -5,9 +5,7 @@ import subprocess
         
 # VARIABLES
 browser = 'c:\\users\\stanl\\appData\\local\\bravesoftware\\brave-browser\\application\\brave.exe'
-clipboard = 'clip'
-        
-to_text = True
+clipboard = ["clip"]
 
 print(
 '''
@@ -18,10 +16,9 @@ print(
 |===============================|
 '''
 )
-
+        
 while True:
-    command = input() # the : will be the presented function
-    to_text = False
+    command = input(": ") # the : will be the presented function
 
     if command == "help":
         print(
