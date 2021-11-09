@@ -59,6 +59,29 @@ def click_mastodon():
 button_mastodon = Button(root, text="Enter", command=click_mastodon)
 button_mastodon.pack()
 
+# Nitter label
+label_nitter = Label(root, text = "Put a Nitter url:",
+                       bg = background_color,
+                       fg = '#ffffff',
+                       font='10')
+# Place nitter label on screen
+label_nitter.pack()
+
+# NITTER
+feild_nitter = Entry(root, width=50)
+feild_nitter.pack()
+
+def click_nitter():
+    new = feild_nitter.get() + "/rss"
+    myLabel = Label(root, text=feild_nitter.get() + "/rss is copied!")
+    myLabel.pack()
+
+    # Copy to clipboard
+    subprocess.run('clip', universal_newlines=True, input=new)
+
+button_nitter = Button(root, text="Enter", command=click_nitter)
+button_nitter.pack()
+
 # Librarian label
 label_librarian = Label(root, text = "Put a Librarian url:",
                        bg = background_color,
