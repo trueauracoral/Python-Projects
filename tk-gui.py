@@ -54,7 +54,7 @@ def click_mastodon():
     myLabel.pack()
 
     # Copy to clipboard
-    subprocess.run('clip', universal_newlines=True, input=new)
+    root.clipboard_append(new)
 
 button_mastodon = Button(root, text="Enter", command=click_mastodon)
 button_mastodon.pack()
@@ -77,7 +77,7 @@ def click_nitter():
     myLabel.pack()
 
     # Copy to clipboard
-    subprocess.run('clip', universal_newlines=True, input=new)
+    root.clipboard_append(new)
 
 button_nitter = Button(root, text="Enter", command=click_nitter)
 button_nitter.pack()
@@ -100,7 +100,7 @@ def click_librarian():
     myLabel.pack()
 
     # Copy to clipboard
-    subprocess.run('clip', universal_newlines=True, input=new)
+    root.clipboard_append(new)
 
 button_librarian = Button(root, text="Enter", command=click_librarian)
 button_librarian.pack()
@@ -123,7 +123,7 @@ def click_teddit():
     myLabel.pack()
 
     # Copy to clipboard
-    subprocess.run('clip', universal_newlines=True, input=new)
+    root.clipboard_append(new)
 
 button_teddit = Button(root, text="Enter", command=click_teddit)
 button_teddit.pack()
