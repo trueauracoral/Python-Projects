@@ -8,6 +8,9 @@ root = Tk()
 # Name of window
 root.title("RSSgenerator")
 
+# Set the icon
+root.iconbitmap('freedomerss.ico')
+
 # Window size
 root.geometry('650x650')
 
@@ -51,6 +54,7 @@ def click_mastodon():
     myLabel.pack()
 
     # Copy to clipboard
+    root.clipboard_clear()
     root.clipboard_append(new)
 
 button_mastodon = Button(root, text="Enter", command=click_mastodon)
@@ -74,6 +78,7 @@ def click_nitter():
     myLabel.pack()
 
     # Copy to clipboard
+    root.clipboard_clear()
     root.clipboard_append(new)
 
 button_nitter = Button(root, text="Enter", command=click_nitter)
@@ -97,6 +102,7 @@ def click_librarian():
     myLabel.pack()
 
     # Copy to clipboard
+    root.clipboard_clear()
     root.clipboard_append(new)
 
 button_librarian = Button(root, text="Enter", command=click_librarian)
@@ -120,6 +126,7 @@ def click_teddit():
     myLabel.pack()
 
     # Copy to clipboard
+    root.clipboard_clear()
     root.clipboard_append(new)
 
 button_teddit = Button(root, text="Enter", command=click_teddit)
