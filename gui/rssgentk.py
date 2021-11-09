@@ -8,9 +8,6 @@ root = Tk()
 # Name of window
 root.title("RSSgenerator")
 
-# Set the icon
-root.iconbitmap('freedomerss.ico')
-
 # Window size
 root.geometry('650x650')
 
