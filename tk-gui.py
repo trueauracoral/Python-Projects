@@ -8,6 +8,9 @@ root = Tk()
 # Name of window
 root.title("RSSgenerator")
 
+# Set the icon
+root.iconbitmap('freedomerss.ico')
+
 # Window size
 root.geometry('650x650')
 
@@ -33,10 +36,17 @@ help_ = Label(root, text = "Instructions: \n Enter a freedom respecting social m
 # Place help info on screen
 help_.pack()
 
+# Mastodon label
+label_mastodon = Label(root, text = "Put a Mastodon url:",
+                       bg = background_color,
+                       fg = '#ffffff',
+                       font='10')
+# Place mastodon label on screen
+label_mastodon.pack()
+
 # MASTODON
 feild_mastodon = Entry(root, width=50)
 feild_mastodon.pack()
-feild_mastodon.insert(0, "Put a mastodon url:")
 
 def click_mastodon():
     new = feild_mastodon.get() + ".rss"
@@ -49,10 +59,17 @@ def click_mastodon():
 button_mastodon = Button(root, text="Enter", command=click_mastodon)
 button_mastodon.pack()
 
+# Librarian label
+label_librarian = Label(root, text = "Put a Librarian url:",
+                       bg = background_color,
+                       fg = '#ffffff',
+                       font='10')
+# Place librarian label on screen
+label_librarian.pack()
+
 # LIBRARIAN
 feild_librarian = Entry(root, width=50)
 feild_librarian.pack()
-feild_librarian.insert(0, "Put a librarian url:")
 
 def click_librarian():
     new = feild_librarian.get() + "/rss"
@@ -65,10 +82,17 @@ def click_librarian():
 button_librarian = Button(root, text="Enter", command=click_librarian)
 button_librarian.pack()
 
+# Teddit label
+label_teddit = Label(root, text = "Put a Teddit url:",
+                       bg = background_color,
+                       fg = '#ffffff',
+                       font='10')
+# Place teddit label on screen
+label_teddit.pack()
+
 # Teddit
 feild_teddit = Entry(root, width=50)
 feild_teddit.pack()
-feild_teddit.insert(0, "Put a teddit url:")
 
 def click_teddit():
     new = feild_teddit.get() + "?api&type=rss"
