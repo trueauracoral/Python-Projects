@@ -1,9 +1,11 @@
 # Import all of tkinter GUI stuff
 from tkinter import *
+# Run shell commands
 import subprocess
 
 # Important variable
 root = Tk()
+browser = 'c:\\users\\stanl\\appData\\local\\bravesoftware\\brave-browser\\application\\brave.exe'
 
 # Name of window
 root.title("RSSgenerator")
@@ -56,6 +58,8 @@ def click_mastodon():
     # Copy to clipboard
     root.clipboard_clear()
     root.clipboard_append(new)
+    # Run the browser variable with the new url arg.
+    subprocess.Popen([browser, new])
 
 button_mastodon = Button(root, text="Enter", command=click_mastodon)
 button_mastodon.pack()
@@ -80,6 +84,8 @@ def click_nitter():
     # Copy to clipboard
     root.clipboard_clear()
     root.clipboard_append(new)
+    # Run the browser variable with the new url arg.
+    subprocess.Popen([browser, new])
 
 button_nitter = Button(root, text="Enter", command=click_nitter)
 button_nitter.pack()
@@ -104,6 +110,8 @@ def click_librarian():
     # Copy to clipboard
     root.clipboard_clear()
     root.clipboard_append(new)
+    # Run the browser variable with the new url arg.
+    subprocess.Popen([browser, new])
 
 button_librarian = Button(root, text="Enter", command=click_librarian)
 button_librarian.pack()
@@ -128,6 +136,8 @@ def click_teddit():
     # Copy to clipboard
     root.clipboard_clear()
     root.clipboard_append(new)
+    # Run the browser variable with the new url arg.
+    subprocess.Popen([browser, new])
 
 button_teddit = Button(root, text="Enter", command=click_teddit)
 button_teddit.pack()
