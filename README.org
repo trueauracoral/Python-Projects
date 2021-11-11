@@ -1,0 +1,21 @@
+* Python-Projects
+These are small, probably not that big scripts I will use to try and learn python.
+
+* Stuff I want to do:
+- Automate
+- Not be afraid to learn new stuff
+- Think out side the box.
+
+* Expectation
+Don't expect anything much me learning python will definitely not be a big thing. Maybe I will create something special that's more general for others and not just something stupid for me that I feel I need.
+
+* Projects so far
+- Thumbnail creator (Not working that well)
+- rssgenerator (Working)
+- noodysee (Working)
+- md-to-pdf-lbry (Working)
+- mastodonrss (Working)
+- lbctousd (Working)
+- file-replace (Working)
+- blog rss generator (Not my own)
+- rssgentk (VERY NICE PROJECT)
