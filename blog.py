@@ -5,11 +5,12 @@ from time import gmtime, strftime
 Title = input("Title: ")
 Link = input("Link: ")
 Date = str(strftime("%a, %d %b %Y %X"))
-htmlfile = input("HTML file: ")
+#htmlfile = input("HTML file: ")
 rssfile = "rss.xml"
 
 # cdata ~> Description ~> Reads in rss reader I hope :-)
-htmlfile = str("<![CDATA[ "+open(htmlfile).read().replace('\n', ' ')+" ]]>")
+# I need to figure out how to get data from <p> in html file
+# htmlfile = str("<![CDATA[ "+open(htmlfile).read().replace('\n', ' ')+" ]]>")
 
 # Delete channel and rss tags
 with open(rssfile) as r:
@@ -19,4 +20,5 @@ with open(rssfile, "w") as w:
 
 # Add stuff
 with open(rssfile, 'a') as f:
-    f.write("\n<item>\n<title>"+Title+"</title>\n<link>"+Link+"</link>\n<guid>"+Link+"</guid>\n<pubDate>"+Date+"</pubDate>\n<description>\n"+htmlfile+"\n</description>\n</item>\n\n</channel>\n</rss>")
+    f.write("\n<item>\n<title>"+Title+"</title>\n<link>"+Link+"</link>\n<guid>"+Link+"</guid>\n<pubDate>"+Date+"</pubDate>\n<description>\n<![CDATA[ You can consume this content in any app you like! ]]>\n</description>\n</item>\n\n</channel>\n</rss>")
+    # f.write("\n<item>\n<title>"+Title+"</title>\n<link>"+Link+"</link>\n<guid>"+Link+"</guid>\n<pubDate>"+Date+"</pubDate>\n<description>\n"+htmlfile+"\n</description>\n</item>\n\n</channel>\n</rss>")
