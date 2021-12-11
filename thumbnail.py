@@ -1,21 +1,20 @@
-# Importing the PIL library
-from PIL import Image
-from PIL import ImageDraw
+# This is a script for me to generate video thumbnails for none video publications. I am way to lazy to create thumbnails so this just does it automaticly.
 
-# Open an Image
-img = Image.open('car.png')
+# Python image processing imports. Handling text and other things.
+from PIL import Image, ImageDraw, ImageFont
+import textwrap
 
-# Call draw Method to add 2D graphis in an image
-I1 = ImageDraw.Draw(img)
+# Image open and draw
+image = Image.open("background.png")
+draw = ImageDraw.Draw(image)
 
-# Prompt the user for the text
-text = input("Text:")
+# Text
+text = input('Text: ')
+textwrapped = textwrap.wrap(text, width=30)
+dubai = ImageFont.truetype("ReemKufi-Regular.ttf", 100)
+draw.text((400,400), '\n'.join(textwrapped), font=dubai, fill="black")
 
-# Add Text to an image
-I1.text(22, 32, text, fill="black")
-
-# Display edited image
-img.show()
-
-# Save the edited image
-img.save("car2.png")
+# I do some manipulation on the text variable so I get a nicer file name.
+filename = text.replace(' ', '-')+".png"
+image.save(filename, "PNG")
+image.show()
