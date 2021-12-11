@@ -2,6 +2,7 @@
 
 # Python image processing imports. Handling text and other things.
 from PIL import Image, ImageDraw, ImageFont
+# This if for text wrapping. Using \n isn't supported in PIL text stuff.
 import textwrap
 
 # Image open and draw
