@@ -16,7 +16,7 @@ draw = ImageDraw.Draw(image)
 text = input('Text: ')
 textwrapped = textwrap.wrap(text, width=30)
 dubai = ImageFont.truetype("ReemKufi-Regular.ttf", 100)
-draw.text((400,400), '\n'.join(textwrapped), font=dubai, fill="black")
+draw.text((400,400), '\n'.join(textwrapped), font=dubai, fill="#EE7A2F")
 
 # I do some manipulation on the text variable so I get a nicer file
 # name.
