@@ -1,3 +1,12 @@
+"""
+How to run this script.
+1. Install with pip the requests and markdown module
+2. In the browser variable specify your browser to something that can be ran in your shell
+3. In the file variable specify where you want the html file to go.
+4. Put a styles.css file in this directory.
+5. Finally run this script with python.
+"""
+
 # Make sure you pip install this
 import requests
 import markdown
