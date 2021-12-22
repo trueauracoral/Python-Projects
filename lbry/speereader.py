@@ -11,14 +11,24 @@ How to run this script.
 import requests
 import markdown
 import subprocess
+from time import gmtime, strftime
 
+# Variables for the user
 browser = 'c:\\users\\stanl\\appData\\local\\bravesoftware\\brave-browser\\application\\brave.exe'
+Date = str(strftime("%a-%d-%b-%Y-%H-%M-%S"))
+file = 'C:\\SGZ_Pro\\Hobbys\\Media\\'+ Date + ".html"
+
 link = input("Link: ")
+link = link.replace('lbry.ix.tc', 'spee.ch')
+link = link.replace('librarian.davidovski.xyz', 'spee.ch')
+link = link.replace('madiator.com', 'spee.ch')
+link = link.replace('odysee.com', 'spee.ch')
+link = link.replace('lbry:/', 'https://spee.ch')
+
 md = str(requests.get(link).text.rstrip())
 html = markdown.markdown(md)
-file = "C:\\SGZ_Pro\\Hobbys\\coding-projects\\Python\\lbry\\markdown.html"
 
-with open ('markdown.html', 'w') as f:
+with open (file, 'w') as f:
     f.write(html)
 
 with open(file,'r') as contents:
@@ -29,3 +39,5 @@ with open(file,'a') as contents:
       contents.write(save)
 
 subprocess.Popen([browser, file])
+
+print(md)
