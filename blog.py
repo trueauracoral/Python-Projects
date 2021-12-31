@@ -1,21 +1,22 @@
+# Neccasary import to convert org to html
+from orgpython import to_html
 # I need to get time instead of asking manuelly for it.
 from time import gmtime, strftime
+# copy for all platforms
+import pyperclip
 
 # Inputs
 Title = input("Title: ")
 Link = input("Link: ")
 Date = str(strftime("%a, %d %b %Y %X"))
-#htmlfile = input("HTML file: ")
 rssfile = "rss.xml"
 
-# cdata ~> Description ~> Reads in rss reader I hope :-)
-# I need to figure out how to get data from <p> in html file
-# htmlfile = str("<![CDATA[ "+open(htmlfile).read().replace('\n', ' ')+" ]]>")
+# Get the org file
+# neworgfile = open(orgfile, 'r').read()
 
-# Delete channel and rss tags A very wonky and odd solution to the
-# issue of this text being early in the file is to litterally add
-# spaces to the end of the tags so it's very specific in what it's
-# looking for.
+# print(to_html(neworgfile, toc=False, offset=0, highlight=True))
+
+# rss file manipulation
 with open(rssfile) as r:
   text = r.read().replace("\n</channel>\n</rss>", " ")
 with open(rssfile, "w") as w:
@@ -29,7 +30,7 @@ with open(rssfile, 'a') as f:
     f.write("\n<guid>"+Link+"</guid>")
     f.write("\n<pubDate>"+Date+"</pubDate>")
     f.write("\n<description>")
-    f.write("\n<![CDATA[ You can consume this content in any app you like! ]]>")
+    f.write("\n<![CDATA[ <p>Consume this in any software you like!</p> ]]>")
     f.write("\n</description>")
     f.write("\n</item>")
     f.write("\n")
@@ -41,4 +42,5 @@ with open(rssfile, 'a') as f:
 f = open('rss.xml', 'r')
 content = f.read()
 print(content)
+pyperclip.copy(content)
 f.close()
