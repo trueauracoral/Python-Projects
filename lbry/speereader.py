@@ -14,7 +14,7 @@ import subprocess
 from time import gmtime, strftime
 
 # Variables for the user
-browser = 'c:\\users\\stanl\\appData\\local\\bravesoftware\\brave-browser\\application\\brave.exe'
+browser = 'librewolf.exe'
 Date = str(strftime("%a-%d-%b-%Y-%H-%M-%S"))
 file = 'C:\\SGZ_Pro\\Hobbys\\Media\\'+ Date + ".html"
 
@@ -24,6 +24,7 @@ link = link.replace('librarian.davidovski.xyz', 'spee.ch')
 link = link.replace('madiator.com', 'spee.ch')
 link = link.replace('odysee.com', 'spee.ch')
 link = link.replace('lbry:/', 'https://spee.ch')
+link = link.replace('librarian.davidovski.xyz', 'spee.ch')
 
 md = str(requests.get(link).text.rstrip())
 html = markdown.markdown(md)
