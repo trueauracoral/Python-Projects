@@ -1,20 +1,17 @@
-# Neccasary import to convert org to html
-from orgpython import to_html
 # I need to get time instead of asking manuelly for it.
 from time import gmtime, strftime
 # copy for all platforms
 import pyperclip
+# Mastodon stuff
+from mastodon import Mastodon
+# Json for mastodon account
+import json
 
 # Inputs
 Title = input("Title: ")
 Link = input("Link: ")
 Date = str(strftime("%a, %d %b %Y %X"))
 rssfile = "rss.xml"
-
-# Get the org file
-# neworgfile = open(orgfile, 'r').read()
-
-# print(to_html(neworgfile, toc=False, offset=0, highlight=True))
 
 # rss file manipulation
 with open(rssfile) as r:
@@ -36,11 +33,39 @@ with open(rssfile, 'a') as f:
     f.write("\n")
     f.write("\n</channel>")
     f.write("\n</rss>")
-    # f.write("\n<item>\n<title>"+Title+"</title>\n<link>"+Link+"</link>\n<guid>"+Link+"</guid>\n<pubDate>"+Date+"</pubDate>\n<description>\n"+htmlfile+"\n</description>\n</item>\n\n</channel>\n</rss>")
 
-# Print file so I can glance and check for errors.
+# Print file so I can glance and check for errors. Also copy the file to clipboard
 f = open('rss.xml', 'r')
 content = f.read()
 print(content)
 pyperclip.copy(content)
 f.close()
+
+# Mastodon
+Mastodon.create_app(
+     'pytooterapp',
+     api_base_url = 'https://mastodon.online',
+     to_file = 'pytooter_clientcred.secret'
+)
+
+mastodon = Mastodon(
+    client_id = 'pytooter_clientcred.secret',
+    api_base_url = 'https://mastodon.online'
+)
+
+with open('masto_account.json', 'r') as f:
+    data = json.load(f)
+
+mastodon.log_in(
+    data['email'],
+    data['password'],
+    to_file = 'pytooter_usercred.secret'
+)
+
+mastodon = Mastodon(
+    access_token = 'pytooter_usercred.secret',
+    api_base_url = 'https://mastodon.online'
+)
+
+print(Title+"\n"+Link)
+mastodon.toot(Title+"\n"+Link)
