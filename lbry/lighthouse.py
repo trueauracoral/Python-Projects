@@ -25,8 +25,13 @@ for i, x in enumerate(json_stuff):
     print(i, bright_cyan+url+norm)
 
 # Choose a result
-c = input("Number from 1-9 of the URL you want to open: ")
-c = int(c)
+c = 42
+while not c >= 0 or not c <= 9:
+    c = input("Number from 1-9 of the URL you want to open: ")
+    try:
+            c = int(c)
+    except:
+            c = 42
 selected_url = json_stuff[c]
 
 # Do stuff
