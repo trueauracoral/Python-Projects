@@ -4,14 +4,16 @@ from time import gmtime, strftime
 import pyperclip
 # Mastodon stuff
 from mastodon import Mastodon
-# Json for mastodon account
+#Json for mastodon account
 import json
+import os
 
+# RSS GENERATION!
 # Inputs
 Title = input("Title: ")
 Link = input("Link: ")
 Date = str(strftime("%a, %d %b %Y %X"))
-rssfile = "rss.xml"
+rssfile = 'C:\\SGZ_Pro\\hobbys\\coding-projects\\python-personal\\RSS\\rss.xml'
 
 # rss file manipulation
 with open(rssfile) as r:
@@ -41,7 +43,7 @@ print(content)
 pyperclip.copy(content)
 f.close()
 
-# Mastodon
+# MASTODON!
 
 # IDK what this does ignore it
 Mastodon.create_app(
@@ -72,3 +74,7 @@ mastodon = Mastodon(
 print(Title+"\n"+Link)
 # Send a toot with the Title on the first line and the link at the bottom
 mastodon.toot(Title+"\n"+Link)
+
+# UPLOAD TO GIT directory!
+# IF your on linux change copy to cp
+os.system("copy " + rssfile + " C:\\SGZ_Pro\\Hobbys\\Writing\\Org\\pages\\rss.xml")

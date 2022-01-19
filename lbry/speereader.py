@@ -10,7 +10,7 @@ How to run this script.
 # Make sure you pip install this
 import requests
 import markdown
-import subprocess
+import os
 from time import gmtime, strftime
 
 # Variables for the user
@@ -39,6 +39,6 @@ with open(file,'w') as contents:
 with open(file,'a') as contents:
       contents.write(save)
 
-subprocess.Popen([browser, file])
+os.system("start " + file)
 
 print(md)
