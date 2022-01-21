@@ -3,16 +3,21 @@ import requests
 import json
 import os
 
-browser = 'librewolf.exe'
 # Coloring
 bold="\033[01m"
 norm="\033[00m"
 bright_cyan="\033[45m"
 
-# Search stuff
+# Variables
 query = input("Searching for: ")
 query = str(query)
-search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,title'
+size = str(30)
+search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,title&size=' + size
+# Make sure to have a ending "/"
+lbry = "https://lbry.ix.tc/"
+# Any command that you can run on your system with the url link.
+command = "start "
+
 data = requests.get(search)
 json_stuff = json.loads(data.text)
 
@@ -25,15 +30,15 @@ for i, x in enumerate(json_stuff):
     print(i, bright_cyan+url+norm)
 
 # Choose a result
-c = 42
-while not c >= 0 or not c <= 9:
-    c = input("Number from 1-9 of the URL you want to open: ")
+c = 100000
+while not c >= 0 or not c <= 29:
+    c = input('Number from 1-' + size + " of the URL you want to open: ")
     try:
             c = int(c)
     except:
-            c = 42
+            c = 100000
 selected_url = json_stuff[c]
 
-# Do stuff
-url = str("https://lbry.ix.tc/" + selected_url["channel"] + "/" + selected_url["name"])
-os.system("start " + url)
+# Do stuff with it.
+url = str(lbry + selected_url["channel"] + "/" + selected_url["name"])
+os.system(command + url)
