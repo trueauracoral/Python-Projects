@@ -10,7 +10,6 @@ bright_cyan="\033[45m"
 
 # Variables
 query = input("Searching for: ")
-#query = "trueauracoral"
 query = str(query)
 size = str(30)
 search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,title&size=' + size
@@ -39,10 +38,23 @@ while not c >= 0 or not c <= 29:
 selected_url = json_stuff[c]
 
 # Do stuff with it.
-channel_ID = json_stuff[0]["claimId"]
+channel_name = selected_url["channel"]
+json_channel_request = {
+    "jsonrpc": "2.0",
+    "method": "resolve",
+    "params": {
+        "urls": [
+            "lbry://" + channel_name
+        ],
+    },
+    "id": 1625272172800
+}
+response = requests.post("https://api.na-backend.odysee.com/api/v1/proxy?m=resolve=", json = json_channel_request)
+response = json.loads(response.text)
+channel_ID = response["result"]["lbry://"+channel_name]["claim_id"]
+
 claim_ID = selected_url["claimId"]
-channel_name = json_stuff[0]["name"]
-url = str(lbry + "api/comments?claim_id=" + claim_ID + "&channel_id=" + claim_ID + "&channel_name=" + channel_name + "&page=1&page_size=15")
+url = str(lbry + "api/comments?claim_id=" + claim_ID + "&channel_id=" + channel_ID + "&channel_name=" + channel_name + "&page=1&page_size=15")
 
 comments = requests.get(url)
 json_comments = json.loads(comments.text)
