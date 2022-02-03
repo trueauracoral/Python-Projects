@@ -10,13 +10,12 @@ print('''
 \\-------------------------------/
 ''')
 
-# Any command that you can run on your system with the url link. Possily use xdg-open for GNU/Linux systems
 command = "vieb "
-bold="\033[01m"
-norm ="\033[00m"
-bright_cyan ="\033[46m"
-colora ="\033[45m"
-colorb ="\033[44m"
+bold = "\033[01m"
+norm = "\033[00m"
+bright_cyan = "\033[46m"
+colora = "\033[45m"
+colorb = "\033[44m"
 try:
     if sys.argv[1] == "-i":
         invidious_instance = "https://invidio.xamh.de"
@@ -112,7 +111,8 @@ try:
         quit()
 except:
     print('''
-vids
+Command:
+python vids.py <arg>
 -l for lighthouse (LBRY network)
 -p for sepia (Peertube)
 -i for invidious (YouTube) 
