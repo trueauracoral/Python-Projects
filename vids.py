@@ -24,6 +24,7 @@ try:
         query = str(query)
         size = str(19)
         invidious_search = invidious_instance + "/api/v1/search?q=" + query
+        wol_api = "https://scrap.madiator.com/api/get-lbry-video?url="
 
         data = requests.get(invidious_search)
         json_stuff = json.loads(data.text)
@@ -37,8 +38,16 @@ try:
                     c = int(c)
             except:
                     c = 100000
+        # wol-api check
+        lbry_check = requests.get(wol_api + json_stuff[c]["videoId"])
+        lbry_check = json.loads(lbry_check.text)
+        librarian_instance = "https://lbry.ix.tc/"
 
-        selected_url = str(invidious_instance + '/watch?v=' + json_stuff[c]["videoId"])
+        if lbry_check["lbryurl"] == None:
+            selected_url = invidious_instance + '/watch?v=' + json_stuff[c]["videoId"]
+        else:
+            selected_url = librarian_instance + lbry_check["lbryurl"]
+            selected_url = selected_url.replace("#", ":")
 
         # Do stuff with it.
         os.system(command + selected_url)
@@ -106,5 +115,8 @@ except:
 vids
 -l for lighthouse (LBRY network)
 -p for sepia (Peertube)
--i for invidious (YouTube)
+-i for invidious (YouTube) 
+NOTE: All youtube links will be checked with the Watch on LBRY API. If
+the video is available on the lbry network, the youtube search result
+will be opened in librarian.
 ''')
