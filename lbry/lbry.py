@@ -12,10 +12,8 @@ bright_cyan="\033[45m"
 query = input("Searching for: ")
 query = str(query)
 size = str(30)
-search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,title&size=' + size
-# Make sure to have a ending "/"
+search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title&size=' + size
 lbry = "https://lbry.ix.tc/"
-# Any command that you can run on your system with the url link.
 command = "start "
 
 data = requests.get(search)
@@ -27,7 +25,7 @@ for i, x in enumerate(json_stuff):
     if x["channel"]:
         pre += x["channel"] + "/"
     url = pre + x["name"]
-    print(i, bright_cyan+url+norm)
+    print(i, bright_cyan+x["title"]+norm+"\n"+url)
 
 # Choose a result
 c = 100000
@@ -40,5 +38,13 @@ while not c >= 0 or not c <= 29:
 selected_url = json_stuff[c]
 
 # Do stuff with it.
-url = str(lbry + selected_url["channel"] + "/" + selected_url["name"])
-os.system(command + url)
+channel_name = selected_url["channel"]
+channel_ID = selected_url["channel_claim_id"]
+
+claim_ID = selected_url["claimId"]
+url = str(lbry + "api/comments?claim_id=" + claim_ID + "&channel_id=" + channel_ID + "&channel_name=" + channel_name + "&page=1&page_size=15")
+
+comments = requests.get(url)
+json_comments = json.loads(comments.text)
+for i, x in enumerate(json_comments["comments"]):
+    print(i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
