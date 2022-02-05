@@ -13,7 +13,7 @@ print('''
 ''')
 
 # Use either a browser or mpv
-command = "C:\\SGZ_Pro\\z-apps_drivers\\mpv\\mpv.exe "
+command = "mpv "
 bold = "\033[01m"
 norm = "\033[00m"
 bright_cyan = "\033[46m"
@@ -49,7 +49,7 @@ try:
 
         if lbry_check["lbryurl"] == None:
             # Using youtube.com since yt-dlp on any given invidious url redirects to youtube.com anyways.
-            selected_url = "https://youtube.com/watch?v=' + json_stuff[c]["videoId"]
+            selected_url = "https://youtube.com/watch?v=" + json_stuff[c]["videoId"]
         else:
             selected_url = librarian_instance + lbry_check["lbryurl"]
             selected_url = selected_url.replace("#", ":")
