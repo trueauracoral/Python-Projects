@@ -81,20 +81,21 @@ try:
         query = input("Searching for: ")
         query = str(query)
         size = str(30)
-        search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,title&size=' + size
-        # For now using odysee since yt-dlp doesn't support librarian
-        lbry = "https://odysee.com/"
+        search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title&size=' + size
+        lbry = "https://lbry.ix.tc/"
 
         data = requests.get(search)
         json_stuff = json.loads(data.text)
 
+        # Results
         for i, x in enumerate(json_stuff):
             pre = "lbry://"
             if x["channel"]:
                 pre += x["channel"] + "/"
             url = pre + x["name"]
-            print(i, bright_cyan+url+norm)
+            print(i, bright_cyan+x["title"]+norm+"\n"+url)
 
+        # Choose a result
         c = 100000
         while not c >= 0 or not c <= 29:
             c = input('Number from 1-' + size + " of the URL you want to open: ")
@@ -104,7 +105,19 @@ try:
                     c = 100000
         selected_url = json_stuff[c]
 
-        url = str(lbry + selected_url["channel"] + "/" + selected_url["name"])
+        # Do stuff with it.
+        channel_name = selected_url["channel"]
+        channel_ID = selected_url["channel_claim_id"]
+
+        claim_ID = selected_url["claimId"]
+        url = str(lbry + "api/comments?claim_id=" + claim_ID + "&channel_id=" + channel_ID + "&channel_name=" + channel_name + "&page=1&page_size=15")
+
+        comments = requests.get(url)
+        json_comments = json.loads(comments.text)
+        for i, x in enumerate(json_comments["comments"]):
+            print(i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
+
+        url = "https://odysee.com/" + selected_url["channel"] + "/" + selected_url["name"]
         os.system(command + url)
         quit()
 

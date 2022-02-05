@@ -15,8 +15,7 @@ query = input("Searching for: ")
 query = str(query)
 size = str(19)
 search = "https://sepiasearch.org/api/v1/search/videos?search=" + query
-# Any command that you can run on your system with the url link. Possily use xdg-open for GNU/Linux systems
-command = "librewolf-portable.exe "
+command = "C:\\SGZ_Pro\\z-apps_drivers\\mpv\\mpv.exe "
 
 data = requests.get(search)
 json_stuff = json.loads(data.text)
@@ -33,6 +32,13 @@ while not c >= 0 or not c <= 19:
             c = 100000
 
 selected_url = json_stuff["data"][c]["url"]
-
-# Do stuff with it.
+comments = "https://" + json_stuff["data"][c]["account"]["host"] + "/api/v1/videos/" + json_stuff["data"][c]["uuid"] + "/comment-threads"
+data_comment = requests.get(comments)
+json_comment = json.loads(data_comment.text)
+for i, comment in enumerate(json_comment["data"]):
+    if comment["account"] == None:
+        print(i, "No Account Data")
+    else:
+        #print(i, comment["account"]["displayName"])
+        print(i, colora+comment["account"]["displayName"]+norm+"\n"+colorb+comment["text"]+norm)
 os.system(command + selected_url)

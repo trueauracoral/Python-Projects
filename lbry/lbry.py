@@ -14,7 +14,7 @@ query = str(query)
 size = str(30)
 search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title&size=' + size
 lbry = "https://lbry.ix.tc/"
-command = "start "
+command = "C:\\SGZ_Pro\\z-apps_drivers\\mpv\\mpv.exe "
 
 data = requests.get(search)
 json_stuff = json.loads(data.text)
@@ -48,3 +48,7 @@ comments = requests.get(url)
 json_comments = json.loads(comments.text)
 for i, x in enumerate(json_comments["comments"]):
     print(i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
+
+url = "https://odysee.com/" + selected_url["channel"] + "/" + selected_url["name"]
+os.system(command + url)
+quit()
