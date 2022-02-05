@@ -1,4 +1,6 @@
-# Script for searching YouTube through the invidious API, LBRY through lighthouse API and peertube through the SepiaSearch API. Played with mpv
+# Script for searching YouTube through the invidious API, LBRY through
+# lighthouse API and peertube through the SepiaSearch API. Played with
+# mpv
 import requests
 import json
 import os
