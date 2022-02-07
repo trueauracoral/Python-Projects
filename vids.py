@@ -139,9 +139,8 @@ try:
         url = "https://odysee.com/" + selected_url["channel"] + "/" + selected_url["name"]
         os.system(command + url)
         quit()
-
-except:
-    print('''
+    if sys.argv[1] == "-h":
+        print('''
 Command:
 python vids.py <arg>
 -l for lighthouse (LBRY network)
@@ -151,3 +150,6 @@ NOTE: All youtube links will be checked with the Watch on LBRY API. If
 the video is available on the lbry network, the youtube search result
 will be opened in a odysee.com link.
 ''')
+
+except:
+    print("")

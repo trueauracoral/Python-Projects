@@ -16,7 +16,8 @@ query = str(query)
 size = str(19)
 invidious_search = invidious_instance + "api/v1/search?q=" + query
 wol_api = "https://scrap.madiator.com/api/get-lbry-video?url="
-command = "C:\\SGZ_Pro\\z-apps_drivers\\mpv\\mpv.exe "
+command = "mpv "
+launcher = "fzf "
 
 data = requests.get(invidious_search)
 json_stuff = json.loads(data.text)
