@@ -2,10 +2,6 @@
 from time import gmtime, strftime
 # copy for all platforms
 import pyperclip
-# Mastodon stuff
-from mastodon import Mastodon
-#Json for mastodon account
-import json
 import os
 
 # RSS GENERATION!
@@ -43,38 +39,6 @@ print(content)
 pyperclip.copy(content)
 f.close()
 
-# MASTODON!
-
-# IDK what this does ignore it
-Mastodon.create_app(
-     'pytooterapp',
-     api_base_url = 'https://mastodon.online',
-     to_file = 'pytooter_clientcred.secret'
-)
-mastodon = Mastodon(
-    client_id = 'pytooter_clientcred.secret',
-    api_base_url = 'https://mastodon.online'
-)
-
-# My account password protected by a file that python get's the data from
-with open('masto_account.json', 'r') as f:
-    data = json.load(f)
-
-mastodon.log_in(
-    data['email'],
-    data['password'],
-    to_file = 'pytooter_usercred.secret'
-)
-mastodon = Mastodon(
-    access_token = 'pytooter_usercred.secret',
-    api_base_url = 'https://mastodon.online'
-)
-
-# Print the toot so I can see what happened
-print(Title+"\n"+Link)
-# Send a toot with the Title on the first line and the link at the bottom
-mastodon.toot(Title+"\n"+Link)
-
-# UPLOAD TO GIT directory!
+# COPY TO GIT directory!
 # IF your on linux change copy to cp
 os.system("copy " + rssfile + " C:\\SGZ_Pro\\Hobbys\\Writing\\Org\\pages\\rss.xml")
