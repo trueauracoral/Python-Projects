@@ -23,8 +23,11 @@ colorb = "\033[44m"
 try:
     if sys.argv[1] == "-i":
         invidious_instance = "https://invidio.xamh.de/"
-        query = input("Searching for: ")
-        query = str(query)
+        try:
+            query = sys.argv[2]
+        except:
+            query = input("Searching for: ")
+            query = str(query)
         size = str(19)
         invidious_search = invidious_instance + "api/v1/search?q=" + query
         wol_api = "https://scrap.madiator.com/api/get-lbry-video?url="
@@ -64,8 +67,11 @@ try:
         quit()
 
     elif sys.argv[1] == "-p":
-        query = input("Searching for: ")
-        query = str(query)
+        try:
+            query = sys.argv[2]
+        except:
+            query = input("Searching for: ")
+            query = str(query)
         size = str(19)
         search = "https://sepiasearch.org/api/v1/search/videos?search=" + query
         command = "C:\\SGZ_Pro\\z-apps_drivers\\mpv\\mpv.exe "
@@ -97,8 +103,11 @@ try:
         os.system(command + selected_url)
 
     elif sys.argv[1] == "-l":
-        query = input("Searching for: ")
-        query = str(query)
+        try:
+            query = sys.argv[2]
+        except:
+            query = input("Searching for: ")
+            query = str(query)
         size = str(30)
         search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title&size=' + size
         lbry = "https://lbry.ix.tc/"
@@ -145,7 +154,7 @@ Command:
 python vids.py <arg>
 -l for lighthouse (LBRY network)
 -p for sepia (Peertube)
--i for invidious (YouTube) 
+-i for invidious) (YouTube) 
 NOTE: All youtube links will be checked with the Watch on LBRY API. If
 the video is available on the lbry network, the youtube search result
 will be opened in a odysee.com link.
