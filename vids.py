@@ -57,6 +57,7 @@ try:
             selected_url = librarian_instance + lbry_check["lbryurl"]
             selected_url = selected_url.replace("#", ":")
             print("Playing with LBRY!")
+
         comments = invidious_instance + "/api/v1/comments/" + json_stuff[c]["videoId"]
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)

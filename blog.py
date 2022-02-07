@@ -2,8 +2,6 @@
 from time import gmtime, strftime
 # copy for all platforms
 import pyperclip
-#Json for mastodon account
-import json
 import os
 
 # RSS GENERATION!
@@ -11,7 +9,7 @@ import os
 Title = input("Title: ")
 Link = input("Link: ")
 Date = str(strftime("%a, %d %b %Y %X"))
-rssfile = 'C:\\SGZ_Pro\\hobbys\\coding-projects\\python-personal\\RSS\\rss.xml'
+rssfile = 'C:\\SGZ_Pro\\hobbys\\coding-projects\\personal-python\\RSS\\rss.xml'
 
 # rss file manipulation
 with open(rssfile) as r:
