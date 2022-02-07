@@ -2,6 +2,8 @@
 from time import gmtime, strftime
 # copy for all platforms
 import pyperclip
+#Json for mastodon account
+import json
 import os
 
 # RSS GENERATION!

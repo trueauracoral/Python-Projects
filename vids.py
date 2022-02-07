@@ -56,6 +56,7 @@ try:
         else:
             selected_url = librarian_instance + lbry_check["lbryurl"]
             selected_url = selected_url.replace("#", ":")
+            print("Playing with LBRY!")
         comments = invidious_instance + "/api/v1/comments/" + json_stuff[c]["videoId"]
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
@@ -152,6 +153,11 @@ try:
         print('''
 Command:
 python vids.py <arg>
+After doing this you will be prompted to make a search
+
+If you want you can make the search in the command by doing
+python vids.py <arg> "search"
+
 -l for lighthouse (LBRY network)
 -p for sepia (Peertube)
 -i for invidious) (YouTube) 
