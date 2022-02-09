@@ -57,14 +57,14 @@ try:
             selected_url = librarian_instance + lbry_check["lbryurl"]
             selected_url = selected_url.replace("#", ":")
             print("Playing with LBRY!")
-
         comments = invidious_instance + "/api/v1/comments/" + json_stuff[c]["videoId"]
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
-        for i, comment in enumerate(json_comment["comments"]):
-            print(i, colora+comment["author"]+norm+"\n"+colorb+comment["content"]+norm)
-
-        # Do stuff with it.
+        for i, comment in enumerate(json_comment):
+            if "error" in json_comment:
+                print("Error fetching comments")
+            else:
+                print(i, colora+comment["comment"]["author"]+norm+"\n"+colorb+comment["comment"]["content"]+norm)
         os.system(command + selected_url)
         quit()
 
@@ -170,7 +170,7 @@ try:
         url = "https://odysee.com/" + selected_url["channel"] + "/" + selected_url["name"]
         os.system(command + url)
         quit()
-    if sys.argv[1] == "-h":
+    elif sys.argv[1] == "-h":
         print('''
 Command:
 python vids.py <arg>
@@ -186,6 +186,5 @@ NOTE: All youtube links will be checked with the Watch on LBRY API. If
 the video is available on the lbry network, the youtube search result
 will be opened in a odysee.com link.
 ''')
-
 except:
-    print("")
+    print('')
