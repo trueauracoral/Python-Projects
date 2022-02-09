@@ -37,25 +37,19 @@ data_comment = requests.get(comments)
 json_comment = json.loads(data_comment.text)
 # PRINT COMMENTS!
 for i, comment in enumerate(json_comment["data"]):
-    # Sometimes peertube likes to give nonsese json that I don't
-    # understand even why it's there so this detects that it prints no
-    # account data.
+    # Sometimes peertube likes to give nonsese json
     if comment["account"] == None:
         print(i, "No Account Data")
 
-    # This detects if a comment has replies. If the totalReplies value
-    # is greater than 0 it will get the id and add it to the link to
-    # see the whole thread aka replies
+    # This detects if a comment has replies.
     elif comment["totalReplies"] > 0:
-        # Fetching replies
         replies = comments + str(comment["id"])
         data_replies = requests.get(replies)
         json_replies = json.loads(data_replies.text)
         total_replies = str(json_replies["comment"]["totalReplies"])
         # Print out that this comment has replies and also say how many
         print(i, colora+comment["account"]["displayName"]+norm+"\n"+colorb+comment["text"]+norm+bright_cyan+"\nREPLIES: "+total_replies+norm)
-        # Here in this for loop inside of a for loop we start to print
-        # out the replies.
+        # Here in this for loop inside of a for loop for replys
         for i, reply in enumerate(json_replies["children"]):
             # Same thing can happen where it gives nonsense json.
             if reply["comment"]["account"] == None:

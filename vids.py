@@ -91,26 +91,37 @@ try:
                     c = 100000
 
         selected_url = json_stuff["data"][c]["url"]
-        comments = "https://" + json_stuff["data"][c]["account"]["host"] + "/api/v1/videos/" + json_stuff["data"][c]["uuid"] + "/comment-threads"
+        comments = "https://" + json_stuff["data"][c]["account"]["host"] + "/api/v1/videos/" + json_stuff["data"][c]["uuid"] + "/comment-threads/"
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
+        # PRINT COMMENTS!
         for i, comment in enumerate(json_comment["data"]):
+            # Sometimes peertube likes to give nonsese json
             if comment["account"] == None:
                 print(i, "No Account Data")
+
+            # This detects if a comment has replies.
             elif comment["totalReplies"] > 0:
                 replies = comments + str(comment["id"])
                 data_replies = requests.get(replies)
                 json_replies = json.loads(data_replies.text)
                 total_replies = str(json_replies["comment"]["totalReplies"])
+                # Print out that this comment has replies and also say how many
                 print(i, colora+comment["account"]["displayName"]+norm+"\n"+colorb+comment["text"]+norm+bright_cyan+"\nREPLIES: "+total_replies+norm)
+                # Here in this for loop inside of a for loop for replys
                 for i, reply in enumerate(json_replies["children"]):
+                    # Same thing can happen where it gives nonsense json.
                     if reply["comment"]["account"] == None:
                         print(i, "No Account Data")
+                    # This prints out the first reply.
                     else:
                         print(" " + str(i) + " " + colora+reply["comment"]["account"]["displayName"]+norm+"\n "+colorb+reply["comment"]["text"]+norm)
 
+            # This is the final thing, the comment has no replys so it just
+            # prints it as a comment.
             else:
                 print(i, colora+comment["account"]["displayName"]+norm+"\n"+colorb+comment["text"]+norm)
+
         os.system(command + selected_url)
 
     elif sys.argv[1] == "-l":
