@@ -54,17 +54,16 @@ try:
             # Using youtube.com since yt-dlp on any given invidious url redirects to youtube.com anyways.
             selected_url = "https://youtube.com/watch?v=" + json_stuff[c]["videoId"]
         else:
+            print("Playing with LBRY!")
             selected_url = librarian_instance + lbry_check["lbryurl"]
             selected_url = selected_url.replace("#", ":")
-            print("Playing with LBRY!")
         comments = invidious_instance + "/api/v1/comments/" + json_stuff[c]["videoId"]
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
-        for i, comment in enumerate(json_comment):
-            if "error" in json_comment:
-                print("Error fetching comments")
-            else:
-                print(i, colora+comment["comment"]["author"]+norm+"\n"+colorb+comment["comment"]["content"]+norm)
+        for i, comment in enumerate(json_comment["comments"]):
+            print(i, colora+comment["author"]+norm+"\n"+colorb+comment["content"]+norm)
+
+        # Do stuff with it.
         os.system(command + selected_url)
         quit()
 
