@@ -60,8 +60,11 @@ try:
         comments = invidious_instance + "/api/v1/comments/" + json_stuff[c]["videoId"]
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
-        for i, comment in enumerate(json_comment["comments"]):
-            print(i, colora+comment["author"]+norm+"\n"+colorb+comment["content"]+norm)
+        if "error" in json_comment:
+            print("could not fetch comments")
+        else:
+            for i, comment in enumerate(json_comment["comments"]):
+                print(i, colora+comment["author"]+norm+"\n"+colorb+comment["content"]+norm)
 
         # Do stuff with it.
         os.system(command + selected_url)
