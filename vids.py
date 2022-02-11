@@ -44,19 +44,12 @@ try:
                     c = int(c)
             except:
                     c = 100000
+
         # wol-api check
         lbry_check = requests.get(wol_api + json_stuff[c]["videoId"])
         lbry_check = json.loads(lbry_check.text)
         # For now using odysee because yt-dlp doesn't support librarian
         librarian_instance = "https://odysee.com/"
-
-        if lbry_check["lbryurl"] == None:
-            # Using youtube.com since yt-dlp on any given invidious url redirects to youtube.com anyways.
-            selected_url = "https://youtube.com/watch?v=" + json_stuff[c]["videoId"]
-        else:
-            print("Playing with LBRY!")
-            selected_url = librarian_instance + lbry_check["lbryurl"]
-            selected_url = selected_url.replace("#", ":")
         comments = invidious_instance + "/api/v1/comments/" + json_stuff[c]["videoId"]
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
@@ -65,6 +58,14 @@ try:
         else:
             for i, comment in enumerate(json_comment["comments"]):
                 print(i, colora+comment["author"]+norm+"\n"+colorb+comment["content"]+norm)
+
+        if lbry_check["lbryurl"] == None:
+            # Using youtube.com since yt-dlp on any given invidious url redirects to youtube.com anyways.
+            selected_url = "https://youtube.com/watch?v=" + json_stuff[c]["videoId"]
+        else:
+            print("Playing with LBRY!")
+            selected_url = librarian_instance + lbry_check["lbryurl"]
+            selected_url = selected_url.replace("#", ":")
 
         # Do stuff with it.
         os.system(command + selected_url)
