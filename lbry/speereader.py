@@ -19,6 +19,7 @@ Date = str(strftime("%a-%d-%b-%Y-%H-%M-%S"))
 file = 'C:\\SGZ_Pro\\Hobbys\\Media\\'+ Date + ".html"
 
 link = input("Link: ")
+link = link.lower()
 link = link.replace('lbry.ix.tc', 'spee.ch')
 link = link.replace('librarian.davidovski.xyz', 'spee.ch')
 link = link.replace('madiator.com', 'spee.ch')
