@@ -14,7 +14,7 @@ import os
 from time import gmtime, strftime
 
 # Variables for the user
-browser = 'librewolf.exe'
+browser = 'vieb '
 Date = str(strftime("%a-%d-%b-%Y-%H-%M-%S"))
 file = 'C:\\SGZ_Pro\\Hobbys\\Media\\'+ Date + ".html"
 
@@ -39,6 +39,6 @@ with open(file,'w') as contents:
 with open(file,'a') as contents:
       contents.write(save)
 
-os.system("start " + file)
+os.system(browser + file)
 
 print(md)
