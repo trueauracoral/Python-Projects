@@ -101,7 +101,7 @@ try:
         for i, comment in enumerate(json_comment["data"]):
             # Sometimes peertube likes to give nonsese json
             if comment["account"] == None:
-                print(i, "No Account Data")
+                pass
 
             # This detects if a comment has replies.
             elif comment["totalReplies"] > 0:
@@ -115,7 +115,7 @@ try:
                 for i, reply in enumerate(json_replies["children"]):
                     # Same thing can happen where it gives nonsense json.
                     if reply["comment"]["account"] == None:
-                        print(i, "No Account Data")
+                        pass
                     # This prints out the first reply.
                     else:
                         print(" " + str(i) + " " + colora+reply["comment"]["account"]["displayName"]+norm+"\n "+colorb+reply["comment"]["text"]+norm)
@@ -178,10 +178,8 @@ try:
 Command:
 python vids.py <arg>
 After doing this you will be prompted to make a search
-
 If you want you can make the search in the command by doing
 python vids.py <arg> "search"
-
 -l for lighthouse (LBRY network)
 -p for sepia (Peertube)
 -i for invidious) (YouTube) 
