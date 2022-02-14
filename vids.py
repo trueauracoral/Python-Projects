@@ -14,6 +14,11 @@ print('''
 
 # Use either a browser or mpv
 command = "mpv "
+# Your prefered librarian instance
+librarian_instance = "https://lbry.mutahar.rocks/"
+# Your prefered invidious instance. This will be used for the API and
+# will be used for actualy playing videos in mpv.
+invidious_instance = "https://invidio.xamh.de/"
 bold = "\033[01m"
 norm = "\033[00m"
 bright_cyan = "\033[46m"
@@ -22,7 +27,6 @@ colorb = "\033[44m"
 
 try:
     if sys.argv[1] == "-i":
-        invidious_instance = "https://invidio.xamh.de/"
         try:
             query = sys.argv[2]
         except:
@@ -48,9 +52,7 @@ try:
         # wol-api check
         lbry_check = requests.get(wol_api + json_stuff[c]["videoId"])
         lbry_check = json.loads(lbry_check.text)
-        # For now using odysee because yt-dlp doesn't support librarian
-        librarian_instance = "https://odysee.com/"
-        comments = invidious_instance + "/api/v1/comments/" + json_stuff[c]["videoId"]
+        comments = invidious_instance + "api/v1/comments/" + json_stuff[c]["videoId"]
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
         if "error" in json_comment:
@@ -63,7 +65,7 @@ try:
             # Using youtube.com since yt-dlp on any given invidious url redirects to youtube.com anyways.
             selected_url = "https://youtube.com/watch?v=" + json_stuff[c]["videoId"]
         else:
-            print("Playing with LBRY!")
+            print("Playing with LBRY!" + " (" + librarian_instance + ")")
             selected_url = librarian_instance + lbry_check["lbryurl"]
             selected_url = selected_url.replace("#", ":")
 
@@ -135,7 +137,6 @@ try:
             query = str(query)
         size = str(30)
         search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title&size=' + size
-        lbry = "https://lbry.ix.tc/"
 
         data = requests.get(search)
         json_stuff = json.loads(data.text)
@@ -163,14 +164,14 @@ try:
         channel_ID = selected_url["channel_claim_id"]
 
         claim_ID = selected_url["claimId"]
-        url = str(lbry + "api/comments?claim_id=" + claim_ID + "&channel_id=" + channel_ID + "&channel_name=" + channel_name + "&page=1&page_size=15")
+        url = str(librarian_instance + "api/comments?claim_id=" + claim_ID + "&channel_id=" + channel_ID + "&channel_name=" + channel_name + "&page=1&page_size=15")
 
         comments = requests.get(url)
         json_comments = json.loads(comments.text)
         for i, x in enumerate(json_comments["comments"]):
             print(i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
 
-        url = "https://odysee.com/" + selected_url["channel"] + "/" + selected_url["name"]
+        url = librarian_instance + selected_url["channel"] + "/" + selected_url["name"]
         os.system(command + url)
         quit()
     elif sys.argv[1] == "-h":
