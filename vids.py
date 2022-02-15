@@ -1,4 +1,4 @@
-# Script for searching YouTube through the invidious API, LBRY through
+# Script for searching YouTube through the invidious and piped API, LBRY through
 # lighthouse API and peertube through the SepiaSearch API. Played with
 # mpv
 import requests
@@ -208,8 +208,8 @@ If you want you can make the search in the command by doing
 python vids.py <arg> "search"
 -l for lighthouse (LBRY network)
 -p for sepia (Peertube)
--i for (invidious) (YouTube) 
--P for (piped) (YouTube) 
+-i for (Invidious proxy for YouTube) 
+-P for (Piped proxy for YouTube) 
 
 At the top of the script there are a bunch of variables you can change
 to set the instance you want.
