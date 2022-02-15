@@ -19,6 +19,10 @@ librarian_instance = "https://lbry.mutahar.rocks/"
 # Your prefered invidious instance. This will be used for the API and
 # will be used for actualy playing videos in mpv.
 invidious_instance = "https://invidio.xamh.de/"
+# You need two urls from your instance provider if you did like to
+# change this, the api url and the regular instance url.
+pipedapi_instance = "https://pipedapi.kavin.rocks/"
+piped_instance = "https://piped.kavin.rocks/"
 bold = "\033[01m"
 norm = "\033[00m"
 bright_cyan = "\033[46m"
@@ -34,7 +38,6 @@ try:
             query = str(query)
         size = str(19)
         invidious_search = invidious_instance + "api/v1/search?q=" + query
-        wol_api = "https://scrap.madiator.com/api/get-lbry-video?url="
 
         data = requests.get(invidious_search)
         json_stuff = json.loads(data.text)
@@ -49,9 +52,6 @@ try:
             except:
                     c = 100000
 
-        # wol-api check
-        lbry_check = requests.get(wol_api + json_stuff[c]["videoId"])
-        lbry_check = json.loads(lbry_check.text)
         comments = invidious_instance + "api/v1/comments/" + json_stuff[c]["videoId"]
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
@@ -61,15 +61,7 @@ try:
             for i, comment in enumerate(json_comment["comments"]):
                 print(i, colora+comment["author"]+norm+"\n"+colorb+comment["content"]+norm)
 
-        if lbry_check["lbryurl"] == None:
-            # Using youtube.com since yt-dlp on any given invidious url redirects to youtube.com anyways.
-            selected_url = "https://youtube.com/watch?v=" + json_stuff[c]["videoId"]
-        else:
-            print("Playing with LBRY!" + " (" + librarian_instance + ")")
-            selected_url = librarian_instance + lbry_check["lbryurl"]
-            selected_url = selected_url.replace("#", ":")
-
-        # Do stuff with it.
+        selected_url = invidious_instance + json_stuff[c]["videoId"]
         os.system(command + selected_url)
         quit()
 
@@ -174,6 +166,39 @@ try:
         url = librarian_instance + selected_url["channel"] + "/" + selected_url["name"]
         os.system(command + url)
         quit()
+    elif sys.argv[1] == "-P":
+        try:
+            query = sys.argv[2]
+        except:
+            query = input("Searching for: ")
+            query = str(query)
+        size = str(19)
+        pipedapi_search = pipedapi_instance + "search?q=" + query + "&filter=videos"
+        data = requests.get(pipedapi_search)
+        json_stuff = json.loads(data.text)
+        for i, vid in enumerate(json_stuff["items"]):
+            print(i, colora+vid["title"]+norm+"\n"+colorb+vid["uploaderName"]+norm+"\n"+bright_cyan+vid["url"]+norm)
+
+        c = 100000
+        while not c >= 0 or not c <= 19:
+            c = input("Number from 1-" + size + " of the URL you want to open: ")
+            try:
+                    c = int(c)
+            except:
+                    c = 100000
+
+        videoId = json_stuff["items"][c]["url"]
+        videoId = str(videoId)
+        videoId = videoId.replace("/watch?v=", "")
+        comments = pipedapi_instance + "comments/" + videoId
+        data_comment = requests.get(comments)
+        json_comment = json.loads(data_comment.text)
+        for i, comment in enumerate(json_comment["comments"]):
+            print(i, colora+comment["author"], comment["commentedTime"]+norm+"\n"+colorb+comment["commentText"]+norm)
+
+        selected_url = piped_instance + videoId
+        os.system(command + selected_url)
+        quit()
     elif sys.argv[1] == "-h":
         print('''
 Command:
@@ -183,10 +208,16 @@ If you want you can make the search in the command by doing
 python vids.py <arg> "search"
 -l for lighthouse (LBRY network)
 -p for sepia (Peertube)
--i for invidious) (YouTube) 
-NOTE: All youtube links will be checked with the Watch on LBRY API. If
-the video is available on the lbry network, the youtube search result
-will be opened in a odysee.com link.
+-i for (invidious) (YouTube) 
+-P for (piped) (YouTube) 
+
+At the top of the script there are a bunch of variables you can change
+to set the instance you want.
+- command = "command on your system (include space at the end) "
+- librarian_instance = "Librarian instance (include / at the end)"
+- invidious_instance = "Invidious instance (include / at the end)"
+- piped_instance = "Piped instance (include / at the end)"
+- pipedapi_instance = "Piped instance API (include / at the end)"
 ''')
 except:
     print('')
