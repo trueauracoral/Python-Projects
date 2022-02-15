@@ -1,16 +1,11 @@
 # Script for searching YouTube through the invidious and piped API,
-# LBRY through lighthouse and librarianAPI and peertube through the SepiaSearch
-# API. Played with mpv
+# LBRY through lighthouse and librarianAPI and peertube through the
+# SepiaSearch API. Played with mpv or whatever program on the computer
+# you want.
 import requests
 import json
 import os
 import sys
-
-print('''
-/-------------------------------\\
-|             vids              |
-\\-------------------------------/
-''')
 
 # Use either a browser or mpv
 command = "mpv "
@@ -23,12 +18,17 @@ invidious_instance = "https://invidio.xamh.de/"
 # change this, the api url and the regular instance url.
 pipedapi_instance = "https://pipedapi.kavin.rocks/"
 piped_instance = "https://piped.kavin.rocks/"
-# If you want to see thumbnails
+# If you want to see thumbnails (peertube for now). If you don't want to see thumbnails turn this to False
 open_thumbs = True
-# Image viewer
+# Your Image viewer. Make sure it can handle file names with no file
+# extensions.
 image_viewer = "mspaint "
-# Temporary Directory
+# Temporary Directory File. Full file name of where you want the
+# thumbnail to be constantly overwritten to. On GNU/Linux I think it's
+# located in the root directory as /tmp/
 temp_dir = "C:\\Users\\Stanl\\AppData\\Local\\Temp\\thumbnail"
+
+# C O L E R S
 bold = "\033[01m"
 norm = "\033[00m"
 bright_cyan = "\033[46m"
