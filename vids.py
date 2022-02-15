@@ -1,6 +1,6 @@
-# Script for searching YouTube through the invidious and piped API, LBRY through
-# lighthouse API and peertube through the SepiaSearch API. Played with
-# mpv
+# Script for searching YouTube through the invidious and piped API,
+# LBRY through lighthouse and librarianAPI and peertube through the SepiaSearch
+# API. Played with mpv
 import requests
 import json
 import os
@@ -23,6 +23,12 @@ invidious_instance = "https://invidio.xamh.de/"
 # change this, the api url and the regular instance url.
 pipedapi_instance = "https://pipedapi.kavin.rocks/"
 piped_instance = "https://piped.kavin.rocks/"
+# If you want to see thumbnails
+open_thumbs = True
+# Image viewer
+image_viewer = "mspaint "
+# Temporary Directory
+temp_dir = "C:\\Users\\Stanl\\AppData\\Local\\Temp\\thumbnail"
 bold = "\033[01m"
 norm = "\033[00m"
 bright_cyan = "\033[46m"
@@ -119,6 +125,12 @@ try:
             else:
                 print(i, colora+comment["account"]["displayName"]+norm+"\n"+colorb+comment["text"]+norm)
 
+        if open_thumbs == True:
+            thumbnail_data = requests.get(json_stuff["data"][c]["previewUrl"])
+            with open(temp_dir, 'wb') as f:
+                f.write(thumbnail_data.content)
+            os.system(image_viewer + temp_dir)
+
         os.system(command + selected_url)
 
     elif sys.argv[1] == "-l":
@@ -212,7 +224,7 @@ python vids.py <arg> "search"
 -P for (Piped proxy for YouTube) 
 
 At the top of the script there are a bunch of variables you can change
-to set the instance you want.
+to set the instance you want. More explinations are there.
 - command = "command on your system (include space at the end) "
 - librarian_instance = "Librarian instance (include / at the end)"
 - invidious_instance = "Invidious instance (include / at the end)"
