@@ -173,7 +173,12 @@ try:
         comments = requests.get(url)
         json_comments = json.loads(comments.text)
         for i, x in enumerate(json_comments["comments"]):
-            print(i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
+            if x["Channel"]["Name"] == '':
+                print(i, bright_cyan+"DELETED USER"+norm+"\n"+x["Comment"])
+            else:
+                print(i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
+            #else:
+            #    print(" " + i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
 
         url = librarian_instance + selected_url["channel"] + "/" + selected_url["name"]
         os.system(command + url)
@@ -189,7 +194,7 @@ try:
         data = requests.get(pipedapi_search)
         json_stuff = json.loads(data.text)
         for i, vid in enumerate(json_stuff["items"]):
-            print(i, colorb+bold+"@"+vid["uploaderName"]+" - "+colora+vid["title"]+norm+norm+"\n"+bright_cyan+piped_instance[:-1]+vid["url"]+norm)
+            print(i, colora+vid["title"]+norm+"\n"+colorb+vid["uploaderName"]+norm+"\n"+bright_cyan+piped_instance[:-1]+vid["url"]+norm)
 
         c = 100000
         while not c >= 0 or not c <= 19:
@@ -209,6 +214,7 @@ try:
             print(i, colora+bold+"@"+comment["author"]+norm, comment["commentedTime"]+norm+"\n"+colorb+comment["commentText"]+norm)
 
         selected_url = piped_instance + videoId
+        print(selected_url)
         os.system(command + selected_url)
         quit()
     elif sys.argv[1] == "-h":
