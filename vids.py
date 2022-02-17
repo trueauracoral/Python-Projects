@@ -189,7 +189,7 @@ try:
         data = requests.get(pipedapi_search)
         json_stuff = json.loads(data.text)
         for i, vid in enumerate(json_stuff["items"]):
-            print(i, colora+vid["title"]+norm+"\n"+colorb+vid["uploaderName"]+norm+"\n"+bright_cyan+piped_instance[:-1]+vid["url"]+norm)
+            print(i, colorb+bold+"@"+vid["uploaderName"]+" - "+colora+vid["title"]+norm+norm+"\n"+bright_cyan+piped_instance[:-1]+vid["url"]+norm)
 
         c = 100000
         while not c >= 0 or not c <= 19:
@@ -206,7 +206,7 @@ try:
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
         for i, comment in enumerate(json_comment["comments"]):
-            print(i, colora+comment["author"], comment["commentedTime"]+norm+"\n"+colorb+comment["commentText"]+norm)
+            print(i, colora+bold+"@"+comment["author"]+norm, comment["commentedTime"]+norm+"\n"+colorb+comment["commentText"]+norm)
 
         selected_url = piped_instance + videoId
         os.system(command + selected_url)
