@@ -7,18 +7,18 @@ import json
 import os
 import sys
 
-# Use either a browser or mpv
+# Use some program. (I recomend mpv for videos)
 command = "mpv "
 # Your prefered librarian instance
 librarian_instance = "https://lbry.mutahar.rocks/"
-# Your prefered invidious instance. This will be used for the API and
-# will be used for actualy playing videos in mpv.
+# Your prefered invidious instance.
 invidious_instance = "https://invidio.xamh.de/"
-# You need two urls from your instance provider if you did like to
-# change this, the api url and the regular instance url.
+# You need two urls from your piped instance provider: pipedapi url
+# and piped instance url.
 pipedapi_instance = "https://pipedapi.kavin.rocks/"
 piped_instance = "https://piped.kavin.rocks/"
-# If you want to see thumbnails (peertube for now). If you don't want to see thumbnails turn this to False
+# If you want to see thumbnails (peertube for now). If you don't want
+# to see thumbnails turn this to False
 open_thumbs = True
 # Your Image viewer. Make sure it can handle file names with no file
 # extensions.
@@ -48,7 +48,7 @@ try:
         data = requests.get(invidious_search)
         json_stuff = json.loads(data.text)
         for i, vid in enumerate(json_stuff):
-            print(i, colora+vid["title"]+norm+"\n"+colorb+vid["author"]+norm+"\n"+bright_cyan+vid["videoId"]+norm)
+            print(i, colora+vid["title"]+norm+"\n"+colorb+vid["author"]+norm+"\n"+bright_cyan+invidious_instance[:-1]+"/watch?v="+vid["videoId"]+norm)
 
         c = 100000
         while not c >= 0 or not c <= 19:
