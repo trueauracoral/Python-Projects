@@ -10,7 +10,7 @@ colora = "\033[45m"
 colorb = "\033[44m"
 
 subreddit = input("Subreddit: ")
-teddit_api = "https://teddit.net/r/" + subreddit + "?api"
+teddit_api = "https://teddit.net/r/" + subreddit + "?api&target=reddit"
 data = requests.get(teddit_api)
 json_stuff = json.loads(data.text)
 
