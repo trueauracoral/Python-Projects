@@ -2,60 +2,62 @@
 In order to run this script you need:
 - [[https://en.wikipedia.org/wiki/Python_(programming_language)][Python]]
 - [[https://en.wikipedia.org/wiki/Requests_(software)][Python Requests]]
+
 ** Software
 Recommended:
-- [[https://en.wikipedia.org/wiki/Mpv_(media_player)][mpv]] connected to:
-- [[https://github.com/ytdl-org/youtube-dl][yt-dl]] or [[https://github.com/yt-dlp/yt-dlp][yt-dlp]] 
-The script will get a url that you searched for and needs to be opened in some software available in your system's PATH. Recommended software to use is mpv connected to [[https://github.com/ytdl-org/youtube-dl][yt-dl]] or [[https://github.com/yt-dlp/yt-dlp][yt-dlp]]. This is because mpv is minimal, not a browser and has a very good video playing experience even on lower end hardware.
+- [[https://github.com/mpv-player/mpv][mpv]]
+- [[https://github.com/yt-dlp/yt-dlp][yt-dlp]] or [[https://github.com/ytdl-org/youtube-dl][youtube-dl]]
 
-However you might not have or want to install mpv so you can just configure this script to use a browser.
+The script takes a search term as input and returns a list of URLs of which one can be selected and opened in a program in your system's $PATH. [[https://github.com/mpv-player/mpv][mpv]] with [[https://github.com/yt-dlp/yt-dlp][yt-dlp]] or [[https://github.com/ytdl-org/youtube-dl][youtube-dl]] are recommend because [[https://github.com/mpv-player/mpv][mpv]] is minimal, not a browser and works well on lower end hardware. If you don't have or want [[https://github.com/mpv-player/mpv][mpv]], this script can be easily modified to open links in a browser or other program.
 
 * Variables you can Configure
-At the top of the script there are a bunch of variables to help you change how the script works.
-- =command= = "command on your system (include space at the end) "
+There are several variables at the top of the script for adjusting its behavior.
+- =command= = "Browser/video player (include space at the end) "
 - =librarian_instance= = "Librarian instance"
 - =invidious_instance= = "Invidious instance"
 - =piped_instance= = "Piped instance"
 - =pipedapi_instance= = "Piped API instance"
+
 ** Thumbnails
-A work in progress feature of this script is to let you see thumbnails of videos your watching. For now don't play with this and make sure it is set to False.
+This script will eventually display the thumbnail of each video link but this feature is still under development so it is set to False by default.
 - =open_thumbs= = False
 - =image_viewer= = "mspaint "
 - =temp_dir= = "C:\\Users\\zoomer\\AppData\\Local\\Temp\\thumbnail"
 
 * How to run the script in your terminal
 #+BEGIN_SRC bash
-python vids.py <arg>
-# After doing this you will be prompted to make a search
-# If you want you can make the search in the command by doing
-python vids.py <arg> "search"
+  # You will be prompted to input a search term
+  python vids.py <arg>
+  
+  # You can also append the search term to the command
+  python vids.py <arg> "search"
 #+END_SRC
 
 * Arguments
 ** LBRY network
-=-l= for lighthouse API (searching), librarian api (comments)
+=-l= for lighthouse API (searching) & librarian api (comments)
 
 Learn more about: [[https://en.wikipedia.org/wiki/LBRY][LBRY]]
 
 ** PeerTube
-=-pt= for sepiasearch API (searching), instance's API (comments) 
+=-pt= for sepiasearch API (searching) & PeerTube instance's API (comments) 
 
 Learn more about: [[https://en.wikipedia.org/wiki/PeerTube][PeerTube]]
 
-** Invidious a proxy for YouTube
-=-i= instance's api for comments and searching 
+** Invidious: a YouTube proxy
+=-i= for Invidious instance's API (searching & comments)
 
 Learn more about: [[https://invidious.io/][Invidious]]
 
-** Piped a proxy for YouTube
-=-p= instance's api for comments and searching 
+** Piped: a YouTube proxy
+=-p= for Piped instance's API (searching & comments)
 
 Learn more about: [[https://github.com/TeamPiped/Piped#piped][Piped]]
 
-* Any help is appreciated!
-I am not that good a programmer at all so any help to catch some bugs flying around, find new video platforms with easy API's to use, contribute some code or just make a issue/concern I will love very much!
+* Help is appreciated!
+I am not a great programmer yet so bug reports, suggestions for the inclusion of new video platforms/APIs, and code contributions are more than welcome!
 
-I develop this software on a proprietary operating system Microsoft Windows and most likely if you are using this script you are using a libre freedom respecting operating system. I promise to try my best to make sure everything works there.
+Because I know many of this script's users are running UNIX-based operating systems while I am developing it on Microsoft Windows, I'll do my best to make sure everything functions on both systems. Please file a report or make a contribution if there are discrepancies in this area.
 
 * TODO list:
 - [ ] Add thumbnail support
