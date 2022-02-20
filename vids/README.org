@@ -1,0 +1,35 @@
+* Dependencies
+In order to run this script you need:
+- =python=
+- =python requests= module =pip install requests=
+- =mpv= connected to:
+- =yt-dl= or =yt-dlp=
+
+* How to run the script in your terminal
+#+BEGIN_SRC bash
+python vids.py <arg>
+# After doing this you will be prompted to make a search
+# If you want you can make the search in the command by doing
+python vids.py <arg> "search"
+#+END_SRC
+
+* Arguments
+** LBRY network
+=-l= for lighthouse API (searching), librarian api (comments)
+
+** PeerTube
+=-pt= for sepiasearch API (searching), instance's API (comments) 
+
+** Invidious a proxy for YouTube
+=-i= instance's api for comments and searching 
+
+** Piped a proxy for YouTube
+=-p= instance's api for comments and searching 
+
+* Variables you can Configure
+At the top of the script there are a bunch of variables to help you change how the script works.
+- command = "command on your system (include space at the end) "
+- librarian_instance = "Librarian instance (include / at the end)"
+- invidious_instance = "Invidious instance (include / at the end)"
+- piped_instance = "Piped instance (include / at the end)"
+- pipedapi_instance = "Piped instance API (include / at the end)"

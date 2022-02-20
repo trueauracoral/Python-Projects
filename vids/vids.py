@@ -17,9 +17,9 @@ invidious_instance = "https://invidio.xamh.de/"
 # and piped instance url.
 pipedapi_instance = "https://pipedapi.kavin.rocks/"
 piped_instance = "https://piped.kavin.rocks/"
-# If you want to see thumbnails (peertube for now). If you don't want
-# to see thumbnails turn this to False
-open_thumbs = True
+# If you want to see thumbnails (peertube for now). To see thumbnails
+# of peertube videos turn this to True
+open_thumbs = False
 # Your Image viewer. Make sure it can handle file names with no file
 # extensions.
 image_viewer = "mspaint "
@@ -73,7 +73,7 @@ try:
         os.system(command + selected_url)
         quit()
 
-    elif sys.argv[1] == "-p":
+    elif sys.argv[1] == "-pt":
         try:
             query = sys.argv[2]
         except:
@@ -186,7 +186,7 @@ try:
         print("\n"+url)
         os.system(command + url)
         quit()
-    elif sys.argv[1] == "-P":
+    elif sys.argv[1] == "-p":
         try:
             query = sys.argv[2]
         except:
@@ -228,10 +228,18 @@ python vids.py <arg>
 After doing this you will be prompted to make a search
 If you want you can make the search in the command by doing
 python vids.py <arg> "search"
--l for lighthouse (LBRY network)
--p for sepia (Peertube)
--i for (Invidious proxy for YouTube) 
--P for (Piped proxy for YouTube) 
+
+LBRY network: arg = -l
+-l for lighthouse (searching), librarian api (comments)
+
+PeerTube: arg = -pt
+-pt for sepia (searching), instance's API (comments) 
+
+Invidious a proxy for YouTube: arg = -i
+-i instance's api for comments and searching 
+
+Piped a proxy for YouTube: arg = -p
+-p instance's api for comments and searching 
 
 At the top of the script there are a bunch of variables you can change
 to set the instance you want. More explinations are there.
