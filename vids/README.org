@@ -52,6 +52,6 @@ I am not that good a programmer at all so any help to catch some bugs flying aro
 I develop this software on a proprietary operating system windows and most likely if you are using this script you are using a libre freedom respecting operating system. I promise to try my best to make sure everything works there.
 
 * TODO list:
-[ ] Add thumbnail support
-[ ] Save a history of watched videos
-[ ] Make a proper config file *NOT JSON*!
+** TODO Add thumbnail support
+** TODO Save a history of watched videos
+** TODO Make a proper config file *NOT JSON*!
