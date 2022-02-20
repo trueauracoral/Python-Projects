@@ -8,9 +8,9 @@ In order to run this script you need:
 Recommended:
 - =mpv= connected to:
 - =yt-dl= or =yt-dlp=
-The script will get a url that you searched for and needs to get opened in some software available in your system's PATH. Recommended software to use is mpv connected to yt-dl or yt-dlp. Mpv is capable of playing almost any link this script can find with downloading capabilities of yt-dl or yt-dlp.
+The script will get a url that you searched for and needs to be opened in some software available in your system's PATH. Recommended software to use is mpv connected to yt-dl or yt-dlp. This is because mpv is minimal, not a browser and has a very good video playing experience even on lower end hardware.
 
-However you might not have or want to install mpv so you can just configure the program to use a browser.
+However you might not have or want to install mpv so you can just configure this script to use a browser.
 
 * Variables you can Configure
 At the top of the script there are a bunch of variables to help you change how the script works.
@@ -19,6 +19,11 @@ At the top of the script there are a bunch of variables to help you change how t
 - =invidious_instance= = "Invidious instance (include / at the end)"
 - =piped_instance= = "Piped instance (include / at the end)"
 - =pipedapi_instance= = "Piped instance API (include / at the end)"
+** Thumbnails
+A work in progress feature of this script is to let you see thumbnails of videos your watching. For now don't play with this and make sure it is set to False.
+- =open_thumbs= = False
+- =image_viewer= = "mspaint "
+- =temp_dir= = "C:\\Users\\Stanl\\AppData\\Local\\Temp\\thumbnail"
 
 * How to run the script in your terminal
 #+BEGIN_SRC bash
@@ -41,3 +46,12 @@ python vids.py <arg> "search"
 ** Piped a proxy for YouTube
 =-p= instance's api for comments and searching 
 
+* Any help is appreciated!
+I am not that good a programmer at all so any help to catch some bugs flying around, find new video platforms with easy API's to use, contribute some code or just make a issue/concern I will love very much!
+
+I develop this software on a proprietary operating system windows and most likely if you are using this script you are using a libre freedom respecting operating system. I promise to try my best to make sure everything works there.
+
+* TODO list:
+[ ] Add thumbnail support
+[ ] Save a history of watched videos
+[ ] Make a proper config file *NOT JSON*!
