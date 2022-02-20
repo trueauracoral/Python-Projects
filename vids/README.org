@@ -23,7 +23,7 @@ At the top of the script there are a bunch of variables to help you change how t
 A work in progress feature of this script is to let you see thumbnails of videos your watching. For now don't play with this and make sure it is set to False.
 - =open_thumbs= = False
 - =image_viewer= = "mspaint "
-- =temp_dir= = "C:\\Users\\Stanl\\AppData\\Local\\Temp\\thumbnail"
+- =temp_dir= = "C:\\Users\\zoomer\\AppData\\Local\\Temp\\thumbnail"
 
 * How to run the script in your terminal
 #+BEGIN_SRC bash
