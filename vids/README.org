@@ -1,9 +1,24 @@
 * Dependencies
 In order to run this script you need:
 - =python=
-- =python requests= module =pip install requests=
+  This script is using python3
+- =python requests= module
+  Python requests is necessary for this script to work. To install it using pip: =pip install requests=
+** Software
+Recommended:
 - =mpv= connected to:
 - =yt-dl= or =yt-dlp=
+The script will get a url that you searched for and needs to get opened in some software available in your system's PATH. Recommended software to use is mpv connected to yt-dl or yt-dlp. Mpv is capable of playing almost any link this script can find with downloading capabilities of yt-dl or yt-dlp.
+
+However you might not have or want to install mpv so you can just configure the program to use a browser.
+
+* Variables you can Configure
+At the top of the script there are a bunch of variables to help you change how the script works.
+- =command= = "command on your system (include space at the end) "
+- =librarian_instance= = "Librarian instance (include / at the end)"
+- =invidious_instance= = "Invidious instance (include / at the end)"
+- =piped_instance= = "Piped instance (include / at the end)"
+- =pipedapi_instance= = "Piped instance API (include / at the end)"
 
 * How to run the script in your terminal
 #+BEGIN_SRC bash
@@ -26,10 +41,3 @@ python vids.py <arg> "search"
 ** Piped a proxy for YouTube
 =-p= instance's api for comments and searching 
 
-* Variables you can Configure
-At the top of the script there are a bunch of variables to help you change how the script works.
-- command = "command on your system (include space at the end) "
-- librarian_instance = "Librarian instance (include / at the end)"
-- invidious_instance = "Invidious instance (include / at the end)"
-- piped_instance = "Piped instance (include / at the end)"
-- pipedapi_instance = "Piped instance API (include / at the end)"
