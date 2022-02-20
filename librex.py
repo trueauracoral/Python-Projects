@@ -4,7 +4,9 @@ import os
 import sys
 
 librex_instance = "https://search.davidovski.xyz/"
+# put a space at the end for it to work
 command = "palemoon "
+
 # C O L E R S
 bold = "\033[01m"
 norm = "\033[00m"

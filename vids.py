@@ -68,6 +68,8 @@ try:
                 print(i, colora+comment["author"]+norm+"\n"+colorb+comment["content"]+norm)
 
         selected_url = invidious_instance + json_stuff[c]["videoId"]
+        print(selected_url)
+        print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff[c]["description"])
         os.system(command + selected_url)
         quit()
 
@@ -93,7 +95,6 @@ try:
             except:
                     c = 100000
 
-        selected_url = json_stuff["data"][c]["url"]
         comments = "https://" + json_stuff["data"][c]["account"]["host"] + "/api/v1/videos/" + json_stuff["data"][c]["uuid"] + "/comment-threads/"
         data_comment = requests.get(comments)
         json_comment = json.loads(data_comment.text)
@@ -131,6 +132,9 @@ try:
                 f.write(thumbnail_data.content)
             os.system(image_viewer + temp_dir)
 
+        selected_url = json_stuff["data"][c]["url"]
+        print("\n"+selected_url)
+        print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff["data"][c]["description"])
         os.system(command + selected_url)
 
     elif sys.argv[1] == "-l":
@@ -140,7 +144,7 @@ try:
             query = input("Searching for: ")
             query = str(query)
         size = str(30)
-        search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title&size=' + size
+        search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title,description&size=' + size
 
         data = requests.get(search)
         json_stuff = json.loads(data.text)
@@ -177,10 +181,9 @@ try:
                 print(i, bright_cyan+"DELETED USER"+norm+"\n"+x["Comment"])
             else:
                 print(i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
-            #else:
-            #    print(" " + i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
-
+        print(bright_cyan+"DESCRIPTION:\n"+norm+json_stuff[c]["description"])
         url = librarian_instance + selected_url["channel"] + "/" + selected_url["name"]
+        print("\n"+url)
         os.system(command + url)
         quit()
     elif sys.argv[1] == "-P":
@@ -214,7 +217,8 @@ try:
             print(i, colora+bold+"@"+comment["author"]+norm, comment["commentedTime"]+norm+"\n"+colorb+comment["commentText"]+norm)
 
         selected_url = piped_instance + videoId
-        print(selected_url)
+        print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff["items"][c]["shortDescription"])
+        print("\n"+selected_url)
         os.system(command + selected_url)
         quit()
     elif sys.argv[1] == "-h":
