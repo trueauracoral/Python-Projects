@@ -13,7 +13,7 @@ Recommended:
 The script takes a search term as input and returns a list of URLs of which one can be selected and opened in a program in your system's $PATH. [mpv](https://github.com/mpv-player/mpv) with [yt-dlp](https://github.com/yt-dlp/yt-dlp) or [youtube-dl](https://github.com/ytdl-org/youtube-dl) are recommend because [mpv](https://github.com/mpv-player/mpv) is minimal, not a browser and works well on lower end hardware. If you don't have or want [mpv](https://github.com/mpv-player/mpv), this script can be easily modified to open links in a browser or other program.
 
 # Configurable Variables
-This script comes with a config file. *Make sure the config file is in the same directory as the script!* The config file is called `vids.conf` in here you can find a lot of settings.
+This script comes with a config file. *Make sure the config file is in the same directory as the script!* The config file is called [vids.conf](vids.conf) in here you can find a lot of settings.
 ## [CONFIG]
 - `command` = "Browser/video player"
 - `librarian_instance` = "Librarian instance"
