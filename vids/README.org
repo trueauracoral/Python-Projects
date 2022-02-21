@@ -12,7 +12,7 @@ The script takes a search term as input and returns a list of URLs of which one 
 
 * Variables you can Configure
 There are several variables at the top of the script for adjusting its behavior.
-- =command= = "Browser/video player (include space at the end) "
+- =command= = "Browser/video player (include space at the end)"
 - =librarian_instance= = "Librarian instance"
 - =invidious_instance= = "Invidious instance"
 - =piped_instance= = "Piped instance"
