@@ -14,19 +14,20 @@ The script takes a search term as input and returns a list of URLs of which one 
 
 # Configurable Variables
 This script comes with a config file. *Make sure the config file is in the same directory as the script!* The config file is called [vids.conf](vids.conf) in here you can find a lot of settings.
-## [CONFIG]
-- `command` = "Browser/video player"
-- `librarian_instance` = "Librarian instance"
-- `invidious_instance` = "Invidious instance"
-- `piped_instance` = "Piped instance"
-- `pipedapi_instance` = "Piped API instance"
+``` ini
+[CONFIG]
+librarian_instance = https://lbry.mutahar.rocks/
+invidious_instance = https://invidio.xamh.de/
+piped_instance = https://piped.kavin.rocks/
+pipedapi_instance = https://pipedapi.kavin.rocks/
+command = mpv
+[THUMBNAILS]
+; This script will eventually display the thumbnail of each video link but this feature is still under development so it is set to False by default.
 
-## Thumbnails (WIP)
-This script will eventually display the thumbnail of each video link but this feature is still under development so it is set to False by default.
-### [THUMBNAILS]
-- `open_thumbs` = False
-- `image_viewer` = "mspaint "
-- `temp_dir` = "C:\\Users\\zoomer\\AppData\\Local\\Temp\\thumbnail"
+open_thumbs = False
+image_viewer = mspaint
+temp_dir = C:\\Users\\Stanl\\AppData\\Local\\Temp\\thumbnail
+```
 
 # Usage
 ``` bash
