@@ -60,6 +60,7 @@ I am not a great programmer, yet. Please write bug reports, suggestions for the 
 Because many of this script's users are running *nix operating systems while I am developing it for Microsoft Windows, I'll do my best to make sure everything functions on both systems. Please file reports or make contributions.
 
 * TODO List:
-- [ ] Add thumbnail support
-- [ ] Save a history of watched videos
-- [ ] Make a proper config file *NOT JSON*!
+- [-] Make a logo
+- [-] Make a proper config file using configparser
+- [-] Add thumbnail support
+- [-] Save a history of watched videos
