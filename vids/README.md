@@ -26,7 +26,7 @@ command = mpv
 
 open_thumbs = False
 image_viewer = mspaint
-temp_dir = C:\\Users\\Stanl\\AppData\\Local\\Temp\\thumbnail
+temp_dir = C:\\Users\\zoomer\\AppData\\Local\\Temp\\thumbnail
 ```
 
 # Usage
