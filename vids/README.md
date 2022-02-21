@@ -1,4 +1,4 @@
-# <img src="logo.png" alt = "vids logo" width = "45" height = "45" /> vids
+# <img src="logo.png" alt = "vids logo" width = "90" height = "45" /> vids
 
 # Dependencies
 In order to run this script you need:
