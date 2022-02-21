@@ -55,9 +55,9 @@ Learn more about: [[https://invidious.io/][Invidious]]
 Learn more about: [[https://github.com/TeamPiped/Piped#piped][Piped]]
 
 * Help is Appreciated!
-I am not a great programmer yet so bug reports, suggestions for the inclusion of new video platforms/APIs, and code contributions are more than welcome!
+I am not a great programmer, yet. Please write bug reports, suggestions for the inclusion of new video platforms/APIs, and code improvements!
 
-Because I know many of this script's users are running UNIX-based operating systems while I am developing it on Microsoft Windows, I'll do my best to make sure everything functions on both systems. Please file a report or make a contribution if there are discrepancies in this area.
+Because many of this script's users are running *nix operating systems while I am developing it for Microsoft Windows, I'll do my best to make sure everything functions on both systems. Please file reports or make contributions.
 
 * TODO List:
 - [ ] Add thumbnail support
