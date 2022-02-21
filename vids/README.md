@@ -53,7 +53,7 @@ Learn more about: [PeerTube](https://en.wikipedia.org/wiki/PeerTube)
 
 Learn more about: [[https://invidious.io/][Invidious]]
 
-# Piped: a YouTube proxy
+## Piped: a YouTube proxy
 `-p` for Piped instance's API (searching & comments)
 
 Learn more about: [Piped](https://github.com/TeamPiped/Piped#piped)
