@@ -51,7 +51,7 @@ Learn more about: [PeerTube](https://en.wikipedia.org/wiki/PeerTube)
 ## Invidious: a YouTube proxy
 `-i` for Invidious instance's API (searching & comments)
 
-Learn more about: [[https://invidious.io/][Invidious]]
+Learn more about: [Invidious](https://invidious.io/)
 
 ## Piped: a YouTube proxy
 `-p` for Piped instance's API (searching & comments)
