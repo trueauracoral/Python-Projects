@@ -13,8 +13,9 @@ Recommended:
 The script takes a search term as input and returns a list of URLs of which one can be selected and opened in a program in your system's $PATH. [mpv](https://github.com/mpv-player/mpv) with [yt-dlp](https://github.com/yt-dlp/yt-dlp) or [youtube-dl](https://github.com/ytdl-org/youtube-dl) are recommend because [mpv](https://github.com/mpv-player/mpv) is minimal, not a browser and works well on lower end hardware. If you don't have or want [mpv](https://github.com/mpv-player/mpv), this script can be easily modified to open links in a browser or other program.
 
 # Configurable Variables
-There are several variables at the top of the script for adjusting its behavior.
-- `command` = "Browser/video player (include space at the end)"
+This script comes with a config file. *Make sure the config file is in the same directory as the script!* The config file is called `vids.conf` in here you can find a lot of settings.
+## [CONFIG]
+- `command` = "Browser/video player"
 - `librarian_instance` = "Librarian instance"
 - `invidious_instance` = "Invidious instance"
 - `piped_instance` = "Piped instance"
@@ -22,6 +23,7 @@ There are several variables at the top of the script for adjusting its behavior.
 
 ## Thumbnails (WIP)
 This script will eventually display the thumbnail of each video link but this feature is still under development so it is set to False by default.
+### [THUMBNAILS]
 - `open_thumbs` = False
 - `image_viewer` = "mspaint "
 - `temp_dir` = "C:\\Users\\zoomer\\AppData\\Local\\Temp\\thumbnail"
@@ -63,6 +65,6 @@ Because many of this script's users are running *nix operating systems while I a
 
 # TODO List:
 - [x] Make a logo
-- [ ] Make a proper config file using configparser
+- [x] Make a proper config file using configparser
 - [ ] Add thumbnail support
 - [ ] Save a history of watched videos

@@ -14,14 +14,16 @@ invidious_instance = config.get('CONFIG','invidious_instance')
 piped_instance = config.get('CONFIG','piped_instance')
 pipedapi_instance = config.get('CONFIG','pipedapi_instance')
 command = config.get('CONFIG','command')
-bold = config.get('COLORS','bold')
-norm = config.get('COLORS','norm')
-bright_cyan = config.get('COLORS','bright_cyan')
-colora = config.get('COLORS','colora')
-colorb = config.get('COLORS','colorb')
 open_thumbs = config.get('THUMBNAILS','open_thumbs')
 image_viewer = config.get('THUMBNAILS','image_viewer')
 temp_dir = config.get('THUMBNAILS','temp_dir')
+# C O L O R S
+# For now these are NOT in the config file :(
+bold = "\033[01m"
+norm = "\033[00m"
+bright_cyan = "\033[46m"
+colora = "\033[45m"
+colorb = "\033[44m"
 
 try:
     if sys.argv[1] == "-i":
