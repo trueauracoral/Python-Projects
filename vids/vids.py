@@ -6,34 +6,22 @@ import requests
 import json
 import os
 import sys
-
-# Use some program. (I recomend mpv for videos)
-command = "mpv "
-# Your prefered librarian instance
-librarian_instance = "https://lbry.mutahar.rocks/"
-# Your prefered invidious instance.
-invidious_instance = "https://invidio.xamh.de/"
-# You need two urls from your piped instance provider: pipedapi url
-# and piped instance url.
-pipedapi_instance = "https://pipedapi.kavin.rocks/"
-piped_instance = "https://piped.kavin.rocks/"
-# If you want to see thumbnails (peertube for now). To see thumbnails
-# of peertube videos turn this to True
-open_thumbs = False
-# Your Image viewer. Make sure it can handle file names with no file
-# extensions.
-image_viewer = "mspaint "
-# Temporary Directory File. Full file name of where you want the
-# thumbnail to be constantly overwritten to. On GNU/Linux I think it's
-# located in the root directory as /tmp/
-temp_dir = "C:\\Users\\Stanl\\AppData\\Local\\Temp\\thumbnail"
-
-# C O L E R S
-bold = "\033[01m"
-norm = "\033[00m"
-bright_cyan = "\033[46m"
-colora = "\033[45m"
-colorb = "\033[44m"
+from configparser import ConfigParser
+config = ConfigParser()
+config.read('vids.conf')
+librarian_instance = config.get('CONFIG','librarian_instance')
+invidious_instance = config.get('CONFIG','invidious_instance')
+piped_instance = config.get('CONFIG','piped_instance')
+pipedapi_instance = config.get('CONFIG','pipedapi_instance')
+command = config.get('CONFIG','command')
+bold = config.get('COLERS','bold')
+norm = config.get('COLERS','norm')
+bright_cyan = config.get('COLERS','bright_cyan')
+colora = config.get('COLERS','colora')
+colorb = config.get('COLERS','colorb')
+open_thumbs = config.get('THUMBNAILS','open_thumbs')
+image_viewer = config.get('THUMBNAILS','image_viewer')
+temp_dir = config.get('THUMBNAILS','temp_dir')
 
 try:
     if sys.argv[1] == "-i":
@@ -70,7 +58,7 @@ try:
         selected_url = invidious_instance + json_stuff[c]["videoId"]
         print(selected_url)
         print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff[c]["description"])
-        os.system(command + selected_url)
+        os.system(command + " " + selected_url)
         quit()
 
     elif sys.argv[1] == "-pt":
@@ -130,12 +118,12 @@ try:
             thumbnail_data = requests.get(json_stuff["data"][c]["previewUrl"])
             with open(temp_dir, 'wb') as f:
                 f.write(thumbnail_data.content)
-            os.system(image_viewer + temp_dir)
+            os.system(image_viewer + " " + temp_dir)
 
         selected_url = json_stuff["data"][c]["url"]
         print("\n"+selected_url)
         print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff["data"][c]["description"])
-        os.system(command + selected_url)
+        os.system(command + " " + selected_url)
 
     elif sys.argv[1] == "-l":
         try:
@@ -184,7 +172,7 @@ try:
         print(bright_cyan+"DESCRIPTION:\n"+norm+json_stuff[c]["description"])
         url = librarian_instance + selected_url["channel"] + "/" + selected_url["name"]
         print("\n"+url)
-        os.system(command + url)
+        os.system(command + " " + url)
         quit()
     elif sys.argv[1] == "-p":
         try:
@@ -219,7 +207,7 @@ try:
         selected_url = piped_instance + videoId
         print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff["items"][c]["shortDescription"])
         print("\n"+selected_url)
-        os.system(command + selected_url)
+        os.system(command + " " + selected_url)
         quit()
     elif sys.argv[1] == "-h":
         print('''
