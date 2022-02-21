@@ -1,5 +1,4 @@
-[[vids.png]]
-* Dependencies
+* [[vids.png]] Dependencies
 In order to run this script you need:
 - [[https://en.wikipedia.org/wiki/Python_(programming_language)][Python]]
 - [[https://en.wikipedia.org/wiki/Requests_(software)][Python Requests]]
