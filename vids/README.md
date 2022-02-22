@@ -22,7 +22,7 @@ piped_instance = https://piped.kavin.rocks/
 pipedapi_instance = https://pipedapi.kavin.rocks/
 command = mpv
 [THUMBNAILS]
-; This script can display the thumbnail of videos you selected. If you would like to try out this feature set it to True and configure the imagviewer and temp_dir values.
+; This script can display the thumbnail of videos you selected. If you would like to try out this feature set it open_thumbs to True and configure the imageviewer to a image viewing program on your system and temp_dir values to some file stored in your computers temp directory.
 open_thumbs = False
 image_viewer = mspaint
 temp_dir = C:\\Users\\zoomer\\AppData\\Local\\Temp\\thumbnail
