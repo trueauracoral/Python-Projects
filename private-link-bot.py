@@ -1,9 +1,5 @@
 """
-A test bot using the Python Matrix Bot API
-Test it out by adding it to a group chat and doing one of the following:
-1. Say "Hi"
-2. Say !echo this is a test!
-3. Say !d6 to get a random size-sided die roll result
+Hi I am a matrix bot for printing out invidious links.
 """
 
 from matrix_bot_api.matrix_bot_api import MatrixBotAPI
@@ -18,21 +14,18 @@ SERVER = ""  # Matrix server URL
 
 def youtube_callback(room, event):
     message = event["content"]["body"].split("/")
-    # Somebody said hi, let's say Hi back
     room.send_text("Hi, " + event['sender'] + " Please use invidious or piped or viewtube. YouTube Sucks.\n\nHere is a invidious link of the YouTube link you just sent:\nhttps://invidio.xamh.de/"+message[3])
 
 def echo_callback(room, event):
     args = event['content']['body'].split()
     args.pop(0)
 
-    # Echo what they said back
     room.send_text(' '.join(args))
 
 def main():
     # Create an instance of the MatrixBotAPI
     bot = MatrixBotAPI(USERNAME, PASSWORD, SERVER)
 
-    # Add a regex handler waiting for the word Hi
     #youtube_com_handler = MRegexHandler("^((?:https?:)?//)?((?:www|m).)?((?:youtube(-nocookie)?.com|youtu.be))(/(?:[\w-]+?v=|embed/|v/)?)([\w-]+)(\S+)?$", youtube_callback)
     youtube_com_handler = MRegexHandler("https://youtube.com/", youtube_callback)
     bot.add_handler(youtube_com_handler)
