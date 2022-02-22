@@ -14,7 +14,7 @@ invidious_instance = config.get('CONFIG','invidious_instance')
 piped_instance = config.get('CONFIG','piped_instance')
 pipedapi_instance = config.get('CONFIG','pipedapi_instance')
 command = config.get('CONFIG','command')
-open_thumbs = config.get('THUMBNAILS','open_thumbs')
+open_thumbs = bool(config.get('THUMBNAILS','open_thumbs'))
 image_viewer = config.get('THUMBNAILS','image_viewer')
 temp_dir = config.get('THUMBNAILS','temp_dir')
 # C O L O R S
@@ -60,9 +60,13 @@ try:
         selected_url = invidious_instance + json_stuff[c]["videoId"]
         print(selected_url)
         print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff[c]["description"])
+        if open_thumbs == True:
+            thumbnail_data = requests.get(json_stuff[c]["videoThumbnails"][0]["url"])
+            with open(temp_dir, 'wb') as f:
+                f.write(thumbnail_data.content)
+            os.system(image_viewer + " " + temp_dir)
         os.system(command + " " + selected_url)
         quit()
-
     elif sys.argv[1] == "-pt":
         try:
             query = sys.argv[2]
@@ -123,8 +127,8 @@ try:
             os.system(image_viewer + " " + temp_dir)
 
         selected_url = json_stuff["data"][c]["url"]
-        print("\n"+selected_url)
         print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff["data"][c]["description"])
+        print("\n"+selected_url)
         os.system(command + " " + selected_url)
 
     elif sys.argv[1] == "-l":
@@ -134,7 +138,7 @@ try:
             query = input("Searching for: ")
             query = str(query)
         size = str(30)
-        search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title,description&size=' + size
+        search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title,description,thumbnail_url&size=' + size
 
         data = requests.get(search)
         json_stuff = json.loads(data.text)
@@ -171,9 +175,14 @@ try:
                 print(i, bright_cyan+"DELETED USER"+norm+"\n"+x["Comment"])
             else:
                 print(i, bright_cyan+x["Channel"]["Name"]+norm+"\n"+x["Comment"])
-        print(bright_cyan+"DESCRIPTION:\n"+norm+json_stuff[c]["description"])
+        print(bright_cyan+"DESCRIPTION:"+norm+"\n"+json_stuff[c]["description"])
         url = librarian_instance + selected_url["channel"] + "/" + selected_url["name"]
         print("\n"+url)
+        if open_thumbs == True:
+            thumbnail_data = requests.get(json_stuff[c]["thumbnail_url"])
+            with open(temp_dir, 'wb') as f:
+                f.write(thumbnail_data.content)
+            os.system(image_viewer + " " + temp_dir)
         os.system(command + " " + url)
         quit()
     elif sys.argv[1] == "-p":
@@ -209,6 +218,12 @@ try:
         selected_url = piped_instance + videoId
         print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff["items"][c]["shortDescription"])
         print("\n"+selected_url)
+        if open_thumbs == True:
+            thumbnail_data = requests.get(json_stuff["items"][c]["thumbnail"])
+            #thumbnail_data = thumbnail_data.replace("hqdefault","maxres")
+            with open(temp_dir, 'wb') as f:
+                f.write(thumbnail_data.content)
+            os.system(image_viewer + " " + temp_dir)
         os.system(command + " " + selected_url)
         quit()
     elif sys.argv[1] == "-h":

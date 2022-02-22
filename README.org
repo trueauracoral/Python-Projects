@@ -9,13 +9,24 @@ These are small, probably not that big scripts I will use to try and learn pytho
 * Expectation
 Don't expect anything much me learning python will definitely not be a big thing. Maybe I will create something special that's more general for others and not just something stupid for me that I feel I need.
 
-* Projects so far
-- Thumbnail creator (Not working that well)
-- rssgenerator (Working)
-- noodysee (Working)
-- md-to-pdf-lbry (Working)
-- mastodonrss (Working)
-- lbctousd (Working)
-- file-replace (Working)
-- blog rss generator (Not my own)
-- rssgentk (VERY NICE PROJECT)
+* Good scripts
+These are listed in no particular order. Some scripts are worse than others I just put descriptions to help you understand what each script does. *For history's sake!*
+** Blog.py
+A script very much for me and my setup to generate rss time to time for my blog.
+** Thumbnail creator
+Sometimes, I am very lazy at creating thumbnails so I decided at one point to make a basic script that just puts text on a background I created and it's kind of useful. Now a days I just cook up something in gimp as quick as possible.
+** noodysee
+Convert a odysee link to librarian and open in browser.
+** md-to-pdf-lbry
+An idea for a plugin for the fastlbry project which would convert MD to PDF with pandoc.
+** mastodonrss
+Get the rss link for mastodon
+** lbctousd
+See how much LBC is worth in USD
+** file-replace
+Basic program to replace a word in the file. Doesn't write the replace to the file unfortunately.
+
+** rssgenerator
+Script to print out rss links of various websites that support rss.
+** rssgentk
+A successor to rssgenerator which is a TK GUI application for getting rss links for various websites.
