@@ -1,5 +1,9 @@
 """
-Hi I am a matrix bot for printing out invidious links.
+A detector of twitter, reddit and youtube links that will then print out safer sites that the user can use.
+
+PROBLEMS:
+- Annoying
+- Not hosted reliably
 """
 
 from matrix_bot_api.matrix_bot_api import MatrixBotAPI
@@ -14,13 +18,15 @@ SERVER = ""  # Matrix server URL
 
 def youtube_callback(room, event):
     message = event["content"]["body"].split("/")
-    room.send_text("Hi, " + event['sender'] + " Please use invidious or piped or viewtube. YouTube Sucks.\n\nHere is a invidious link of the YouTube link you just sent:\nhttps://invidio.xamh.de/"+message[3])
+    room.send_text("Hi, " + event['sender'] + " here is a invidious link of the YouTube link you just sent:\nhttps://invidio.xamh.de/"+message[3])
 
-def echo_callback(room, event):
-    args = event['content']['body'].split()
-    args.pop(0)
+def twitter_callback(room, event):
+    message = event["content"]["body"]
+    room.send_text("Hi, " + event['sender'] + " here is a nitter link of the Twitter link you just sent:\n"+message.replace("twitter.com","nitter.net"))
 
-    room.send_text(' '.join(args))
+def reddit_callback(room, event):
+    message = event["content"]["body"]
+    room.send_text("Hi, " + event['sender'] + " here is a teddit link of the Reddit link you just sent:\n"+message.replace("reddit.com","teddit.net"))
 
 def main():
     # Create an instance of the MatrixBotAPI
@@ -33,10 +39,10 @@ def main():
     bot.add_handler(youtube_handler)
     youtube_www_handler = MRegexHandler("https://www.youtube.com/", youtube_callback)
     bot.add_handler(youtube_www_handler)
-
-    # Add a regex handler waiting for the echo command
-    echo_handler = MCommandHandler("echo", echo_callback)
-    bot.add_handler(echo_handler)
+    twitter_handler = MRegexHandler("https://twitter.com/", twitter_callback)
+    bot.add_handler(twitter_handler)
+    reddit_handler = MRegexHandler("https://reddit.com/", reddit_callback)
+    bot.add_handler(reddit_handler)
 
     bot.start_polling()
     # Infinitely read stdin to stall main thread while the bot runs in other threads
