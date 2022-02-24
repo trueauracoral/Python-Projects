@@ -12,6 +12,13 @@ Recommended:
 
 The script takes a search term as input and returns a list of URLs of which one can be selected and opened in a program in your system's $PATH. [mpv](https://github.com/mpv-player/mpv) with [yt-dlp](https://github.com/yt-dlp/yt-dlp) or [youtube-dl](https://github.com/ytdl-org/youtube-dl) are recommend because [mpv](https://github.com/mpv-player/mpv) is minimal, not a browser and works well on lower end hardware. If you don't have or want [mpv](https://github.com/mpv-player/mpv), this script can be easily modified to open links in a browser or other program.
 
+# Install
+In order to install this script you need to install both the config file and python script. You can easily do this with these two curl commands.
+```bash
+curl -o vids.py https://codeberg.org/zortazert/Python-Projects/raw/branch/main/vids/vids.py
+curl -o vids.conf https://codeberg.org/zortazert/Python-Projects/raw/branch/main/vids/vids.conf
+```
+
 # Configurable Variables
 This script comes with a config file. *Make sure the config file is in the same directory as the script!* The config file is called [vids.conf](vids.conf) in here you can find a lot of settings.
 ``` ini
