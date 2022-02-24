@@ -9,12 +9,73 @@ PROBLEMS:
 from matrix_bot_api.matrix_bot_api import MatrixBotAPI
 from matrix_bot_api.mregex_handler import MRegexHandler
 from matrix_bot_api.mcommand_handler import MCommandHandler
+import requests
+import json
 
 # Global variables
 USERNAME = ""  # Bot's username
 PASSWORD = ""  # Bot's password
 SERVER = ""  # Matrix server URL
 
+def help_callback(room, event):
+    room.send_text("""
+fossbot is a matrixbot that can do multiple things:
+
+- Detect sent youtube, reddit or twitter links and send back a message link with a proxy site such as: invidious, teddit and nitter.
+
+Commands:
+- fossbot-help
+Print out this help message.
+- fossbot-youtube <qeury>
+Print out youtube search results as invidious links with title and channel information. Uses the invidious API
+- fossbot-lbry <query>
+Print out LBRY search results as librarian links with title and channel information. Uses the lighthouse API
+- fossbot-crypto <query>
+Print out in USD values of crypto currencies. Uses the rate.sx API.
+- fossbot-neow <query>
+Print out the amount of neow coins a user on neow has.
+""")
+
+def neow_callback(room, event):
+    message = event["content"]["body"].replace("fossbot-neow ","")
+    query = message
+    neow_search = "https://neow.matthewevan.xyz/user/" + query + "/neowcoins.txt"
+    data = requests.get(neow_search).text.rstrip()
+    room.send_text(query + " has " + data + " coins")
+
+def crypto_callback(room, event):
+    message = event["content"]["body"].replace("fossbot-crypto ","")
+    query = message
+    ratesx_search = "https://rate.sx/" + query
+    data = requests.get(ratesx_search).text.rstrip()
+    room.send_text("In USD that's " + data)
+
+def invidious_callback(room, event):
+    message = event["content"]["body"].replace("fossbot-youtube ","")
+    query = message
+    invidious_search = "https://invidio.xamh.de/api/v1/search?q=" + query
+    data = requests.get(invidious_search)
+    json_stuff = json.loads(data.text)
+    room.send_text("Searching youtube for: " + query)
+    for vid in json_stuff:
+        room.send_text(vid["title"]+"\n"+vid["author"]+"\n"+"https://invidio.xamh.de/watch?v="+vid["videoId"])
+
+def lbry_callback(room, event):
+    size = str(5)
+    message = event["content"]["body"].replace("fossbot-lbry ","")
+    query = message
+    search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,title,&size=' + size
+
+    data = requests.get(search)
+    json_stuff = json.loads(data.text)
+
+    room.send_text("Searching for: " + query)
+    for x in json_stuff:
+        pre = "https://lbry.ix.tc/"
+        if x["channel"]:
+            pre += x["channel"] + "/"
+        url = pre + x["name"]
+        room.send_text(x["title"]+"\n"+url)
 
 def youtube_callback(room, event):
     message = event["content"]["body"].split("/")
@@ -43,12 +104,21 @@ def main():
     bot.add_handler(twitter_handler)
     reddit_handler = MRegexHandler("https://reddit.com/", reddit_callback)
     bot.add_handler(reddit_handler)
+    invidious_handler = MRegexHandler("^fossbot-youtube", invidious_callback)
+    bot.add_handler(invidious_handler)
+    lbry_handler = MRegexHandler("^fossbot-lbry", lbry_callback)
+    bot.add_handler(lbry_handler)
+    crypto_handler = MRegexHandler("^fossbot-crypto", crypto_callback)
+    bot.add_handler(crypto_handler)
+    neow_handler = MRegexHandler("^fossbot-neow", neow_callback)
+    bot.add_handler(neow_handler)
+    help_handler = MRegexHandler("^fossbot-help", help_callback)
+    bot.add_handler(help_handler)
 
     bot.start_polling()
     # Infinitely read stdin to stall main thread while the bot runs in other threads
     while True:
         input()
-
 
 if __name__ == "__main__":
     main()
