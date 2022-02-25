@@ -23,3 +23,13 @@ string = string.split(".")
 print(string[0])
 print(string[1])
 #+END_SRC
+* F strings
+#+BEGIN_SRC python
+# Regular old inserting variables in a string:
+search = "Emacs"
+wikipedia_api = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + search + "&format=json"
+
+# A F STRING!
+search = "Emacs"
+wikipedia_api = f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json"
+#+END_SRC

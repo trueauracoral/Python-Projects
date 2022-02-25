@@ -11,6 +11,7 @@ from matrix_bot_api.mregex_handler import MRegexHandler
 from matrix_bot_api.mcommand_handler import MCommandHandler
 import requests
 import json
+import re
 
 # Global variables
 USERNAME = ""  # Bot's username
@@ -36,7 +37,24 @@ Print out LBRY search results as librarian links with title and channel informat
 Print out in USD values of crypto currencies. Uses the rate.sx API.
 - fossbot-neow <query>
 Print out the amount of neow coins a user on neow has.
+- fossbot-wikipedia <query>
+Print out wikipedia search result snippets of different articles.
 """)
+    print(event['sender']+"\nPosted:\n"+event["content"]["body"])
+
+def wikipedia_callback(room, event):
+    message = event["content"]["body"].replace("fossbot-wikipedia ","")
+    query = message
+    wikipedia_api = f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={query}&format=json"
+    data = requests.get(wikipedia_api)
+    json_stuff = json.loads(data.text)
+    room.send_text(f"Searching for {query}")
+
+    for index, post in enumerate(json_stuff["query"]["search"]):
+        clean = re.compile('<.*?>')
+        room.send_text(re.sub(clean, '', post["title"]+"\n"+post["snippet"]))
+        if index == 2:
+            break
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def neow_callback(room, event):
@@ -140,6 +158,8 @@ def main():
     bot.add_handler(help_handler)
     peertube_handler = MRegexHandler("^fossbot-peertube", peertube_callback)
     bot.add_handler(peertube_handler)
+    wikipedia_handler = MRegexHandler("^fossbot-wikipedia", wikipedia_callback)
+    bot.add_handler(wikipedia_handler)
 
     bot.start_polling()
     # Infinitely read stdin to stall main thread while the bot runs in other threads
