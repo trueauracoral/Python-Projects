@@ -1,3 +1,4 @@
+#+OPTIONS: toc:nil
 * Modify strings
 ** Delete characters from the begining or end of string
 #+BEGIN_SRC python
