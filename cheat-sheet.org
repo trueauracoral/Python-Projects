@@ -1,0 +1,24 @@
+* Modify strings
+** Delete characters from the begining or end of string
+#+BEGIN_SRC python
+string = "https://zortazert.codeberg.page"
+# Delete one character from the end
+string = string[:-1]
+print(string)
+# Delete one character from the begining
+string = string[:1]
+print(string)
+#+END_SRC
+** Replace text in string
+#+BEGIN_SRC python
+string = "https://zortazert.codeberg.page"
+string = string.replace("zortazert", "trueauracoral")
+print(string)
+#+END_SRC
+** Split text to multiple segments
+#+BEGIN_SRC python
+string = "https://zortazert.codeberg.page"
+string = string.split(".")
+print(string[0])
+print(string[1])
+#+END_SRC
