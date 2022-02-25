@@ -71,8 +71,7 @@ I am not a great programmer, yet. Please write bug reports, suggestions for the 
 Because many of this script's users are running *nix operating systems while I am developing it for Microsoft Windows, I'll do my best to make sure everything functions on both systems. Please file reports or make contributions.
 
 # FAQ
-## What are those weird files called peertube.py, teddit.py and librex.py?
-Those are different files that were used to develop some parts of the vids.py main script and solve a lot of bugs. They aren't as feature complete and up to date as the main vids.py script but could be usefule for you as a standalone script. There are also some API's that I wanted to parse for the fun of it. They aren't video platforms, so they can't go to the main vids.py script.
+beep boop, questions and answers haven't been generated :(
 
 # TODO List:
 - [x] Make a logo
