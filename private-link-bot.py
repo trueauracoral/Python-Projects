@@ -27,38 +27,55 @@ fossbot is a matrixbot that can do multiple things:
 Commands:
 - fossbot-help
 Print out this help message.
-- fossbot-youtube <qeury>
+- !fby <qeury>
 Print out youtube search results as invidious links with title and channel information. Uses the invidious API
-- fossbot-peertube <qeury>
+- !fbp <qeury>
 Print out peertube search results as peertube instance links with title and channel information. Uses the sepiasearch API
-- fossbot-lbry <query>
+- !fbl <query>
 Print out LBRY search results as librarian links with title and channel information. Uses the lighthouse API
-- fossbot-crypto <query>
+- !fbc <query>
 Print out in USD values of crypto currencies. Uses the rate.sx API.
-- fossbot-neow <query>
+- !fbn <query>
 Print out the amount of neow coins a user on neow has.
-- fossbot-wikipedia <query>
-Print out wikipedia search result snippets of different articles.
+- !fbw <query>
+Print out wikipedia search result snippets of different articles including links to those articles.
+- !fbu <query>
+Print out uncyclopedia search result snippets of different articles including links to those articles.
 """)
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def wikipedia_callback(room, event):
-    message = event["content"]["body"].replace("fossbot-wikipedia ","")
+    message = event["content"]["body"].replace("!fbw ","")
     query = message
     wikipedia_api = f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={query}&format=json"
     data = requests.get(wikipedia_api)
     json_stuff = json.loads(data.text)
-    room.send_text(f"Searching for {query}")
+    room.send_text(f"Searching wikipedia for {query}")
 
     for index, post in enumerate(json_stuff["query"]["search"]):
         clean = re.compile('<.*?>')
-        room.send_text(re.sub(clean, '', post["title"]+"\n"+post["snippet"]))
+        room.send_text(re.sub(clean, '', post["title"]+"\n"+post["snippet"]+"\n"+"https://en.wikipedia.org/w/index.php?curid="+str(post["pageid"])))
+        if index == 2:
+            break
+    print(event['sender']+"\nPosted:\n"+event["content"]["body"])
+
+def uncyclopedia_callback(room, event):
+    message = event["content"]["body"].replace("!fbu ","")
+    query = message
+    wikipedia_api = f"https://en.uncyclopedia.co/w/api.php?action=query&list=search&srsearch={query}&format=json"
+    data = requests.get(wikipedia_api)
+    json_stuff = json.loads(data.text)
+    room.send_text(f"Searching Uncyclopedia for {query}")
+
+    for index, post in enumerate(json_stuff["query"]["search"]):
+        clean = re.compile('<.*?>')
+        room.send_text(re.sub(clean, '', post["title"]+"\n"+post["snippet"]+"\n"+"https://en.uncyclopedia.co/w/index.php?curid="+str(post["pageid"])))
         if index == 2:
             break
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def neow_callback(room, event):
-    message = event["content"]["body"].replace("fossbot-neow ","")
+    message = event["content"]["body"].replace("!fbn ","")
     query = message
     neow_search = "https://neow.matthewevan.xyz/user/" + query + "/neowcoins.txt"
     data = requests.get(neow_search).text.rstrip()
@@ -66,7 +83,7 @@ def neow_callback(room, event):
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def crypto_callback(room, event):
-    message = event["content"]["body"].replace("fossbot-crypto ","")
+    message = event["content"]["body"].replace("!fbc ","")
     query = message
     ratesx_search = "https://rate.sx/" + query
     data = requests.get(ratesx_search).text.rstrip()
@@ -74,12 +91,12 @@ def crypto_callback(room, event):
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def peertube_callback(room, event):
-    message = event["content"]["body"].replace("fossbot-peertube ","")
+    message = event["content"]["body"].replace("!fbp ","")
     query = message
     peertube_search = "https://sepiasearch.org/api/v1/search/videos?search=" + query
     data = requests.get(peertube_search)
     json_stuff = json.loads(data.text)
-    room.send_text("Searching PeerTube for: " + query)
+    room.send_text("Searching PeerTube for " + query)
     for index, vid in enumerate(json_stuff["data"]):
         room.send_text(vid["name"]+"\n"+vid["channel"]["displayName"]+"\n"+vid["url"])
         if index == 4:
@@ -87,12 +104,12 @@ def peertube_callback(room, event):
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def invidious_callback(room, event):
-    message = event["content"]["body"].replace("fossbot-youtube ","")
+    message = event["content"]["body"].replace("!fby ","")
     query = message
     invidious_search = "https://invidio.xamh.de/api/v1/search?q=" + query
     data = requests.get(invidious_search)
     json_stuff = json.loads(data.text)
-    room.send_text("Searching youtube for: " + query)
+    room.send_text("Searching YouTube for " + query)
     for index, vid in enumerate(json_stuff):
         room.send_text(vid["title"]+"\n"+vid["author"]+"\n"+"https://invidio.xamh.de/watch?v="+vid["videoId"])
         if index == 4:
@@ -100,14 +117,14 @@ def invidious_callback(room, event):
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 def lbry_callback(room, event):
     size = str(5)
-    message = event["content"]["body"].replace("fossbot-lbry ","")
+    message = event["content"]["body"].replace("!fbl ","")
     query = message
     search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,title,&size=' + size
 
     data = requests.get(search)
     json_stuff = json.loads(data.text)
 
-    room.send_text("Searching for: " + query)
+    room.send_text("Searching the LBRY network for: " + query)
     for x in json_stuff:
         pre = "https://lbry.ix.tc/"
         if x["channel"]:
@@ -146,20 +163,22 @@ def main():
     bot.add_handler(twitter_handler)
     reddit_handler = MRegexHandler("https://reddit.com/", reddit_callback)
     bot.add_handler(reddit_handler)
-    invidious_handler = MRegexHandler("^fossbot-youtube", invidious_callback)
+    invidious_handler = MRegexHandler("^!fby", invidious_callback)
     bot.add_handler(invidious_handler)
-    lbry_handler = MRegexHandler("^fossbot-lbry", lbry_callback)
+    lbry_handler = MRegexHandler("^!fbl", lbry_callback)
     bot.add_handler(lbry_handler)
-    crypto_handler = MRegexHandler("^fossbot-crypto", crypto_callback)
+    crypto_handler = MRegexHandler("^!fbc", crypto_callback)
     bot.add_handler(crypto_handler)
-    neow_handler = MRegexHandler("^fossbot-neow", neow_callback)
+    neow_handler = MRegexHandler("^!fbn", neow_callback)
     bot.add_handler(neow_handler)
     help_handler = MRegexHandler("^fossbot-help", help_callback)
     bot.add_handler(help_handler)
-    peertube_handler = MRegexHandler("^fossbot-peertube", peertube_callback)
+    peertube_handler = MRegexHandler("^!fbp", peertube_callback)
     bot.add_handler(peertube_handler)
-    wikipedia_handler = MRegexHandler("^fossbot-wikipedia", wikipedia_callback)
+    wikipedia_handler = MRegexHandler("^!fbw", wikipedia_callback)
     bot.add_handler(wikipedia_handler)
+    uncyclopedia_handler = MRegexHandler("^!fbu", uncyclopedia_callback)
+    bot.add_handler(uncyclopedia_handler)
 
     bot.start_polling()
     # Infinitely read stdin to stall main thread while the bot runs in other threads
