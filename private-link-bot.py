@@ -19,8 +19,7 @@ PASSWORD = ""  # Bot's password
 SERVER = ""  # Matrix server URL
 
 def help_callback(room, event):
-    room.send_text("""
-fossbot is a matrixbot that can do multiple things:
+    room.send_text("""fossbot is a matrixbot that can do multiple things:
 
 - Detect sent youtube, reddit or twitter links and send back a message link with a proxy site such as: invidious, teddit and nitter.
 
@@ -40,8 +39,7 @@ Print out the amount of neow coins a user on neow has.
 - !fbw <query>
 Print out wikipedia search result snippets of different articles including links to those articles.
 - !fbu <query>
-Print out uncyclopedia search result snippets of different articles including links to those articles.
-""")
+Print out uncyclopedia search result snippets of different articles including links to those articles.""")
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def wikipedia_callback(room, event):
@@ -99,7 +97,7 @@ def peertube_callback(room, event):
     room.send_text("Searching PeerTube for " + query)
     for index, vid in enumerate(json_stuff["data"]):
         room.send_text(vid["name"]+"\n"+vid["channel"]["displayName"]+"\n"+vid["url"])
-        if index == 4:
+        if index == 2:
             break
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
@@ -112,11 +110,11 @@ def invidious_callback(room, event):
     room.send_text("Searching YouTube for " + query)
     for index, vid in enumerate(json_stuff):
         room.send_text(vid["title"]+"\n"+vid["author"]+"\n"+"https://invidio.xamh.de/watch?v="+vid["videoId"])
-        if index == 4:
+        if index == 2:
             break
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 def lbry_callback(room, event):
-    size = str(5)
+    size = str(3)
     message = event["content"]["body"].replace("!fbl ","")
     query = message
     search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,title,&size=' + size
