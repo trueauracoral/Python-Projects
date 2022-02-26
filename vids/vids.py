@@ -56,10 +56,11 @@ try:
         else:
             for i, comment in enumerate(json_comment["comments"]):
                 print(i, colora+comment["author"]+norm+"\n"+colorb+comment["content"]+norm)
+                if i == 5:
+                    break
 
         selected_url = invidious_instance + json_stuff[c]["videoId"]
-        print(selected_url)
-        print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff[c]["description"])
+        print("\n"+colora+"URL:"+norm+"\n"+selected_url)
         if open_thumbs == True:
             thumbnail_data = requests.get(json_stuff[c]["videoThumbnails"][0]["url"])
             with open(temp_dir, 'wb') as f:
@@ -214,10 +215,12 @@ try:
         json_comment = json.loads(data_comment.text)
         for i, comment in enumerate(json_comment["comments"]):
             print(i, colora+bold+"@"+comment["author"]+norm, comment["commentedTime"]+norm+"\n"+colorb+comment["commentText"]+norm)
+            if i == 5:
+                break
 
         selected_url = piped_instance + videoId
         print("\n"+colora+"DESCRIPTION:\n"+norm+json_stuff["items"][c]["shortDescription"])
-        print("\n"+selected_url)
+        print("\n"+colora+"URL:"+norm+"\n"+selected_url)
         if open_thumbs == True:
             thumbnail_data = requests.get(json_stuff["items"][c]["thumbnail"])
             #thumbnail_data = thumbnail_data.replace("hqdefault","maxres")
