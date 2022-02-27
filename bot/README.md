@@ -34,19 +34,23 @@ Print out uncyclopedia search result snippets of different articles including li
 ## Host FOSSBOT
 
 Here is what you will need to do host fossbot yourself:
-1. Create a matrix account and save the login credentials.
-1. Making sure you have python and pip installed run `pip install matrix_bot_api`
-1. Download the script by running this in your terminal `curl -o fossbot.py https://codeberg.org/zortazert/Python-Projects/raw/branch/main/bot/fossbot.py`
-1. Edit the script to change these values:
-   ```python
+- Create a matrix account and save the login credentials.
+- Making sure you have python and pip installed run `pip install matrix_bot_api`
+- Download the script by running this in your terminal `curl -o fossbot.py https://codeberg.org/zortazert/Python-Projects/raw/branch/main/bot/fossbot.py`
+- Edit the script to change these values:
+	```python
 	# Global variables
 	USERNAME = ""  # Bot's username
 	PASSWORD = ""  # Bot's password
 	SERVER = ""  # Matrix server URL
 	```
-1. Run the script, preferably on a server that runs constantly or just run the script on a computer you have access to on your own schedule.
+- Run the script, preferably on a server that runs constantly or just run the script on a computer you have access to on your own schedule.
 
 Another option is to contact me links listed below for me to make the account **I** run fossbot on inside your server. It isn't guaranteed I will put him in your server. Also I run fossbot only during the CST daytime, not 24/7.
+
+# Help is Appreciated!
+
+I am not a great programmer, yet. Please write bug reports, suggestions for the inclusion of new ideas/commands, and code improvements!
 
 ## Contact me
 
