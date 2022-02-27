@@ -11,18 +11,18 @@ Fossbot is capable of doing many things but one of it's key features is to detec
 
 ### Commands:
 - fossbot-help
-  Print out this help message.
-- !fby qeury
-  Print out youtube search results as invidious links with title and channel information. Uses the invidious API
-- !fbp qeury
-  Print out peertube search results as peertube instance links with title and channel information. Uses the sepiasearch API
-- !fbl query
-  Print out LBRY search results as librarian links with title and channel information. Uses the lighthouse API
-- !fbc query
-  Print out in USD values of crypto currencies. Uses the rate.sx API.
-- !fbn query
-  Print out the amount of neow coins a user on neow has.
-- !fbw query
-  Print out wikipedia search result snippets of different articles including links to those articles.
-- !fbu query
-  Print out uncyclopedia search result snippets of different articles including links to those articles.
+Print out this help message.
+- !fby qeury <br>
+Print out youtube search results as invidious links with title and channel information. Uses the invidious API
+- !fbp qeury <br>
+Print out peertube search results as peertube instance links with title and channel information. Uses the sepiasearch API
+- !fbl query <br>
+Print out LBRY search results as librarian links with title and channel information. Uses the lighthouse API
+- !fbc query <br>
+Print out in USD values of crypto currencies. Uses the rate.sx API.
+- !fbn query <br>
+Print out the amount of neow coins a user on neow has.
+- !fbw query <br>
+Print out wikipedia search result snippets of different articles including links to those articles.
+- !fbu query <br>
+Print out uncyclopedia search result snippets of different articles including links to those articles.
