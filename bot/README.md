@@ -32,12 +32,13 @@ Print out wikipedia search result snippets of different articles including links
 Print out uncyclopedia search result snippets of different articles including links to those articles.
 
 ## Host FOSSBOT
+
 Here is what you will need to do host fossbot yourself:
 1. Create a matrix account and save the login credentials.
 1. Making sure you have python and pip installed run `pip install matrix_bot_api`
 1. Download the script by running this in your terminal `curl -o fossbot.py https://codeberg.org/zortazert/Python-Projects/raw/branch/main/bot/fossbot.py`
 1. Edit the script to change these values:
-    ```python
+   ```python
 	# Global variables
 	USERNAME = ""  # Bot's username
 	PASSWORD = ""  # Bot's password
@@ -48,5 +49,6 @@ Here is what you will need to do host fossbot yourself:
 Another option is to contact me links listed below for me to make the account **I** run fossbot on inside your server. It isn't guaranteed I will put him in your server. Also I run fossbot only during the CST daytime, not 24/7.
 
 ## Contact me
-- zortazert@matthewevan.xyz
-- @zortazert:tchncs.de
+
+- Email: zortazert@matthewevan.xyz
+- Matrix: @zortazert:tchncs.de
