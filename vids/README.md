@@ -71,7 +71,7 @@ I am not a great programmer, yet. Please write bug reports, suggestions for the 
 
 Because many of this script's users are running *nix operating systems while I am developing it for Microsoft Windows, I'll do my best to make sure everything functions on both systems. Please file reports or make contributions.
 
-## Contact me
+# Contact me
 
 - Email: zortazert@matthewevan.xyz
 - Matrix: @zortazert:tchncs.de
