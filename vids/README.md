@@ -75,10 +75,3 @@ Because many of this script's users are running *nix operating systems while I a
 
 - Email: zortazert@matthewevan.xyz
 - Matrix: @zortazert:tchncs.de
-
-# TODO List:
-
-- [x] Make a logo
-- [x] Make a proper config file using configparser
-- [x] Add thumbnails.
-- [ ] Save a history of watched videos
