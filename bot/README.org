@@ -1,3 +1,5 @@
 #+OPTIONS: toc:nil
 * FOSSBOT
-[[https://tube.tchncs.de/w/tGPUDpuP3k5QZzJHyaDWn4][https://tube.tchncs.de/lazy-static/previews/99b24a26-17f6-4abb-b914-0684514c9b8f.jpg]]
+#+BEGIN_EXPORT HTML
+<iframe title="FOSSBOT! A FOSS matrix bot." src="https://tube.tchncs.de/videos/embed/e05a04ce-2c30-4f21-93e4-adf2c2ad4ff5" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups" frameborder="0" width="560" height="315"></iframe>
+#+END_EXPORT
