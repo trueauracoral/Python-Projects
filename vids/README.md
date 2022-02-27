@@ -70,8 +70,9 @@ I am not a great programmer, yet. Please write bug reports, suggestions for the 
 
 Because many of this script's users are running *nix operating systems while I am developing it for Microsoft Windows, I'll do my best to make sure everything functions on both systems. Please file reports or make contributions.
 
-# FAQ
-beep boop, questions and answers haven't been generated :(
+# Contact me
+- zortazert@matthewevan.xyz
+- @zortazert:tchncs.de
 
 # TODO List:
 - [x] Make a logo
