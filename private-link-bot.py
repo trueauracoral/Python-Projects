@@ -132,8 +132,12 @@ def lbry_callback(room, event):
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def youtube_callback(room, event):
-    message = event["content"]["body"].split("/")
-    room.send_text("Hi, " + event['sender'] + " here is a invidious link of the YouTube link you just sent:\nhttps://invidio.xamh.de/"+message[3])
+    message = event["content"]["body"]
+    if "youtu.be" in message:
+        room.send_text("Hi, " + event['sender'] + " here is a invidious link of the YouTube link you just sent:\n"+message.replace("youtu.be","yewtu.be"))
+    else:
+        room.send_text("Hi, " + event['sender'] + " here is a invidious link of the YouTube link you just sent:\n"+message.replace("youtube.com","yewtu.be"))
+        
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def twitter_callback(room, event):
@@ -150,36 +154,45 @@ def main():
     # Create an instance of the MatrixBotAPI
     bot = MatrixBotAPI(USERNAME, PASSWORD, SERVER)
 
-    #youtube_com_handler = MRegexHandler("^((?:https?:)?//)?((?:www|m).)?((?:youtube(-nocookie)?.com|youtu.be))(/(?:[\w-]+?v=|embed/|v/)?)([\w-]+)(\S+)?$", youtube_callback)
-    youtube_com_handler = MRegexHandler("https://youtube.com/", youtube_callback)
+    youtube_com_handler = MRegexHandler("^((?:https?:)?//)?((?:www|m).)?((?:youtube(-nocookie)?.com|youtu.be))(/(?:[\w-]+?v=|embed/|v/)?)([\w-]+)(\S+)?$", youtube_callback)
     bot.add_handler(youtube_com_handler)
-    youtube_handler = MRegexHandler("https://youtu.be/", youtube_callback)
-    bot.add_handler(youtube_handler)
-    youtube_www_handler = MRegexHandler("https://www.youtube.com/", youtube_callback)
-    bot.add_handler(youtube_www_handler)
+    #youtube_com_handler = MRegexHandler("https://youtube.com/", youtube_callback)
+    #bot.add_handler(youtube_com_handler)
+    #youtube_handler = MRegexHandler("https://youtu.be/", youtube_callback)
+    #bot.add_handler(youtube_handler)
+    #youtube_www_handler = MRegexHandler("https://www.youtube.com/", youtube_callback)
+    #bot.add_handler(youtube_www_handler)
     twitter_handler = MRegexHandler("https://twitter.com/", twitter_callback)
     bot.add_handler(twitter_handler)
     reddit_handler = MRegexHandler("https://reddit.com/", reddit_callback)
     bot.add_handler(reddit_handler)
-    invidious_handler = MRegexHandler("^!fby", invidious_callback)
-    bot.add_handler(invidious_handler)
-    lbry_handler = MRegexHandler("^!fbl", lbry_callback)
-    bot.add_handler(lbry_handler)
-    crypto_handler = MRegexHandler("^!fbc", crypto_callback)
-    bot.add_handler(crypto_handler)
-    neow_handler = MRegexHandler("^!fbn", neow_callback)
-    bot.add_handler(neow_handler)
+
+    invidious_abrev_handler = MRegexHandler("^!fby", invidious_callback)
+    bot.add_handler(invidious_abrev_handler)
+
+    lbry_abrev_handler = MRegexHandler("^!fbl", lbry_callback)
+    bot.add_handler(lbry_abrev_handler)
+
+    crypto_abrev_handler = MRegexHandler("^!fbc", crypto_callback)
+    bot.add_handler(crypto_abrev_handler)
+
+    neow_abrev_handler = MRegexHandler("^!fbn", neow_callback)
+    bot.add_handler(neow_abrev_handler)
+
     help_handler = MRegexHandler("^fossbot-help", help_callback)
     bot.add_handler(help_handler)
-    peertube_handler = MRegexHandler("^!fbp", peertube_callback)
-    bot.add_handler(peertube_handler)
-    wikipedia_handler = MRegexHandler("^!fbw", wikipedia_callback)
-    bot.add_handler(wikipedia_handler)
-    uncyclopedia_handler = MRegexHandler("^!fbu", uncyclopedia_callback)
-    bot.add_handler(uncyclopedia_handler)
+
+    peertube_abrev_handler = MRegexHandler("^!fbp", peertube_callback)
+    bot.add_handler(peertube_abrev_handler)
+
+    wikipedia_abrev_handler = MRegexHandler("^!fbw", wikipedia_callback)
+    bot.add_handler(wikipedia_abrev_handler)
+
+    uncyclopedia_abrev_handler = MRegexHandler("^!fbu", uncyclopedia_callback)
+    bot.add_handler(uncyclopedia_abrev_handler)
 
     bot.start_polling()
-    # Infinitely read stdin to stall main thread while the bot runs in other threads
+
     while True:
         input()
 
