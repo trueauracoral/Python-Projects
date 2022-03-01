@@ -23,7 +23,7 @@ Print out uncyclopedia search result snippets of different articles including li
 - `!fbu` query <br>
 Print out uncyclopedia search result snippets of different articles including links to those articles.
 - `!fbg` query <br>
-Print out repo information of gitea projects.
+Print out repo information of github and gitea projects.
 
 # Host FOSSBOT
 

@@ -41,7 +41,7 @@ Print out wikipedia search result snippets of different articles including links
 - !fbu <query>
 Print out uncyclopedia search result snippets of different articles including links to those articles.
 - !fbg <query>
-Print out repo information of gitea projects.""")
+Print out repo information of github and gitea projects.""")
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def git_callback(room, event):
