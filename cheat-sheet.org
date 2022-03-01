@@ -27,13 +27,13 @@ print(string[1])
 #+BEGIN_SRC python
 # Regular old inserting variables in a string:
 search = "Emacs"
-wikipedia_api = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + search + "&format=json"
+wikipedia_api = print("https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + search + "&format=json")
 
 # A F STRING!
 search = "Emacs"
 wikipedia_api = f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json"
 ## Using """ to get multiple lines also works
-wikipedia_api = f"""https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json
+wikipedia_api = print(f"""https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json"""
+https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json""")
 #+END_SRC
