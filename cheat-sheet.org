@@ -31,7 +31,7 @@ wikipedia_api = print("https://en.wikipedia.org/w/api.php?action=query&list=sear
 
 # A F STRING!
 search = "Emacs"
-wikipedia_api = f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json"
+wikipedia_api = print(f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json")
 ## Using """ to get multiple lines also works
 wikipedia_api = print(f"""https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
