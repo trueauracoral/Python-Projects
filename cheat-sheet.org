@@ -32,4 +32,8 @@ wikipedia_api = "https://en.wikipedia.org/w/api.php?action=query&list=search&srs
 # A F STRING!
 search = "Emacs"
 wikipedia_api = f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json"
+## Using """ to get multiple lines also works
+wikipedia_api = f"""https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json"""
 #+END_SRC
