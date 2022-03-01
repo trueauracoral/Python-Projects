@@ -44,20 +44,32 @@ Print out uncyclopedia search result snippets of different articles including li
 Print out repo information of gitea projects.""")
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
-def gitea_callback(room, event):
+def git_callback(room, event):
     message = event["content"]["body"].replace("!fbg ","")
     query = message.split("/")
-    gitea_api = f"https://{query[2]}/api/v1/repos/{query[3]}/{query[4]}"
-    data = requests.get(gitea_api)
-    json_stuff = json.loads(data.text)
+    if query[2] == "github.com":
+        github_api = f"https://api.github.com/repos/{query[3]}/{query[4]}"
+        data = requests.get(github_api)
+        json_stuff = json.loads(data.text)
+        mb_size= round(float(json_stuff["size"]) / 1024, 1)
+        room.send_text(f"""Repo Name: {json_stuff["name"]}
+Author Name: {json_stuff["owner"]["login"]}
+Size: {mb_size} mb
+Branch: {json_stuff["default_branch"]}
+Issues: {json_stuff["open_issues"]}""")
+    else:
+        gitea_api = f"https://{query[2]}/api/v1/repos/{query[3]}/{query[4]}"
+        data = requests.get(gitea_api)
+        json_stuff = json.loads(data.text)
 
-    mb_size= round(float(json_stuff["size"]) / 1024, 1)
-    room.send_text(f"""Repo Name: {json_stuff["name"]}
+        mb_size= round(float(json_stuff["size"]) / 1024, 1)
+        room.send_text(f"""Repo Name: {json_stuff["name"]}
 Author Name: {json_stuff["owner"]["username"]}
 Branch: {json_stuff["default_branch"]}
 Size: {mb_size} mb
 Issues: {json_stuff["open_issues_count"]}
 Pull Requests: {json_stuff["open_pr_counter"]}""")
+
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
 def wikipedia_callback(room, event):
@@ -208,8 +220,8 @@ def main():
 
     uncyclopedia_abrev_handler = MRegexHandler("^!fbu", uncyclopedia_callback)
     bot.add_handler(uncyclopedia_abrev_handler)
-    gitea_abrev_handler = MRegexHandler("^!fbg", gitea_callback)
-    bot.add_handler(gitea_abrev_handler)
+    git_abrev_handler = MRegexHandler("^!fbg", git_callback)
+    bot.add_handler(git_abrev_handler)
 
     bot.start_polling()
     # Infinitely read stdin to stall main thread while the bot runs in other threads
