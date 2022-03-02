@@ -16,7 +16,7 @@ string = "https://zortazert.codeberg.page"
 string = string.replace("zortazert", "trueauracoral")
 print(string)
 #+END_SRC
-** Split text to multiple segments
+** Split text by character to multiple segments
 #+BEGIN_SRC python
 string = "https://zortazert.codeberg.page"
 string = string.split(".")
