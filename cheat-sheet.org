@@ -37,3 +37,14 @@ wikipedia_api = print(f"""https://en.wikipedia.org/w/api.php?action=query&list=s
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={search}&format=json""")
 #+END_SRC
+* Lower and upper functions
+#+BEGIN_SRC python
+# Starting string.
+string = "https://zortazert.codeberg.page"
+# We would like this string to be now uppercase:
+string = string.upper()
+print(string)
+# We actually didn't want that so all characters will become lowercase:
+string = string.lower()
+print(string)
+#+END_SRC
