@@ -38,7 +38,9 @@ USERNAME = ""  # Bot's username
 PASSWORD = ""  # Bot's password
 SERVER = ""  # Matrix server URL
 ```
-- Run the script, preferably on a server that runs constantly or just run the script on a computer you have access to on your own schedule.
+- Run the script, preferably on a server that runs constantly or just run the script on a computer you have access to on your own schedule. <br>
+
+You self hosting the bot might run into technical difficulties... Possibly a command fossbot ran didn't work right, or the matrix server was down for a couple minutes and **boom** fossbot is now down forever till you rerun him. Luckily @mattmadness gave me these scripts: [fossbot.bat](fossbot.bat) (bat for windows systems) and [fossbot.sh](fossbot.sh) (bash). These are optional scripts you should look into if your experiencing downtime with fossbot.
 
 Another option is to contact me links listed below for me to make the account **I** run fossbot on inside your server. It isn't guaranteed I will put him in your server. Also I run fossbot only during the CST daytime, not 24/7.
 
