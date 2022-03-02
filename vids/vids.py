@@ -14,7 +14,7 @@ invidious_instance = config.get('CONFIG','invidious_instance')
 piped_instance = config.get('CONFIG','piped_instance')
 pipedapi_instance = config.get('CONFIG','pipedapi_instance')
 command = config.get('CONFIG','command')
-open_thumbs = bool(config.get('THUMBNAILS','open_thumbs'))
+open_thumbs = bool(int(config.get('THUMBNAILS','open_thumbs')))
 image_viewer = config.get('THUMBNAILS','image_viewer')
 temp_dir = config.get('THUMBNAILS','temp_dir')
 # C O L O R S
