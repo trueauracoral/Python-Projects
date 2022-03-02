@@ -1,11 +1,3 @@
-"""
-At it's core a detector of twitter, reddit and youtube links that will then print out safer sites that the user can use.
-
-PROBLEMS:
-- Annoying
-- Not hosted reliably
-"""
-
 from matrix_bot_api.matrix_bot_api import MatrixBotAPI
 from matrix_bot_api.mregex_handler import MRegexHandler
 from matrix_bot_api.mcommand_handler import MCommandHandler
@@ -49,27 +41,40 @@ def git_callback(room, event):
     query = message.split("/")
     if query[2] == "github.com":
         github_api = f"https://api.github.com/repos/{query[3]}/{query[4]}"
-        print(github_api)
         data = requests.get(github_api)
         json_stuff = json.loads(data.text)
         mb_size= round(float(json_stuff["size"]) / 1024, 1)
+        if json_stuff["license"] == None:
+            licence = "No Licence"
+        else:
+            licence = json_stuff["license"]["name"]
         room.send_text(f"""Repo Name: {json_stuff["name"]}
 Author Name: {json_stuff["owner"]["login"]}
 Size: {mb_size} mb
+Licence: {licence}
 Branch: {json_stuff["default_branch"]}
-Issues: {json_stuff["open_issues"]}""")
+Issues: {json_stuff["open_issues"]}
+Languages:""")
+        data_languages = requests.get(f"https://api.github.com/repos/{query[3]}/{query[4]}/languages")
+        languages_json = json.loads(data_languages.text)
+        for key in languages_json:
+            room.send_text(key, end=" ")
     else:
         gitea_api = f"https://{query[2]}/api/v1/repos/{query[3]}/{query[4]}"
         data = requests.get(gitea_api)
         json_stuff = json.loads(data.text)
-
         mb_size= round(float(json_stuff["size"]) / 1024, 1)
         room.send_text(f"""Repo Name: {json_stuff["name"]}
 Author Name: {json_stuff["owner"]["username"]}
 Branch: {json_stuff["default_branch"]}
 Size: {mb_size} mb
 Issues: {json_stuff["open_issues_count"]}
-Pull Requests: {json_stuff["open_pr_counter"]}""")
+Pull Requests: {json_stuff["open_pr_counter"]}
+Languages:""")
+        data_languages = requests.get(f"https://{query[2]}/api/v1/repos/{query[3]}/{query[4]}/languages")
+        languages_json = json.loads(data_languages.text)
+        for key in languages_json:
+            room.send_text(key, end=" ")
 
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
