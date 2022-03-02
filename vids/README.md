@@ -33,7 +33,9 @@ command = mpv
 ; In the event that you do want to see thumbnails set this to 1
 open_thumbs = 0
 image_viewer = mspaint
-temp_dir = C:\\Users\\zoomer\\AppData\\Local\\Temp\\thumbnail
+; This is one of the windows temp directory locations.
+; For *nix operating systems it's usally located in /tmp/
+temp_dir = C:\\tmp\\thumbnail
 ```
 
 # Usage
