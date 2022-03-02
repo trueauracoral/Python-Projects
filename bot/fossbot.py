@@ -49,6 +49,7 @@ def git_callback(room, event):
     query = message.split("/")
     if query[2] == "github.com":
         github_api = f"https://api.github.com/repos/{query[3]}/{query[4]}"
+        print(github_api)
         data = requests.get(github_api)
         json_stuff = json.loads(data.text)
         mb_size= round(float(json_stuff["size"]) / 1024, 1)
@@ -228,5 +229,12 @@ def main():
     while True:
         input()
 
-if __name__ == "__main__":
-    main()
+def main_loop():
+    while True:
+        try:
+            main()
+            break
+        except Exception as err:
+            print(err)
+            continue
+main_loop() 
