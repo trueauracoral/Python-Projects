@@ -58,7 +58,7 @@ Languages:""")
         data_languages = requests.get(f"https://api.github.com/repos/{query[3]}/{query[4]}/languages")
         languages_json = json.loads(data_languages.text)
         for key in languages_json:
-            room.send_text(key, end=" ")
+            room.send_text(key)
     else:
         gitea_api = f"https://{query[2]}/api/v1/repos/{query[3]}/{query[4]}"
         data = requests.get(gitea_api)
@@ -74,7 +74,7 @@ Languages:""")
         data_languages = requests.get(f"https://{query[2]}/api/v1/repos/{query[3]}/{query[4]}/languages")
         languages_json = json.loads(data_languages.text)
         for key in languages_json:
-            room.send_text(key, end=" ")
+            room.send_text(key)
 
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
 
