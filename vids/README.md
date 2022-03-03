@@ -77,4 +77,4 @@ Because many of this script's users are running *nix operating systems while I a
 # Contact me
 
 - Email: zortazert@matthewevan.xyz
-- Matrix: @zortazert:tchncs.de
+- Matrix: @trueauracoral:tchncs.de

@@ -49,7 +49,7 @@ I am not a great programmer, yet. Please write bug reports, suggestions for the 
 # Contact me
 
 - Email: zortazert@matthewevan.xyz
-- Matrix: @zortazert:tchncs.de
+- Matrix: @trueauracoral:tchncs.de
 
 # Watch FOSSBOT in action!
 
