@@ -68,6 +68,10 @@ Learn more about: [Invidious](https://invidious.io/)
 
 Learn more about: [Piped](https://github.com/TeamPiped/Piped#piped)
 
+# Similar Projects
+- https://github.com/MyOS-ArchLinux/vids <br>
+A very good shell multi platform video searcher with a lot more features included.
+
 # Help is Appreciated!
 
 I am not a great programmer, yet. Please write bug reports, suggestions for the inclusion of new video platforms/APIs, and code improvements!
