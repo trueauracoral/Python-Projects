@@ -88,7 +88,7 @@ def wikipedia_callback(room, event):
 
     for index, post in enumerate(json_stuff["query"]["search"]):
         clean = re.compile('<.*?>')
-        room.send_text(re.sub(clean, '', post["title"]+"\n"+post["snippet"]+"\n"+"https://en.wikipedia.org/w/index.php?curid="+str(post["pageid"])))
+        room.send_text(re.sub(clean, '', post["title"]+"\n"+post["snippet"].replace("&quot;","\"")+"\n"+"https://en.wikipedia.org/w/index.php?curid="+str(post["pageid"])))
         if index == 2:
             break
     print(event['sender']+"\nPosted:\n"+event["content"]["body"])
