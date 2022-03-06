@@ -48,23 +48,19 @@ python vids.py <option> "search"
 ```
 
 # Options
-## LBRY network
-`-l` for lighthouse API (searching) & librarian api (comments)
+- LBRY network `-l` for lighthouse API (searching) & librarian api (comments)
 
 Learn more about: [LBRY](https://en.wikipedia.org/wiki/LBRY)
 
-## PeerTube
-`-pt` for sepiasearch API (searching) & PeerTube instance's API (comments) 
+- PeerTube `-pt` for sepiasearch API (searching) & PeerTube instance's API (comments) 
 
 Learn more about: [PeerTube](https://en.wikipedia.org/wiki/PeerTube)
 
-## Invidious: a YouTube proxy
-`-i` for Invidious instance's API (searching & comments)
+-Invidious: a YouTube proxy `-i` for Invidious instance's API (searching & comments) 
 
 Learn more about: [Invidious](https://invidious.io/)
 
-## Piped: a YouTube proxy
-`-p` for Piped instance's API (searching & comments)
+- Piped: a YouTube proxy `-p` for Piped instance's API (searching & comments)
 
 Learn more about: [Piped](https://github.com/TeamPiped/Piped#piped)
 
