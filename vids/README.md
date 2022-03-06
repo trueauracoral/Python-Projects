@@ -69,8 +69,12 @@ Learn more about: [Invidious](https://invidious.io/)
 Learn more about: [Piped](https://github.com/TeamPiped/Piped#piped)
 
 # Similar Projects
-- https://github.com/MyOS-ArchLinux/vids <br>
+- https://github.com/MyOS-ArchLinux/vids
+
 A very good shell multi platform video searcher with a lot more features included.
+- https://git.tristans.cloud/tristan/ytui
+
+Another very good shell youtube searcher for channels, videos and playlists. It has other features too.
 
 # Help is Appreciated!
 
