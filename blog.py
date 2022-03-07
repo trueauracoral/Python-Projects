@@ -9,7 +9,7 @@ import os
 Title = input("Title: ")
 Link = input("Link: ")
 Date = str(strftime("%a, %d %b %Y %X"))
-rssfile = 'C:\\SGZ_Pro\\hobbys\\coding-projects\\personal-python\\RSS\\rss.xml'
+rssfile = 'rss.xml'
 
 # rss file manipulation
 with open(rssfile) as r:
@@ -38,7 +38,3 @@ content = f.read()
 print(content)
 pyperclip.copy(content)
 f.close()
-
-# COPY TO GIT directory!
-# IF your on linux change copy to cp
-os.system("copy " + rssfile + " C:\\SGZ_Pro\\Hobbys\\Writing\\Org\\pages\\rss.xml")
