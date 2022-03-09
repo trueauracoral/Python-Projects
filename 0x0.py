@@ -5,6 +5,7 @@ import platform
 
 red = "\033[41m"
 norm = "\033[00m"
+instance = "http://0x0.st"
 
 file = ""
 try:
@@ -22,5 +23,5 @@ if platform == "Windows":
     windows_command = f"{git_bash_shell} -c \"curl -F'file=@{file}' http:/0x0.st\""
     os.system(windows_command)
 else:
-    linux_command = f"curl -F'file=@{file}' http:/0x0.st"
+    linux_command = f"curl -F'file=@{file}' {instance}"
     os.system(linux_command)
