@@ -17,7 +17,7 @@ if platform == "Windows":
 
     file = filedialog.askopenfilename()
     git_bash_shell = "%LocalAppData%\\Programs\\Git\\bin\\sh.exe"
-    windows_command = f"{git_bash_shell} -c \"curl -F'file=@{file}' http:/0x0.st\""
+    windows_command = f"{git_bash_shell} -c \"curl -F'file=@{file}' {instance}\""
     os.system(windows_command)
 else:
     file = ""
