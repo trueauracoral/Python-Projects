@@ -1,7 +1,10 @@
 import requests
 import json
-api = "https://api.urbandictionary.com/v0/define?term=ratio%27d"
+query = input("Word: ")
+api = f"https://api.urbandictionary.com/v0/define?term={query}"
 data = requests.get(api)
 json_stuff = json.loads(data.text)
-for result in json_stuff["list"]:
+for i, result in enumerate(json_stuff["list"]):
     print(result["word"]+"\n"+result["definition"]+"\n"+result["example"])
+    if i == 1:
+        break
