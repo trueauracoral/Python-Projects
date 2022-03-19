@@ -4,11 +4,11 @@ import os
 import re
 import tempfile
 
+url = "https://pipedapi.kavin.rocks/channel/UCu17Sme-KE87ca9OTzP0p7g"
 downloader = "C:\\SGZ\\SW_Downloads\\yt-dlp\\yt-dlp.exe"
 lbrynet = "C:\\SGZ\\SW_Downloads\\lyberry_qt\\lbrynet.exe"
-
 temp_dir = tempfile.TemporaryDirectory().name
-url = "https://pipedapi.kavin.rocks/channel/UCu17Sme-KE87ca9OTzP0p7g"
+
 data = requests.get(url)
 json_stuff = json.loads(data.text)
 id = str(json_stuff["relatedStreams"][0]["url"]).replace("/watch?v=","")
