@@ -22,9 +22,19 @@ Stuff that isn't inside of a directory I just haven't organized yet properly. I 
 - =rssgenerator.= Script to print out rss links of various websites that support rss.
 - =rssgentk.= A successor to rssgenerator which is a TK GUI application for getting rss links for various websites.
 
+* Contact me
+Email: zortazert@matthewevan.xyz
+Matrix: @trueauracoral:tchncs.de
+
 * License
 These are libre scripts: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 These scripts are distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
+
+* Contributors
+Here is a list of contributors to these python scripts. If you contribute you can add your name here. See the git log for more details on contributions.
+
+- Zortazert: Author; details above
+- Troler @TrolerJeans
