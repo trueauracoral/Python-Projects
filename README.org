@@ -12,15 +12,15 @@ These are small, probably not that big scripts I will use to try and learn pytho
 Stuff that isn't inside of a directory I just haven't organized yet properly. I am trying my best not to have a thousand directorys.
 
 * Explanations of some scripts (Outdated)
-- Blog.py. A script very much for me and my setup to generate rss time to time for my blog.
-- Thumbnail creator. Sometimes, I am very lazy at creating thumbnails so I decided at one point to make a basic script that just puts text on a background I created and it's kind of useful. Now a days I just cook up something in gimp as quick as possible.
-- noodysee. Convert a odysee link to librarian and open in browser.
-- md-to-pdf-lbry. An idea for a plugin for the fastlbry project which would convert MD to PDF with pandoc.
-- mastodonrss. Get the rss link for mastodon
-- lbctousd. See how much LBC is worth in USD
-- file-replace. Basic program to replace a word in the file. Doesn't write the replace to the file unfortunately.
-- rssgenerator. Script to print out rss links of various websites that support rss.
-- rssgentk. A successor to rssgenerator which is a TK GUI application for getting rss links for various websites.
+- =Blog.py.= A script very much for me and my setup to generate rss time to time for my blog.
+- =Thumbnail= creator. Sometimes, I am very lazy at creating thumbnails so I decided at one point to make a basic script that just puts text on a background I created and it's kind of useful. Now a days I just cook up something in gimp as quick as possible.
+- =noodysee.= Convert a odysee link to librarian and open in browser.
+- =md-to-pdf-lbry.= An idea for a plugin for the fastlbry project which would convert MD to PDF with pandoc.
+- =mastodonrss.= Get the rss link for mastodon
+- =lbctousd.= See how much LBC is worth in USD
+- =file-replace.= Basic program to replace a word in the file. Doesn't write the replace to the file unfortunately.
+- =rssgenerator.= Script to print out rss links of various websites that support rss.
+- =rssgentk.= A successor to rssgenerator which is a TK GUI application for getting rss links for various websites.
 
 * License
 These are libre scripts: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
