@@ -2,6 +2,7 @@ import os
 import re
 import platform
 import time
+import sys
 
 lbrynet = "lbrynet"
 files = os.listdir()
@@ -13,6 +14,8 @@ file_path = os.getcwd() + slash
 
 for image in files:
     print(image)
+    if image == sys.argv[0]:
+        pass
     os.system(f'{lbrynet} publish --name={image} --bid=0.1 --file_path="{file_path + image}" --title="{image}" --description="mass art upload for TrueAuraCoraL :)" --channel_name=@TrueAuraCoralPublishesImages')
     time.sleep(30)
 
