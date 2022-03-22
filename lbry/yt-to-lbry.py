@@ -6,7 +6,7 @@ import tempfile
 
 url = "https://pipedapi.kavin.rocks/channel/UCu17Sme-KE87ca9OTzP0p7g"
 downloader = "yt-dlp"
-lbrynet = "C:\\SGZ\\SW_Downloads\\lyberry_qt\\lbrynet.exe"
+lbrynet = "lbrynet"
 temp_dir = tempfile.TemporaryDirectory().name
 
 data = requests.get(url)
