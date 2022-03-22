@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+import subprocess
 import re
 import tempfile
 import platform
@@ -37,12 +38,7 @@ while not c >= 0 or not c <= i:
             c = 100000
 channel = json_stuff["items"][c]["name"]
 print(f"Uploading to {channel}.")
-
-try:
-    print("---\nCould be costly to do a mass upload, default bid is 0.1")
-    bid = input("Per upload, how much bid do you want?")
-except:
-    bid = 0.1
+print("---\nCould be costly to do a upload, the bid for this will be 0.1")
 
 description = (f"""---
 This is a LBRY mirror of of this video:

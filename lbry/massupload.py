@@ -34,17 +34,17 @@ channel = json_stuff["items"][c]["name"]
 print(f"Mass uploading to {channel}.")
 
 try:
-    print("---\nCould be costly to do a mass upload, default bid is 0.1")
+    print("---\nCould be costly to do a mass upload, press enter and bid will be 0.1")
     bid = input("Per upload, how much bid do you want?")
 except:
     bid = 0.1
 
-#for image in files:
-#    print(image)
-#    if image == sys.argv[0]:
-#        pass
-#    os.system(f'{lbrynet} publish --name={image} --bid=0.1 --file_path="{file_path + image}" --title="{image}" --description="mass art upload" --channel_name={channel}')
-#    time.sleep(30)
+for image in files:
+    print(image)
+    if image == sys.argv[0]:
+        pass
+    os.system(f'{lbrynet} publish --name={image} --bid=0.1 --file_path="{file_path + image}" --title="{image}" --description="mass art upload" --channel_name={channel}')
+    time.sleep(30)
 
-#for image in files:
-#    print(f"https://spee.ch/{channel}/{image}")
+for image in files:
+    print(f"https://spee.ch/{channel}/{image}")
