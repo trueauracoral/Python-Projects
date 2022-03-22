@@ -40,9 +40,9 @@ channel = json_stuff["items"][c]["name"]
 print(f"Uploading to {channel}.")
 try:
     print("---\nCould be costly to do a upload, press enter and bid will be 0.1")
-    bid = input("Per upload, how much bid do you want?")
+    bid = str(input("Per upload, how much bid do you want? "))
 except:
-    bid = 0.1
+    bid = str(0.1)
 
 description = (f"""---
 This is a LBRY mirror of of this video:

@@ -35,9 +35,9 @@ print(f"Mass uploading to {channel}.")
 
 try:
     print("---\nCould be costly to do a mass upload, press enter and bid will be 0.1")
-    bid = input("Per upload, how much bid do you want?")
+    bid = str(input("Per upload, how much bid do you want? "))
 except:
-    bid = 0.1
+    bid = str(0.1)
 
 for image in files:
     print(image)
