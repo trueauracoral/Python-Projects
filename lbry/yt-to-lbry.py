@@ -19,6 +19,31 @@ title = video_json["title"]
 name_thumb = re.sub(r'[\W_]+','', str(title)) + str(123)
 name = re.sub(r'[\W_]+','', str(title))
 
+if subprocess.getoutput(f"{lbrynet} status") == "Could not connect to daemon. Are you sure it's running?":
+    print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
+    quit()
+
+channels = subprocess.getoutput(f"{lbrynet} channel list")
+json_stuff = json.loads(channels)
+for i, channel in enumerate(json_stuff["items"]):
+   print(i, "|", channel["name"])
+
+c = 100000
+while not c >= 0 or not c <= i:
+    c = input('Select a channel from 0-'+str(i)+': ')
+    try:
+            c = int(c)
+    except:
+            c = 100000
+channel = json_stuff["items"][c]["name"]
+print(f"Uploading to {channel}.")
+
+try:
+    print("---\nCould be costly to do a mass upload, default bid is 0.1")
+    bid = input("Per upload, how much bid do you want?")
+except:
+    bid = 0.1
+
 description = (f"""---
 This is a LBRY mirror of of this video:
 {title}
@@ -39,7 +64,7 @@ thumbnail_data = requests.get(video_json["thumbnailUrl"])
 with open(temp_dir, 'wb') as f:
     f.write(thumbnail_data.content)
 
-thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid=0.1 --file_path="{temp_dir}" --title="{title}" --description="{description}" --channel_name=@TrueAuraCoralPublishesImages'
+thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid=0.1 --file_path="{temp_dir}" --title="{title}" --description="{description}" --channel_name={channel}'
 print(thumbnail_command)
 os.system(thumbnail_command)
 
@@ -49,6 +74,6 @@ else:
     slash = "/"
 cwd = os.getcwd()
 
-command = f'{lbrynet} publish --name={name} --bid=0.1 --file_path="{cwd}{slash}{title} [{id}].mp4" --title="{title}" --description="{description}" --channel_name=@TrueAuraCoralPublishesImages --thumbnail="https://spee.ch/@TrueAuraCoralPublishesImages/{name_thumb}"'
+command = f'{lbrynet} publish --name={name} --bid=0.1 --file_path="{cwd}{slash}{title} [{id}].mp4" --title="{title}" --description="{description}" --channel_name={channel} --thumbnail="https://spee.ch/{channel}/{name_thumb}"'
 print(command)
 os.system(command)

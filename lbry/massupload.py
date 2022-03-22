@@ -1,8 +1,10 @@
 import os
+import subprocess
 import re
 import platform
 import time
 import sys
+import json
 
 lbrynet = "lbrynet"
 files = os.listdir()
@@ -12,12 +14,37 @@ else:
     slash = "/"
 file_path = os.getcwd() + slash
 
-for image in files:
-    print(image)
-    if image == sys.argv[0]:
-        pass
-    os.system(f'{lbrynet} publish --name={image} --bid=0.1 --file_path="{file_path + image}" --title="{image}" --description="mass art upload for TrueAuraCoraL :)" --channel_name=@TrueAuraCoralPublishesImages')
-    time.sleep(30)
+if subprocess.getoutput(f"{lbrynet} status") == "Could not connect to daemon. Are you sure it's running?":
+    print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
+    quit()
 
-for image in files:
-    print(f"https://spee.ch/@TrueAuraCoralPublishesImages/{image}")
+channels = subprocess.getoutput(f"{lbrynet} channel list")
+json_stuff = json.loads(channels)
+for i, channel in enumerate(json_stuff["items"]):
+   print(i, "|", channel["name"])
+
+c = 100000
+while not c >= 0 or not c <= i:
+    c = input('Select a channel from 0-'+str(i)+': ')
+    try:
+            c = int(c)
+    except:
+            c = 100000
+channel = json_stuff["items"][c]["name"]
+print(f"Mass uploading to {channel}.")
+
+try:
+    print("---\nCould be costly to do a mass upload, default bid is 0.1")
+    bid = input("Per upload, how much bid do you want?")
+except:
+    bid = 0.1
+
+#for image in files:
+#    print(image)
+#    if image == sys.argv[0]:
+#        pass
+#    os.system(f'{lbrynet} publish --name={image} --bid=0.1 --file_path="{file_path + image}" --title="{image}" --description="mass art upload" --channel_name={channel}')
+#    time.sleep(30)
+
+#for image in files:
+#    print(f"https://spee.ch/{channel}/{image}")
