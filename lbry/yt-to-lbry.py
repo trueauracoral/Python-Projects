@@ -22,7 +22,7 @@ name = re.sub(r'[\W_]+','', str(title))
 
 if subprocess.getoutput(f"{lbrynet} stop") == "Could not connect to daemon. Are you sure it's running?":
     print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
-    break
+    quit()
 
 channels = subprocess.getoutput(f"{lbrynet} channel list")
 json_stuff = json.loads(channels)
