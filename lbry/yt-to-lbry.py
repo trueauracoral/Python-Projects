@@ -38,9 +38,10 @@ thumbnail_data = requests.get(video_json["thumbnailUrl"])
 with open(temp_dir, 'wb') as f:
     f.write(thumbnail_data.content)
 
-thumbnail_command = f"{lbrynet} publish --name={name_thumb} --bid=0.1 --file_path='{temp_dir}' --title='{title}' --description='{description}' --channel_name=@TrueAuraCoralPublishesImages"
+thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid=0.1 --file_path="{temp_dir}" --title="{title}" --description="{description}" --channel_name=@TrueAuraCoralPublishesImages'
 print(thumbnail_command)
 os.system(thumbnail_command)
-command = f"{lbrynet} publish --name={name} --bid=0.1 --file_path='{title} [{id}]' --title={title} --description={description} --channel_name=@TrueAuraCoralPublishesImages --thumbnail=https://spee.ch/@TrueAuraCoralPublishesImages/{name_thumb}"
+cwd = os.getcwd()
+command = f'{lbrynet} publish --name={name} --bid=0.1 --file_path="{cwd}\\{title} [{id}].mp4" --title="{title}" --description="{description}" --channel_name=@TrueAuraCoralPublishesImages --thumbnail="https://spee.ch/@TrueAuraCoralPublishesImages/{name_thumb}"'
 print(command)
 os.system(command)
