@@ -20,7 +20,7 @@ title = video_json["title"]
 name_thumb = re.sub(r'[\W_]+','', str(title)) + str(123)
 name = re.sub(r'[\W_]+','', str(title))
 
-if subprocess.getoutput(f"{lbrynet} status") == "Could not connect to daemon. Are you sure it's running?":
+if subprocess.getoutput(f"{lbrynet} stop") == "Could not connect to daemon. Are you sure it's running?":
     print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
     quit()
 

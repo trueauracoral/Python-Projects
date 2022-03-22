@@ -14,7 +14,7 @@ else:
     slash = "/"
 file_path = os.getcwd() + slash
 
-if subprocess.getoutput(f"{lbrynet} status") == "Could not connect to daemon. Are you sure it's running?":
+if subprocess.getoutput(f"{lbrynet} stop") == "Could not connect to daemon. Are you sure it's running?":
     print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
     quit()
 
@@ -39,17 +39,17 @@ try:
 except:
     bid = str(0.1)
 
-try:
-    print('---\nDo you want a special description? Press enter and the description will be "mass upload"')
-    description = input('Description for every upload: ')
-except:
-    description = "mass upload"
+#try:
+#    print('---\nDo you want a special description? Press enter and the description will be "mass upload"')
+#    description = input('Description for every upload: ')
+#except:
+#    description = "mass upload"
 
 for image in files:
     print(image)
     if image == sys.argv[0]:
         pass
-    os.system(f'{lbrynet} publish --name={image} --bid=0.1 --file_path="{file_path + image}" --title="{image}" --description="{description}" --channel_name={channel}')
+    os.system(f'{lbrynet} publish --name={image} --bid=0.1 --file_path="{file_path + image}" --title="{image}" --channel_name={channel}')
     time.sleep(30)
 
 for image in files:
