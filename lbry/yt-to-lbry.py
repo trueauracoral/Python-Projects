@@ -65,7 +65,6 @@ with open(temp_dir, 'wb') as f:
     f.write(thumbnail_data.content)
 
 thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_path="{temp_dir}" --title="{title}" --description="{description}" --channel_name={channel}'
-print(thumbnail_command)
 os.system(thumbnail_command)
 
 if platform.system() == "Windows":
@@ -75,5 +74,7 @@ else:
 cwd = os.getcwd()
 
 command = f'{lbrynet} publish --name={name} --bid={bid} --file_path="{cwd}{slash}{title} [{id}].mp4" --title="{title}" --description="{description}" --channel_name={channel} --thumbnail="https://spee.ch/{channel}/{name_thumb}"'
-print(command)
 os.system(command)
+
+print("\nLINK:")
+print(f"https://spee.ch/{channel}/{name}")
