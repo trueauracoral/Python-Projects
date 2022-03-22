@@ -38,7 +38,11 @@ while not c >= 0 or not c <= i:
             c = 100000
 channel = json_stuff["items"][c]["name"]
 print(f"Uploading to {channel}.")
-print("---\nCould be costly to do a upload, the bid for this will be 0.1")
+try:
+    print("---\nCould be costly to do a upload, press enter and bid will be 0.1")
+    bid = input("Per upload, how much bid do you want?")
+except:
+    bid = 0.1
 
 description = (f"""---
 This is a LBRY mirror of of this video:
@@ -60,7 +64,7 @@ thumbnail_data = requests.get(video_json["thumbnailUrl"])
 with open(temp_dir, 'wb') as f:
     f.write(thumbnail_data.content)
 
-thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid=0.1 --file_path="{temp_dir}" --title="{title}" --description="{description}" --channel_name={channel}'
+thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_path="{temp_dir}" --title="{title}" --description="{description}" --channel_name={channel}'
 print(thumbnail_command)
 os.system(thumbnail_command)
 
@@ -70,6 +74,6 @@ else:
     slash = "/"
 cwd = os.getcwd()
 
-command = f'{lbrynet} publish --name={name} --bid=0.1 --file_path="{cwd}{slash}{title} [{id}].mp4" --title="{title}" --description="{description}" --channel_name={channel} --thumbnail="https://spee.ch/{channel}/{name_thumb}"'
+command = f'{lbrynet} publish --name={name} --bid={bid} --file_path="{cwd}{slash}{title} [{id}].mp4" --title="{title}" --description="{description}" --channel_name={channel} --thumbnail="https://spee.ch/{channel}/{name_thumb}"'
 print(command)
 os.system(command)
