@@ -21,11 +21,11 @@ if subprocess.getoutput(f"{lbrynet} status") == "Could not connect to daemon. Ar
 channels = subprocess.getoutput(f"{lbrynet} channel list")
 json_stuff = json.loads(channels)
 for i, channel in enumerate(json_stuff["items"]):
-   print(i, "|", channel["name"])
+   print(i+1, "|", channel["name"])
 
 c = 100000
 while not c >= 0 or not c <= i:
-    c = input('Select a channel from 0-'+str(i)+': ')
+    c = input('Select a channel from 1-'+str(i)+': ')
     try:
             c = int(c)
     except:
