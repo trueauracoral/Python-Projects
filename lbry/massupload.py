@@ -1,5 +1,5 @@
 # ISSUES:
-# - Uploads the uploading script...
+# - [ ] Uploads the uploading script.
 import os
 import subprocess
 import re

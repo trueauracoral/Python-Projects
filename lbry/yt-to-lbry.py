@@ -1,6 +1,8 @@
 # ISSUES:
-# - keeps \n, \" and \' in description.
-# - You need to put a pipedapi.kavin.rocks url for it to work.
+# - [ ] keeps \n, \" and \' in description.
+# - [x] You need to put a pipedapi.kavin.rocks url for it to work.
+# - [ ] Thumbnail needs to be published anonymously.
+# - [ ] Understand why odysee doesn't show the thumbnail.
 import requests
 import json
 import os
