@@ -1,3 +1,6 @@
+# ISSUES:
+# - keeps \n, \" and \' in description.
+# - You need to put a pipedapi.kavin.rocks url for it to work.
 import requests
 import json
 import os
