@@ -16,18 +16,18 @@ else:
     slash = "/"
 file_path = os.getcwd() + slash
 
-if subprocess.getoutput(f"{lbrynet} stop") == "Could not connect to daemon. Are you sure it's running?":
+if subprocess.getoutput(f"{lbrynet} version") == "Could not connect to daemon. Are you sure it's running?":
     print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
     quit()
 
 channels = subprocess.getoutput(f"{lbrynet} channel list")
 json_stuff = json.loads(channels)
 for i, channel in enumerate(json_stuff["items"]):
-   print(i+1, "|", channel["name"])
+   print(i, "|", channel["name"])
 
 c = 100000
 while not c >= 0 or not c <= i:
-    c = input('Select a channel from 1-'+str(i)+': ')
+    c = input('Select a channel from 0-'+str(i)+': ')
     try:
             c = int(c)
     except:

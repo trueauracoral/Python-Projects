@@ -9,12 +9,14 @@ import re
 import tempfile
 import platform
 
-url = "https://pipedapi.kavin.rocks/channel/UCu17Sme-KE87ca9OTzP0p7g"
+url = "https://invidio.xamh.de/channel/UCfp-lNJy4QkIGnaEE6NtDSg"
 downloader = "yt-dlp"
 lbrynet = "lbrynet"
 temp_dir = tempfile.TemporaryDirectory().name
 
-data = requests.get(url)
+url = url.split("/")
+pipedapi = f"https://pipedapi.kavin.rocks/channel/{url[4]}"
+data = requests.get(pipedapi)
 json_stuff = json.loads(data.text)
 id = str(json_stuff["relatedStreams"][0]["url"]).replace("/watch?v=","")
 video = requests.get("https://pipedapi.kavin.rocks/streams/"+id)
@@ -23,18 +25,18 @@ title = video_json["title"]
 name_thumb = re.sub(r'[\W_]+','', str(title)) + str(123)
 name = re.sub(r'[\W_]+','', str(title))
 
-if subprocess.getoutput(f"{lbrynet} stop") == "Could not connect to daemon. Are you sure it's running?":
+if subprocess.getoutput(f"{lbrynet} version") == "Could not connect to daemon. Are you sure it's running?":
     print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
     quit()
 
 channels = subprocess.getoutput(f"{lbrynet} channel list")
 json_stuff = json.loads(channels)
 for i, channel in enumerate(json_stuff["items"]):
-   print(i+1, "|", channel["name"])
+   print(i, "|", channel["name"])
 
 c = 100000
 while not c >= 0 or not c <= i:
-    c = input('Select a channel from 1-'+str(i)+': ')
+    c = input('Select a channel from 0-'+str(i)+': ')
     try:
             c = int(c)
     except:
