@@ -7,7 +7,7 @@ import sys
 import json
 
 lbrynet = "lbrynet"
-files = os.listdir()
+iles = os.listdir()
 if platform.system() == "Windows":
     slash = "\\"
 else:
@@ -46,10 +46,11 @@ except:
 #    description = "mass upload"
 
 for image in files:
-    print(image)
-    if image == sys.argv[0]:
+    if sys.argv[0] in image:
+        print("Not going to upload {sys.argv[0]}")
         pass
-    os.system(f'{lbrynet} publish --name={image} --bid=0.1 --file_path="{file_path + image}" --title="{image}" --channel_name={channel}')
+    else:
+        os.system(f'{lbrynet} publish --name={image} --bid=0.1 --file_path="{file_path + image}" --title="{image}" --channel_name={channel}')
     time.sleep(30)
 
 for image in files:
