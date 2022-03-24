@@ -7,7 +7,7 @@ import sys
 import json
 
 lbrynet = "lbrynet"
-iles = os.listdir()
+files = os.listdir()
 if platform.system() == "Windows":
     slash = "\\"
 else:
