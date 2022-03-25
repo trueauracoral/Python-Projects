@@ -6,7 +6,7 @@ import re
 import tempfile
 import platform
 
-url = "https://invidio.xamh.de/channel/UCfp-lNJy4QkIGnaEE6NtDSg"
+url = "https://invidio.xamh.de/channel/UCo8bcnLyZH8tBIH9V1mLgqQ"
 downloader = "yt-dlp"
 lbrynet = "lbrynet"
 temp_dir = tempfile.TemporaryDirectory().name
@@ -66,16 +66,21 @@ thumbnail_data = requests.get(video_json["thumbnailUrl"])
 with open(temp_dir, 'wb') as f:
     f.write(thumbnail_data.content)
 
-thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_path="{temp_dir}" --title="{title}" --description="{description}" --channel_name={channel}'
-os.system(thumbnail_command)
-
+thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_path="{temp_dir}" --title="{title}" --description="{description}"'
+#os.system(thumbnail_command)
+thumbnail_data = subprocess.getoutput(thumbnail_command)
+json_stuff = json.loads(thumbnail_data)
+thumbnail_url = json_stuff["outputs"]["permanent_url"]
+print(thumbnail_url)
+#.replace("lbry:/","https://spee.ch")
 if platform.system() == "Windows":
     slash = "\\"
 else:
     slash = "/"
 cwd = os.getcwd()
 
-command = f'{lbrynet} publish --name={name} --bid={bid} --file_path="{cwd}{slash}{title} [{id}].mp4" --title="{title}" --description="{description}" --channel_name={channel} --thumbnail="https://spee.ch/{channel}/{name_thumb}"'
+print("\n---\nUploading video to LBRY!")
+command = f'{lbrynet} publish --name={name} --bid={bid} --file_path="{cwd}{slash}{title} [{id}].mp4" --title="{title}" --description="{description}" --channel_name={channel} --thumbnail="{thumbnail_url}"'
 os.system(command)
 
 print("\nLINK:")
