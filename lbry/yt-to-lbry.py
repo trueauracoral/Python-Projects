@@ -79,9 +79,9 @@ else:
     slash = "/"
 cwd = os.getcwd()
 
-print("\n---\nUploading video to LBRY!")
+print("\n---\nUploading video to LBRY!\n---")
 command = f'{lbrynet} publish --name={name} --bid={bid} --file_path="{cwd}{slash}{title} [{id}].mp4" --title="{title}" --description="{description}" --channel_name={channel} --thumbnail="{thumbnail_url}"'
 os.system(command)
 
-print("\nLINK:")
+print("\n---\nLINK:\n---")
 print(f"https://spee.ch/{channel}/{name}")
