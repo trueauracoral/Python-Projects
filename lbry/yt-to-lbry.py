@@ -70,9 +70,9 @@ thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_p
 #os.system(thumbnail_command)
 thumbnail_data = subprocess.getoutput(thumbnail_command)
 json_stuff = json.loads(thumbnail_data)
-thumbnail_url = json_stuff["outputs"]["permanent_url"]
+thumbnail_url = json_stuff["outputs"][0]["permanent_url"].replace("lbry:/","https://spee.ch")
 print(thumbnail_url)
-#.replace("lbry:/","https://spee.ch")
+
 if platform.system() == "Windows":
     slash = "\\"
 else:
