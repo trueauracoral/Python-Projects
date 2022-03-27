@@ -109,9 +109,8 @@ license_url = licenses[l][1]
 
 if thumbnail == "":
     print("---\nUploading puplication to LBRY!\n---")
-    command = f'{lbrynet} publish --name={name} --bid={bid} --file_path="{publication}" --title="{title}" --description="{description}" --channel_name={channel}'
-    print(command)
-    #os.system(command)
+    command = f'{lbrynet} publish --name={name} --bid={bid} --file_path="{publication}" --title="{title}" --description="{description}" --channel_name={channel} --license="{license}" --license_url="{license_url}"'
+    os.system(command)
 else:
     print("\n---\nUploading thumbnail to LBRY!")
     thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_path="{thumbnail}" --title="{title}" --description="{description}"'
