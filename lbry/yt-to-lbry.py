@@ -12,11 +12,15 @@ lbrynet = "lbrynet"
 temp_dir = tempfile.TemporaryDirectory().name
 
 url = url.split("/")
-pipedapi = f"https://pipedapi.kavin.rocks/channel/{url[4]}"
-data = requests.get(pipedapi)
-json_stuff = json.loads(data.text)
-id = str(json_stuff["relatedStreams"][0]["url"]).replace("/watch?v=","")
-video_data = subprocess.getoutput(f"{downloader} --get-title --get-description --get-thumbnail https://youtube.com/watch?v={id}")
+if "channel" in url:
+    pipedapi = f"https://pipedapi.kavin.rocks/channel/{url[4]}"
+    data = requests.get(pipedapi)
+    json_stuff = json.loads(data.text)
+    id = str(json_stuff["relatedStreams"][0]["url"]).replace("/watch?v=","")
+    video_data = subprocess.getoutput(f"{downloader} --get-title --get-description --get-thumbnail https://youtube.com/watch?v={id}")
+else:
+    video_data = subprocess.getoutput(f"{downloader} --get-title --get-description --get-thumbnail https://youtube.com/watch?v={id}")
+
 video_data = video_data.splitlines()
 title = video_data[0]
 thumbnail_url = video_data[1].replace("hqdefault","maxresdefault")
