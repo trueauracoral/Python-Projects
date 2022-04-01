@@ -16,9 +16,15 @@ pipedapi = f"https://pipedapi.kavin.rocks/channel/{url[4]}"
 data = requests.get(pipedapi)
 json_stuff = json.loads(data.text)
 id = str(json_stuff["relatedStreams"][0]["url"]).replace("/watch?v=","")
-video = requests.get("https://pipedapi.kavin.rocks/streams/"+id)
-video_json = json.loads(video.text)
-title = video_json["title"]
+video_data = subprocess.getoutput(f"{downloader} --get-title --get-description --get-thumbnail https://youtube.com/watch?v={id}")
+video_data = video_data.splitlines()
+title = video_data[0]
+thumbnail_url = video_data[1].replace("hqdefault","maxresdefault")
+thumbnail_data = requests.get(thumbnail_url)
+with open(temp_dir, 'wb') as f:
+    f.write(thumbnail_data.content)
+description = video_data[2:]
+description = '\n'.join(description)
 name_thumb = re.sub(r'[\W_]+','', str(title)) + str(123)
 name = re.sub(r'[\W_]+','', str(title))
 
@@ -51,7 +57,7 @@ This is a LBRY mirror of of this video:
 {title}
 Original YT URL (THIS IS SPYWARE): https://youtube.com/watch?v={id}
 ---
-{video_json["description"]}""")
+{description}""")
 
 print(description)
 description = description.replace("\n","\\n")
@@ -62,10 +68,6 @@ print("\n---\nYT download starting:")
 os.system(f"{downloader} https://youtube.com/watch?v={id}")
 
 print("\n---\nUploading thumbnail to LBRY!")
-thumbnail_data = requests.get(video_json["thumbnailUrl"])
-with open(temp_dir, 'wb') as f:
-    f.write(thumbnail_data.content)
-
 thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_path="{temp_dir}" --title="{title}" --description="{description}"'
 #os.system(thumbnail_command)
 thumbnail_data = subprocess.getoutput(thumbnail_command)
