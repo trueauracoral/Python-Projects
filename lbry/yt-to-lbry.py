@@ -1,4 +1,5 @@
 import requests
+import sys
 import json
 import os
 import subprocess
@@ -6,34 +7,35 @@ import re
 import tempfile
 import platform
 
-url = "https://invidio.xamh.de/channel/UCo8bcnLyZH8tBIH9V1mLgqQ"
 downloader = "yt-dlp"
 lbrynet = "lbrynet"
 temp_dir = tempfile.TemporaryDirectory().name
 
-url = url.split("/")
+url = ""
+try:
+    url = sys.argv[2]
+except:
+    while not url:
+        url = input("Searching for: ")
+split_url = url.split("/")
 if "channel" in url:
-    channel_id = url[4]
-    video_data = subprocess.getoutput(f"{downloader} --get-title --get-description --get-thumbnail --get-id https://youtube.com/channel/{channel_id} --playlist-end 1")
-    video_data = video_data.splitlines()
-    title = video_data[0]
-    id = video_data[1]
-    thumbnail_url = video_data[2].replace("hqdefault","maxresdefault")
-    thumbnail_data = requests.get(thumbnail_url)
-    with open(temp_dir, 'wb') as f:
-        f.write(thumbnail_data.content)
-    description = video_data[3:]
-    description = '\n'.join(description)
+    channel_id = split_url[4]
+    command = f"{downloader} --get-title --get-description --get-thumbnail --get-id https://youtube.com/channel/{channel_id} --playlist-end 1"
+elif "watch" in url:
+    id = split_url[3].replace("watch?v=","")
+    command = f"{downloader} --get-title --get-description --get-thumbnail --get-id https://youtube.com/watch?v={id}"
 else:
-    id = url[4]
-video_data = subprocess.getoutput(f"{downloader} --get-title --get-description --get-thumbnail https://youtube.com/watch?v={id}")
+    print("This URL isn't supported yet :(")
+    quit()
+video_data = subprocess.getoutput(command)
 video_data = video_data.splitlines()
 title = video_data[0]
-thumbnail_url = video_data[1].replace("hqdefault","maxresdefault")
+id = video_data[1]
+thumbnail_url = video_data[2].replace("hqdefault","maxresdefault")
 thumbnail_data = requests.get(thumbnail_url)
 with open(temp_dir, 'wb') as f:
     f.write(thumbnail_data.content)
-description = video_data[2:]
+description = video_data[3:]
 description = '\n'.join(description)
 name_thumb = re.sub(r'[\W_]+','', str(title)) + str(123)
 name = re.sub(r'[\W_]+','', str(title))
