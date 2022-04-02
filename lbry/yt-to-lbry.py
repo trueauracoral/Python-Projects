@@ -13,13 +13,17 @@ temp_dir = tempfile.TemporaryDirectory().name
 
 url = url.split("/")
 if "channel" in url:
-    # This is stupid reliance on the piped API because I can't figure
-    # out how to get the newest video information from a channel url
-    # using yt-dlp directly.
-    pipedapi = f"https://pipedapi.kavin.rocks/channel/{url[4]}"
-    data = requests.get(pipedapi)
-    json_stuff = json.loads(data.text)
-    id = str(json_stuff["relatedStreams"][0]["url"]).replace("/watch?v=","")
+    channel_id = url[4]
+    video_data = subprocess.getoutput(f"{downloader} --get-title --get-description --get-thumbnail --get-id https://youtube.com/channel/{channel_id} --playlist-end 1")
+    video_data = video_data.splitlines()
+    title = video_data[0]
+    id = video_data[1]
+    thumbnail_url = video_data[2].replace("hqdefault","maxresdefault")
+    thumbnail_data = requests.get(thumbnail_url)
+    with open(temp_dir, 'wb') as f:
+        f.write(thumbnail_data.content)
+    description = video_data[3:]
+    description = '\n'.join(description)
 else:
     id = url[4]
 video_data = subprocess.getoutput(f"{downloader} --get-title --get-description --get-thumbnail https://youtube.com/watch?v={id}")
