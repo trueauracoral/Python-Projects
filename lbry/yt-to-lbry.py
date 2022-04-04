@@ -11,9 +11,14 @@ downloader = "yt-dlp"
 lbrynet = "lbrynet"
 temp_dir = tempfile.TemporaryDirectory().name
 
+if subprocess.getoutput(f"{lbrynet} version") == "Could not connect to daemon. Are you sure it's running?":
+    print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
+    quit()
+
 url = ""
 try:
-    url = sys.argv[2]
+    url = sys.argv[1]
+    print(url)
 except:
     while not url:
         url = input("Searching for: ")
@@ -39,10 +44,6 @@ description = video_data[3:]
 description = '\n'.join(description)
 name_thumb = re.sub(r'[\W_]+','', str(title)) + str(123)
 name = re.sub(r'[\W_]+','', str(title))
-
-if subprocess.getoutput(f"{lbrynet} version") == "Could not connect to daemon. Are you sure it's running?":
-    print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
-    quit()
 
 channels = subprocess.getoutput(f"{lbrynet} channel list")
 json_stuff = json.loads(channels)
