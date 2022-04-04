@@ -1,7 +1,8 @@
 import requests
 import re
 
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121201 icecat/17.0.1'}
+
 query = ""
 try:
     query = sys.argv[1]
@@ -18,13 +19,20 @@ if "No results" in search_data:
     quit()
 links = re.findall('<a href="/memes/.+?">',search_data)
 for i, link in enumerate(links[15:]):
-    url = "https://knowyourmeme.com"+link.replace("<a href=\"", "").replace("\">", "")
+    url = "https://knowyourmeme.com" + link.replace("<a href=\"", "").replace("\">", "").replace("\" rel=\"nofollow","")
+    if "trending" in url:
+        break
     print(i, url)
-    if i == 15:
+
+while True:
+    try:
+        c = int(input(f"Which meme from 0-{i}: "))
+    except ValueError:
+        continue
+    else:
         break
 
-c = int(input(f"Which meme from 0-{i}: "))
-selected = "https://knowyourmeme.com"+links[c+15].replace("<a href=\"", "").replace("\">", "")
+selected = "https://knowyourmeme.com"+links[c+15].replace("<a href=\"", "").replace("\">", "").replace("\" rel=\"nofollow","")
 
 result = requests.get(selected, headers=headers)
 data = str(result.content)
@@ -32,7 +40,7 @@ data = str(result.content)
 paragraph = re.findall('<p>(.+?)</p>',data)
 cleaner = re.compile('<.*?>')
 about = re.sub(cleaner, '', paragraph[2])
-print("About: " + about)
+print("\nAbout: " + about.replace("\\'","'"))
 origin = re.sub(cleaner, '', paragraph[3])
-print("\nOrigin: " + origin)
+print("\nOrigin: " + origin.replace("\\'","'"))
 spread = re.sub(cleaner, '', paragraph[4])
