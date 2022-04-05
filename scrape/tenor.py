@@ -3,7 +3,7 @@ import re
 import tempfile
 import os
 
-image_viewer = "mspaint"
+image_viewer = "palemoon"
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121201 icecat/17.0.1'}
 
 query = ""
@@ -27,7 +27,7 @@ for i, link in enumerate(links[34:]):
     url = re.findall(r'(https?://\S+)', link)
     url = url[0].replace("\"", "")
     print(i, url)
-    if i == 11:
+    if i == 10:
         break
 
     temp_dir = tempfile.TemporaryDirectory().name
