@@ -17,14 +17,16 @@ size = str(10)
 search = f"https://g.tenor.com/v1/search?q={query}&key={key}&limit={size}"
 data = requests.get(search)
 json_stuff = json.loads(data.text)
-
-for i, x in enumerate(json_stuff["results"]):
-    print(i, x["media"][0]["mediumgif"]["url"])
-    temp_dir = tempfile.TemporaryDirectory().name
-    thumbnail_data = requests.get(x["media"][0]["mediumgif"]["url"])
-    with open(temp_dir, 'wb') as f:
-        f.write(thumbnail_data.content)
-    os.system(f"{image_viewer} {temp_dir}")
+if json_stuff["next"] == "0":
+    print("Nothing found :(")
+else:
+    for i, x in enumerate(json_stuff["results"]):
+        print(i, x["media"][0]["mediumgif"]["url"])
+        temp_dir = tempfile.TemporaryDirectory().name
+        thumbnail_data = requests.get(x["media"][0]["mediumgif"]["url"])
+        with open(temp_dir, 'wb') as f:
+            f.write(thumbnail_data.content)
+        os.system(f"{image_viewer} {temp_dir}")
 
 #c = 100000
 #while not c >= 0 or not c <= 29:
