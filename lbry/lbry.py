@@ -343,6 +343,15 @@ Original YT URL (THIS IS SPYWARE): https://youtube.com/watch?v={id}
 
     print("\n---\nLINK:\n---")
     print(f"https://spee.ch/{channel}/{name}")
+elif sys.argv[1] == "-cl" or sys.argv[1] == "--claim-list":
+    data = subprocess.getoutput(f"{lbrynet} claim list")
+    json_stuff = json.loads(data)
+    for i, pub in enumerate(json_stuff["items"]):
+        try:
+            print(i, 'lbry://'+pub["name"]+" ("+pub["value"]["stream_type"]+")"+"\n"+pub["value"]["title"])
+        except:
+            print(i, 'lbry://'+pub["name"]+" ("+pub["value"]["stream_type"]+")")
+
 elif sys.argv[1] == "-h" or sys.argv[1] == "--help":
     print('''Command:
 python lbry.py <arg>
