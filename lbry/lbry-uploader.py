@@ -57,8 +57,8 @@ title = input("Title for the publication: ")
 
 # Url
 print("---\nPressing enter will make it the title just with removed special characters.")
-url = input("Custome lbry url name: ")
-if url == "":
+name = input("Custome lbry url name: ")
+if name == "":
     name = re.sub(r'[\W_]+','', str(title))
 
 # Bid
