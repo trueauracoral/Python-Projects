@@ -8,12 +8,14 @@ import platform
 import time
 import tempfile
 
+lbrynet = "lbrynet"
+downloader = "yt-dlp"
+temp_dir = tempfile.TemporaryDirectory().name
+url = "https://invidio.xamh.de/channel/UCo8bcnLyZH8tBIH9V1mLgqQ"
+# COLORS
 bold="\033[01m"
 norm="\033[00m"
 bright_cyan="\033[45m"
-lbrynet = "lbrynet"
-downloader = "yt-dlp"
-url = "https://invidio.xamh.de/channel/UCo8bcnLyZH8tBIH9V1mLgqQ"
 
 def mini_help():
     print('''An incorrect or no argument was passed.
@@ -25,8 +27,13 @@ def mini_help():
 |   -mu         | --massupload  | Upload directory|
 |   -u          | --upload      | Upload file     |
 |   -c          | --convert     | LBC to USD      |
+|   -cl         | --claim-list  | List claims     |
 |   -h          | --help        | Full Help       |
 +---------------+---------------+-----------------+''')
+def check():
+    if subprocess.getoutput(f"{lbrynet} version") == "Could not connect to daemon. Are you sure it's running?":
+        print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
+        quit()
 
 if len(sys.argv) == 1:
     mini_help()
@@ -102,10 +109,7 @@ elif sys.argv[1] == "--upload" or sys.argv[1] == "-u":
 "Does not allow changes. Recommended for opinion pieces."]
 ]
 
-    # Check that lbry sdk is running.
-    if subprocess.getoutput(f"{lbrynet} version") == "Could not connect to daemon. Are you sure it's running?":
-        print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
-        quit()
+    check()
 
     # Channel
     channels = subprocess.getoutput(f"{lbrynet} channel list")
@@ -204,10 +208,7 @@ elif sys.argv[1] == "--massupload" or sys.argv[1] == "-mu":
         slash = "/"
     file_path = os.getcwd() + slash
 
-    if subprocess.getoutput(f"{lbrynet} version") == "Could not connect to daemon. Are you sure it's running?":
-        print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
-        quit()
-
+    check()
     channels = subprocess.getoutput(f"{lbrynet} channel list")
     json_stuff = json.loads(channels)
     for i, channel in enumerate(json_stuff["items"]):
@@ -267,22 +268,36 @@ elif sys.argv[1] == "--notifications" or sys.argv[1] == "-n":
             break
 
 elif sys.argv[1] == "--yt" or sys.argv[1] == "--y":
-    temp_dir = tempfile.TemporaryDirectory().name
-
-    url = url.split("/")
-    pipedapi = f"https://pipedapi.kavin.rocks/channel/{url[4]}"
-    data = requests.get(pipedapi)
-    json_stuff = json.loads(data.text)
-    id = str(json_stuff["relatedStreams"][0]["url"]).replace("/watch?v=","")
-    video = requests.get("https://pipedapi.kavin.rocks/streams/"+id)
-    video_json = json.loads(video.text)
-    title = video_json["title"]
+    check()
+    url = ""
+    try:
+        url = sys.argv[1]
+        print(url)
+    except:
+        while not url:
+            url = input("Searching for: ")
+    split_url = url.split("/")
+    if "channel" in url:
+        channel_id = split_url[4]
+        command = f"{downloader} --get-title --get-description --get-thumbnail --get-id https://youtube.com/channel/{channel_id} --playlist-end 1"
+    elif "watch" in url:
+        id = split_url[3].replace("watch?v=","")
+        command = f"{downloader} --get-title --get-description --get-thumbnail --get-id https://youtube.com/watch?v={id}"
+    else:
+        print("This URL isn't supported yet :(")
+        quit()
+    video_data = subprocess.getoutput(command)
+    video_data = video_data.splitlines()
+    title = video_data[0]
+    id = video_data[1]
+    thumbnail_url = video_data[2].replace("hqdefault","maxresdefault")
+    thumbnail_data = requests.get(thumbnail_url)
+    with open(temp_dir, 'wb') as f:
+        f.write(thumbnail_data.content)
+    description = video_data[3:]
+    description = '\n'.join(description)
     name_thumb = re.sub(r'[\W_]+','', str(title)) + str(123)
     name = re.sub(r'[\W_]+','', str(title))
-
-    if subprocess.getoutput(f"{lbrynet} version") == "Could not connect to daemon. Are you sure it's running?":
-        print('It looks like lbrynet has not started yet. In another terminal window/tab do "lbrynet start" and rerun this script.')
-        quit()
 
     channels = subprocess.getoutput(f"{lbrynet} channel list")
     json_stuff = json.loads(channels)
@@ -305,11 +320,11 @@ elif sys.argv[1] == "--yt" or sys.argv[1] == "--y":
         bid = str(0.1)
 
     description = (f"""---
-This is a LBRY mirror of of this video:
-{title}
-Original YT URL (THIS IS SPYWARE): https://youtube.com/watch?v={id}
----
-{video_json["description"]}""")
+    This is a LBRY mirror of of this video:
+    {title}
+    Original YT URL (THIS IS SPYWARE): https://youtube.com/watch?v={id}
+    ---
+    {description}""")
 
     print(description)
     description = description.replace("\n","\\n")
@@ -320,10 +335,6 @@ Original YT URL (THIS IS SPYWARE): https://youtube.com/watch?v={id}
     os.system(f"{downloader} https://youtube.com/watch?v={id}")
 
     print("\n---\nUploading thumbnail to LBRY!")
-    thumbnail_data = requests.get(video_json["thumbnailUrl"])
-    with open(temp_dir, 'wb') as f:
-        f.write(thumbnail_data.content)
-
     thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_path="{temp_dir}" --title="{title}" --description="{description}"'
     #os.system(thumbnail_command)
     thumbnail_data = subprocess.getoutput(thumbnail_command)
@@ -344,6 +355,7 @@ Original YT URL (THIS IS SPYWARE): https://youtube.com/watch?v={id}
     print("\n---\nLINK:\n---")
     print(f"https://spee.ch/{channel}/{name}")
 elif sys.argv[1] == "-cl" or sys.argv[1] == "--claim-list":
+    check()
     data = subprocess.getoutput(f"{lbrynet} claim list")
     json_stuff = json.loads(data)
     for i, pub in enumerate(json_stuff["items"]):
