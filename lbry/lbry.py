@@ -39,8 +39,15 @@ if len(sys.argv) == 1:
     mini_help()
 
 elif sys.argv[1] == "--search" or sys.argv[1] == "-s":
-    query = input("Searching for: ")
-    query = str(query)
+    query = ""
+    try:
+        query = sys.argv[2:]
+        query = ' '.join(query)
+        print(query)
+    except:
+        while not query:
+            query = input("Searching for: ")
+
     size = str(30)
     search = 'https://lighthouse.lbry.com/search?s=' + query + '&include=channel,channel_claim_id,title&size=' + size
     lbry = "https://lbry.ix.tc/"
@@ -271,7 +278,7 @@ elif sys.argv[1] == "--yt" or sys.argv[1] == "--y":
     check()
     url = ""
     try:
-        url = sys.argv[1]
+        url = sys.argv[2]
         print(url)
     except:
         while not url:
@@ -372,7 +379,7 @@ Search the LBRY network:
 -s or --search for lighthouse (searching), librarian api (comments)
 
 Convert LBC to USD
--c or --convert for rate.sx:
+-c or --convert for rate.sx
 
 Mass upload:
 -mu or --massupload using the LBRY sdk to mass upload all files in directory to LBRY.
