@@ -85,8 +85,6 @@ try:
 except:
     thumbnail = ""
 
-name_thumb = re.sub(r'[\W_]+','', str(title)) + str(123)
-
 # Publication
 print("---\nFinally we are at the last step!")
 publication = input("Publication file location: ")
@@ -113,7 +111,7 @@ if thumbnail == "":
     os.system(command)
 else:
     print("\n---\nUploading thumbnail to LBRY!")
-    thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_path="{thumbnail}" --title="{title}" --description="{description}"'
+    thumbnail_command = f'{lbrynet} publish --bid={bid} --file_path="{thumbnail}" --title="{title}" --description="{description}"'
     thumbnail_data = subprocess.getoutput(thumbnail_command)
     json_stuff = json.loads(thumbnail_data)
     thumbnail_url = json_stuff["outputs"][0]["permanent_url"].replace("lbry:/","https://spee.ch")
