@@ -1,25 +1,84 @@
 import sys
 import textwrap
-import json
-import requests
+import random
 
-chadoku = """
-                         ___
-                     \\__| o \\
-                     /   \\  |
-                          | |     o
-                        __| |__  //
-                       |_______|//
-                       \\_______//
+snake = """
+         \\        ___
+          \\   \\__| o \\
+              /   \\  |
+                   | |     o
+                 __| |__  //
+                |_______|//
+                \\_______//
 """
-
-if len(sys.argv) == 1:
-    print("please give an argument to print text")
+cow = """
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+                ||     ||
+"""
+tux = """
+       \\
+        \\
+            .--.
+           |o_o |
+           |:_/ |
+          //   \\ \\
+         (|     | )
+        /'\\_   _/`\\
+        \\___)=(___/
+"""
+try:
+    sys.argv[1]
+except:
+    print("ERROR: GIVE ME TEXT!")
     quit()
 if sys.argv[1] == "fortune":
+    import requests
     text = requests.get("https://helloacm.com/api/fortune/").json().replace("      "," ")
+    thing = snake
+elif sys.argv[1] == "-r":
+    rand = random.randint(1,3)
+    if rand == 1:
+        thing = snake
+    if rand == 2:
+        thing = cow
+    if rand == 3:
+        thing = tux
+    text = ' '.join(sys.argv[2:])
+    thing = snake
+elif sys.argv[1] == "-s":
+    thing = snake
+    text = ' '.join(sys.argv[2:])
+elif sys.argv[1] == "-c":
+    thing = cow
+    text = ' '.join(sys.argv[2:])
+elif sys.argv[1] == "-t":
+    thing = tux
+    text = ' '.join(sys.argv[2:])
+elif sys.argv[1] == "-h" or sys.argv[1] == "--help":
+    print("""This is a less feature rewrite of cowsay in python.
+
+python snakesay.py QUERY - make a snake say something
+
+python snakesay.py fortune - make a snake say a random fortune. Requires requests installed.
+
+python snakesay.py -r QUERY - randomly selected a tux, cow or snake will say something
+    
+python snakesay.py -t QUERY - a tux will say something
+
+python snakesay.py -s QUERY - a snake will say something
+
+python snakesay.py -c QUERY - a cow will say something""")
+    quit()
 else:
-    text = ' '.join(sys.argv[1:])
+    print("ERROR: probably you didn't give me text")
+    quit()
+    
+if text == "":
+    print("ERROR: GIVE ME TEXT!")
+    quit()
 num = len(text)
 dashes = num + 2
 if dashes > 19:
@@ -35,4 +94,5 @@ else:
     print(" " + "-"*dashes)
     print("| " + text + " |")
     print(" " + "-"*dashes)
-print(chadoku)
+
+print(thing)
