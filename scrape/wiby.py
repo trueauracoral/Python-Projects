@@ -27,7 +27,7 @@ for i, link in enumerate(links):
     url = re.findall(r'(https?://\S+)', link)
     url = url[0].split('"')[0]
     title = re.sub("<a class=\"tlink\" href=\".+?\">","",link)
-    title = title.replace("</a>","").replace("&#39;","").replace("&amp;","&")
+    title = title.replace("</a>","").replace("&#39;","'").replace("&amp;","&")
     print(i, title+"\n"+url)
     if i == 10:
         break
