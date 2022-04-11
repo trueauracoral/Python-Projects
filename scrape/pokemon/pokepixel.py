@@ -7,7 +7,7 @@ import os
 
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121201 icecat/17.0.1'}
 image_viewer = "palemoon"
-dir = "C:\\SGZ\\Pictures\\"
+dir = "C:\\SGZ_Pro\\Hobbys\\Media\\pokemon\\"
 
 database = "https://pokemondb.net/pokedex/all"
 request = requests.get(database, headers=headers)
