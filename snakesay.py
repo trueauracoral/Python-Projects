@@ -29,16 +29,18 @@ tux = """
         /'\\_   _/`\\
         \\___)=(___/
 """
+def error():
+    print("ERROR: GIVE ME TEXT!")
+    quit()
 try:
     sys.argv[1]
 except:
-    print("ERROR: GIVE ME TEXT!")
-    quit()
+    error()
 if sys.argv[1] == "fortune":
     import requests
     text = requests.get("https://helloacm.com/api/fortune/").json().replace("      "," ")
     thing = snake
-elif sys.argv[1] == "-r":
+elif sys.argv[1] == "-r" or sys.argv[1] == "-r" and sys.argv[2] == "fortune":
     rand = random.randint(1,3)
     if rand == 1:
         thing = snake
@@ -46,8 +48,11 @@ elif sys.argv[1] == "-r":
         thing = cow
     if rand == 3:
         thing = tux
-    text = ' '.join(sys.argv[2:])
-    thing = snake
+    if sys.argv[1] == "-r" and sys.argv[2] == "fortune":
+        import requests
+        text = requests.get("https://helloacm.com/api/fortune/").json().replace("      "," ")
+    else:
+        text = ' '.join(sys.argv[2:])
 elif sys.argv[1] == "-s":
     thing = snake
     text = ' '.join(sys.argv[2:])
@@ -73,12 +78,11 @@ python snakesay.py -s QUERY - a snake will say something
 python snakesay.py -c QUERY - a cow will say something""")
     quit()
 else:
-    print("ERROR: probably you didn't give me text")
-    quit()
+    thing = snake
+    text = ' '.join(sys.argv[2:])
     
 if text == "":
-    print("ERROR: GIVE ME TEXT!")
-    quit()
+    error()
 num = len(text)
 dashes = num + 2
 if dashes > 19:
