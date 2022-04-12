@@ -83,10 +83,9 @@ else:
     
 if text == "":
     error()
-num = len(text)
-dashes = num + 2
-if dashes > 19:
-    dashes = 42
+dashes = len(text) + 2
+if dashes > 30:
+    dashes = 30
     print(" " + "-"*dashes)
     text = textwrap.fill(text, dashes-2).split("\n")
     for enter in text:
