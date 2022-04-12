@@ -16,7 +16,7 @@ mv fortunes.txt usr/share/fortunes.txt
 ## Windows
 In some directory download the fortunes.txt and snakesay.py for windows script. Then search on the internet how to make the directory you installed them in your path.
 ```
-curl -o snakesay-win.py https://codeberg.org/zortazert/Python-Projects/raw/branch/main/snakesay/snakesay.py 
+curl -o snakesay-win.py https://codeberg.org/zortazert/Python-Projects/raw/branch/main/snakesay/snakesay-win.py 
 curl -o fortunes.txt https://codeberg.org/zortazert/Python-Projects/raw/branch/main/snakesay/fortunes.txt 
 ```
 # Help
