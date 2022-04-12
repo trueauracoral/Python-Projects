@@ -79,7 +79,7 @@ python snakesay.py -c QUERY - a cow will say something""")
     quit()
 else:
     thing = snake
-    text = ' '.join(sys.argv[2:])
+    text = ' '.join(sys.argv[1:])
     
 if text == "":
     error()
