@@ -1,6 +1,7 @@
 import sys
 import textwrap
 import random
+import json
 
 snake = """
          \\        ___
@@ -29,6 +30,10 @@ tux = """
         /'\\_   _/`\\
         \\___)=(___/
 """
+with open("fortunes.txt","r") as f:
+    fortunes = f.read()
+    fortunes = fortunes.splitlines()
+
 def error():
     print("ERROR: GIVE ME TEXT!")
     quit()
@@ -37,8 +42,7 @@ try:
 except:
     error()
 if sys.argv[1] == "fortune":
-    import requests
-    text = requests.get("https://helloacm.com/api/fortune/").json().replace("      "," ")
+    text = fortunes[random.randint(0,len(fortunes))]
     thing = snake
 elif sys.argv[1] == "-r" or sys.argv[1] == "-r" and sys.argv[2] == "fortune":
     rand = random.randint(1,3)
@@ -49,8 +53,7 @@ elif sys.argv[1] == "-r" or sys.argv[1] == "-r" and sys.argv[2] == "fortune":
     if rand == 3:
         thing = tux
     if sys.argv[1] == "-r" and sys.argv[2] == "fortune":
-        import requests
-        text = requests.get("https://helloacm.com/api/fortune/").json().replace("      "," ")
+        text = fortunes[random.randint(0,len(fortunes))]
     else:
         text = ' '.join(sys.argv[2:])
 elif sys.argv[1] == "-s":
