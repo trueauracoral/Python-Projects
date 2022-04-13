@@ -1,25 +1,42 @@
+import os
 import json
 browser = "palemoon"
 
-with open("text.json","r") as f:
-    text = json.loads(f.read())
+with open("settings.json","r") as f:
+    settings = json.loads(f.read())
 
 beginning = f"""
 <!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{text["title"]}</title>
-<link rel="stylesheet" href="{text["css"]}">
+<title>{settings["title"]}</title>
+<link rel="stylesheet" href="{settings["css"]}">
 </head>
 
 <body>
+
+<h1>{settings["title"]}</h1>
 """
-print(beginning)
-print(text["items"][0]["description"])
-for i, item in enumerate(text["items"]):
-    print(item)
-    print(item[i]["description"])
+files = os.listdir()
+definitions = []
+for i, file in enumerate(files):
+    if file.endswith(".json") == True:
+        if file == "settings.json":
+            break
+        print(file)
+        with open(file,"r") as f:
+            item = json.loads(f.read())
+        definition = f"""
+<h2>{item["name"]}</h2>
+<ul>
+<li><b>Definition</b>: {item["description"]}</li>
+<li><b>Quote</b>: {item["quote"]}</li>
+</ul>
+"""
+        definitions.append(definition)
+        definition = '\n'.join(definitions)
+    
 end = """
 <hr>
 <footer>
@@ -29,3 +46,7 @@ Unless otherwise noted, all content on this website is Copyright Zortazert 2021-
 </body>
 </html>
 """
+
+with open("index.html","w") as f:
+    f.write(beginning+definition+end)
+os.system(browser + " index.html")
