@@ -1,12 +1,11 @@
 import os
 import json
+
 browser = "palemoon"
 
 with open("settings.json","r") as f:
     settings = json.loads(f.read())
-
-beginning = f"""
-<!DOCTYPE html>
+beginning = f"""<!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,11 +26,10 @@ for i, file in enumerate(files):
         print(file)
         with open(file,"r") as f:
             item = json.loads(f.read())
-        definition = f"""
-<h2>{item["name"]}</h2>
+        definition = f"""<h2>{item["name"]}</h2>
 <ul>
 <li><b>Definition</b>: {item["description"]}</li>
-<li><b>Quote</b>: {item["quote"]}</li>
+<li><b>Quote</b>: "{item["quote"]}"</li>
 </ul>
 """
         definitions.append(definition)
