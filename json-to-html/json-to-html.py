@@ -21,9 +21,9 @@ beginning = f"""
 files = os.listdir()
 definitions = []
 for i, file in enumerate(files):
-    if file.endswith(".json") == True:
-        if file == "settings.json":
-            break
+    if file == "settings.json":
+        pass
+    elif file.endswith(".json") == True:
         print(file)
         with open(file,"r") as f:
             item = json.loads(f.read())
