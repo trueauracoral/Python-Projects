@@ -1,3 +1,5 @@
+import random
+import string
 import json
 import os
 import subprocess
@@ -85,8 +87,10 @@ try:
 except:
     thumbnail = ""
  	
-				
-name_thumb = re.sub(r'[\W_]+','', str(title)) + str(123)
+name_thumb = ''.join(random.choices(string.ascii_uppercase+"_-"+string.digits) for _ in range(70))
+keys = ("abcdefghijklmnopqrxtuvwsyz" + "ABCDEFGHIJKLMNOPQRXTUV" + "1234567890")
+phrase = ("".join(random.sample(keys,50)))
+print(phrase)
 
 # Publication
 print("---\nFinally we are at the last step!")
