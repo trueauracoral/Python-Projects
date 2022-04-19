@@ -1,7 +1,6 @@
 import re
 import os
 import os.path
-import requests
 
 website = "https://www.pokeflix.tv"
 downloader = "yt-dlp"
@@ -154,12 +153,13 @@ videos = '''
 
 videos = videos.splitlines()
 
-yesno = input("Try to get thumbnails (N/y): ")
+yesno = input("Try to get thumbnails needs requests (N/y): ")
 if yesno == "yes" or yesno == "Y" or yesno == "y":
     get_thumb = True
 else:
     get_thumb = False
 if get_thumb == True:
+    import requests
     if os.path.exists(folder+"thumbnails"):
         pass
     else:
