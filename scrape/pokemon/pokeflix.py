@@ -51,9 +51,9 @@ for video in videos:
     else:
         print(video)
     
- Only usefule for RAW HTML.
-data = re.findall('<a href="(.+?)">',videos)
-for link in data:
-    link = link.replace("\" class=\"btn btn-default","")
-    print("https://www.pokeflix.tv" + link)
-    os.system(f"cd {folder} && {downloader} https://www.pokeflix.tv{link}")
+# Only usefule for RAW HTML.
+#data = re.findall('<a href="(.+?)">',videos)
+#for link in data:
+#    link = link.replace("\" class=\"btn btn-default","")
+#    print("https://www.pokeflix.tv" + link)
+#    os.system(f"cd {folder} && {downloader} https://www.pokeflix.tv{link}")
