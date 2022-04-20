@@ -1,3 +1,10 @@
+# TODO:
+# - Config file
+#   - Select a main directory
+# - Based on season picked create a folder for it (thumbnail needs to match)
+# - Select individual video to download
+# - Get 9 more seasons of pokemon data
+
 import re
 import os
 import os.path
@@ -20,12 +27,19 @@ else:
         if serie.startswith("("+genpick+")"):
             genserie = serie.replace("("+genpick+") ","")
             print(genserie)
-            genserieindex = series.index(serie)
+            genserieindex = series.index(serie)+1
 seriepick = input("Series number: ")
-num = genserieindex+2-int(seriepick)
-print(num)
-print(f"Picking: {series[num].replace('('+genpick+') ','')}")
-videos = videos.splitlines()
+num = genserieindex-int(seriepick)
+final = series[num].replace('('+genpick+') ','')
+print(f"Picking: {final.replace('Pokemon: ','')}")
+final = final.replace("Pokemon: ","").replace(" & ","_").replace(" ","_")
+
+if final in locals():
+    videos = globals()[final]
+    videos = videos.splitlines()
+else:
+    print("This season isn't in the database yet...")
+    quit()
 yesno = input("Try to get thumbnails needs requests (N/y): ")
 if yesno == "yes" or yesno == "Y" or yesno == "y":
     get_thumb = True
@@ -39,8 +53,8 @@ if get_thumb == True:
         os.mkdir(folder+"thumbnails")
 
 for video in videos:
-    if get_thumb == True:
-        if video.startswith("/static"):
+    if video.startswith("/static"):
+        if get_thumb == True:
             thumbnail_data = requests.get(website+video)
             name = folder+"thumbnails\\"+video.split("/")[4]
             with open(name,"wb") as f:
