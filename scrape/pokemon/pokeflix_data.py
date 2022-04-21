@@ -30,151 +30,6 @@ Generation 1 (Kanto Region & Orange Islands)
 (1) Pokemon: Orange Island Adventures
 (1) Pokemon: Indigo League'''
 
-Black_White = '''/static/thumbnails/14-black-white/1.png
-01 - In the Shadow of Zekrom!
-/video/14-in-the-shadow-of-zekrom
-/static/thumbnails/14-black-white/2.png
-02 - Enter Iris and Axew!
-/video/14-enter-iris-and-axew
-/static/thumbnails/14-black-white/3.png
-03 - A Sandile Gusher of Change!
-/video/14-a-sandile-gusher-of-change
-/static/thumbnails/14-black-white/4.png
-04 - The Battle Club and Tepig's Choice!
-/video/14-the-battle-club-and-tepigs-choice
-/static/thumbnails/14-black-white/5.png
-05 - Triple Leaders, Team Threats!
-/video/14-triple-leaders-team-threats
-/static/thumbnails/14-black-white/6.png
-06 - Dreams by the Yard Full!
-/video/14-dreams-by-the-yard-full
-/static/thumbnails/14-black-white/7.png
-07 - Snivy Plays Hard to Catch!
-/video/14-snivy-plays-hard-to-catch
-/static/thumbnails/14-black-white/8.png
-08 - Saving Darmanitan From the Bell!
-/video/14-saving-darmanitan-from-the-bell
-/static/thumbnails/14-black-white/9.png
-09 - The Bloom Is on Axew!
-/video/14-the-bloom-is-on-axew
-/static/thumbnails/14-black-white/10.png
-10 - A Rival Battle for Club Champ!
-/video/14-a-rival-battle-for-club-champ
-/static/thumbnails/14-black-white/11.png
-11 - A Home for Dwebble!
-/video/14-a-home-for-dwebble
-/static/thumbnails/14-black-white/12.png
-12 - Here Comes the Trubbish Squad!
-/video/14-here-comes-the-trubbish-squad
-/static/thumbnails/14-black-white/13.png
-13 - Minccino-Neat and Tidy!
-/video/14-minccino-neat-and-tidy
-/static/thumbnails/14-black-white/14.png
-14 - A Night in the Nacrene City Museum!
-/video/14-a-night-in-the-nacrene-city-museum
-/static/thumbnails/14-black-white/15.png
-15 - The Battle According to Lenora!
-/video/14-the-battle-according-to-lenora
-/static/thumbnails/14-black-white/16.png
-16 - Rematch at the Nacrene Gym!
-/video/14-rematch-at-the-nacrene-gym
-/static/thumbnails/14-black-white/17.png
-17 - Scraggy-Hatched to Be Wild!
-/video/14-scraggy-hatched-to-be-wild
-/static/thumbnails/14-black-white/18.png
-18 - Sewaddle and Burgh in Pinwheel Forest!
-/video/14-sewaddle-and-burgh-in-pinwheel-forest
-/static/thumbnails/14-black-white/19.png
-19 - A Connoisseur's Revenge!
-/video/14-a-connoisseurs-revenge
-/static/thumbnails/14-black-white/20.png
-20 - Dancing With the Ducklett Trio!
-/video/14-dancing-with-the-ducklett-trio
-/static/thumbnails/14-black-white/21.png
-21 - The Lost World of Gothitelle!
-/video/14-the-lost-world-of-gothitelle
-/static/thumbnails/14-black-white/22.png
-22 - A Venipede Stampede!
-/video/14-a-venipede-stampede
-/static/thumbnails/14-black-white/23.png
-23 - Battling For The Love of Bug-Types!
-/video/14-battling-for-the-love-of-bug-types
-/static/thumbnails/14-black-white/24.png
-24 - Emolga the Irresistible!
-/video/14-emolga-the-irresistible
-/static/thumbnails/14-black-white/25.png
-25 - Emolga and the New Volt Switch!
-/video/14-emolga-and-the-new-volt-switch
-/static/thumbnails/14-black-white/26.png
-26 - Scare at the Litwick Mansion!
-/video/14-scare-at-the-litwick-mansion
-/static/thumbnails/14-black-white/27.png
-27 - The Dragon Master's Path!
-/video/14-the-dragon-masters-path
-/static/thumbnails/14-black-white/28.png
-28 - Oshawott's Lost Scalchop!
-/video/14-oshawotts-lost-scalchop
-/static/thumbnails/14-black-white/29.png
-29 - Cottonee in Love!
-/video/14-cottonee-in-love
-/static/thumbnails/14-black-white/30.png
-30 - A UFO for Elgyem!
-/video/14-a-ufo-for-elgyem
-/static/thumbnails/14-black-white/31.png
-31 - Ash and Trip's Third Battle!
-/video/14-ash-and-trips-third-battle
-/static/thumbnails/14-black-white/32.png
-32 - Facing Fear with Eyes Wide Open!
-/video/14-facing-fear-with-eyes-wide-open
-/static/thumbnails/14-black-white/33.png
-33 - Iris and Excadrill Against the Dragon Buster!
-/video/14-iris-and-excadrill-against-the-dragon-buster
-/static/thumbnails/14-black-white/34.png
-34 - Gotta Catch A Roggenrola!
-/video/14-gotta-catch-a-roggenrola
-/static/thumbnails/14-black-white/35.png
-35 - Where Did You Go, Audino?
-/video/14-where-did-you-go-audino
-/static/thumbnails/14-black-white/36.png
-36 - Archeops In The Modern World!
-/video/14-archeops-in-the-modern-world
-/static/thumbnails/14-black-white/37.png
-37 - A Fishing Connoisseur in a Fishy Competition!
-/video/14-a-fishing-connoisseur-in-a-fishy-competition
-/static/thumbnails/14-black-white/38.png
-38 - Movie Time! Zorua in "The Legend of the Pokemon Knight"!
-/video/14-movie-time-zorua-in-the-legend-of-the-pokemon-knight
-/static/thumbnails/14-black-white/39.png
-39 - Reunion Battles In Nimbasa!
-/video/14-reunion-battles-in-nimbasa
-/static/thumbnails/14-black-white/40.png
-40 - Cilan Versus Trip, Ash Versus Georgia!
-/video/14-cilan-versus-trip-ash-versus-georgia
-/static/thumbnails/14-black-white/41.png
-41 - The Club Battle Hearts of Fury: Emolga Versus Sawk!
-/video/14-the-club-battle-hearts-of-fury-emolga-versus-sawk
-/static/thumbnails/14-black-white/42.png
-42 - Club Battle Finale: A Hero's Outcome!
-/video/14-club-battle-finale-a-heros-outcome
-/static/thumbnails/14-black-white/43.png
-43 - Meowth's Scrafty Tactics!
-/video/14-meowths-scrafty-tactics
-/static/thumbnails/14-black-white/44.png
-44 - Purrloin: Sweet or Sneaky?
-/video/14-purrloin-sweet-or-sneaky
-/static/thumbnails/14-black-white/45.png
-45 - Beheeyem, Duosion, and the Dream Thief!
-/video/14-beheeyem-duosion-and-the-dream-thief
-/static/thumbnails/14-black-white/46.png
-46 - The Beartic Mountain Feud!
-/video/14-the-beartic-mountain-feud
-/static/thumbnails/14-black-white/47.png
-47 - Crisis From the Underground Up!
-/video/14-crisis-from-the-underground-up
-/static/thumbnails/14-black-white/48.png
-48 - Battle for the Underground!
-/video/14-battle-for-the-underground'''
-
 Indigo_League = '''/static/thumbnails/01-indigo-league/1.png
 01 - Pokemon - I Choose You!
 /video/01-pokemon-i-choose-you
@@ -2173,4 +2028,1463 @@ Sinnoh_League_Victors = '''
 /static/thumbnails/13-dp-sinnoh-league/34.png
 34 - Memories Are Made of Bliss!
 /video/13-memories-are-made-of-bliss
+'''
+
+Black_White = '''/static/thumbnails/14-black-white/1.png
+01 - In the Shadow of Zekrom!
+/video/14-in-the-shadow-of-zekrom
+/static/thumbnails/14-black-white/2.png
+02 - Enter Iris and Axew!
+/video/14-enter-iris-and-axew
+/static/thumbnails/14-black-white/3.png
+03 - A Sandile Gusher of Change!
+/video/14-a-sandile-gusher-of-change
+/static/thumbnails/14-black-white/4.png
+04 - The Battle Club and Tepig's Choice!
+/video/14-the-battle-club-and-tepigs-choice
+/static/thumbnails/14-black-white/5.png
+05 - Triple Leaders, Team Threats!
+/video/14-triple-leaders-team-threats
+/static/thumbnails/14-black-white/6.png
+06 - Dreams by the Yard Full!
+/video/14-dreams-by-the-yard-full
+/static/thumbnails/14-black-white/7.png
+07 - Snivy Plays Hard to Catch!
+/video/14-snivy-plays-hard-to-catch
+/static/thumbnails/14-black-white/8.png
+08 - Saving Darmanitan From the Bell!
+/video/14-saving-darmanitan-from-the-bell
+/static/thumbnails/14-black-white/9.png
+09 - The Bloom Is on Axew!
+/video/14-the-bloom-is-on-axew
+/static/thumbnails/14-black-white/10.png
+10 - A Rival Battle for Club Champ!
+/video/14-a-rival-battle-for-club-champ
+/static/thumbnails/14-black-white/11.png
+11 - A Home for Dwebble!
+/video/14-a-home-for-dwebble
+/static/thumbnails/14-black-white/12.png
+12 - Here Comes the Trubbish Squad!
+/video/14-here-comes-the-trubbish-squad
+/static/thumbnails/14-black-white/13.png
+13 - Minccino-Neat and Tidy!
+/video/14-minccino-neat-and-tidy
+/static/thumbnails/14-black-white/14.png
+14 - A Night in the Nacrene City Museum!
+/video/14-a-night-in-the-nacrene-city-museum
+/static/thumbnails/14-black-white/15.png
+15 - The Battle According to Lenora!
+/video/14-the-battle-according-to-lenora
+/static/thumbnails/14-black-white/16.png
+16 - Rematch at the Nacrene Gym!
+/video/14-rematch-at-the-nacrene-gym
+/static/thumbnails/14-black-white/17.png
+17 - Scraggy-Hatched to Be Wild!
+/video/14-scraggy-hatched-to-be-wild
+/static/thumbnails/14-black-white/18.png
+18 - Sewaddle and Burgh in Pinwheel Forest!
+/video/14-sewaddle-and-burgh-in-pinwheel-forest
+/static/thumbnails/14-black-white/19.png
+19 - A Connoisseur's Revenge!
+/video/14-a-connoisseurs-revenge
+/static/thumbnails/14-black-white/20.png
+20 - Dancing With the Ducklett Trio!
+/video/14-dancing-with-the-ducklett-trio
+/static/thumbnails/14-black-white/21.png
+21 - The Lost World of Gothitelle!
+/video/14-the-lost-world-of-gothitelle
+/static/thumbnails/14-black-white/22.png
+22 - A Venipede Stampede!
+/video/14-a-venipede-stampede
+/static/thumbnails/14-black-white/23.png
+23 - Battling For The Love of Bug-Types!
+/video/14-battling-for-the-love-of-bug-types
+/static/thumbnails/14-black-white/24.png
+24 - Emolga the Irresistible!
+/video/14-emolga-the-irresistible
+/static/thumbnails/14-black-white/25.png
+25 - Emolga and the New Volt Switch!
+/video/14-emolga-and-the-new-volt-switch
+/static/thumbnails/14-black-white/26.png
+26 - Scare at the Litwick Mansion!
+/video/14-scare-at-the-litwick-mansion
+/static/thumbnails/14-black-white/27.png
+27 - The Dragon Master's Path!
+/video/14-the-dragon-masters-path
+/static/thumbnails/14-black-white/28.png
+28 - Oshawott's Lost Scalchop!
+/video/14-oshawotts-lost-scalchop
+/static/thumbnails/14-black-white/29.png
+29 - Cottonee in Love!
+/video/14-cottonee-in-love
+/static/thumbnails/14-black-white/30.png
+30 - A UFO for Elgyem!
+/video/14-a-ufo-for-elgyem
+/static/thumbnails/14-black-white/31.png
+31 - Ash and Trip's Third Battle!
+/video/14-ash-and-trips-third-battle
+/static/thumbnails/14-black-white/32.png
+32 - Facing Fear with Eyes Wide Open!
+/video/14-facing-fear-with-eyes-wide-open
+/static/thumbnails/14-black-white/33.png
+33 - Iris and Excadrill Against the Dragon Buster!
+/video/14-iris-and-excadrill-against-the-dragon-buster
+/static/thumbnails/14-black-white/34.png
+34 - Gotta Catch A Roggenrola!
+/video/14-gotta-catch-a-roggenrola
+/static/thumbnails/14-black-white/35.png
+35 - Where Did You Go, Audino?
+/video/14-where-did-you-go-audino
+/static/thumbnails/14-black-white/36.png
+36 - Archeops In The Modern World!
+/video/14-archeops-in-the-modern-world
+/static/thumbnails/14-black-white/37.png
+37 - A Fishing Connoisseur in a Fishy Competition!
+/video/14-a-fishing-connoisseur-in-a-fishy-competition
+/static/thumbnails/14-black-white/38.png
+38 - Movie Time! Zorua in "The Legend of the Pokemon Knight"!
+/video/14-movie-time-zorua-in-the-legend-of-the-pokemon-knight
+/static/thumbnails/14-black-white/39.png
+39 - Reunion Battles In Nimbasa!
+/video/14-reunion-battles-in-nimbasa
+/static/thumbnails/14-black-white/40.png
+40 - Cilan Versus Trip, Ash Versus Georgia!
+/video/14-cilan-versus-trip-ash-versus-georgia
+/static/thumbnails/14-black-white/41.png
+41 - The Club Battle Hearts of Fury: Emolga Versus Sawk!
+/video/14-the-club-battle-hearts-of-fury-emolga-versus-sawk
+/static/thumbnails/14-black-white/42.png
+42 - Club Battle Finale: A Hero's Outcome!
+/video/14-club-battle-finale-a-heros-outcome
+/static/thumbnails/14-black-white/43.png
+43 - Meowth's Scrafty Tactics!
+/video/14-meowths-scrafty-tactics
+/static/thumbnails/14-black-white/44.png
+44 - Purrloin: Sweet or Sneaky?
+/video/14-purrloin-sweet-or-sneaky
+/static/thumbnails/14-black-white/45.png
+45 - Beheeyem, Duosion, and the Dream Thief!
+/video/14-beheeyem-duosion-and-the-dream-thief
+/static/thumbnails/14-black-white/46.png
+46 - The Beartic Mountain Feud!
+/video/14-the-beartic-mountain-feud
+/static/thumbnails/14-black-white/47.png
+47 - Crisis From the Underground Up!
+/video/14-crisis-from-the-underground-up
+/static/thumbnails/14-black-white/48.png
+48 - Battle for the Underground!
+/video/14-battle-for-the-underground'''
+
+BW_Rival_Destinies = '''
+/static/thumbnails/15-bw-rival-destinies/1.png
+01 - Enter Elesa, Electrifying Gym Leader!
+/video/15-enter-elesa-electrifying-gym-leader
+/static/thumbnails/15-bw-rival-destinies/2.png
+02 - Dazzling the Nimbasa Gym!
+/video/15-dazzling-the-nimbasa-gym
+/static/thumbnails/15-bw-rival-destinies/3.png
+03 - Lost at the Stamp Rally!
+/video/15-lost-at-the-stamp-rally
+/static/thumbnails/15-bw-rival-destinies/4.png
+04 - Ash Versus the Champion!
+/video/15-ash-versus-the-champion
+/static/thumbnails/15-bw-rival-destinies/5.png
+05 - A Maractus Musical!
+/video/15-a-maractus-musical
+/static/thumbnails/15-bw-rival-destinies/6.png
+06 - The Four Seasons of Sawsbuck!
+/video/15-the-four-seasons-of-sawsbuck
+/static/thumbnails/15-bw-rival-destinies/7.png
+07 - Scraggy and the Demanding Gothita!
+/video/15-scraggy-and-the-demanding-gothita
+/static/thumbnails/15-bw-rival-destinies/8.png
+08 - The Lonely Deino!
+/video/15-the-lonely-deino
+/static/thumbnails/15-bw-rival-destinies/9.png
+09 - The Mighty Accelguard to the Rescue!
+/video/15-the-mighty-accelguard-to-the-rescue
+/static/thumbnails/15-bw-rival-destinies/10.png
+10 - A Call for Brotherly Love!
+/video/15-a-call-for-brotherly-love
+/static/thumbnails/15-bw-rival-destinies/11.png
+11 - Stopping the Rage of Legends! Part 1
+/video/15-stopping-the-rage-of-legends-part-1
+/static/thumbnails/15-bw-rival-destinies/12.png
+12 - Stopping the Rage of Legends! Part 2
+/video/15-stopping-the-rage-of-legends-part-2
+/static/thumbnails/15-bw-rival-destinies/13.png
+13 - Battling the King of the Mines!
+/video/15-battling-the-king-of-the-mines
+/static/thumbnails/15-bw-rival-destinies/14.png
+14 - Crisis at Chargestone Cave!
+/video/15-crisis-at-chargestone-cave
+/static/thumbnails/15-bw-rival-destinies/15.png
+15 - Evolution Exchange Excitement!
+/video/15-evolution-exchange-excitement
+/static/thumbnails/15-bw-rival-destinies/16.png
+16 - Explorers of the Hero's Ruin!
+/video/15-explorers-of-the-heros-ruin
+/static/thumbnails/15-bw-rival-destinies/17.png
+17 - Battling the Bully!
+/video/15-battling-the-bully
+/static/thumbnails/15-bw-rival-destinies/18.png
+18 - Baffling the Bouffalant!
+/video/15-baffling-the-bouffalant
+/static/thumbnails/15-bw-rival-destinies/19.png
+19 - Cilan Takes Flight!
+/video/15-cilan-takes-flight
+/static/thumbnails/15-bw-rival-destinies/20.png
+20 - An Amazing Aerial Battle!
+/video/15-an-amazing-aerial-battle
+/static/thumbnails/15-bw-rival-destinies/21.png
+21 - Climbing the Tower of Success!
+/video/15-climbing-the-tower-of-success
+/static/thumbnails/15-bw-rival-destinies/22.png
+22 - The Clubsplosion Begins!
+/video/15-the-clubsplosion-begins
+/static/thumbnails/15-bw-rival-destinies/23.png
+23 - Search for the Clubultimate!
+/video/15-search-for-the-clubultimate
+/static/thumbnails/15-bw-rival-destinies/24.png
+24 - A Clubsplosion of Excitement!
+/video/15-a-clubsplosion-of-excitement
+/static/thumbnails/15-bw-rival-destinies/25.png
+25 - Commanding the Clubsplosion Crown!
+/video/15-commanding-the-clubsplosion-crown
+/static/thumbnails/15-bw-rival-destinies/26.png
+26 - Battling the Leaf Thieves!
+/video/15-battling-the-leaf-thieves
+/static/thumbnails/15-bw-rival-destinies/27.png
+27 - A Restoration Confrontation! Part 1
+/video/15-a-restoration-confrontation-part-1
+/static/thumbnails/15-bw-rival-destinies/28.png
+28 - A Restoration Confrontation! Part 2
+/video/15-a-restoration-confrontation-part-2
+/static/thumbnails/15-bw-rival-destinies/29.png
+29 - Evolution by Fire!
+/video/15-evolution-by-fire
+/static/thumbnails/15-bw-rival-destinies/30.png
+30 - Guarding the Guardian of the Mountain!
+/video/15-guarding-the-guardian-of-the-mountain
+/static/thumbnails/15-bw-rival-destinies/31.png
+31 - Caution: Icy Battle Conditions!
+/video/15-caution-icy-battle-conditions
+/static/thumbnails/15-bw-rival-destinies/32.png
+32 - Clash of the Connoisseurs!
+/video/15-clash-of-the-connoisseurs
+/static/thumbnails/15-bw-rival-destinies/33.png
+33 - Crisis at Ferroseed Research!
+/video/15-crisis-at-ferroseed-research
+/static/thumbnails/15-bw-rival-destinies/34.png
+34 - An Epic Defense Force!
+/video/15-an-epic-defense-force
+/static/thumbnails/15-bw-rival-destinies/35.png
+35 - Rocking the Virbank Gym! Part 1
+/video/15-rocking-the-virbank-gym-part-1
+/static/thumbnails/15-bw-rival-destinies/36.png
+36 - Rocking the Virbank Gym! Part 2
+/video/15-rocking-the-virbank-gym-part-2
+/static/thumbnails/15-bw-rival-destinies/37.png
+37 - All for the Love of Meloetta!
+/video/15-all-for-the-love-of-meloetta
+/static/thumbnails/15-bw-rival-destinies/38.png
+38 - Piplup, Pansage, and a Meeting of the Times!
+/video/15-piplup-pansage-and-a-meeting-of-the-times
+/static/thumbnails/15-bw-rival-destinies/39.png
+39 - Expedition to Onix Island!
+/video/15-expedition-to-onix-island
+/static/thumbnails/15-bw-rival-destinies/40.png
+40 - The Mystery of the Missing Cubchoo!
+/video/15-the-mystery-of-the-missing-cubchoo
+/static/thumbnails/15-bw-rival-destinies/41.png
+41 - Iris and the Rogue Dragonite!
+/video/15-iris-and-the-rogue-dragonite
+/static/thumbnails/15-bw-rival-destinies/42.png
+42 - Jostling for the Junior Cup!
+/video/15-jostling-for-the-junior-cup
+/static/thumbnails/15-bw-rival-destinies/43.png
+43 - Battling Authority Once Again!
+/video/15-battling-authority-once-again
+/static/thumbnails/15-bw-rival-destinies/44.png
+44 - Ash, Iris and Trip: Then There Were Three!
+/video/15-ash-iris-and-trip-then-there-were-three
+/static/thumbnails/15-bw-rival-destinies/45.png
+45 - Goodbye, Junior Cup - Hello Adventure!
+/video/15-goodbye-junior-cup-hello-adventure
+/static/thumbnails/15-bw-rival-destinies/46.png
+46 - The Road to Humilau!
+/video/15-the-road-to-humilau
+/static/thumbnails/15-bw-rival-destinies/47.png
+47 - Unrest at the Nursery!
+/video/15-unrest-at-the-nursery
+/static/thumbnails/15-bw-rival-destinies/48.png
+48 - Meloetta and the Undersea Temple!
+/video/15-meloetta-and-the-undersea-temple
+/static/thumbnails/15-bw-rival-destinies/49.png
+49 - Unova's Survival Crisis!
+/video/15-unovas-survival-crisis
+'''
+
+BW_Adventures_in_Unova = '''
+/static/thumbnails/16-bw-adventures-in-unova/1.png
+01 - Beauties Battling for Pride and Prestige!
+/video/16-beauties-battling-for-pride-and-prestige
+/static/thumbnails/16-bw-adventures-in-unova/2.png
+02 - A Surface to Air Tag Battle Team!
+/video/16-a-surface-to-air-tag-battle-team
+/static/thumbnails/16-bw-adventures-in-unova/3.png
+03 - A Village Homecoming!
+/video/16-a-village-homecoming
+/static/thumbnails/16-bw-adventures-in-unova/4.png
+04 - Drayden Versus Iris: Past, Present, and Future!
+/video/16-drayden-versus-iris-past-present-and-future
+/static/thumbnails/16-bw-adventures-in-unova/5.png
+05 - Team Eevee and the Pokemon Rescue Squad!
+/video/16-team-eevee-and-the-pokemon-rescue-squad
+/static/thumbnails/16-bw-adventures-in-unova/6.png
+06 - Curtain Up, Unova League!
+/video/16-curtain-up-unova-league
+/static/thumbnails/16-bw-adventures-in-unova/7.png
+07 - Mission: Defeat Your Rival!
+/video/16-mission-defeat-your-rival
+/static/thumbnails/16-bw-adventures-in-unova/8.png
+08 - Lost at the League!
+/video/16-lost-at-the-league
+/static/thumbnails/16-bw-adventures-in-unova/9.png
+09 - Strong Strategy Steals the Show!
+/video/16-strong-strategy-steals-the-show
+/static/thumbnails/16-bw-adventures-in-unova/10.png
+10 - Cameron's Secret Weapon!
+/video/16-camerons-secret-weapon
+/static/thumbnails/16-bw-adventures-in-unova/11.png
+11 - A Unova League Evolution!
+/video/16-a-unova-league-evolution
+/static/thumbnails/16-bw-adventures-in-unova/12.png
+12 - New Places... Familiar Faces!
+/video/16-new-places-familiar-faces
+/static/thumbnails/16-bw-adventures-in-unova/13.png
+13 - The Name's N!
+/video/16-the-names-n
+/static/thumbnails/16-bw-adventures-in-unova/14.png
+14 - There's a New Gym Leader in Town!
+/video/16-theres-a-new-gym-leader-in-town
+/static/thumbnails/16-bw-adventures-in-unova/15.png
+15 - Team Plasma's Pokemon Power Plot!
+/video/16-team-plasmas-pokemon-power-plot
+/static/thumbnails/16-bw-adventures-in-unova/16.png
+16 - The Light of Floccesy Ranch!
+/video/16-the-light-of-floccesy-ranch
+/static/thumbnails/16-bw-adventures-in-unova/17.png
+17 - Saving Braviary!
+/video/16-saving-braviary
+/static/thumbnails/16-bw-adventures-in-unova/18.png
+18 - The Pokemon Harbor Patrol!
+/video/16-the-pokemon-harbor-patrol
+/static/thumbnails/16-bw-adventures-in-unova/19.png
+19 - The Fires of a Red-Hot Reunion!
+/video/16-the-fires-of-a-red-hot-reunion
+/static/thumbnails/16-bw-adventures-in-unova/20.png
+20 - Team Plasma's Pokemon Manipulation!
+/video/16-team-plasmas-pokemon-manipulation
+/static/thumbnails/16-bw-adventures-in-unova/21.png
+21 - Secrets From Out of the Fog!
+/video/16-secrets-from-out-of-the-fog
+/static/thumbnails/16-bw-adventures-in-unova/22.png
+22 - Meowth, Colress and Team Rivalry!
+/video/16-meowth-colress-and-team-rivalry
+/static/thumbnails/16-bw-adventures-in-unova/23.png
+23 - Ash and N: A Clash of Ideals!
+/video/16-ash-and-n-a-clash-of-ideals
+/static/thumbnails/16-bw-adventures-in-unova/24.png
+24 - Team Plasma and the Awakening Ceremony!
+/video/16-team-plasma-and-the-awakening-ceremony
+/static/thumbnails/16-bw-adventures-in-unova/25.png
+25 - What Lies Beyond Truth and Ideals!
+/video/16-what-lies-beyond-truth-and-ideals
+/static/thumbnails/16-bw-adventures-in-unova/26.png
+26 - Farewell, Unova! Setting Sail for New Adventures!
+/video/16-farewell-unova-setting-sail-for-new-adventures
+/static/thumbnails/16-bw-adventures-in-unova/27.png
+27 - Danger, Sweet as Honey!
+/video/16-danger-sweet-as-honey
+/static/thumbnails/16-bw-adventures-in-unova/28.png
+28 - Cilan and the Case of the Purrloin Witness!
+/video/16-cilan-and-the-case-of-the-purrloin-witness
+/static/thumbnails/16-bw-adventures-in-unova/29.png
+29 - Crowning the Scalchop King!
+/video/16-crowning-the-scalchop-king
+/static/thumbnails/16-bw-adventures-in-unova/30.png
+30 - The Island of Illusions!
+/video/16-the-island-of-illusions
+/static/thumbnails/16-bw-adventures-in-unova/31.png
+31 - To Catch a Rotom!
+/video/16-to-catch-a-rotom
+/static/thumbnails/16-bw-adventures-in-unova/32.png
+32 - The Pirates of Decolore!
+/video/16-the-pirates-of-decolore
+/static/thumbnails/16-bw-adventures-in-unova/33.png
+33 - Butterfree and Me!
+/video/16-butterfree-and-me
+/static/thumbnails/16-bw-adventures-in-unova/34.png
+34 - The Path That Leads to Goodbye!
+/video/16-the-path-that-leads-to-goodbye
+/static/thumbnails/16-bw-adventures-in-unova/35.png
+35 - Searching for a Wish!
+/video/16-searching-for-a-wish
+/static/thumbnails/16-bw-adventures-in-unova/36.png
+36 - Capacia Island UFO!
+/video/16-capacia-island-ufo
+/static/thumbnails/16-bw-adventures-in-unova/37.png
+37 - The Journalist from Another Region!
+/video/16-the-journalist-from-another-region
+/static/thumbnails/16-bw-adventures-in-unova/38.png
+38 - Mystery on a Deserted Island!
+/video/16-mystery-on-a-deserted-island
+/static/thumbnails/16-bw-adventures-in-unova/39.png
+39 - A Pokemon of a Different Color!
+/video/16-a-pokemon-of-a-different-color
+/static/thumbnails/16-bw-adventures-in-unova/40.png
+40 - Celebrating the Hero's Comet!
+/video/16-celebrating-the-heros-comet
+/static/thumbnails/16-bw-adventures-in-unova/41.png
+41 - Go, Go Gogoat!
+/video/16-go-go-gogoat
+/static/thumbnails/16-bw-adventures-in-unova/42.png
+42 - Team Rocket's Shocking Recruit!
+/video/16-team-rockets-shocking-recruit
+/static/thumbnails/16-bw-adventures-in-unova/43.png
+43 - Survival of the Striaton Gym!
+/video/16-survival-of-the-striaton-gym
+/static/thumbnails/16-bw-adventures-in-unova/44.png
+44 - Best Wishes Until We Meet Again!
+/video/16-best-wishes-until-we-meet-again
+/static/thumbnails/16-bw-adventures-in-unova/45.png
+45 - The Dream Continues!
+/video/16-the-dream-continues
+'''
+
+XY = '''
+/static/thumbnails/17-xy/1.png
+01 - Kalos, Where Dreams and Adventures Begin!
+/video/17-kalos-where-dreams-and-adventures-begin
+/static/thumbnails/17-xy/2.png
+02 - Lumiose City Pursuit!
+/video/17-lumiose-city-pursuit
+/static/thumbnails/17-xy/3.png
+03 - A Battle of Aerial Mobility!
+/video/17-a-battle-of-aerial-mobility
+/static/thumbnails/17-xy/4.png
+04 - A Shockingly Cheeky Friendship!
+/video/17-a-shockingly-cheeky-friendship
+/static/thumbnails/17-xy/5.png
+05 - A Blustery Santalune Gym Battle!
+/video/17-a-blustery-santalune-gym-battle
+/static/thumbnails/17-xy/6.png
+06 - Battling on Thin Ice!
+/video/17-battling-on-thin-ice
+/static/thumbnails/17-xy/7.png
+07 - Giving Chase at the Rhyhorn Race!
+/video/17-giving-chase-at-the-rhyhorn-race
+/static/thumbnails/17-xy/8.png
+08 - Grooming Furfrou!
+/video/17-grooming-furfrou
+/static/thumbnails/17-xy/9.png
+09 - Clemont's Got a Secret!
+/video/17-clemonts-got-a-secret
+/static/thumbnails/17-xy/10.png
+10 - Mega-Mega Meowth Madness!
+/video/17-mega-mega-meowth-madness
+/static/thumbnails/17-xy/11.png
+11 - The Bamboozling Forest!
+/video/17-the-bamboozling-forest
+/static/thumbnails/17-xy/12.png
+12 - To Catch a Pokemon Smuggler!
+/video/17-to-catch-a-pokemon-smuggler
+/static/thumbnails/17-xy/13.png
+13 - Kindergarten Chaos!
+/video/17-kindergarten-chaos
+/static/thumbnails/17-xy/14.png
+14 - Seeking Shelter From the Storm!
+/video/17-seeking-shelter-from-the-storm
+/static/thumbnails/17-xy/15.png
+15 - An Appetite for Battle!
+/video/17-an-appetite-for-battle
+/static/thumbnails/17-xy/16.png
+16 - A Jolting Switcheroo!
+/video/17-a-jolting-switcheroo
+/static/thumbnails/17-xy/17.png
+17 - A Rush of Ninja Wisdom!
+/video/17-a-rush-of-ninja-wisdom
+/static/thumbnails/17-xy/18.png
+18 - Awakening the Sleeping Giant!
+/video/17-awakening-the-sleeping-giant
+/static/thumbnails/17-xy/19.png
+19 - A Conspiracy to Conquer!
+/video/17-a-conspiracy-to-conquer
+/static/thumbnails/17-xy/20.png
+20 - Breaking Titles at the Chateau!
+/video/17-breaking-titles-at-the-chateau
+/static/thumbnails/17-xy/21.png
+21 - A PokeVision of Things to Come!
+/video/17-a-pokevision-of-things-to-come
+/static/thumbnails/17-xy/22.png
+22 - Going for the Gold!
+/video/17-going-for-the-gold
+/static/thumbnails/17-xy/23.png
+23 - Coming Back into the Cold!
+/video/17-coming-back-into-the-cold
+/static/thumbnails/17-xy/24.png
+24 - Climbing the Walls!
+/video/17-climbing-the-walls
+/static/thumbnails/17-xy/25.png
+25 - A Battle by Any Other Name!
+/video/17-a-battle-by-any-other-name
+/static/thumbnails/17-xy/26.png
+26 - To Find a Fairy Flower!
+/video/17-to-find-a-fairy-flower
+/static/thumbnails/17-xy/27.png
+27 - The Bonds of Evolution!
+/video/17-the-bonds-of-evolution
+/static/thumbnails/17-xy/28.png
+28 - Heroes - Friends and Faux Alike!
+/video/17-heroes---friends-and-faux-alike
+/static/thumbnails/17-xy/29.png
+29 - Mega Revelations!
+/video/17-mega-revelations
+/static/thumbnails/17-xy/30.png
+30 - The Cave of Trials!
+/video/17-the-cave-of-trials
+/static/thumbnails/17-xy/31.png
+31 - The Aura Storm!
+/video/17-the-aura-storm
+/static/thumbnails/17-xy/32.png
+32 - Calling from Beyond the Aura!
+/video/17-calling-from-beyond-the-aura
+/static/thumbnails/17-xy/33.png
+33 - The Bonds of Mega Evolution!
+/video/17-the-bonds-of-mega-evolution
+/static/thumbnails/17-xy/34.png
+34 - The Forest Champion!
+/video/17-the-forest-champion
+/static/thumbnails/17-xy/35.png
+35 - Battles in the Sky!
+/video/17-battles-in-the-sky
+/static/thumbnails/17-xy/36.png
+36 - The Cave of Mirrors!
+/video/17-the-cave-of-mirrors
+/static/thumbnails/17-xy/37.png
+37 - Forging Forest Friendships!
+/video/17-forging-forest-friendships
+/static/thumbnails/17-xy/38.png
+38 - Summer of Discovery!
+/video/17-summer-of-discovery
+/static/thumbnails/17-xy/39.png
+39 - Day Three Blockbusters!
+/video/17-day-three-blockbusters
+/static/thumbnails/17-xy/40.png
+40 - Foggy Pokemon Orienteering!
+/video/17-foggy-pokemon-orienteering
+/static/thumbnails/17-xy/41.png
+41 - Battling Into the Hall of Fame!
+/video/17-battling-into-the-hall-of-fame
+/static/thumbnails/17-xy/42.png
+42 - Origins of Mega Evolution!
+/video/17-origins-of-mega-evolution
+/static/thumbnails/17-xy/43.png
+43 - Showdown at the Shalour Gym!
+/video/17-showdown-at-the-shalour-gym
+/static/thumbnails/17-xy/44.png
+44 - Splitting Heirs!
+/video/17-splitting-heirs
+/static/thumbnails/17-xy/45.png
+45 - The Clumsy Crier Quiets the Chaos!
+/video/17-the-clumsy-crier-quiets-the-chaos
+/static/thumbnails/17-xy/46.png
+46 - Dreaming a Performer's Dream!
+/video/17-dreaming-a-performers-dream
+/static/thumbnails/17-xy/47.png
+47 - A Campus Reunion!
+/video/17-a-campus-reunion
+/static/thumbnails/17-xy/48.png
+48 - Bonnie for the Defense!
+/video/17-bonnie-for-the-defense
+'''
+
+XY_Kalos_Quest = '''
+/static/thumbnails/18-xy-kalos-quest/1.png
+01 - Pathways to Performance Partnering!
+/video/18-pathways-to-performance-partnering
+/static/thumbnails/18-xy-kalos-quest/2.png
+02 - When Light and Dark Collide!
+/video/18-when-light-and-dark-collide
+/static/thumbnails/18-xy-kalos-quest/3.png
+03 - An Undersea Place to Call Home!
+/video/18-an-undersea-place-to-call-home
+/static/thumbnails/18-xy-kalos-quest/4.png
+04 - A Stealthy Challenge!
+/video/18-a-stealthy-challenge
+/static/thumbnails/18-xy-kalos-quest/5.png
+05 - A Race for Home!
+/video/18-a-race-for-home
+/static/thumbnails/18-xy-kalos-quest/6.png
+06 - Facing the Grand Design!
+/video/18-facing-the-grand-design
+/static/thumbnails/18-xy-kalos-quest/7.png
+07 - A Slippery Encounter!
+/video/18-a-slippery-encounter
+/static/thumbnails/18-xy-kalos-quest/8.png
+08 - One for the Goomy!
+/video/18-one-for-the-goomy
+/static/thumbnails/18-xy-kalos-quest/9.png
+09 - Thawing an Icy Panic!
+/video/18-thawing-an-icy-panic
+/static/thumbnails/18-xy-kalos-quest/10.png
+10 - The Green, Green Grass Types of Home!
+/video/18-the-green-green-grass-types-of-home
+/static/thumbnails/18-xy-kalos-quest/11.png
+11 - Under the Pledging Tree!
+/video/18-under-the-pledging-tree
+/static/thumbnails/18-xy-kalos-quest/12.png
+12 - A Showcase Debut!
+/video/18-a-showcase-debut
+/static/thumbnails/18-xy-kalos-quest/13.png
+13 - An Oasis of Hope!
+/video/18-an-oasis-of-hope
+/static/thumbnails/18-xy-kalos-quest/14.png
+14 - The Future Is Now, Thanks to Determination!
+/video/18-the-future-is-now-thanks-to-determination
+/static/thumbnails/18-xy-kalos-quest/15.png
+15 - A Fork in the Road! A Parting of the Ways!
+/video/18-a-fork-in-the-road-a-parting-of-the-ways
+/static/thumbnails/18-xy-kalos-quest/16.png
+16 - Battling with Elegance and a Big Smile!
+/video/18-battling-with-elegance-and-a-big-smile
+/static/thumbnails/18-xy-kalos-quest/17.png
+17 - Good Friends, Great Training!
+/video/18-good-friends-great-training
+/static/thumbnails/18-xy-kalos-quest/18.png
+18 - Confronting the Darkness!
+/video/18-confronting-the-darkness
+/static/thumbnails/18-xy-kalos-quest/19.png
+19 - The Moment of Lumiose Truth!
+/video/18-the-moment-of-lumiose-truth
+/static/thumbnails/18-xy-kalos-quest/20.png
+20 - Garchomp's Mega Bond!
+/video/18-garchomps-mega-bond
+/static/thumbnails/18-xy-kalos-quest/21.png
+21 - Defending the Homeland!
+/video/18-defending-the-homeland
+/static/thumbnails/18-xy-kalos-quest/22.png
+22 - Beyond the Rainbow!
+/video/18-beyond-the-rainbow
+/static/thumbnails/18-xy-kalos-quest/23.png
+23 - So You're Having a Bad Day!
+/video/18-so-youre-having-a-bad-day
+/static/thumbnails/18-xy-kalos-quest/24.png
+24 - Scary Hospitality!
+/video/18-scary-hospitality
+/static/thumbnails/18-xy-kalos-quest/25.png
+25 - A Fashionable Battle!
+/video/18-a-fashionable-battle
+/static/thumbnails/18-xy-kalos-quest/26.png
+26 - Fairy-Type Trickery!
+/video/18-fairy-type-trickery
+/static/thumbnails/18-xy-kalos-quest/27.png
+27 - Rivals: Today and Tomorrow!
+/video/18-rivals-today-and-tomorrow
+/static/thumbnails/18-xy-kalos-quest/28.png
+28 - A Not-So-Flying Start!
+/video/18-a-not-so-flying-start
+/static/thumbnails/18-xy-kalos-quest/29.png
+29 - A Relay in the Sky!
+/video/18-a-relay-in-the-sky
+/static/thumbnails/18-xy-kalos-quest/30.png
+30 - A Frenzied Factory Fiasco!
+/video/18-a-frenzied-factory-fiasco
+/static/thumbnails/18-xy-kalos-quest/31.png
+31 - Performing with Fiery Charm!
+/video/18-performing-with-fiery-charm
+/static/thumbnails/18-xy-kalos-quest/32.png
+32 - Rotom's Wish!
+/video/18-rotoms-wish
+/static/thumbnails/18-xy-kalos-quest/33.png
+33 - A Festival Trade! A Festival Farewell?
+/video/18-a-festival-trade-a-festival-farewell
+/static/thumbnails/18-xy-kalos-quest/34.png
+34 - Over the Mountain of Snow!
+/video/18-over-the-mountain-of-snow
+/static/thumbnails/18-xy-kalos-quest/35.png
+35 - Adventures in Running Errands!
+/video/18-adventures-in-running-errands
+/static/thumbnails/18-xy-kalos-quest/36.png
+36 - Mending a Broken Spirit!
+/video/18-mending-a-broken-spirit
+/static/thumbnails/18-xy-kalos-quest/37.png
+37 - A Legendary Photo Op!
+/video/18-a-legendary-photo-op
+/static/thumbnails/18-xy-kalos-quest/38.png
+38 - The Tiny Caretaker!
+/video/18-the-tiny-caretaker
+/static/thumbnails/18-xy-kalos-quest/39.png
+39 - A Trip Down Memory Train!
+/video/18-a-trip-down-memory-train
+/static/thumbnails/18-xy-kalos-quest/40.png
+40 - A Frolicking Find in the Flowers!
+/video/18-a-frolicking-find-in-the-flowers
+/static/thumbnails/18-xy-kalos-quest/41.png
+41 - Lights! Camera! Pika!
+/video/18-lights-camera-pika
+/static/thumbnails/18-xy-kalos-quest/42.png
+42 - Tag Team Battle Inspiration!
+/video/18-tag-team-battle-inspiration
+/static/thumbnails/18-xy-kalos-quest/43.png
+43 - A Performance Pop Quiz!
+/video/18-a-performance-pop-quiz
+/static/thumbnails/18-xy-kalos-quest/44.png
+44 - Cloudy Fate, Bright Future!
+/video/18-cloudy-fate-bright-future
+/static/thumbnails/18-xy-kalos-quest/45.png
+45 - All Eyes on the Future!
+/video/18-all-eyes-on-the-future
+'''
+
+XYZ = '''
+/static/thumbnails/19-xyz/1.png
+01 - From A to Z!
+/video/19-from-a-to-z
+/static/thumbnails/19-xyz/2.png
+02 - Love Strikes! Eevee, Yikes!
+/video/19-love-strikes-eevee-yikes
+/static/thumbnails/19-xyz/3.png
+03 - A Giga Battle with Mega Results!
+/video/19-a-giga-battle-with-mega-results
+/static/thumbnails/19-xyz/4.png
+04 - A Fiery Rite of Passage!
+/video/19-a-fiery-rite-of-passage
+/static/thumbnails/19-xyz/5.png
+05 - Dream a Little Dream from Me!
+/video/19-dream-a-little-dream-from-me
+/static/thumbnails/19-xyz/6.png
+06 - The Legend of the Ninja Hero!
+/video/19-the-legend-of-the-ninja-hero
+/static/thumbnails/19-xyz/7.png
+07 - A Festival of Decisions!
+/video/19-a-festival-of-decisions
+/static/thumbnails/19-xyz/8.png
+08 - A Dancing Debut!
+/video/19-a-dancing-debut
+/static/thumbnails/19-xyz/9.png
+09 - Meeting at Terminus Cave!
+/video/19-meeting-at-terminus-cave
+/static/thumbnails/19-xyz/10.png
+10 - A Cellular Connection!
+/video/19-a-cellular-connection
+/static/thumbnails/19-xyz/11.png
+11 - A Windswept Encounter!
+/video/19-a-windswept-encounter
+/static/thumbnails/19-xyz/12.png
+12 - Party Dancecapades!
+/video/19-party-dancecapades
+/static/thumbnails/19-xyz/13.png
+13 - A Meeting of Two Journeys!
+/video/19-a-meeting-of-two-journeys
+/static/thumbnails/19-xyz/14.png
+14 - An Explosive Operation!
+/video/19-an-explosive-operation
+/static/thumbnails/19-xyz/15.png
+15 - A Watershed Moment!
+/video/19-a-watershed-moment
+/static/thumbnails/19-xyz/16.png
+16 - Master Class Choices!
+/video/19-master-class-choices
+/static/thumbnails/19-xyz/17.png
+17 - An Electrifying Rage!
+/video/19-an-electrifying-rage
+/static/thumbnails/19-xyz/18.png
+18 - Unlocking Some Respect!
+/video/19-unlocking-some-respect
+/static/thumbnails/19-xyz/19.png
+19 - Master Class is in Session!
+/video/19-master-class-is-in-session
+/static/thumbnails/19-xyz/20.png
+20 - Performing a Pathway to the Future!
+/video/19-performing-a-pathway-to-the-future
+/static/thumbnails/19-xyz/21.png
+21 - A Keeper for Keeps?
+/video/19-a-keeper-for-keeps
+/static/thumbnails/19-xyz/22.png
+22 - Battling at Full Volume!
+/video/19-battling-at-full-volume
+/static/thumbnails/19-xyz/23.png
+23 - The Synchronicity Test!
+/video/19-the-synchronicity-test
+/static/thumbnails/19-xyz/24.png
+24 - Making Friends and Influencing Villains!
+/video/19-making-friends-and-influencing-villains
+/static/thumbnails/19-xyz/25.png
+25 - Championing a Research Battle!
+/video/19-championing-a-research-battle
+/static/thumbnails/19-xyz/26.png
+26 - A Full-Strength Battle Surprise!
+/video/19-a-full-strength-battle-surprise
+/static/thumbnails/19-xyz/27.png
+27 - All Hail the Ice Battlefield!
+/video/19-all-hail-the-ice-battlefield
+/static/thumbnails/19-xyz/28.png
+28 - Seeing the Forest for the Trees!
+/video/19-seeing-the-forest-for-the-trees
+/static/thumbnails/19-xyz/29.png
+29 - A Real Icebreaker!
+/video/19-a-real-icebreaker
+/static/thumbnails/19-xyz/30.png
+30 - A Diamond in the Rough!
+/video/19-a-diamond-in-the-rough
+/static/thumbnails/19-xyz/31.png
+31 - A Gaggle of Gadget Greatness!
+/video/19-a-gaggle-of-gadget-greatness
+/static/thumbnails/19-xyz/32.png
+32 - A League of His Own!
+/video/19-a-league-of-his-own
+/static/thumbnails/19-xyz/33.png
+33 - Valuable Experience for All!
+/video/19-valuable-experience-for-all
+/static/thumbnails/19-xyz/34.png
+34 - Analysis Versus Passion!
+/video/19-analysis-versus-passion
+/static/thumbnails/19-xyz/35.png
+35 - A Riveting Rivalry!
+/video/19-a-riveting-rivalry
+/static/thumbnails/19-xyz/36.png
+36 - Kalos League Passion with a Certain Flare!
+/video/19-kalos-league-passion-with-a-certain-flare
+/static/thumbnails/19-xyz/37.png
+37 - Finals Not for the Faint-Hearted!
+/video/19-finals-not-for-the-faint-hearted
+/static/thumbnails/19-xyz/38.png
+38 - Down to the Fiery Finish!
+/video/19-down-to-the-fiery-finish
+/static/thumbnails/19-xyz/39.png
+39 - A Towering Takeover!
+/video/19-a-towering-takeover
+/static/thumbnails/19-xyz/40.png
+40 - Coming Apart at the Dreams!
+/video/19-coming-apart-at-the-dreams
+/static/thumbnails/19-xyz/41.png
+41 - The Right Hero for the Right Job!
+/video/19-the-right-hero-for-the-right-job
+/static/thumbnails/19-xyz/42.png
+42 - Rocking Kalos Defenses!
+/video/19-rocking-kalos-defenses
+/static/thumbnails/19-xyz/43.png
+43 - Forming a More Perfect Union!
+/video/19-forming-a-more-perfect-union
+/static/thumbnails/19-xyz/44.png
+44 - Battling With a Clean Slate!
+/video/19-battling-with-a-clean-slate
+/static/thumbnails/19-xyz/45.png
+45 - The First Day of the Rest of Your Life!
+/video/19-the-first-day-of-the-rest-of-your-life
+/static/thumbnails/19-xyz/46.png
+46 - Facing the Needs of the Many!
+/video/19-facing-the-needs-of-the-many
+/static/thumbnails/19-xyz/47.png
+47 - Till We Compete Again!
+/video/19-till-we-compete-again
+/static/thumbnails/19-xyz/48.png
+48 - The Legend of X, Y, and Z!
+/video/19-the-legend-of-x-y-and-z
+'''
+
+Sun_Moon = '''
+/static/thumbnails/20-sun-moon/1.png
+01 - Alola to New Adventure!
+/video/20-alola-to-new-adventure
+/static/thumbnails/20-sun-moon/2.png
+02 - The Guardian's Challenge!
+/video/20-the-guardians-challenge
+/static/thumbnails/20-sun-moon/3.png
+03 - Loading the Dex!
+/video/20-loading-the-dex
+/static/thumbnails/20-sun-moon/4.png
+04 - First Catch in Alola, Ketchum-Style!
+/video/20-first-catch-in-alola-ketchum-style
+/static/thumbnails/20-sun-moon/5.png
+05 - Yo, Ho, Ho! Go, Popplio!
+/video/20-yo-ho-ho-go-popplio
+/static/thumbnails/20-sun-moon/6.png
+06 - A Shocking Grocery Run!
+/video/20-a-shocking-grocery-run
+/static/thumbnails/20-sun-moon/7.png
+07 - That's Why the Litten is a Scamp!
+/video/20-thats-why-the-litten-is-a-scamp
+/static/thumbnails/20-sun-moon/8.png
+08 - Lillie's Egg-xhilarating Challenge!
+/video/20-lillies-egg-xhilarating-challenge
+/static/thumbnails/20-sun-moon/9.png
+09 - To Top a Totem!
+/video/20-to-top-a-totem
+/static/thumbnails/20-sun-moon/10.png
+10 - Trial and Tribulation!
+/video/20-trial-and-tribulation
+/static/thumbnails/20-sun-moon/11.png
+11 - Young Kiawe Had a Farm!
+/video/20-young-kiawe-had-a-farm
+/static/thumbnails/20-sun-moon/12.png
+12 - The Sun, the Scare, the Secret Lair!
+/video/20-the-sun-the-scare-the-secret-lair
+/static/thumbnails/20-sun-moon/13.png
+13 - Racing to a Big Event!
+/video/20-racing-to-a-big-event
+/static/thumbnails/20-sun-moon/14.png
+14 - Getting to Know You!
+/video/20-getting-to-know-you
+/static/thumbnails/20-sun-moon/15.png
+15 - Rocking Clawmark Hill!
+/video/20-rocking-clawmark-hill
+/static/thumbnails/20-sun-moon/16.png
+16 - They Might Not Be Giants!
+/video/20-they-might-not-be-giants
+/static/thumbnails/20-sun-moon/17.png
+17 - Crystal-Clear Sleuthing!
+/video/20-crystal-clear-sleuthing
+/static/thumbnails/20-sun-moon/18.png
+18 - A Seasoned Search!
+/video/20-a-seasoned-search
+/static/thumbnails/20-sun-moon/19.png
+19 - A Guardian Rematch!
+/video/20-a-guardian-rematch
+/static/thumbnails/20-sun-moon/20.png
+20 - Partner Promises!
+/video/20-partner-promises
+/static/thumbnails/20-sun-moon/21.png
+21 - One Journey Ends, Another Begins...
+/video/20-one-journey-ends-another-begins
+/static/thumbnails/20-sun-moon/22.png
+22 - A Shivering Shovel Search!
+/video/20-a-shivering-shovel-search
+/static/thumbnails/20-sun-moon/23.png
+23 - Getting the Band Back Together!
+/video/20-getting-the-band-back-together
+/static/thumbnails/20-sun-moon/24.png
+24 - Alolan Open House!
+/video/20-alolan-open-house
+/static/thumbnails/20-sun-moon/25.png
+25 - A Team-on-Team Tussle!
+/video/20-a-team-on-team-tussle
+/static/thumbnails/20-sun-moon/26.png
+26 - So Long, Sophocles!
+/video/20-so-long-sophocles
+/static/thumbnails/20-sun-moon/27.png
+27 - A Glaring Rivalry!
+/video/20-a-glaring-rivalry
+/static/thumbnails/20-sun-moon/28.png
+28 - Pulling Out the Pokemon Base Pepper!
+/video/20-pulling-out-the-pokemon-base-pepper
+/static/thumbnails/20-sun-moon/29.png
+29 - Lulled to La-La Land!
+/video/20-lulled-to-la-la-land
+/static/thumbnails/20-sun-moon/30.png
+30 - The Ol' Raise and Switch!
+/video/20-the-ol-raise-and-switch
+/static/thumbnails/20-sun-moon/31.png
+31 - The Island Whisperer!
+/video/20-the-island-whisperer
+/static/thumbnails/20-sun-moon/32.png
+32 - Treasure Hunt, Akala Style!
+/video/20-treasure-hunt-akala-style
+/static/thumbnails/20-sun-moon/33.png
+33 - Big Sky, Small Fry!
+/video/20-big-sky-small-fry
+/static/thumbnails/20-sun-moon/34.png
+34 - A Crowning Moment of Truth!
+/video/20-a-crowning-moment-of-truth
+/static/thumbnails/20-sun-moon/35.png
+35 - Currying Favor and Flavor!
+/video/20-currying-favor-and-flavor
+/static/thumbnails/20-sun-moon/36.png
+36 - Trials and Determinations!
+/video/20-trials-and-determinations
+/static/thumbnails/20-sun-moon/37.png
+37 - Rising from the Ruins!
+/video/20-rising-from-the-ruins
+/static/thumbnails/20-sun-moon/38.png
+38 - Mimikyu Unmasked!
+/video/20-mimikyu-unmasked
+/static/thumbnails/20-sun-moon/39.png
+39 - Mallow and the Forest Teacher!
+/video/20-mallow-and-the-forest-teacher
+/static/thumbnails/20-sun-moon/40.png
+40 - Balloons, Brionne, and Belligerence!
+/video/20-balloons-brionne-and-belligerence
+/static/thumbnails/20-sun-moon/41.png
+41 - Mounting an Electrifying Charge!
+/video/20-mounting-an-electrifying-charge
+/static/thumbnails/20-sun-moon/42.png
+42 - Alola, Kanto!
+/video/20-alola-kanto
+/static/thumbnails/20-sun-moon/43.png
+43 - When Regions Collide!
+/video/20-when-regions-collide
+'''
+
+Sun_Moon_Ultra_Adventures = '''
+/static/thumbnails/21-sun-moon-ultra-adventures/1.png
+01 - A Dream Encounter!
+/video/21-a-dream-encounter
+/static/thumbnails/21-sun-moon-ultra-adventures/2.png
+02 - Now You See Them, Now You Don't!
+/video/21-now-you-see-them-now-you-dont
+/static/thumbnails/21-sun-moon-ultra-adventures/3.png
+03 - Deceiving Appearances!
+/video/21-deceiving-appearances
+/static/thumbnails/21-sun-moon-ultra-adventures/4.png
+04 - A Masked Warning!
+/video/21-a-masked-warning
+/static/thumbnails/21-sun-moon-ultra-adventures/5.png
+05 - Night of a Thousand Poses!
+/video/21-night-of-a-thousand-poses
+/static/thumbnails/21-sun-moon-ultra-adventures/6.png
+06 - Mission: Total Recall!
+/video/21-mission-total-recall
+/static/thumbnails/21-sun-moon-ultra-adventures/7.png
+07 - Faba's Revenge!
+/video/21-fabas-revenge
+/static/thumbnails/21-sun-moon-ultra-adventures/8.png
+08 - Family Determination!
+/video/21-family-determination
+/static/thumbnails/21-sun-moon-ultra-adventures/9.png
+09 - Revealing the Stuff of Legend!
+/video/21-revealing-the-stuff-of-legend
+/static/thumbnails/21-sun-moon-ultra-adventures/10.png
+10 - Rescuing the Unwilling!
+/video/21-rescuing-the-unwilling
+/static/thumbnails/21-sun-moon-ultra-adventures/11.png
+11 - 10,000,000 Reasons to Fight!
+/video/21-10000000-reasons-to-fight
+/static/thumbnails/21-sun-moon-ultra-adventures/12.png
+12 - The Professors' New Adventure!
+/video/21-the-professors-new-adventure
+/static/thumbnails/21-sun-moon-ultra-adventures/13.png
+13 - Let Sleeping Pokemon Lie!
+/video/21-let-sleeping-pokemon-lie
+/static/thumbnails/21-sun-moon-ultra-adventures/14.png
+14 - The Dex Can't Help It!
+/video/21-the-dex-cant-help-it
+/static/thumbnails/21-sun-moon-ultra-adventures/15.png
+15 - Fighting Back the Tears!
+/video/21-fighting-back-the-tears
+/static/thumbnails/21-sun-moon-ultra-adventures/16.png
+16 - Tasting the Bitter with the Sweet!
+/video/21-tasting-the-bitter-with-the-sweet
+/static/thumbnails/21-sun-moon-ultra-adventures/17.png
+17 - Getting a Jump on the Competition!
+/video/21-getting-a-jump-on-the-competition
+/static/thumbnails/21-sun-moon-ultra-adventures/18.png
+18 - A Mission of Ultra Urgency!
+/video/21-a-mission-of-ultra-urgency
+/static/thumbnails/21-sun-moon-ultra-adventures/19.png
+19 - Acting True to Form!
+/video/21-acting-true-to-form
+/static/thumbnails/21-sun-moon-ultra-adventures/20.png
+20 - Pushing the Fiery Envelope!
+/video/21-pushing-the-fiery-envelope
+/static/thumbnails/21-sun-moon-ultra-adventures/21.png
+21 - Satoshi and Nagetukesaru! Touchdown of Friendship!!
+/video/21-satoshi-and-nagetukesaru-touchdown-of-friendship
+/static/thumbnails/21-sun-moon-ultra-adventures/22.png
+22 - Turning Heads and Training Hard!
+/video/21-turning-heads-and-training-hard
+/static/thumbnails/21-sun-moon-ultra-adventures/23.png
+23 - Smashing with Sketch!
+/video/21-smashing-with-sketch
+/static/thumbnails/21-sun-moon-ultra-adventures/24.png
+24 - Love at First Twirl!
+/video/21-love-at-first-twirl
+/static/thumbnails/21-sun-moon-ultra-adventures/25.png
+25 - Real Life...Inquire Within!
+/video/21-real-life-inquire-within
+/static/thumbnails/21-sun-moon-ultra-adventures/26.png
+26 - Rise and Shine, Starship!
+/video/21-rise-and-shine-starship
+/static/thumbnails/21-sun-moon-ultra-adventures/27.png
+27 - The Young Flame Strikes Back!
+/video/21-the-young-flame-strikes-back
+/static/thumbnails/21-sun-moon-ultra-adventures/28.png
+28 - Dewpider Ascending!
+/video/21-dewpider-ascending
+/static/thumbnails/21-sun-moon-ultra-adventures/29.png
+29 - Sours for the Sweet!
+/video/21-sours-for-the-sweet
+/static/thumbnails/21-sun-moon-ultra-adventures/30.png
+30 - Why Not Give Me a Z-Ring Sometime?
+/video/21-why-not-give-me-a-z-ring-sometime
+/static/thumbnails/21-sun-moon-ultra-adventures/31.png
+31 - Tough Guy Trials!
+/video/21-tough-guy-trials
+/static/thumbnails/21-sun-moon-ultra-adventures/32.png
+32 - Some Kind of Laziness!
+/video/21-some-kind-of-laziness
+/static/thumbnails/21-sun-moon-ultra-adventures/33.png
+33 - A Battle Hand-Off!
+/video/21-a-battle-hand-off
+/static/thumbnails/21-sun-moon-ultra-adventures/34.png
+34 - Guiding an Awakening!
+/video/21-guiding-an-awakening
+/static/thumbnails/21-sun-moon-ultra-adventures/35.png
+35 - Twirling with a Bang!
+/video/21-twirling-with-a-bang
+/static/thumbnails/21-sun-moon-ultra-adventures/36.png
+36 - Showering the World with Love!
+/video/21-showering-the-world-with-love
+/static/thumbnails/21-sun-moon-ultra-adventures/37.png
+37 - Not Caving Under Pressure!
+/video/21-not-caving-under-pressure
+/static/thumbnails/21-sun-moon-ultra-adventures/38.png
+38 - A Young Royal Flame Ignites!
+/video/21-a-young-royal-flame-ignites
+/static/thumbnails/21-sun-moon-ultra-adventures/39.png
+39 - All They Want to Do is Dance Dance!
+/video/21-all-they-want-to-do-is-dance-dance
+/static/thumbnails/21-sun-moon-ultra-adventures/40.png
+40 - Dummy, You Shrunk the Kids!
+/video/21-dummy-you-shrunk-the-kids
+/static/thumbnails/21-sun-moon-ultra-adventures/41.png
+41 - The Shape of Love to Come!
+/video/21-the-shape-of-love-to-come
+/static/thumbnails/21-sun-moon-ultra-adventures/42.png
+42 - The Long Vault Home!
+/video/21-the-long-vault-home
+/static/thumbnails/21-sun-moon-ultra-adventures/43.png
+43 - I Choose Paradise!
+/video/21-i-choose-paradise
+/static/thumbnails/21-sun-moon-ultra-adventures/44.png
+44 - Filling the Light with Darkness!
+/video/21-filling-the-light-with-darkness
+/static/thumbnails/21-sun-moon-ultra-adventures/45.png
+45 - Full Moon and Many Arms!
+/video/21-full-moon-and-many-arms
+/static/thumbnails/21-sun-moon-ultra-adventures/46.png
+46 - The Prism Between Light and Darkness!
+/video/21-the-prism-between-light-and-darkness
+/static/thumbnails/21-sun-moon-ultra-adventures/47.png
+47 - Securing the Future!
+/video/21-securing-the-future
+/static/thumbnails/21-sun-moon-ultra-adventures/48.png
+48 - A Plethora of Pikachu!
+/video/21-a-plethora-of-pikachu
+/static/thumbnails/21-sun-moon-ultra-adventures/49.png
+49 - Turning the Other Mask!
+/video/21-turning-the-other-mask
+'''
+
+Sun_Moon_Ultra_Legends = '''
+/static/thumbnails/22-sun-moon-ultra-legends/1.png
+01 - Lillier and the Staff!
+/video/22-lillier-and-the-staff
+/static/thumbnails/22-sun-moon-ultra-legends/2.png
+02 - A Haunted House for Everyone!
+/video/22-a-haunted-house-for-everyone
+/static/thumbnails/22-sun-moon-ultra-legends/3.png
+03 - Sparking Confusion!
+/video/22-sparking-confusion
+/static/thumbnails/22-sun-moon-ultra-legends/4.png
+04 - Don't Ignore the Small Stufful!
+/video/22-dont-ignore-the-small-stufful
+/static/thumbnails/22-sun-moon-ultra-legends/5.png
+05 - No Stone Unturned!
+/video/22-no-stone-unturned
+/static/thumbnails/22-sun-moon-ultra-legends/6.png
+06 - Bright Lights, Big Changes!
+/video/22-bright-lights-big-changes
+/static/thumbnails/22-sun-moon-ultra-legends/7.png
+07 - We Know Where You're Going, Eevee!
+/video/22-we-know-where-youre-going-eevee
+/static/thumbnails/22-sun-moon-ultra-legends/8.png
+08 - Battling the Beast Within!
+/video/22-battling-the-beast-within
+/static/thumbnails/22-sun-moon-ultra-legends/9.png
+09 - Parallel Friendships!
+/video/22-parallel-friendships
+/static/thumbnails/22-sun-moon-ultra-legends/10.png
+10 - Alola, Alola!
+/video/22-alola-alola
+/static/thumbnails/22-sun-moon-ultra-legends/11.png
+11 - Heart of Fire! Heart of Stone!
+/video/22-heart-of-fire-heart-of-stone
+/static/thumbnails/22-sun-moon-ultra-legends/12.png
+12 - That's Some Spicy Island Research!
+/video/22-thats-some-spicy-island-research
+/static/thumbnails/22-sun-moon-ultra-legends/13.png
+13 - Showdown on Poni Island!
+/video/22-showdown-on-poni-island
+/static/thumbnails/22-sun-moon-ultra-legends/14.png
+14 - Evolving Research!
+/video/22-evolving-research
+/static/thumbnails/22-sun-moon-ultra-legends/15.png
+15 - Run, Heroes, Run!
+/video/22-run-heroes-run
+/static/thumbnails/22-sun-moon-ultra-legends/16.png
+16 - Memories in the Mist!
+/video/22-memories-in-the-mist
+/static/thumbnails/22-sun-moon-ultra-legends/17.png
+17 - A Grand Debut!
+/video/22-a-grand-debut
+/static/thumbnails/22-sun-moon-ultra-legends/18.png
+18 - Keeping Your Eyes on the Ball!
+/video/22-keeping-your-eyes-on-the-ball
+/static/thumbnails/22-sun-moon-ultra-legends/19.png
+19 - Show Me the Metal!
+/video/22-show-me-the-metal
+/static/thumbnails/22-sun-moon-ultra-legends/20.png
+20 - Got Meltan?
+/video/22-got-meltan
+/static/thumbnails/22-sun-moon-ultra-legends/21.png
+21 - This Magik Moment!
+/video/22-this-magik-moment
+/static/thumbnails/22-sun-moon-ultra-legends/22.png
+22 - Beauty is Only Crystal Deep!
+/video/22-beauty-is-only-crystal-deep
+/static/thumbnails/22-sun-moon-ultra-legends/23.png
+23 - The Dealer of Destruction!
+/video/22-the-dealer-of-destruction
+/static/thumbnails/22-sun-moon-ultra-legends/24.png
+24 - The Secret Princess!
+/video/22-the-secret-princess
+/static/thumbnails/22-sun-moon-ultra-legends/25.png
+25 - Drawn with the Wind!
+/video/22-drawn-with-the-wind
+/static/thumbnails/22-sun-moon-ultra-legends/26.png
+26 - Aiming for the Top Floor!
+/video/22-aiming-for-the-top-floor
+/static/thumbnails/22-sun-moon-ultra-legends/27.png
+27 - A High-Speed Awakening!
+/video/22-a-high-speed-awakening
+/static/thumbnails/22-sun-moon-ultra-legends/28.png
+28 - The One That Didn't Get Away!
+/video/22-the-one-that-didnt-get-away
+/static/thumbnails/22-sun-moon-ultra-legends/29.png
+29 - A Recipe for Success!
+/video/22-a-recipe-for-success
+/static/thumbnails/22-sun-moon-ultra-legends/30.png
+30 - Spying for the Big Guy!
+/video/22-spying-for-the-big-guy
+/static/thumbnails/22-sun-moon-ultra-legends/31.png
+31 - A Fiery Training Camp Trick!
+/video/22-a-fiery-training-camp-trick
+/static/thumbnails/22-sun-moon-ultra-legends/32.png
+32 - Living on the Cutting Edge!
+/video/22-living-on-the-cutting-edge
+/static/thumbnails/22-sun-moon-ultra-legends/33.png
+33 - A Timeless Encounter!
+/video/22-a-timeless-encounter
+/static/thumbnails/22-sun-moon-ultra-legends/34.png
+34 - Pikachu's Exciting Adventure!
+/video/22-pikachus-exciting-adventure
+/static/thumbnails/22-sun-moon-ultra-legends/35.png
+35 - Chasing Memories, Creating Dreams!
+/video/22-chasing-memories-creating-dreams
+/static/thumbnails/22-sun-moon-ultra-legends/36.png
+36 - League Offenders and Defenders!
+/video/22-league-offenders-and-defenders
+/static/thumbnails/22-sun-moon-ultra-legends/37.png
+37 - Battle Royal 151!
+/video/22-battle-royal-151
+/static/thumbnails/22-sun-moon-ultra-legends/38.png
+38 - Battling Besties!
+/video/22-battling-besties
+/static/thumbnails/22-sun-moon-ultra-legends/39.png
+39 - The Battlefield of Truth and Love!
+/video/22-the-battlefield-of-truth-and-love
+/static/thumbnails/22-sun-moon-ultra-legends/40.png
+40 - Imitation Is the Sincerest Form of Strategy!
+/video/22-imitation-is-the-sincerest-form-of-strategy
+/static/thumbnails/22-sun-moon-ultra-legends/41.png
+41 - Battling on the Wing!
+/video/22-battling-on-the-wing
+/static/thumbnails/22-sun-moon-ultra-legends/42.png
+42 - The Road to the Semifinals!
+/video/22-the-road-to-the-semifinals
+/static/thumbnails/22-sun-moon-ultra-legends/43.png
+43 - The Final Four!
+/video/22-the-final-four
+/static/thumbnails/22-sun-moon-ultra-legends/44.png
+44 - Getting Down to The Ire!
+/video/22-getting-down-to-the-ire
+/static/thumbnails/22-sun-moon-ultra-legends/45.png
+45 - The Wisdom Not to Run!a_Z
+/video/22-the-wisdom-not-to-run
+/static/thumbnails/22-sun-moon-ultra-legends/46.png
+46 - Final Rivals!
+/video/22-final-rivals
+/static/thumbnails/22-sun-moon-ultra-legends/47.png
+47 - Enter the Champion!
+/video/22-enter-the-champion
+/static/thumbnails/22-sun-moon-ultra-legends/48.png
+48 - Z-Move Showdown!
+/video/22-z-move-showdown
+/static/thumbnails/22-sun-moon-ultra-legends/49.png
+49 - Exhibition Unmasked!
+/video/22-exhibition-unmasked
+/static/thumbnails/22-sun-moon-ultra-legends/50.png
+50 - A Full Battle Bounty!
+/video/22-a-full-battle-bounty
+/static/thumbnails/22-sun-moon-ultra-legends/51.png
+51 - Fiery Surprises!
+/video/22-fiery-surprises
+/static/thumbnails/22-sun-moon-ultra-legends/52.png
+52 - From Z to Shining Z!
+/video/22-from-z-to-shining-z
+/static/thumbnails/22-sun-moon-ultra-legends/53.png
+53 - Dreaming of the Sun and Moon!
+/video/22-dreaming-of-the-sun-and-moon
+/static/thumbnails/22-sun-moon-ultra-legends/54.png
+54 - Thank You, Alola! The Journey Continues!
+/video/22-thank-you-alola-the-journey-continues
+'''
+
+Journeys = '''
+/static/thumbnails/23-journeys/1.png
+01 - Enter Pikachu!
+/video/23-enter-pikachu
+/static/thumbnails/23-journeys/2.png
+02 - Legend? Go! Friends? Go!
+/video/23-legend-go-friends-go
+/static/thumbnails/23-journeys/3.png
+03 - Ivysaur's Mysterious Tower!
+/video/23-ivysaurs-mysterious-tower
+/static/thumbnails/23-journeys/4.png
+04 - Settling the Scorbunny!
+/video/23-settling-the-scorbunny
+/static/thumbnails/23-journeys/5.png
+05 - Mind-Boggling Dynamax!
+/video/23-mind-boggling-dynamax
+/static/thumbnails/23-journeys/6.png
+06 - Working My Way Back to Mew!
+/video/23-working-my-way-back-to-mew
+/static/thumbnails/23-journeys/7.png
+07 - Serving Up the Flute Cup!
+/video/23-serving-up-the-flute-cup
+/static/thumbnails/23-journeys/8.png
+08 - The Sinnoh Iceberg Race!
+/video/23-the-sinnoh-iceberg-race
+/static/thumbnails/23-journeys/9.png
+09 - Finding a Legend!
+/video/23-finding-a-legend
+/static/thumbnails/23-journeys/10.png
+10 - A Test in Paradise!
+/video/23-a-test-in-paradise
+/static/thumbnails/23-journeys/11.png
+11 - Best Friend...Worst Nightmare!
+/video/23-best-friend-worst-nightmare
+/static/thumbnails/23-journeys/12.png
+12 - Flash of the Titans!
+/video/23-flash-of-the-titans
+/static/thumbnails/23-journeys/13.png
+13 - The Climb to Be the Very Best!
+/video/23-the-climb-to-be-the-very-best
+/static/thumbnails/23-journeys/14.png
+14 - Raid Battle in The Ruins!
+/video/23-raid-battle-in-the-ruins
+/static/thumbnails/23-journeys/15.png
+15 - A Snow Day for Searching!
+/video/23-a-snow-day-for-searching
+/static/thumbnails/23-journeys/16.png
+16 - A Chilling Curse!
+/video/23-a-chilling-curse
+/static/thumbnails/23-journeys/17.png
+17 - Kicking It from Here Into Tomorrow!
+/video/23-kicking-it-from-here-into-tomorrow
+/static/thumbnails/23-journeys/18.png
+18 - Destination: Coronation!
+/video/23-destination-coronation
+/static/thumbnails/23-journeys/19.png
+19 - A Talent for Imitation!
+/video/23-a-talent-for-imitation
+/static/thumbnails/23-journeys/20.png
+20 - Dreams Are Made of These!
+/video/23-dreams-are-made-of-these
+/static/thumbnails/23-journeys/21.png
+21 - Caring for a Mystery!
+/video/23-caring-for-a-mystery
+/static/thumbnails/23-journeys/22.png
+22 - Goodbye, Friend!
+/video/23-goodbye-friend
+/static/thumbnails/23-journeys/23.png
+23 - Panic in the Park!
+/video/23-panic-in-the-park
+/static/thumbnails/23-journeys/24.png
+24 - A Little Rocket R &amp; R!
+/video/23-a-little-rocket-r-and-r
+/static/thumbnails/23-journeys/25.png
+25 - A Festival Reunion!
+/video/23-a-festival-reunion
+/static/thumbnails/23-journeys/26.png
+26 - Splash, Dash, and Smash for the Crown!
+/video/23-splash-dash-smash-for-crown
+/static/thumbnails/23-journeys/27.png
+27 - Toughing It Out!
+/video/23-toughing-it-out
+/static/thumbnails/23-journeys/28.png
+28 - Sobbing Sobble!
+/video/23-sobbing-sobble
+/static/thumbnails/23-journeys/29.png
+29 - There's a New Kid in Town!
+/video/23-theres-new-kid-in-town
+/static/thumbnails/23-journeys/30.png
+30 - Betrayed, Bothered, and Beleaguered!
+/video/23-betrayed-bothered-beleaguered
+/static/thumbnails/23-journeys/31.png
+31 - The Cuteness Quotient!
+/video/23-cuteness-quotient
+/static/thumbnails/23-journeys/32.png
+32 - Time After Time!
+/video/23-time-after-time
+/static/thumbnails/23-journeys/33.png
+33 - Trade, Borrow, and Steal!
+/video/23-trade-borrow-steal
+/static/thumbnails/23-journeys/34.png
+34 - Solitary and Menacing!
+/video/23-solitary-and-menacing
+/static/thumbnails/23-journeys/35.png
+35 - Gotta Catch a What?!
+/video/23-gotta-catch-a-what
+/static/thumbnails/23-journeys/36.png
+36 - Making Battles in the Sand!
+/video/23-making-battles-in-the-sand
+/static/thumbnails/23-journeys/37.png
+37 - That New Old Gang of Mine!
+/video/23-that-new-old-gang-of-mine
+/static/thumbnails/23-journeys/38.png
+38 - Restore and Renew!
+/video/23-restore-and-renew
+/static/thumbnails/23-journeys/39.png
+39 - Octo-Gridlock at the Gym!
+/video/23-octo-gridlock-at-the-gym
+/static/thumbnails/23-journeys/40.png
+40 - A Crackling Raid Battle!
+/video/23-a-crackling-raid-battle
+/static/thumbnails/23-journeys/41.png
+41 - Pikachu Translation Check... Up to Your Neck!
+/video/23-pikachu-translation-check-up-to-your-neck
+/static/thumbnails/23-journeys/42.png
+42 - Sword and Shield, Slumbering Weald!
+/video/23-sword-and-shield-slumbering-weald
+/static/thumbnails/23-journeys/43.png
+43 - Sword and Shield: The Darkest Day!
+/video/23-sword-and-shield-the-darkest-day
+/static/thumbnails/23-journeys/44.png
+44 - Sword and Shield: "From Here to Eternatus!"
+/video/23-sword-and-shield-from-here-to-eternatus
+/static/thumbnails/23-journeys/45.png
+45 - Sword and Shield... The Legends Awaken!
+/video/23-sword-and-shield-the-legends-awaken
+/static/thumbnails/23-journeys/46.png
+46 - Getting More Than You Battled For!
+/video/23-getting-more-than-you-battled-for
+/static/thumbnails/23-journeys/47.png
+47 - Crowning the Chow Crusher!
+/video/23-crowning-the-chow-crusher
+/static/thumbnails/23-journeys/48.png
+48 - A Close Call... Practically!
+/video/23-a-close-call-practically
 '''

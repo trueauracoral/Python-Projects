@@ -1,9 +1,9 @@
 # TODO:
 # - Config file
 #   - Select a main directory
-# - Based on season picked create a folder for it (thumbnail needs to match)
-# - Select individual video to download
-# - Get 9 more seasons of pokemon data
+# - [ ] Based on season picked create a folder for it (thumbnail needs to match)
+# - [ ] Select individual video to download
+# - [x] Get 9 more seasons of pokemon data
 
 import re
 import os
@@ -32,7 +32,7 @@ seriepick = input("Series number: ")
 num = genserieindex-int(seriepick)
 final = series[num].replace('('+genpick+') ','')
 print(f"Picking: {final.replace('Pokemon: ','')}")
-final = final.replace("Pokemon: ","").replace(" & ","_").replace(" ","_")
+final = final.replace("Pokemon: ","").replace(" & ","_").replace(" ","_").replace(":","")
 
 if final in locals():
     videos = globals()[final]
