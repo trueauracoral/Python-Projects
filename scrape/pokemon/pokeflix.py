@@ -24,41 +24,44 @@ website = config.get('CONFIG','website')
 downloader = config.get('CONFIG','downloader')
 main_folder = config.get('CONFIG','main_folder')
 
-series = series.splitlines()
-for i, gen in enumerate(series):
-    if gen.startswith("Generation "):
-        print(gen)
-try:
-    genpick = int(input("Generation number: "))
-except:
-    print("ERROR: Needs to be an ineger")
-    quit()
-if genpick <= 0 or genpick > 8:
-    print("ERROR: Has to be a number fom 1-8")
-    quit()
-else:
-    genpick = str(genpick)
-    for i, serie in enumerate(series):
-        if serie.startswith("("+genpick+")"):
-            genserie = serie.replace("("+genpick+") ","")
-            print(genserie)
-            genserieindex = series.index(serie)+1
-seriepick = int(input("Series number: "))
-if seriepick <= 0 or seriepick > 4:
-    print("ERROR: Has to be number from 1-4")
-    quit()
-num = genserieindex-seriepick
-final = series[num].replace('('+genpick+') ','')
-print(f"Picking: {final.replace('Pokemon: ','')}")
-final = final.replace("Pokemon: ","").replace(" & ","_").replace(" ","_").replace(":","")
+def picker():
+    series = series.splitlines()
+    for i, gen in enumerate(series):
+        if gen.startswith("Generation "):
+            print(gen)
+    try:
+        genpick = int(input("Generation number: "))
+    except:
+        print("ERROR: Needs to be an ineger")
+        quit()
+    if genpick <= 0 or genpick > 8:
+        print("ERROR: Has to be a number fom 1-8")
+        quit()
+    else:
+        genpick = str(genpick)
+        for i, serie in enumerate(series):
+            if serie.startswith("("+genpick+")"):
+                genserie = serie.replace("("+genpick+") ","")
+                print(genserie)
+                genserieindex = series.index(serie)+1
+    seriepick = int(input("Series number: "))
+    if seriepick <= 0 or seriepick > 4:
+        print("ERROR: Has to be number from 1-4")
+        quit()
+    num = genserieindex-seriepick
+    final = series[num].replace('('+genpick+') ','')
+    print(f"Picking: {final.replace('Pokemon: ','')}")
+    final = final.replace("Pokemon: ","").replace(" & ","_").replace(" ","_").replace(":","")
 
-if final in locals():
-    videos = globals()[final]
-    videos = videos.splitlines()
-else:
-    print("ERROR: This season isn't in the database yet...")
-    quit()
+    if final in locals():
+        videos = globals()[final]
+        videos = videos.splitlines()
+    else:
+        print("ERROR: This season isn't in the database yet...")
+        quit()
+
 if len(sys.argv) == 1:
+    picker()
     folder = main_folder+final.replace("_","-").lower()+"\\"
     print(f"Will be downloading to {folder}")
     if os.path.exists(folder):
@@ -90,6 +93,7 @@ if len(sys.argv) == 1:
         else:
             print(video)
 elif sys.argv[1] == "-v":
+    picker()
     videos = globals()[final]
     videos = videos.splitlines()
     for video in videos:
@@ -105,6 +109,7 @@ elif sys.argv[1] == "-v":
         if video.startswith(episode):
             print(f"Downloading {video}")
             os.system(f"cd {main_folder} && {downloader} {website+videos[videos.index(video)+1]}")
+
 elif sys.argv[1] == "-a":
     print("""HOLD ON!
 What your about to do is download basicly the entire pokemon series. Approxomately a terabyte and above of space once the download is finished. If you are a relatively sane computer user and lives on earth a none inhabited by pokemon planet. Please exit this script and just download episodes individually \"-v\" or download a whole season by giving no arguments to the program.""")
