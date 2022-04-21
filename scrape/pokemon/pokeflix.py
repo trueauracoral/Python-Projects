@@ -6,6 +6,16 @@
 # - [x] Based on season picked create a folder for it
 # - [x] Get 9 more seasons of pokemon data
 
+# FOR THE FUTURE:
+# - [ ] Make it so -s series, -m movies and -S specials. Gather more data for that.
+# - [ ] Download ALL THE POKEMON EPISODES!!!
+# Nice to have:
+# - [ ] batch select series or videos
+# - [ ] Ability to also use mpv on episodes or series
+# - [ ] Make all inputs idiot proof where only a correct input can be given.
+# - [ ] Do downloading without yt-dl/yt-dlp as a dependency
+# - [ ] Assign downloaded thumbnails to episodes downloaded.
+
 import re
 import os
 import os.path
