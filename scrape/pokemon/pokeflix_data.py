@@ -277,7 +277,7 @@ Indigo_League = '''/static/thumbnails/01-indigo-league/1.png
 82 - Friends to the End
 /video/01-friends-to-the-end'''
 
-Orange_Islands = '''/static/thumbnails/02-orange-islands/1.png
+Orange_Island_Adventures = '''/static/thumbnails/02-orange-islands/1.png
 01 - Pallet Party Panic
 /video/02-pallet-party-panic
 /static/thumbnails/02-orange-islands/2.png
@@ -386,7 +386,7 @@ Orange_Islands = '''/static/thumbnails/02-orange-islands/1.png
 36 - The Rivalry Revival
 /video/02-the-rivalry-revival'''
 
-Johto_Journeys = '''/static/thumbnails/03-johto-journeys/1.png
+The_Johto_Journeys = '''/static/thumbnails/03-johto-journeys/1.png
 01 - Don't Touch That 'dile
 /video/03-dont-touch-that-dile
 /static/thumbnails/03-johto-journeys/2.png
@@ -1304,7 +1304,7 @@ Advanced_Battle = '''
 /video/08-pasta-la-vista
 '''
 
-Battle_Fronteir = '''
+Battle_Frontier = '''
 /static/thumbnails/09-battle-frontier/1.png
 01 - Fear Factor Phony
 /video/09-fear-factor-phony
@@ -1925,7 +1925,7 @@ DP_Galactic_Battles = '''
 /video/12-gotta-get-a-gible
 '''
 
-Sinnoh_League_Victors = '''
+DP_Sinnoh_League_Victors = '''
 /static/thumbnails/13-dp-sinnoh-league/1.png
 01 - Regaining the Home Advantage!
 /video/13-regaining-the-home-advantage
@@ -3027,7 +3027,7 @@ Sun_Moon = '''
 /video/20-when-regions-collide
 '''
 
-Sun_Moon_Ultra_Adventures = '''
+Sun_Moon_Ultra_Adventure = '''
 /static/thumbnails/21-sun-moon-ultra-adventures/1.png
 01 - A Dream Encounter!
 /video/21-a-dream-encounter
@@ -3177,7 +3177,7 @@ Sun_Moon_Ultra_Adventures = '''
 /video/21-turning-the-other-mask
 '''
 
-Sun_Moon_Ultra_Legends = '''
+Sun_Moon_Ultra_Legend = '''
 /static/thumbnails/22-sun-moon-ultra-legends/1.png
 01 - Lillier and the Staff!
 /video/22-lillier-and-the-staff
