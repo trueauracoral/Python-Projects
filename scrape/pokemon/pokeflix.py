@@ -53,23 +53,7 @@ if final in locals():
 else:
     print("ERROR: This season isn't in the database yet...")
     quit()
-if sys.argv[1] == "-v":
-    videos = globals()[final]
-    videos = videos.splitlines()
-    for video in videos:
-        if video.startswith("/static"):
-            pass
-        elif video.startswith("/video"):
-            pass
-        else:
-            print(video)
-    print(f"Select the number of the video you want to download. e.g 01-100.\nWill be downloading to {main_folder}")
-    episode = input("Episode number: ")
-    for video in videos:
-        if video.startswith(episode):
-            print(f"Downloading {video}")
-            os.system(f"cd {main_folder} && {downloader} {website+videos[videos.index(video)+1]}")
-else:
+if len(sys.argv) == 1:
     folder = main_folder+final.replace("_","-").lower()+"\\"
     print(f"Will be downloading to {folder}")
     if os.path.exists(folder):
@@ -100,7 +84,25 @@ else:
             os.system(f"cd {folder} && {downloader} {website+video}")
         else:
             print(video)
-    
+elif sys.argv[1] == "-v":
+    videos = globals()[final]
+    videos = videos.splitlines()
+    for video in videos:
+        if video.startswith("/static"):
+            pass
+        elif video.startswith("/video"):
+            pass
+        else:
+            print(video)
+    print(f"Select the number of the video you want to download. e.g 01-100.\nWill be downloading to {main_folder}")
+    episode = input("Episode number: ")
+    for video in videos:
+        if video.startswith(episode):
+            print(f"Downloading {video}")
+            os.system(f"cd {main_folder} && {downloader} {website+videos[videos.index(video)+1]}")
+else:
+    print("ERROR")
+    quit()
 # Only usefule for RAW HTML.
 #data = re.findall('<a href="(.+?)">',videos)
 #for link in data:
