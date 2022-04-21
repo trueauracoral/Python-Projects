@@ -7,6 +7,11 @@
 # - [x] Based on season picked create a folder for it
 # - [x] Get 9 more seasons of pokemon data
 
+# Nice to have:
+# - [ ] Make all inputs idiot proof where only a correct input can be given.
+# - [ ] Do downloading without yt-dl/yt-dlp as a dependency
+# - [ ] Assign downloaded thumbnails to episodes downloaded.
+
 import re
 import os
 import os.path
@@ -100,6 +105,9 @@ elif sys.argv[1] == "-v":
         if video.startswith(episode):
             print(f"Downloading {video}")
             os.system(f"cd {main_folder} && {downloader} {website+videos[videos.index(video)+1]}")
+elif sys.argv[1] == "-a":
+    print("""HOLD ON!
+What your about to do is download basicly the entire pokemon series. Approxomately a terabyte and above of space once the download is finished. If you are a relatively sane computer user and lives on earth a none inhabited by pokemon planet. Please exit this script and just download episodes individually \"-v\" or download a whole season by giving no arguments to the program.""")
 else:
     print("ERROR")
     quit()
