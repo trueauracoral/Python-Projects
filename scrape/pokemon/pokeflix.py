@@ -1,5 +1,6 @@
 # TODO:
-# - [ ] Select individual video to download
+# - [ ] Download ALL THE POKEMON EPISODES!!!
+# - [x] Download specific episode.
 # - [x] Config file
 # - [x] Fix input errors such as putting 0 or number way too big
 # - [x] Select a main directory
@@ -9,6 +10,7 @@
 import re
 import os
 import os.path
+import sys
 from pokeflix_data import *
 from configparser import ConfigParser
 config = ConfigParser()
@@ -37,11 +39,10 @@ else:
             print(genserie)
             genserieindex = series.index(serie)+1
 seriepick = int(input("Series number: "))
-if seriepick < 0 or seriepick > 4:
+if seriepick <= 0 or seriepick > 4:
     print("ERROR: Has to be number from 1-4")
     quit()
 num = genserieindex-seriepick
-# needs some mechanism to detect bad input
 final = series[num].replace('('+genpick+') ','')
 print(f"Picking: {final.replace('Pokemon: ','')}")
 final = final.replace("Pokemon: ","").replace(" & ","_").replace(" ","_").replace(":","")
@@ -52,36 +53,53 @@ if final in locals():
 else:
     print("ERROR: This season isn't in the database yet...")
     quit()
-folder = main_folder+final.replace("_","-").lower()+"\\"
-print(f"Will be downloading to {folder}")
-if os.path.exists(folder):
-    pass
+if sys.argv[1] == "-v":
+    videos = globals()[final]
+    videos = videos.splitlines()
+    for video in videos:
+        if video.startswith("/static"):
+            pass
+        elif video.startswith("/video"):
+            pass
+        else:
+            print(video)
+    print(f"Select the number of the video you want to download. e.g 01-100.\nWill be downloading to {main_folder}")
+    episode = input("Episode number: ")
+    for video in videos:
+        if video.startswith(episode):
+            print(f"Downloading {video}")
+            os.system(f"cd {main_folder} && {downloader} {website+videos[videos.index(video)+1]}")
 else:
-    os.mkdir(folder)
-yesno = input("Try to get thumbnails needs requests (N/y): ")
-if yesno == "yes" or yesno == "Y" or yesno == "y":
-    get_thumb = True
-else:
-    get_thumb = False
-if get_thumb == True:
-    import requests
-    if os.path.exists(folder+"thumbnails"):
+    folder = main_folder+final.replace("_","-").lower()+"\\"
+    print(f"Will be downloading to {folder}")
+    if os.path.exists(folder):
         pass
     else:
-        os.mkdir(folder+"thumbnails")
-
-for video in videos:
-    if video.startswith("/static"):
-        if get_thumb == True:
-            thumbnail_data = requests.get(website+video)
-            name = folder+"thumbnails\\"+video.split("/")[4]
-            with open(name,"wb") as f:
-                f.write(thumbnail_data.content)
-            print("GETTING THUMBNAILS")
-    elif video.startswith("/video"):
-        os.system(f"cd {folder} && {downloader} {website+video}")
+        os.mkdir(folder)
+    yesno = input("Try to get thumbnails needs requests (N/y): ")
+    if yesno == "yes" or yesno == "Y" or yesno == "y":
+        get_thumb = True
     else:
-        print(video)
+        get_thumb = False
+    if get_thumb == True:
+        import requests
+        if os.path.exists(folder+"thumbnails"):
+            pass
+        else:
+            os.mkdir(folder+"thumbnails")
+
+    for video in videos:
+        if video.startswith("/static"):
+            if get_thumb == True:
+                thumbnail_data = requests.get(website+video)
+                name = folder+"thumbnails\\"+video.split("/")[4]
+                with open(name,"wb") as f:
+                    f.write(thumbnail_data.content)
+                print("GETTING THUMBNAILS")
+        elif video.startswith("/video"):
+            os.system(f"cd {folder} && {downloader} {website+video}")
+        else:
+            print(video)
     
 # Only usefule for RAW HTML.
 #data = re.findall('<a href="(.+?)">',videos)
