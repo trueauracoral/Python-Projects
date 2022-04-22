@@ -87,10 +87,8 @@ try:
 except:
     thumbnail = ""
  	
-name_thumb = ''.join(random.choices(string.ascii_uppercase+"_-"+string.digits) for _ in range(70))
 keys = ("abcdefghijklmnopqrxtuvwsyz" + "ABCDEFGHIJKLMNOPQRXTUV" + "1234567890")
-phrase = ("".join(random.sample(keys,50)))
-print(phrase)
+name_thumb = ("".join(random.sample(keys,50)))
 
 # Publication
 print("---\nFinally we are at the last step!")
@@ -114,16 +112,18 @@ license_url = licenses[l][1]
 
 if thumbnail == "":
     print("---\nUploading puplication to LBRY!\n---")
-    command = f'{lbrynet} publish --name={name} --bid={bid} --file_path="{publication}" --title="{title}" --description="{description}" --channel_name={channel} --license="{license}" --license_url="{license_url}"'
+    command = f'{lbrynet} publish --name="{name}" --bid={bid} --file_path="{publication}" --title="{title}" --description="{description}" --channel_name={channel} --license="{license}" --license_url="{license_url}"'
     os.system(command)
 else:
     print("\n---\nUploading thumbnail to LBRY!")
-    thumbnail_command = f'{lbrynet} publish --name={name_thumb} --bid={bid} --file_path="{thumbnail}" --title="{title}" --description="{description}"'
+    thumbnail_command = f'{lbrynet} publish --name="{name_thumb}" --bid={bid} --file_path="{thumbnail}" --title="{title}" --description="{description}"'
+    print(thumbnail_command)
     thumbnail_data = subprocess.getoutput(thumbnail_command)
     json_stuff = json.loads(thumbnail_data)
     thumbnail_url = json_stuff["outputs"][0]["permanent_url"].replace("lbry:/","https://spee.ch")
     print("\n---\nUploading puplication to LBRY!\n---")
     command = f'{lbrynet} publish --name={name} --bid={bid} --file_path="{publication}" --title="{title}" --description="{description}" --channel_name={channel} --thumbnail="{thumbnail_url}" --license="{license}" --license_url="{license_url}"'
+    print(command)
     os.system(command)
 
 print("\n---\nLINK:\n---")
