@@ -1,0 +1,478 @@
+<div class="container">
+		<center>
+			<div id="vortexBanner" onclick="window.open('https://www.pokemon-vortex.com/?ref=pokeflix','mywindow');" style="cursor: pointer;"></div>
+					</center>
+		<div class="page-header">
+        	<h2>Diamond and Pearl: Battle Dimension</h2>
+        </div>
+        <div class="row">
+			<div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/1.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>01 - Tears for Fears!</h4>
+                        <p class="desc">816,957 Views</p>
+                        <p><a href="/video/11-tears-for-fears" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/2.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>02 - Once There Were Greenfields</h4>
+                        <p class="desc">475,492 Views</p>
+                        <p><a href="/video/11-once-there-were-greenfields" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/3.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>03 - Throwing the Track Switch</h4>
+                        <p class="desc">556,042 Views</p>
+                        <p><a href="/video/11-throwing-the-track-switch" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/4.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>04 - The Keystone Pops!</h4>
+                        <p class="desc">444,477 Views</p>
+                        <p><a href="/video/11-the-keystone-pops" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/5.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>05 - Bibarel Gnaws Best!</h4>
+                        <p class="desc">354,187 Views</p>
+                        <p><a href="/video/11-bibarel-gnaws-best" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/6.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>06 - Nosing 'Round the Mountain</h4>
+                        <p class="desc">318,410 Views</p>
+                        <p><a href="/video/11-nosing-round-the-mountain" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/7.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>07 - Luxray Vision</h4>
+                        <p class="desc">380,040 Views</p>
+                        <p><a href="/video/11-luxray-vision" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/8.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>08 - Journey to the Unown</h4>
+                        <p class="desc">460,071 Views</p>
+                        <p><a href="/video/11-journey-to-the-unown" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/9.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>09 - Team Shocker</h4>
+                        <p class="desc">405,086 Views</p>
+                        <p><a href="/video/11-team-shocker" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/10.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>10 - Tanks for the Memories</h4>
+                        <p class="desc">409,969 Views</p>
+                        <p><a href="/video/11-tanks-for-the-memories" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/11.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>11 - Hot Springing a Leak</h4>
+                        <p class="desc">377,371 Views</p>
+                        <p><a href="/video/11-hot-springing-a-leak" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/12.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>12 - Riding the Winds of Change</h4>
+                        <p class="desc">430,822 Views</p>
+                        <p><a href="/video/11-riding-the-winds-of-change" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/13.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>13 - Sleight of Sand</h4>
+                        <p class="desc">411,030 Views</p>
+                        <p><a href="/video/11-sleight-of-sand" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/14.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>14 - Lost Leader Strategy</h4>
+                        <p class="desc">674,670 Views</p>
+                        <p><a href="/video/11-lost-leader-strategy" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/15.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>15 - Crossing the Battle Line!</h4>
+                        <p class="desc">437,494 Views</p>
+                        <p><a href="/video/11-crossing-the-battle-line" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/16.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>16 - A Triple Fighting Chance!</h4>
+                        <p class="desc">433,874 Views</p>
+                        <p><a href="/video/11-a-triple-fighting-chance" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/17.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>17 - Enter Galactic!</h4>
+                        <p class="desc">444,914 Views</p>
+                        <p><a href="/video/11-enter-galactic" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/18.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>18 - The Bells Are Singing!</h4>
+                        <p class="desc">311,293 Views</p>
+                        <p><a href="/video/11-the-bells-are-singing" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/19.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>19 - Pokemon Ranger and the Kidnapped Riolu! Part One</h4>
+                        <p class="desc">460,842 Views</p>
+                        <p><a href="/video/11-pokemon-ranger-and-the-kidnapped-riolu-part-one" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/20.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>20 - Pokemon Ranger and the Kidnapped Riolu! Part Two</h4>
+                        <p class="desc">519,007 Views</p>
+                        <p><a href="/video/11-pokemon-ranger-and-the-kidnapped-riolu-part-two" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/21.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>21 - Crossing Paths</h4>
+                        <p class="desc">347,826 Views</p>
+                        <p><a href="/video/11-crossing-paths" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/22.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>22 - Pika and Goliath</h4>
+                        <p class="desc">432,131 Views</p>
+                        <p><a href="/video/11-pika-and-goliath" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/23.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>23 - Our Cup Runneth Over!</h4>
+                        <p class="desc">467,486 Views</p>
+                        <p><a href="/video/11-our-cup-runneth-over" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/24.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>24 - A Full Course Tag Battle!</h4>
+                        <p class="desc">918,379 Views</p>
+                        <p><a href="/video/11-a-full-course-tag-battle" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/25.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>25 - Staging a Heroes' Welcome!</h4>
+                        <p class="desc">690,710 Views</p>
+                        <p><a href="/video/11-staging-a-heroes-welcome" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/26.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>26 - Pruning a Passel of Pals!</h4>
+                        <p class="desc">564,834 Views</p>
+                        <p><a href="/video/11-pruning-a-passel-of-pals" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/27.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>27 - Strategy with a Smile!</h4>
+                        <p class="desc">492,351 Views</p>
+                        <p><a href="/video/11-strategy-with-a-smile" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/28.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>28 - The Thief That Keeps on Thieving!</h4>
+                        <p class="desc">353,022 Views</p>
+                        <p><a href="/video/11-the-thief-that-keeps-on-thieving" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/29.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>29 - Chim-Charred!</h4>
+                        <p class="desc">564,808 Views</p>
+                        <p><a href="/video/11-chim-charred" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/30.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>30 - Cream of the Croagunk Crop!</h4>
+                        <p class="desc">388,031 Views</p>
+                        <p><a href="/video/11-cream-of-the-croagunk-crop" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/31.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>31 - A Crasher Course in Power!</h4>
+                        <p class="desc">415,650 Views</p>
+                        <p><a href="/video/11-a-crasher-course-in-power" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/32.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>32 - Hungry for the Good Life!</h4>
+                        <p class="desc">366,405 Views</p>
+                        <p><a href="/video/11-hungry-for-the-good-life" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/33.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>33 - Fighting Fear with Fear!</h4>
+                        <p class="desc">511,154 Views</p>
+                        <p><a href="/video/11-fighting-fear-with-fear" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/34.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>34 - Arriving in Style!</h4>
+                        <p class="desc">505,765 Views</p>
+                        <p><a href="/video/11-arriving-in-style" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/35.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>35 - The Psyduck Stops Here!</h4>
+                        <p class="desc">327,606 Views</p>
+                        <p><a href="/video/11-the-psyduck-stops-here" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/36.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>36 - Camping it Up!</h4>
+                        <p class="desc">441,208 Views</p>
+                        <p><a href="/video/11-camping-it-up" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/37.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>37 - Up Close and Personable!</h4>
+                        <p class="desc">372,389 Views</p>
+                        <p><a href="/video/11-up-close-and-personable" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/38.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>38 - Ghoul Daze!</h4>
+                        <p class="desc">377,734 Views</p>
+                        <p><a href="/video/11-ghoul-daze" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/39.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>39 - One Team, Two Team, Red Team, Blue Team!</h4>
+                        <p class="desc">386,816 Views</p>
+                        <p><a href="/video/11-one-team-two-team-red-team-blue-team" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/40.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>40 - A Lean Mean Team Rocket Machine!</h4>
+                        <p class="desc">388,396 Views</p>
+                        <p><a href="/video/11-a-lean-mean-team-rocket-machine" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/41.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>41 - Playing the Leveling Field!</h4>
+                        <p class="desc">330,954 Views</p>
+                        <p><a href="/video/11-playing-the-leveling-field" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 279px;">
+                <div class="thumbnail" style="height: 279px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/42.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>42 - Doc Brock!</h4>
+                        <p class="desc">408,757 Views</p>
+                        <p><a href="/video/11-doc-brock" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/43.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>43 - Battling the Generation Gap!</h4>
+                        <p class="desc">426,030 Views</p>
+                        <p><a href="/video/11-battling-the-generation-gap" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/44.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>44 - Losing Its Lustrous!</h4>
+                        <p class="desc">400,665 Views</p>
+                        <p><a href="/video/11-losing-its-lustrous" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/45.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>45 - Double Team Turnover!</h4>
+                        <p class="desc">483,945 Views</p>
+                        <p><a href="/video/11-double-team-turnover" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/46.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>46 - If the Scarf Fits, Wear It!</h4>
+                        <p class="desc">357,576 Views</p>
+                        <p><a href="/video/11-if-the-scarf-fits-wear-it" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/47.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>47 - A Trainer and Child Reunion!</h4>
+                        <p class="desc">389,579 Views</p>
+                        <p><a href="/video/11-a-trainer-and-child-reunion" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/48.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>48 - Aiding the Enemy!</h4>
+                        <p class="desc">505,362 Views</p>
+                        <p><a href="/video/11-aiding-the-enemy" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/49.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>49 - Barry's Busting Out All Over!</h4>
+                        <p class="desc">424,141 Views</p>
+                        <p><a href="/video/11-barrys-busting-out-all-over" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/50.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>50 - Shield with a Twist!</h4>
+                        <p class="desc">419,266 Views</p>
+                        <p><a href="/video/11-shield-with-a-twist" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="height: 260px;">
+                <div class="thumbnail" style="height: 260px;">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/51.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>51 - Jumping Rocket Ship!</h4>
+                        <p class="desc">417,781 Views</p>
+                        <p><a href="/video/11-jumping-rocket-ship" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div><div class="col-sm-6 col-md-4" style="">
+                <div class="thumbnail" style="">
+                    <img src="/static/thumbnails/11-dp-battle-dimension/52.png" alt="thumbnail">
+                    <div class="caption">
+                        <h4>52 - Sleepless in Pre-Battle</h4>
+                        <p class="desc">424,124 Views</p>
+                        <p><a href="/video/11-sleepless-in-pre-battle" class="btn btn-default"><span class="ion-play"></span> WATCH NOW</a></p>
+                    </div>
+                </div>
+            </div>		</div>
+    </div>
