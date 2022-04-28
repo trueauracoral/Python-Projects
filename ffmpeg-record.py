@@ -1,17 +1,23 @@
 import os
+import subprocess
+import re
 
-try:
-    output = input("Where do you want the recording to go: ")
-    if platform.system() == "Windows":
-        os.system(f"ffmpeg -f gdigrab -framerate 30 -i desktop {output}")
+#try:
+#    output = input("Where do you want the recording to go: ")
+#    if platform.system() == "Windows":
+#        os.system(f"ffmpeg -f gdigrab -framerate 30 -i desktop {output}")
+#    else:
+#        os.system(f"ffmpeg -f x11grab -i :0.0 -f alsa -i hw:0 {output}")
+#except:
+#    quit()
+
+devices = subprocess.getoutput("ffmpeg -list_devices true -f dshow -i dummy")
+devices = re.findall('"(.+?)"',devices)
+for i,device in enumerate(devices):
+    if device.startswith("@"):
+        pass
     else:
-        os.system(f"ffmpeg -f x11grab -i :0.0 -f alsa -i hw:0 {output}")
-except:
-    quit()
-
-# List devices
-# ffmpeg -list_devices true -f dshow -i dummy
-
+        print(i, device)
 # Record Audio
 # ffmpeg -f dshow -i audio="Microphone (USB Audio Device)" output.mp3
 
