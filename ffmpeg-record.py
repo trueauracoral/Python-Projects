@@ -1,10 +1,17 @@
+# This script is windows only right now. When I switch to Linux I will
+# try and convert all ffmpeg options to be appropriate for a Linux
+# most likely X11 system. I am not an ffmpeg pro, I am just
+# researching options and using it over something like OBS for
+# things. Hopefully in the future I will put PeerTube livestreaming
+# and maybe LBRY if that is possible.
 import os
 import subprocess
 import re
 import sys
 
 if len(sys.argv) == 1:
-    print("HA LOL")
+    print("A missing or incorrect option was given")
+
 elif sys.argv[1] == "-s":
     try:
         output = input("Where do you want the recording to go: ")
@@ -30,5 +37,24 @@ elif sys.argv[1] == "-a":
     except:
         quit()
 
-# Audio & Video record
-# ffmpeg -f gdigrab -framerate ntsc -video_size 1920x1080 -i desktop  -f dshow -i audio="Microphone (Realtek High Definition Audio)" -vcodec libx264 -pix_fmt yuv420p -preset ultrafast D:\Movies\output.mp4
+elif sys.argv[1] == "-sa":
+    devices = subprocess.getoutput("ffmpeg -list_devices true -f dshow -i dummy")
+    data = re.findall('"(.+?)"',devices)
+    for i,device in enumerate(data):
+        print(i, device)
+    pick = data[int(input("Which audio device do you want? "))]
+    if pick.startswith("@"):
+        pick = data[data.index(pick)-1]
+    output = input("Where do you want the recording to go: ")
+    # On windows this command is supposed to work for getting screen
+    # resolution "wmic desktopmonitor get screenheight, screenwidth"
+    # but for me it doesn't work. In the future when linux support is
+    # added xrandr could be used to get screen resolution and select
+    # which monitor to use etc. But for now ffmpeg is basicly geussing
+    # stuff.
+    command = f'ffmpeg -f gdigrab -framerate ntsc -i desktop -f dshow -i audio="{pick}" -vcodec libx264 -pix_fmt yuv420p -preset ultrafast {output}'
+    try:
+        os.system(command)
+    except:
+        quit()
+
