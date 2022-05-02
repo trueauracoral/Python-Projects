@@ -58,3 +58,5 @@ elif sys.argv[1] == "-sa":
     except:
         quit()
 
+# Add an overlay thing on the lower right corner of the video
+# ffmpeg -i whole.mp4 -i meme.png -filter_complex "[0:v][1:v] overlay=W-w:H-h" -pix_fmt yuv420p -c:a copy wholeimage.mp4

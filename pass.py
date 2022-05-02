@@ -2,22 +2,37 @@
 This is a script for me to generate passwords. I advise you to maybe make your own script for generating passwords for max security.
 """
 import random
-# Does not come with python. Go to install this.
 import pyperclip
+import re
+import sys
 
-# Gives me a password.
-keys = ("abcdefghijklmnopqrxtuvwsyz" + "ABCDEFGHIJKLMNOPQRXTUV" + "1234567890" + "~!@#$%^&*[]{}()")
-phrase = ("".join(random.sample(keys,16)))
+if len(sys.argv) == 1:
+    keys = ("abcdefghijklmnopqrxtuvwsyz" + "ABCDEFGHIJKLMNOPQRXTUV" + "1234567890" + "~!@#$%^&*[]{}()")
+    phrase = ("".join(random.sample(keys,16)))
 
-# Get some data about what is this account
-account = input("Account: ")
-username = input("Username: ")
+    account = input("Account: ")
+    username = input("Username: ")
 
-# Open org file and start adding things
-with open("pasec.org", 'a') as f:
-    f.write("\n* " + account)
-    f.write("\n- Username: " + username)
-    f.write("\n- Pass: " + phrase)
+    with open("drowsapp.org", 'a') as f:
+        f.write("\n* " + account)
+        f.write("\n- Username: " + username)
+        f.write("\n- Pass: " + phrase)
 
-print(phrase + "\nDelete this now somehow")
-pyperclip.copy(phrase)
+    print(phrase + "\nDelete this now somehow")
+    pyperclip.copy(phrase)
+
+elif sys.argv[1] == "-f":
+    with open("drowsapp.org") as f:
+        passwords = f.read()
+    passwords = passwords.splitlines()
+    find = input("Which password do you need? ")
+    for line in passwords:
+        if find in line:
+            print("FOUND: "+line.replace("* ",""))
+            print(passwords[passwords.index(line)+1].replace("- ",""))
+            print(passwords[passwords.index(line)+2].replace("- ",""))
+
+    if find not in passwords:
+        print("ERROR: Could not find password you wanted.")
+else:
+    print("ERROR")
