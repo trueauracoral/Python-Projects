@@ -1,7 +1,6 @@
 import requests
-import re
 
-move = input("Move: ").lower()
+move = input("Move: ").lower().replace(" ","-")
 data = requests.get(f"https://pokeapi.co/api/v2/move/{move}")
 if data.text == "Not Found":
     print("ERROR: Either, you inputed a misspelled/none existing move or the PokeApi data isn't working.")
