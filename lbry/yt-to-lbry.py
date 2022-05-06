@@ -26,6 +26,7 @@ import re
 import tempfile
 import platform
 import random
+import time
 
 downloader = "yt-dlp"
 lbrynet = "lbrynet"
@@ -117,11 +118,15 @@ Original YT URL (THIS IS SPYWARE): https://youtube.com/watch?v={id}
 split_url = url.split("/")
 if "channel" in url:
     channel_id = split_url[4]
+    print("Getting data from the channel. This might take a while...")
     data = subprocess.getoutput(f"{downloader} --get-id https://youtube.com/channel/{channel_id}")
     data = data.splitlines()
     for id in data:
         print(id)
         upload(f"{downloader} --get-title --get-description --get-thumbnail --get-id https://youtube.com/watch?v={id}")
+        # Lbrynet might break from a lot of uploading. So got to put a
+        # 20 second delay.
+        time.sleep(20)
 
 elif "watch" in url:
     id = split_url[3].replace("watch?v=","")
