@@ -1,41 +1,49 @@
+css: styles.css
+title: Software I use or want to use.
 software:
-  Video_Player: >
+  Video_Player: |
     MPV (alternative: VLC)
-  Audio_Player: >
+    MPV is an excellent video player. It's very minimal, letting you focus completely on the video that's being played. You can control sound, timeline of the video it's playing all through your keyboard very easily. Some configuration I did to make it work a little bit better, but honestly by default MPV is fine. VLC is ok but it has all these features and stuff I will probably never need.
+  Audio_Player: |
     MPV (alternative: ffplay)
-  Image_Viewer: >
+    I don't play audio that much, but when I do I see no reason why not to just use mpv. ffplay seems like another option since you probably already have ffmpeg on your system.
+  Image_Viewer: |
     MPV (alternative: nsxiv/feh)
-  Terminal: >
-    Alacritty (Alternative: urxvt
-  Calculator: >
-    Qualculate (Alternative: bc)
-  System_Monitor: >
-    Htop (Alternative: Emacs proced)
-  Text_editor: >
-    Emacs (Alternative: nvim/vim/vi/nano)
-  Email_Client: >
-    Emacs Gnus (Alternative: Neomutt/Claws/Thunderbird)
-  PDF_Viewer: >-
+    MPV has no problem viewing images if you have the keep-open option enabled. The only feature I think you would be missing is gallery view... but I don't really need that. Your file manager's image view could be a substitute in my opinion. nsxiv (fork of sxiv) and feh seem like good options for a proper image viewer. The one feature that I think they actually bring to the table is being able to run commands on the image, like make it open in gimp etc.
+  PDF_Viewer: |-
     Emacs's PDF Viewer (Alternative: zathura/mupdf)
-  RSS_Reader: >-
+    Emacs\'s default PDF Viewer while being sometimes blurry does the job of viewing PDF\'s fine enouph for me. Since I have evil mode I get vim keys which are super simple and I have a setting so it will auto \"revert\" (update) the file when it changes. Zathura is probably a better overall PDF viewer since very little configuration is needed to have it up and running. MuPDF I list here because it has all platform support even mobile, so it\'s usefule if your having to run windows. However MuPDF at least to me seems a bit sketchy.
+  Terminal: |
+    Alacritty (Alternative: urxvt)
+    Alacritty\'s is a relatively minimal terminal with a main focus on cusotmization so you can change basic things like color schemes, and a lot of stuff all in a yaml configuration file. However Alacritty can run out of the box fine without touching the configuration file. Alacritty also, maybe because it's written in rust feels very fast. It has all platform support so you can even run it on windows which is very nice. I would list as a meh alternative because nothing is very special about it. You need to edit the configuration file to make it not look so ugly.
+  Calculator: |
+    Qualculate (Alternative: bc)
+    Qualculate is a very nice calculator which a lot of options for how you can use it e.g. a GTK version, QT version a terminal version. It also has a graphing and convertion stuff, everything you would need. Another thing is all of your inputs for calculation are visible on a bar with functions you type, obviously those functions get autocompleted to help you find what you want. A lot better than just relying on buttons.
+  System_Monitor: |
+    Htop (Alternative: Emacs proced/top)
+  Text_editor: |
+    Emacs (Alternative: nvim/vim/vi/nano)
+  Email_Client: |
+    Emacs Gnus (Alternative: Neomutt/Claws/Thunderbird)
+  RSS_Reader: |-
     Elfeed (Alternative: Newsboat)
-  Web_Browser: >-
+  Web_Browser: |-
     Palemoon (Alternative: Qutebrowser/Vieb/Librewolf)
-  File_Manager: >-
+  File_Manager: |-
     Emacs Dired (Alternative: lf/Ranger/PCManFM)
-  Screen_Recorder: >-
+  Screen_Recorder: |-
     ffmpeg (Alternaitve: obs)
-  Presentations: >-
+  Presentations: |-
     Libreoffice Impress (Alternative: MD/Org/Latex + Beamer + Pandoc)
-  Documents: >-
+  Documents: |-
     Libreoffice Writer (Alternative: org/md/latex + Pandoc)
-  Excel: >-
+  Excel: |-
     Libreoffice Calc
-  Image_Editing: >-
+  Image_Editing: |-
     Gimp (Alternative: Krita/Blender)
-  3d_Modeling: >-
+  3d_Modeling: |-
     Blender
-  Video_Editing: >-
+  Video_Editing: |-
     Blender (Alternative: Kdenlive/Shotcut/Olive)
-  LBRY_Client: >-
+  LBRY_Client: |-
     LBRY GTK (Alternative: Fastlbry-GTK/Lyberry-QT)
