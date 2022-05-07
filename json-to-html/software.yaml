@@ -1,0 +1,41 @@
+software:
+  Video_Player: >
+    MPV (alternative: VLC)
+  Audio_Player: >
+    MPV (alternative: ffplay)
+  Image_Viewer: >
+    MPV (alternative: nsxiv/feh)
+  Terminal: >
+    Alacritty (Alternative: urxvt
+  Calculator: >
+    Qualculate (Alternative: bc)
+  System_Monitor: >
+    Htop (Alternative: Emacs proced)
+  Text_editor: >
+    Emacs (Alternative: nvim/vim/vi/nano)
+  Email_Client: >
+    Emacs Gnus (Alternative: Neomutt/Claws/Thunderbird)
+  PDF_Viewer: >-
+    Emacs's PDF Viewer (Alternative: zathura/mupdf)
+  RSS_Reader: >-
+    Elfeed (Alternative: Newsboat)
+  Web_Browser: >-
+    Palemoon (Alternative: Qutebrowser/Vieb/Librewolf)
+  File_Manager: >-
+    Emacs Dired (Alternative: lf/Ranger/PCManFM)
+  Screen_Recorder: >-
+    ffmpeg (Alternaitve: obs)
+  Presentations: >-
+    Libreoffice Impress (Alternative: MD/Org/Latex + Beamer + Pandoc)
+  Documents: >-
+    Libreoffice Writer (Alternative: org/md/latex + Pandoc)
+  Excel: >-
+    Libreoffice Calc
+  Image_Editing: >-
+    Gimp (Alternative: Krita/Blender)
+  3d_Modeling: >-
+    Blender
+  Video_Editing: >-
+    Blender (Alternative: Kdenlive/Shotcut/Olive)
+  LBRY_Client: >-
+    LBRY GTK (Alternative: Fastlbry-GTK/Lyberry-QT)
