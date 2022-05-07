@@ -1,0 +1,13 @@
+software:
+  video_player: >
+    mpv (Alternative: vlc)
+  audio_player: >
+    mpv (Alternative: ffplay)
+  image_viewer: >
+    mpv (Alternative: nsxiv/feh)
+  terminal: >
+    alacritty Alternative: urxvt
+  calculator: >
+    qualculate Alternative: bc)
+  forgot: >
+    all what needs to be in this list...
