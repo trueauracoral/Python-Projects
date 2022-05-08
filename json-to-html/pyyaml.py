@@ -1,4 +1,4 @@
-# Installed with "pip install pyyaml"
+# Needs to be installed `pip install pyyaml`
 import yaml
 import os
 browser = "palemoon"
@@ -20,9 +20,14 @@ beginning = f"""<!DOCTYPE html>
 
 items = []
 for key, content in data["software"].items():
-    item = f"""<h2>{key.replace("_"," ")}</h2>
-{content}
-"""
+    if "\n" in content:
+        top = content.split("\n")
+        item = f"""<h2>{key.replace("_"," ")}</h2>
+{top[0]}
+<p>{content.replace(top[0],"")}</p>"""
+    else:
+        item = f"""<h2>{key.replace("_"," ")}</h2>
+<p>{content}</p>"""
     items.append(item)
     final = '\n'.join(items)
     
