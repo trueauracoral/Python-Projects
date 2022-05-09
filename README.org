@@ -6,14 +6,20 @@ These are small, probably not that big scripts I will use to try and learn pytho
 - =api= for testing/parsing of different API's
 - =gui= for GUI (Graphical User interface) scripts
 - =image= for image manipulation scripts
+- =video= for video related scripts (some use ffmpeg)
 - =lbry= for scripts that do stuff related to the LBRY network
 - =useless= for *old* scripts that don't have much usecase
+- =json-to-html= experiemting with using json/yaml to html
+- =rss= scripts relating to rss (not very good)
+- =lbry= for scripts that do stuff with the LBRY network
+- =mini= technically programs but mini in terms of size
+- =WIP= for scripts that aren't complete because motivation/block
+- =scrape= for scripts that scrape various websites for data
+- =module_test= for scripts that test how to use a particular module
 
 Stuff that isn't inside of a directory I just haven't organized yet properly. I am trying my best not to have a thousand directorys.
 
 * Explanations of some scripts (Outdated)
-- =Blog.py.= A script very much for me and my setup to generate rss time to time for my blog.
-- =Thumbnail= creator. Sometimes, I am very lazy at creating thumbnails so I decided at one point to make a basic script that just puts text on a background I created and it's kind of useful. Now a days I just cook up something in gimp as quick as possible.
 - =noodysee.= Convert a odysee link to librarian and open in browser.
 - =md-to-pdf-lbry.= An idea for a plugin for the fastlbry project which would convert MD to PDF with pandoc.
 - =mastodonrss.= Get the rss link for mastodon

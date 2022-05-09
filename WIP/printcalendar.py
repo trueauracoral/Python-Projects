@@ -1,7 +1,6 @@
 import datetime
 
 mydate = datetime.datetime.now()
-first = datetime.date.today().replace(day=1)
 
 mm = mydate.strftime("%B")
 dd = mydate.strftime("%d")
