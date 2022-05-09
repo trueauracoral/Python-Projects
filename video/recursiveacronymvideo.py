@@ -1,8 +1,17 @@
+# WHAT IS THIS?
+# On wikipedia I copied and pasted there list of recursive acronyms
+# e.g. GNU (GNUs not Unix) or YAML (YAML ain't Markup Language). Then
+# I went to the internet and searched how to make text on a certain
+# background with ffmpeg. Once I did that I ran it on all of the
+# recursive acronyms. So a lot of 10 second videos. Then I concat them
+# into just one, and then finally put on free none copyright music I
+# found on invidious. This was inspired by Roel van de Par's videos of
+# various stackexchange questions and answers he pumps out basicly
+# every 5 minutes on his chanel.
 import os
 import random
 
-acronyms = """Organizations
-BWIA - BWIA West Indies Airways
+acronyms = """BWIA - BWIA West Indies Airways
 VISA - Visa International Service Association
 SAAB - Saab Automobile AB
 Cygnus Solutions - Cygnus, Your GNU Solutions
@@ -55,7 +64,8 @@ YAML - YAML Ain't Markup Language
 ZINC - ZINC Is Not Commercial
 Zinf - Zinf Is Not FreeAmp
 ZWEI - ZWEI Was EINE Initially"""
-audio = "dont-you-think-lose-16073.mp3"
+# Create the recursive acronym 5 second videos
+audio = "music.opus"
 acronyms = acronyms.splitlines()
 for acronym in acronyms:
     color = ["#"+''.join([random.choice('0123456789ABCDEF') for j in range(6)])][0]
@@ -63,6 +73,7 @@ for acronym in acronyms:
     command = f"ffmpeg -f lavfi -i color=size=1920x1080:rate=25:color={color} -vf \"drawtext=fontsize=45:fontcolor=#000000:x=(w-text_w)/2:y=(h-text_h)/2:text='{acronym}'\" -c:a copy -t 00:00:05 -shortest {name}.mp4"
     os.system(command)
 
+# concat all the acronym 5 second videos
 files = os.listdir()
 for file in files:
     if file.endswith(".mp4"):
@@ -72,8 +83,9 @@ os.system("ffmpeg -f concat -i list.txt -c copy input.mp4")
 for file in files:
     if file.endswith(".mp4"):
         os.remove(file)
+
+# add some audio to the final video (This is CPU/GPU hungry)
 command = f"ffmpeg -i input.mp4 -i {audio} -filter_complex \" [1:0] apad \" -shortest output.mp4"
 os.system(command)
 os.remove("input.mp4")
 os.remove("list.txt")
-#command = f"ffmpeg -f lavfi -i color=size=320x240:rate=25:color=blue -i audio.m4a -vf \"drawtext=fontfile=/path/to/font.ttf:fontsize=30:fontcolor=white:x=(w-text_w)/2:y=(h-text_h)/2:text='Stack Overflow'\" -c:a copy -shortest output.mp4"
