@@ -6,7 +6,6 @@ BWIA - BWIA West Indies Airways
 VISA - Visa International Service Association
 SAAB - Saab Automobile AB
 Cygnus Solutions - Cygnus, Your GNU Solutions
-Others
 Allegro - Allegro Low LEvel Game ROutines
 AROS - AROS Research Operating System
 ATI - ATI Technologies Inc.
@@ -34,7 +33,7 @@ Nano - Nano's Another editor
 Nagios - Nagios Ain't Gonna Insist On Sainthood
 NiL - NiL Isn't Liero
 Ninja-ide - Ninja-IDE Is Not Just Another IDE
-PHP - PHP: Hypertext Preprocessor
+PHP - PHP Hypertext Preprocessor
 PINE - PINE Is Nearly Elm
 PIP - PIP Installs Packages
 P.I.P.S. - P.I.P.S. Is POSIX on Symbian
@@ -56,11 +55,12 @@ YAML - YAML Ain't Markup Language
 ZINC - ZINC Is Not Commercial
 Zinf - Zinf Is Not FreeAmp
 ZWEI - ZWEI Was EINE Initially"""
+audio = "dont-you-think-lose-16073.mp3"
 acronyms = acronyms.splitlines()
 for acronym in acronyms:
     color = ["#"+''.join([random.choice('0123456789ABCDEF') for j in range(6)])][0]
     name = acronym.split(" - ")[0].replace(" ","_").lower()
-    command = f"ffmpeg -f lavfi -i color=size=1920x1080:rate=25:color={color} -vf \"drawtext=fontsize=45:fontcolor=#000000:x=(w-text_w)/2:y=(h-text_h)/2:text='{acronym}'\" -c:a copy -t 00:00:10 -shortest {name}.mp4"
+    command = f"ffmpeg -f lavfi -i color=size=1920x1080:rate=25:color={color} -vf \"drawtext=fontsize=45:fontcolor=#000000:x=(w-text_w)/2:y=(h-text_h)/2:text='{acronym}'\" -c:a copy -t 00:00:05 -shortest {name}.mp4"
     os.system(command)
 
 files = os.listdir()
@@ -68,5 +68,12 @@ for file in files:
     if file.endswith(".mp4"):
         with open("list.txt","a") as f:
             f.write(f"\nfile '{file}'")
-os.system("ffmpeg -f concat -i list.txt -c copy output.mp4")
+os.system("ffmpeg -f concat -i list.txt -c copy input.mp4")
+for file in files:
+    if file.endswith(".mp4"):
+        os.remove(file)
+command = f"ffmpeg -i input.mp4 -i {audio} -filter_complex \" [1:0] apad \" -shortest output.mp4"
+os.system(command)
+os.remove("input.mp4")
+os.remove("list.txt")
 #command = f"ffmpeg -f lavfi -i color=size=320x240:rate=25:color=blue -i audio.m4a -vf \"drawtext=fontfile=/path/to/font.ttf:fontsize=30:fontcolor=white:x=(w-text_w)/2:y=(h-text_h)/2:text='Stack Overflow'\" -c:a copy -shortest output.mp4"
