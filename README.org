@@ -16,6 +16,7 @@ These are small, probably not that big scripts I will use to try and learn pytho
 - =WIP= for scripts that aren't complete because motivation/block
 - =scrape= for scripts that scrape various websites for data
 - =module_test= for scripts that test how to use a particular module
+- =gnu= Basic utilites in python
 
 Stuff that isn't inside of a directory I just haven't organized yet properly. I am trying my best not to have a thousand directorys.
 
