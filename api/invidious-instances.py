@@ -1,5 +1,5 @@
 # Using the invidious instance API it prints out most likely working 
-# and healthy invidious instances.
+# and healthy HTTPS invidious instances.
 import requests
 
 url = "https://api.invidious.io/instances.json"
