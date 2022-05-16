@@ -27,11 +27,11 @@ MPV has no problem viewing images if you have the keep-open option enabled. The 
 <h2>PDF Viewer</h2>
 Emacs's PDF Viewer (Alternative: zathura/mupdf)
 <p>
-Emacs\'s default PDF Viewer while being sometimes blurry does the job of viewing PDF\'s fine enouph for me. Since I have evil mode I get vim keys which are super simple and I have a setting so it will auto \"revert\" (update) the file when it changes. Zathura is probably a better overall PDF viewer since very little configuration is needed to have it up and running. MuPDF I list here because it has all platform support even mobile, so it\'s usefule if your having to run windows. However MuPDF at least to me seems a bit sketchy.</p>
+Emacs's default PDF Viewer while being sometimes blurry does the job of viewing PDF's fine enouph for me. Since I have evil mode I get vim keys which are super simple and I have a setting so it will auto "revert" (update) the file when it changes. Zathura is probably a better overall PDF viewer since very little configuration is needed to have it up and running. MuPDF I list here because it has all platform support even mobile, so it's usefule if your having to run windows. However MuPDF at least to me seems a bit sketchy.</p>
 <h2>Terminal</h2>
 Alacritty (Alternative: urxvt)
 <p>
-Alacritty\'s is a relatively minimal terminal with a main focus on cusotmization so you can change basic things like color schemes, and a lot of stuff all in a yaml configuration file. However Alacritty can run out of the box fine without touching the configuration file. Alacritty also, maybe because it's written in rust feels very fast. It has all platform support so you can even run it on windows which is very nice. I would list as a meh alternative because nothing is very special about it. You need to edit the configuration file to make it not look so ugly.
+Alacritty's is a relatively minimal terminal with a main focus on cusotmization so you can change basic things like color schemes, and a lot of stuff all in a yaml configuration file. However Alacritty can run out of the box fine without touching the configuration file. Alacritty also, maybe because it's written in rust feels very fast. It has all platform support so you can even run it on windows which is very nice. I would list as a meh alternative because nothing is very special about it. You need to edit the configuration file to make it not look so ugly.
 </p>
 <h2>Calculator</h2>
 Qualculate (Alternative: bc)
@@ -41,23 +41,34 @@ Qualculate is a very nice calculator which a lot of options for how you can use 
 <h2>System Monitor</h2>
 Htop (Alternative: Emacs proced/top)
 <p>
+Sometimes you want to see what's running on your computer causing your fans to sudennly spin up. In terms of monitors and clearly seeing what's happening htop seems the best. Top could be better since it comes with most GNU/Linux systems, but it doesn't have my COLORS! Emacs's proced is another alternative but same issue with top, works on windows as a static not updating list which is a plus.
 </p>
 <h2>Text editor</h2>
-Emacs (Alternative: nvim/vim/vi/nano)
+Emacs (Alternative: nvim/vim/vi/nano/notepad++)
 <p>
+I love emacs for editing with the evil mode plugin. Also in combination with ivy and dired I can quickly delete files. I don't think it's the best text editor but I am just used to it and how it works. I would probably have no problem using nvim/vim it's just you need more to use the CLI for dealing with files and not as much your editor. nvim/vim do have a file manager inside but it's not great in my opinion. Vi also could work for me to use just small features it doesn't have. In terms of GUI text editors I like notepad++ or notepadqq on GNU/Linux. It's a pretty solid text editor in my opinion.
 </p>
 <h2>Email Client</h2>
 Emacs Gnus (Alternative: Neomutt/Claws/Thunderbird)
 <p>
+Sometimes I want to check my emails and maybe you geussed it I can do it in emacs pretty well. Emacs comes with an email client called gnus, which can send, read and reply to email, as well as organize in your folders. It works fine, just doesn't do multiple accounts as far as I am aware and I can't get sent messages to go to the sent folder, only replies go to the sent folder. So Neomutt is an alternative but is dificult to configure, Claws is very nice, Thunderbird is kind of bloated and made by Mozilla. 
 </p>
 <h2>RSS Reader</h2>
-<p>Elfeed (Alternative: Newsboat)</p>
+Emacs's Elfeed (Alternative: Newsboat)
+<p>
+RSS feeds are nice to use to have a minimal, none spyware viewing experience for content. It's also gets even more better if you have Website feeds (blogs usually), Video content (could be from multiple platforms rss doesn't care), news. A lot of stuff. RSS is awesome. Elfeed an Emacs plugin does a decent job showing you rss feeds. However it shows you in one big container, newsboat allows you to have one container per feed or even with the config have multiple in one container. While newsboat is the better RSS reader in terms of functionality I use elfeed because it's in emacs.</p>
 <h2>Web Browser</h2>
-<p>Palemoon (Alternative: Qutebrowser/Vieb/Librewolf)</p>
+Palemoon (Alternative: Qutebrowser/Vieb/Librewolf)
+<p>
+Browsers are tricky to pick these days. I don't like Google a lot, Mozilla compared to google is better but it's like a puppet by google kind of. I chose palemoon out of all the browser options because it uses a older version firefox but different web engine goana or something like that. So while it's an obscure browser that's developed by one guy it has it's own plugin system, it's own theming system it's very cool in my opinion. It could have dificulty loading or doing stuff on certain websites because some javascript thing there running in the background that isn't working well with palemoon as a sort of obscure browser. So while palemoon isn't perfect it does the job for me. By the way it's ranked not spyware by spyware watchdog at least after you configure it... WOW! Alternatives would be Qutebrowser, it has VIM keys for navigation however these can be configured to be whatever you want. But you NEED these keybindings you can't use the browser regularly with your mouse the same way. Using the mouse works lol but the best. I really like qutebrowser though and used it for a while. It seems to be Linux only though if you want to watch videos. Vieb is similar to qutebrowser it's very hackable, uses vim keys but it's Electron based, which is meh. I use it as a backup to Palemoon.</p>
 <h2>File Manager</h2>
-<p>Emacs Dired (Alternative: lf/Ranger/PCManFM)</p>
+Emacs Dired (Alternative: lf/Ranger/PCManFM/command line)
+<p>
+For file managing Emacs Dired does the job with very simple commands. LF could be another option but it requires extra configuration in order to use it for deleting files and stuff like that. Ranger seems to be the same way like LF. PCManFM for linux is a pretty nice GUI file manager if you want to show your files in a presentable way or drag and drop to places.</p>
 <h2>Screen Recorder</h2>
-<p>ffmpeg (Alternaitve: obs)</p>
+ffmpeg (Alternaitve: obs)
+<p>
+ffmpeg is a great general utility for handling media. It also comes with the ability to record screens. I made a script that works for Windows & Linux for recording the screen and audio. So at least for me OBS is unnecasary at less you want to have special effects like scene switching during the recording. Or if you want to do livestreaming OBS is much easier. Just that you have to go to the settings menu all the time to change livestreaming keys.</p>
 <h2>Presentations</h2>
 <p>Libreoffice Impress (Alternative: MD/Org/Latex + Beamer + Pandoc)</p>
 <h2>Documents</h2>
