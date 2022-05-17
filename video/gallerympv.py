@@ -11,18 +11,18 @@ for num in nums:
 def divide_chunks(l,n):
     for i in range(0, len(l), n):
         yield l[i:i +n]
-chunks = list(divide_chunks(vidbrack[1:],6))
+chunks = list(divide_chunks(vidbrack[1:],10))
 external_file = dir+files[0]
 t = ""
 num = 0
 lafvi = ""
 for file in files2:
-    external_file = external_file+f" --external-file={file}"
+    external_file = external_file+f' --external-file="{file}"'
 for i, file in enumerate(files[1:]):
     if (i % 3):
         num = num+1
         t = t+f"[t{num}]"
-        lafvi = lafvi+''.join(chunks[num-1])+f"hstack=inputs=6[t{num}];"
+        lafvi = lafvi+''.join(chunks[num-1])+f"hstack=inputs=10[t{num}];"
     elif i == 3:
         break
 inputs = i+1
@@ -32,4 +32,4 @@ print(command)
 os.system(command)
 
 #command = f'mpv --lavfi-complex="{vidbrack}hstack=inputs={inputs}[vo]" {external_file}'
-#command = f'mpv --lavfi-complex="[vid1][vid2][vid3]hstack=inputs=3[t1];[vid6][vid5][vid6]hstack=inputs=3[t2];{t} vstack [vo]" {external_file}'
+#command = f'mpv --lavfi-complex="[vid1][vid2][vid3]hstack=inputs=3[t1];[vid10][vid5][vid6]hstack=inputs=3[t2];{t} vstack [vo]" {external_file}'
