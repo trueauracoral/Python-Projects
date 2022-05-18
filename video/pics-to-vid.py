@@ -2,10 +2,8 @@ import requests
 import os
 
 audio = "C:\\SGZ_Pro\\Hobbys\\Media\\music\\lukrembo - butter (royalty free vlog music) [Ua7Qfc1xu90].mp3"
-subreddit = "pepethefrog"
+subreddit="pepethefrog"
 
-#data = requests.get("https://teddit.net/r/unixporn?api&target=reddit").json()
-# The benifit of using the reddit API is you can get a lot of images
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121201 icecat/17.0.1'}
 data = requests.get(f"https://www.reddit.com/r/{subreddit}.json?limit=400",headers=headers).json()
 
@@ -14,7 +12,9 @@ format = ".png"
 for image in data["data"]["children"]:
     url = image["data"]["url"]
     if url.startswith("https://i.redd.it/"):
-        if url.endswith(format):
+        if image["data"]["thumbnail"] == "nsfw":
+            pass
+        elif url.endswith(format):
             name=name+1
             print(name)
             with open(str(name)+format,"wb") as f:
