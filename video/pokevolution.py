@@ -12,13 +12,12 @@ evolveimage = "https://spee.ch/@TrueAuraCoralPublishesImages:5/PokeevolutionEvol
 backgroundimage = "https://spee.ch/@TrueAuraCoralPublishesImages:5/PokeevolutionBackgroundSign:a"
 # Audio file to go over the video to make it less boring. Need to have
 # one on your computer
-audio = "C:\\SGZ_Pro\\Hobbys\\Media\\music\\lukrembo - butter (royalty free vlog music) [Ua7Qfc1xu90].mp3"
+audio = "C:\\SGZ_Pro\\Hobbys\\Media\\music\\pokemon-songs-no-copyright-music.mp3"
 
 # Various pokemon you want to have a evolution video out of. These are
 # all the starters in pokemon. This placeholder going to get oudated
 # because scarlet and violet
 pokemons = ["bulbasaur","charmander","squirtle","chikorita","cyndaquil","totodile","treecko","torchic","mudkip","turtwig","chimchar","piplup","snivy","tepig","oshawott","chespin","fennekin","froakie","rowlet","litten","popplio","grookey","scorbunny","sobble"]
-#pokemons = ["bulbasaur","charmander"]
 
 if evolveimage.startswith("https://"):
     with open("evolveimage.png","wb") as f:
@@ -29,7 +28,7 @@ if backgroundimage.startswith("https://"):
         f.write(requests.get(backgroundimage).content)
     backgroundimage = "backgroundimage.png"
 
-os.system(f"ffmpeg -y -loop 1 -i {evolveimage} -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1920:1080 evolveimage.mp4")
+os.system(f"ffmpeg -y -loop 1 -i {evolveimage} -c:v libx264 -t 5 -pix_fmt yuv420p -vf scale=1920:1080 evolveimage.mp4")
 def artinator(a):
     data2 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{a}").json()
     artwork = data2["sprites"]["other"]["official-artwork"]["front_default"]
@@ -55,9 +54,8 @@ def makeevolutionvideo(pokemon):
             text3 = f"{second.capitalize()} evolves into {third.capitalize()}"
         except:
             third = ""
-    # os.system(f'ffmpeg -y -i {pokemon}.png -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:-1:-1" edit-{pokemon}.png')
     os.system(f'ffmpeg -y -i {backgroundimage} -i {pokemon}.png -filter_complex "[1]scale=950:950[b];[0][b] overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2:shortest=1" edit-{pokemon}.png')
-    os.system(f"ffmpeg -y -loop 1 -i edit-{pokemon}.png -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1920:1080 {pokemon}.mp4")
+    os.system(f"ffmpeg -y -loop 1 -i edit-{pokemon}.png -c:v libx264 -t 5 -pix_fmt yuv420p -vf scale=1920:1080 {pokemon}.mp4")
     os.system(f"ffmpeg -y -i evolveimage.mp4 -vf \"drawtext=text='{text}':fontcolor=white:bordercolor=black:borderw=5:fontsize=65:x=(w-text_w)/2:y=(h-text_h)/2:\" evolveimage-{pokemon}.mp4")
     with open("concat.txt","w") as f:
         f.write(f"""file '{pokemon}.mp4'
@@ -66,9 +64,8 @@ file 'evolveimage-{pokemon}.mp4'""")
         pass
     else:
         text2 = f"{second.capitalize()} evolves into {third.capitalize()}"
-        # os.system(f'ffmpeg -y -i {second}.png -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:-1:-1" edit-{second}.png')
         os.system(f'ffmpeg -y -i {backgroundimage} -i {second}.png -filter_complex "[1]scale=950:950[b];[0][b] overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2:shortest=1" edit-{second}.png')
-        os.system(f"ffmpeg -y -loop 1 -i edit-{second}.png -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1920:1080 {second}.mp4")
+        os.system(f"ffmpeg -y -loop 1 -i edit-{second}.png -c:v libx264 -t 5 -pix_fmt yuv420p -vf scale=1920:1080 {second}.mp4")
         os.system(f"ffmpeg -y -i evolveimage.mp4 -vf \"drawtext=text='{text2}':fontcolor=white:bordercolor=black:borderw=5:fontsize=65:x=(w-text_w)/2:y=(h-text_h)/2:\" evolveimage-{second}.mp4")
         with open("concat.txt","a") as f:
             f.write(f"""
@@ -77,10 +74,8 @@ file 'evolveimage-{second}.mp4'""")
     if third == "":
         pass
     else:
-        # os.system(f'ffmpeg -y -i {third}.png -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:-1:-1" edit-{third}.png')
         os.system(f'ffmpeg -y -i {backgroundimage} -i {third}.png -filter_complex "[1]scale=950:950[b];[0][b] overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2:shortest=1" edit-{third}.png')
-        os.system(f"ffmpeg -y -loop 1 -i edit-{third}.png -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1920:1080 {third}.mp4")
-        #os.system(f"ffmpeg -y -i edit-{third}.mp4 -vf \"drawtext=text='{text3}':fontcolor=white:bordercolor=black:borderw=5:fontsize=65:x=(w-text_w)/2:y=(h-text_h)/2:\" {third}.mp4")
+        os.system(f"ffmpeg -y -loop 1 -i edit-{third}.png -c:v libx264 -t 5 -pix_fmt yuv420p -vf scale=1920:1080 {third}.mp4")
         with open("concat.txt","a") as f:
             f.write(f"""
 file '{third}.mp4'""")
@@ -102,16 +97,20 @@ for thing in pokemons:
     makeevolutionvideo(thing)
     print(f"Made video for {thing.capitalize()}.")
     with open("concat2.txt","a") as f:
-        f.write(f"\nfile 'vid-{thing}'")
+        f.write(f"\nfile 'vid-{thing}.mp4'")
 
 os.system(f"ffmpeg -y -f concat -i concat2.txt -c copy input.mp4")
-#os.remove("backgroundimage.png")
-#os.remove("evolveimage.png")
-#os.remove("evolveimage.mp4")
-#for thing in pokemons:
-#    os.remove("vid-"+thing+".mp4")
+os.remove("backgroundimage.png")
+os.remove("evolveimage.png")
+os.remove("evolveimage.mp4")
+for thing in pokemons:
+    os.remove("vid-"+thing+".mp4")
 
-#os.system(f'ffmpeg -y -i input.mp4 -i "{audio}" -filter_complex \" [1:0] apad \" -shortest vid-{pokemon}.mp4')
+os.system(f'ffmpeg -y -i input.mp4 -i "{audio}" -filter_complex \" [1:0] apad \" -shortest output.mp4')
+os.remove("input.mp4")
+os.remove("concat2.txt")
+os.remove("concat.txt")
+
 #data = requests.get("https://pokeapi.co/api/v2/pokemon?limit=2000").json()
 #for pokemon in data["results"]:
 #    pokemon["name"]:
