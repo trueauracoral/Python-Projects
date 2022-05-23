@@ -42,6 +42,7 @@ software:
     ffmpeg is a great general utility for handling media. It also comes with the ability to record screens. I made a script that works for Windows & Linux for recording the screen and audio. So at least for me OBS is unnecasary at less you want to have special effects like scene switching during the recording. Or if you want to do livestreaming OBS is much easier. Just that you have to go to the settings menu all the time to change livestreaming keys.
   Presentations: |-
     Libreoffice Impress (Alternative: MD/Org/Latex + Beamer + Pandoc)
+    I rarely make presentations but when I do 
   Documents: |-
     Libreoffice Writer (Alternative: org/md/latex + Pandoc)
   Excel: |-
