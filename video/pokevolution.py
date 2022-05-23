@@ -1,11 +1,8 @@
-import os, os.path
+import os
 import requests
-import mimetypes
-
 # Evolution image and a background image. For both it needs to be
 # either an HTTPS URL or a file on your computer. Also needs to be a
 # PNG file.
-
 # This is an image to represent the pokemon evolving.
 evolveimage = "https://spee.ch/@TrueAuraCoralPublishesImages:5/PokeevolutionEvolveSign:8"
 # This is an image the pokemon will be overlayed on
@@ -111,6 +108,9 @@ os.remove("input.mp4")
 os.remove("concat2.txt")
 os.remove("concat.txt")
 
+# Theoretically with this you could create ALL the pokemon evolutions.
+# That's just going to take a REALLY REALLY long time to render. As well as
+# a lot of possible errors...
 #data = requests.get("https://pokeapi.co/api/v2/pokemon?limit=2000").json()
 #for pokemon in data["results"]:
 #    pokemon["name"]:
