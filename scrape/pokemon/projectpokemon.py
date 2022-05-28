@@ -30,7 +30,11 @@ for gen in gens:
             num=num+1
             quotes = re.findall('".+?"',link)
             filename = quotes[0].replace('"',"")
+            if filename == " ":
+                filename = quotes[1].split("/")[-1].replace('"',"")
+            print(filename)
             url = quotes[1].replace('"',"")
             print(num, quotes[1].replace("\"",""))
+            print(dir+str(num2)+slash+filename)
             with open(dir+str(num2)+slash+filename,"wb") as f:
                 f.write(requests.get(url).content)
