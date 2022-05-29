@@ -54,4 +54,6 @@ software:
   Video_Editing: |-
     Blender (Alternative: Kdenlive/Shotcut/Olive)
   LBRY_Client: |-
-    LBRY GTK (Alternative: Fastlbry-GTK/Lyberry-QT)
+    LBRY GTK (Alternative: Fastlbry-GTK/Lyberry-QT/lbrynet)
+  Download: |-
+    yt-dlp
