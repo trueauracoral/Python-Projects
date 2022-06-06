@@ -1,10 +1,11 @@
 # termpad.py
 # This uses the termpad pastebin website to do a variety of things.
 #
-# Dependencies: curl
+# Dependencies: curl, xclip (optional).
 import os
 import subprocess
 import argparse
+import platform
 
 browser = "palemoon"
 parser = argparse.ArgumentParser(description='Termpad curl python script')
@@ -28,7 +29,7 @@ elif args.paste:
         paste_url = subprocess.getoutput(f'curl --silent --data-binary @"{args.paste}" termpad.com')
         print(paste_url)
         if args.copy == True:
-            if platform.system() == "Windows"
+            if platform.system() == "Windows":
                 os.system(f"echo {paste_url} | clip")
             else:
                 os.system(f"echo '{paste_url}' | xclip -selection clipboard")
@@ -36,7 +37,10 @@ elif args.paste:
         print("This is not a file")
 elif args.open:
     if args.open.startswith("https://termpad.com"):
-        os.system(f"{browser} {args.open}")
+        if platform.system() == "Windows":
+            os.system(f"start {args.open}")
+        else:
+            os.system(f"xdg-open {args.open}")
     else:
         print("This is not a termpad URL")
 else:
