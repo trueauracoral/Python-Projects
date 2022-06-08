@@ -39,5 +39,5 @@ with open("search-engines.txt","w") as f:
 
 choice = subprocess.getoutput(fzf.replace("FILE","search-engines.txt")).split(" - ")[1]
 search = input("Search: ").replace(" ","%20")
-os.popen(f"{browser} {choice}{search}")
+subprocess.Popen(f"{browser} {choice}{search}")
 os.remove("search-engines.txt")
