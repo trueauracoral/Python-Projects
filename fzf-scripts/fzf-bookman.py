@@ -3,11 +3,11 @@ import subprocess
 import os
 import platform
 
-appdata = os.getenv('APPDATA')
 browser = "qutebrowser"
 fzf = "C:\\SGZ_Pro\\z-Apps_Drivers\\fzf-0.30.0-windows_amd64\\fzf.exe --reverse < FILE"
 
 if platform.system() == "Windows":
+    appdata = os.getenv('APPDATA')
     bookmarks_file = f"{appdata}\\qutebrowser\\config\\bookmarks\\urls"
     history_file = f"{appdata}\\qutebrowser\\data\\\history.sqlite"
 else:
@@ -18,6 +18,7 @@ with open(bookmarks_file) as f:
     bookmarks_file = f.read()
 with open("bookman.txt","w") as f:
     f.write(bookmarks_file)
+    f.write("\n-------")
 
 con = sqlite3.connect(history_file)
 cur = con.cursor()
@@ -34,5 +35,6 @@ with open("bookman.txt","a") as f:
             f.write(url[1].encode('utf-8').decode('ascii','ignore')+" - "+url[0].encode('utf-8').decode('ascii','ignore')+"\n")
 
 choice = subprocess.getoutput(fzf.replace("FILE","bookman.txt"))
-subprocess.Popen(f"{browser} {choice}")
+if choice is not "":
+    subprocess.Popen(f"{browser} {choice}")
 os.remove("bookman.txt")
