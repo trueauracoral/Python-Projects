@@ -2,8 +2,7 @@ import subprocess
 import os
 
 browser = "palemoon"
-fzf = "C:\\SGZ_Pro\\z-Apps_Drivers\\fzf-0.30.0-windows_amd64\\fzf.exe --reverse 
-< FILE"
+fzf = "C:\\SGZ_Pro\\z-Apps_Drivers\\fzf-0.30.0-windows_amd64\\fzf.exe --reverse < FILE"
 
 engines = """
 bing - https://www.bing.com/search?q=
@@ -28,8 +27,7 @@ gumtree - https://www.gumtree.com/search?search_category=all&q=
 archaur - https://aur.archlinux.org/packages/?O=0&K=
 archpkg - https://archlinux.org/packages/?sort=&q=
 archwiki - https://wiki.archlinux.org/index.php?search=
-debianpkg - 
-https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=na
+debianpkg - https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=na
 mes&keywords=
 github - https://github.com/search?q=
 gitlab - https://gitlab.com/search?search=
@@ -40,8 +38,7 @@ stackoverflow - https://stackoverflow.com/search?q=
 with open("search-engines.txt","w") as f:
     f.write(engines)
 
-choice = subprocess.getoutput(fzf.replace("FILE","search-engines.txt")).split(" 
-- ")[1]
+choice = subprocess.getoutput(fzf.replace("FILE","search-engines.txt")).split(" - ")[1]
 search = input("Search: ").replace(" ","%20")
 subprocess.Popen(f"{browser} {choice}{search}")
 os.remove("search-engines.txt")
