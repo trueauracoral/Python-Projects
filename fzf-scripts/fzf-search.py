@@ -2,7 +2,7 @@ import subprocess
 import os
 
 browser = "palemoon"
-fzf = "C:\\SGZ_Pro\\z-Apps_Drivers\\fzf-0.30.0-windows_amd64\\fzf.exe --reverse < FILE"
+fzf = "fzf --reverse < FILE"
 
 engines = """
 bing - https://www.bing.com/search?q=

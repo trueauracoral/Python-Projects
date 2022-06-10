@@ -1,15 +1,17 @@
 import subprocess
 import os
+import platform
 
 editor = "emacs"
-fzf = "C:\\SGZ_Pro\\z-Apps_Drivers\\fzf-0.30.0-windows_amd64\\fzf.exe --reverse < FILE"
+fzf = "fzf --reverse < FILE"
 
 if platform.system() == "Windows":
     appdata = os.getenv('APPDATA')
 configs = f"""
 alacritty - {appdata}\\alacritty\\alacritty.yml
 emacs - {appdata}\\.emacs.d\\init.el
-mpv - {appdata}\\Roaming\\mpv\\mpv.conf
+mpv - {appdata}\\mpv\\mpv.conf
+qutebrowser - {appdata}\\qutebrowser\\config\\config.py
 """
 
 with open("configs.txt","w") as f:

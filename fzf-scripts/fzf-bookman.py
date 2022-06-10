@@ -4,7 +4,7 @@ import os
 import platform
 
 browser = "qutebrowser"
-fzf = "C:\\SGZ_Pro\\z-Apps_Drivers\\fzf-0.30.0-windows_amd64\\fzf.exe --reverse < FILE"
+fzf = "fzf --reverse < FILE"
 
 if platform.system() == "Windows":
     appdata = os.getenv('APPDATA')
