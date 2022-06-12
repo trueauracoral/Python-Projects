@@ -8,6 +8,7 @@ import os
 import subprocess
 import re
 import sys
+import platform
 
 if len(sys.argv) == 1:
     print("A missing or incorrect option was given")
@@ -15,6 +16,7 @@ if len(sys.argv) == 1:
 elif sys.argv[1] == "-s":
     try:
         output = input("Where do you want the recording to go: ")
+        print(platform.system())
         if platform.system() == "Windows":
             os.system(f"ffmpeg -f gdigrab -framerate 30 -i desktop {output}")
         else:
