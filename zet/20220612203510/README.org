@@ -1,0 +1,6 @@
+#+TITLE: Remember to backup your emails!
+#+OPTIONS: toc:nil num:nil 
+
+I think a lot about making sure to have backups of everything in case one day something happens and *BOOM* you no longer have access to it. Also because I just HATE loosing things. So, one thing that I had intensions to backup for a while was emails, but never got around to it unfortunately so the email provider I used kind of went out of buisness for a little bit and long story short I don't have access to my emails! Luckily I think this is temporary. I should of looked for a way to back them up sooner. I think it would be good to have some sort of system which automaticly backs them up for you because everyday you get emails OR have some sort of month to month or week to week backup.
+
+#email #backup
