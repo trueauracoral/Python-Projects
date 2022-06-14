@@ -13,7 +13,7 @@
 import requests
 import os
 
-url = "https://github.com/terminalforlife"
+url = "https://github.com/lukesmithxyz"
 username = url.split("/")[3]
 data = requests.get(f"https://api.github.com/users/{username}/repos").json()
 print(username)
@@ -22,4 +22,4 @@ os.mkdir(username)
 for repo in data:
     print(repo["name"])
     print(repo["description"])
-    os.system(f"cd {username} && git clone {repo['html_url']}")
+    os.system(f"cd {username} && git clone {repo['clone_url']}")
