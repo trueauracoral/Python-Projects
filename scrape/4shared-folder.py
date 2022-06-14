@@ -12,8 +12,6 @@ for i, subdir in enumerate(subdirs):
         pass
     elif "javascript" in subdir.split('"')[1]:
         pass
-    elif i == 1:
-        break
     else:
         data2 = str(requests.get(subdir.split('"')[1],headers=headers).content)
         video = re.findall('href="https://www.4shared.com/video/.+?"',data2)
