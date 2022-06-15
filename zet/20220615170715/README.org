@@ -1,0 +1,13 @@
+#+TITLE: Mass shebang a lot of files command
+#+OPTIONS: toc:nil num:nil 
+
+#+BEGIN_SRC bash
+find -name '*.py' | xargs sed -i '1i#!/usr/bin/env python'
+#+END_SRC
+
+- =find -name= gives a list of files ending with the .py extension
+- =xargs= will run a command on all items in the list. The command xargs runs is a sed command
+  - =-i= in the sed command is for editing the file
+  - =1= means that you are opperating on line one
+  - =i= for insert
+  - =#!/usr/bin/env python= is what is being inserted
