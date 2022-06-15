@@ -4,8 +4,6 @@ import sys
 
 cpu = subprocess.getoutput("wmic cpu get numberofcores, name")
 cpu = cpu.splitlines()[2]
-cpup = subprocess.getoutput("wmic cpu get loadpercentage")
-cpup = cpup.splitlines()[2].split()[0]+"%"
 gpu = subprocess.getoutput("wmic path win32_videoController get name")
 gpu = gpu.splitlines()[2]
 memory = subprocess.getoutput("wmic MemoryChip get Capacity")
