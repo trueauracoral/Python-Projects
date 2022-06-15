@@ -1,5 +1,7 @@
 # zet.py
 # This script will help me manage a zettelkasten.
+#
+# Missing:
 # -d, --delete  delete a note
 # -o, --open    open a note
 # -n, --new     new note
