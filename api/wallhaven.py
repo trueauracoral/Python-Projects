@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import requests
 
 # Try and get 1920x1080. Set this to True if you want that. You will

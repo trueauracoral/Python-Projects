@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import requests
 
 move = input("Move: ").lower().replace(" ","-")

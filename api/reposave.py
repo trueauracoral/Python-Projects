@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # What do you need to run this script:
 # - python
 # - python requests

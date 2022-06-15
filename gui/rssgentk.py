@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Import all of tkinter GUI stuff
 from tkinter import *
 # Run shell commands

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # termpad.py
 # This uses the termpad pastebin website to do a variety of things.
 #

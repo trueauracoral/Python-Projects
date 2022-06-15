@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Needs to be installed `pip install pyyaml`
 import yaml
 import os

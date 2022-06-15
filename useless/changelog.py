@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Simple script (not perfect) to generate changelog files from time to
 # time.
 import subprocess

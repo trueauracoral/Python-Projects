@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 
 # ffmpeg -ss 00 -i <VID> -t 55 -c copy out.mp4

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # This program gathers data about a YT channel's videos or any YT link
 # using yt-dl or yt-dlp and then mirrors it to LBRY. yt-dlp
 # theoretticaly can be used to mirror from sites like peertube but it

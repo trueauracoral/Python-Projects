@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 Title = input("Title: ")
 Who = input("By who? : ")
 PubDate = input("Publication Date: ")

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Using the invidious instance API it prints out most likely working 
 # and healthy HTTPS invidious instances.
 import requests

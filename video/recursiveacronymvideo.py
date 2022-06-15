@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # WHAT IS THIS?
 # On wikipedia I copied and pasted there list of recursive acronyms
 # e.g. GNU (GNUs not Unix) or YAML (YAML ain't Markup Language). Then

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Previewer script for LF/ranger etc written in python instead of
 # shell script
 #

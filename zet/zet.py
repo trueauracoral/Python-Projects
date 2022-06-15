@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # zet.py
 # This script will help me manage a zettelkasten.
 #

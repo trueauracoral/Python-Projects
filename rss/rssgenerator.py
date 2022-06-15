@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # For command line args
 import sys
 # For running commands in shell with subprocess.Popen or subprocess.run

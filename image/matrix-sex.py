@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Some code I got from:
 # https://github.com/rebane2001/txnor-server/blob/mane/sex.py
 from PIL import Image, ImageFont, ImageDraw, ImageEnhance

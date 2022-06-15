@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # This script is windows only right now. When I switch to Linux I will
 # try and convert all ffmpeg options to be appropriate for a Linux
 # most likely X11 system. I am not an ffmpeg pro, I am just

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 This is a script for me to generate passwords. I advise you to maybe make your own script for generating passwords for max security.
 """

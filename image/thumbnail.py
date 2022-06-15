@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # This is a script for me to generate video thumbnails for none video
 # publications. I am way to lazy to create thumbnails so this just
 # does it automaticly.

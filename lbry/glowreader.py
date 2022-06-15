@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import subprocess
 
 # Change this to the location of your glow program

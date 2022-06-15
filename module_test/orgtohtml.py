@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Going to export org to html
 
 # Neccasary import to convert org to html

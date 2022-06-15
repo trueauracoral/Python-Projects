@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # This is supposed to help automate the process of adding software to
 # FreeAlternatives
 

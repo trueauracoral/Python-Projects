@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # This is a plugin for converting lbc to usd
 # (c) TrueAuraCoral 2021 - under GNU GPLv3 or any later version.
 

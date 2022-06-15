@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Copyright (c) 2021 TrueAuraCoral
 # You can copy this file under the GNU GPL version 3 or any later version
 

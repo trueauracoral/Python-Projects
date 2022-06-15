@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import requests
 
 website = "https://wttr.in/"

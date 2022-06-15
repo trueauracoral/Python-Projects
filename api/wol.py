@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Script for searching FOSS video platforms
 import requests
 import json

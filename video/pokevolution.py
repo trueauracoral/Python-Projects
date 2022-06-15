@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import requests
 # Evolution image and a background image. For both it needs to be

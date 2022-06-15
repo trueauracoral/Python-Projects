@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 How to run this script.
 1. Install with pip the requests and markdown module

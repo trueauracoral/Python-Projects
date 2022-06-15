@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # LS - list files in a directory
 import os
 import sys

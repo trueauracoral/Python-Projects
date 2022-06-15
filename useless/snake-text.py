@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 text = input("What text? ")
 icon = '''
              \\        ___

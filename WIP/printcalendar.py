@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import datetime
 
 mydate = datetime.datetime.now()

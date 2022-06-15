@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import requests
 
 type = input("Type: ").lower()

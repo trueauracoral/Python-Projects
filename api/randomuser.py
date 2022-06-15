@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import requests
 
 data = requests.get("https://randomuser.me/api/").json()
