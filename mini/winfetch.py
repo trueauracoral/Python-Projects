@@ -47,3 +47,5 @@ elif sys.argv[1] == "-u":
 ┌────┐ ┌────┐ Uptime: {uptimedate}
 │    │ │    │ Version: {version}
 └────┘ └────┘ OS: {name}''')
+else:
+    print("Unsupported command")
