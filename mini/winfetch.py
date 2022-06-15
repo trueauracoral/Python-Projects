@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import datetime
 import subprocess
 import sys
@@ -28,8 +29,9 @@ version = version.splitlines()[2]
 name = subprocess.getoutput("wmic os get Caption")
 name = name.splitlines()[2]
 
-print(f"""
- _____  _____  
+if len(sys.argv) == 1:
+    print(f"""
+ _____  _____
 |     ||     | CPU: {cpu}
 |     ||     | GPU: {gpu}
 |_____||_____| RAM: {rams}
@@ -37,3 +39,11 @@ print(f"""
 |     ||     | Version: {version}
 |     ||     | OS: {name}
 |_____||_____|""")
+elif sys.argv[1] == "-u":
+    print(f'''
+┌────┐ ┌────┐ CPU: {cpu}
+│    │ │    │ GPU: {gpu}
+└────┘ └────┘ RAM: {rams}
+┌────┐ ┌────┐ Uptime: {uptimedate}
+│    │ │    │ Version: {version}
+└────┘ └────┘ OS: {name}''')
