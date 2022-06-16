@@ -2,6 +2,7 @@
 import datetime
 import subprocess
 import sys
+import random
 
 cpu = subprocess.getoutput("wmic cpu get numberofcores, name")
 cpu = cpu.splitlines()[2]
@@ -28,9 +29,11 @@ version = subprocess.getoutput("wmic os get version")
 version = version.splitlines()[2]
 name = subprocess.getoutput("wmic os get Caption")
 name = name.splitlines()[2]
+random = random.randint(1,3)
 
 if len(sys.argv) == 1:
-    print(f"""
+    if random == 1:
+        print(f"""
  _____  _____
 |     ||     | CPU: {cpu}
 |     ||     | GPU: {gpu}
@@ -39,6 +42,26 @@ if len(sys.argv) == 1:
 |     ||     | Version: {version}
 |     ||     | OS: {name}
 |_____||_____|""")
+    elif random == 2:
+        print(f"""
+  ___   ___  
+ /   \ /   \   CPU: {cpu}
+ \    |\    |  GPU: {gpu}
+  \___| \___|  RAM: {rams}
+  ___   ___    Uptime: {uptimedate}
+ /   \ /   \   Version: {version}
+ \    |\    |  OS: {name}
+  \___| \___|""")
+    elif random == 3:
+        print(f"""
+  ____  ____ 
+ /    \/    \  CPU: {cpu}
+ |    /|    /  GPU: {gpu}
+ |___/ |___/   RAM: {rams}
+  ____  ____   Uptime: {uptimedate}
+ /    \/    \  Version: {version}
+ |    /|    /  OS: {name}
+ |___/ |___/ """)
 elif sys.argv[1] == "-u":
     print(f'''
 ┌────┐ ┌────┐ CPU: {cpu}

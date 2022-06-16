@@ -2,7 +2,7 @@
 import requests
 import os
 
-subreddit="pepethefrog"
+subreddit="unixporn"
 audio = "C:\\SGZ_Pro\\Hobbys\\Media\\music\\lukrembo - butter (royalty free vlog music) [Ua7Qfc1xu90].mp3"
 
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121201 icecat/17.0.1'}
