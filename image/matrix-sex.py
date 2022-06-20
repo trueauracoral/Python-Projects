@@ -4,8 +4,8 @@
 from PIL import Image, ImageFont, ImageDraw, ImageEnhance
 import os
 
-image="C:\SGZ_Pro\Hobbys\Media\memes\pepes\\55.png"
-base_img ="C:\\SGZ_Pro\\Hobbys\\Media\\sex_base.png"
+image="C:\SGZ_Pro\Hobbys\Media\images\\remotecontrol.gif"
+base_img ="C:\\SGZ_Pro\\Hobbys\\Media\\images\\sex_base.png"
 font="C:\\SGZ_Pro\\Hobbys\\Media\\impact.ttf"
 img = Image.open(image).resize((350, 185)).convert("RGB")
 

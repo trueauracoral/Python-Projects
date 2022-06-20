@@ -1,8 +1,13 @@
 #!/usr/bin/env python
 import requests
 import os
+import sys
 
-subreddit="unixporn"
+try:
+    subreddit=sys.argv[1]
+except:
+    print("Please give an argument for a subreddit")
+    exit()
 audio = "C:\\SGZ_Pro\\Hobbys\\Media\\music\\lukrembo - butter (royalty free vlog music) [Ua7Qfc1xu90].mp3"
 
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121201 icecat/17.0.1'}

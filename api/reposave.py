@@ -14,7 +14,7 @@
 import requests
 import os
 
-url = "https://github.com/lukesmithxyz"
+url = "https://github.com/getgle"
 username = url.split("/")[3]
 data = requests.get(f"https://api.github.com/users/{username}/repos").json()
 print(username)
