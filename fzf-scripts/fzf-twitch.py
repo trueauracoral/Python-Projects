@@ -16,6 +16,6 @@ with open("streams.txt","w") as f:
     f.write(streams)
 
 choice = subprocess.getoutput(fzf.replace("FILE","streams.txt"))
-if choice is not "":
+if choice != "":
     subprocess.Popen(f"{player} https://twitch.tv/{choice}")
 os.remove("streams.txt")

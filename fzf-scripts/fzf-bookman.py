@@ -36,6 +36,6 @@ with open("bookman.txt","a") as f:
             f.write(url[1].encode('utf-8').decode('ascii','ignore')+" - "+url[0].encode('utf-8').decode('ascii','ignore')+"\n")
 
 choice = subprocess.getoutput(fzf.replace("FILE","bookman.txt"))
-if choice is not "":
+if choice != "":
     subprocess.Popen(f"{browser} {choice}")
 os.remove("bookman.txt")

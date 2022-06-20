@@ -19,6 +19,6 @@ with open("configs.txt","w") as f:
     f.write(configs)
 
 choice = subprocess.getoutput(fzf.replace("FILE","configs.txt")).split(" - ")[1]
-if choice is not "":
+if choice != "":
     subprocess.Popen(f"{editor} {choice}")
 os.remove("configs.txt")
