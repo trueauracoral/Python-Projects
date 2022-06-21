@@ -15,6 +15,7 @@ parser.add_argument('-o', '--open', type=str, metavar='ID', help='Open a termpad
 parser.add_argument('-p', '--paste', type=str, metavar='PATH', help='Paste an existing file.')
 parser.add_argument('-c', '--copy', action="store_true", default=False, help='Copy the link to the pasted file')
 args = parser.parse_args()
+
 if args.get:
     if args.get == "":
         print("Please give a termpad URL/Paste ID")

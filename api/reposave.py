@@ -1,22 +1,28 @@
 #!/usr/bin/env python
-# What do you need to run this script:
-# - python
-# - python requests
-# - a valid GitHub URL e.g. "https://github.com/<USER>"
-# - git
-# More information:
-# This script was created after TerminalForLife deleted his YouTube
-# channel all of it everything very sad. So while his github is still
-# working why not back it up. This includes forked repos and Public
-# Archives. Just everything. I might make a Codeberg account or
-# something like that to put all of his repos it will just be time
-# consuming at less there is some git command to create a repo.
+#
+# Requires git
 import requests
 import os
+import argparse
+from urllib.parse import urlparse
 
-url = "https://github.com/getgle"
-username = url.split("/")[3]
-data = requests.get(f"https://api.github.com/users/{username}/repos").json()
+parser = argparse.ArgumentParser(description='reposave.py Download stuff from git repos')
+parser.add_argument('-gh', '--github', type=str, metavar='USER', help='Download all of a user\'s repos from github')
+parser.add_argument('-gt', '--gitea', type=str, metavar='SERVER/USER', help='Download all of a user\'s repos from gitea')
+parser.add_argument('-r', '--releases', action="store_true", default=False, help='Copy the link to the pasted file')
+args = parser.parse_args()
+
+if args.github:
+    username = args.github
+    api_url = "https://api.github.com"
+elif args.gitea:
+    if "/" in args.gitea:
+        username = urlparse(args.gitea).path.split("/")[1]
+        api_url = f"{urlparse(args.gitea).scheme}://{urlparse(args.gitea).netloc}/api/v1"
+    else:
+        print("Please tell what gitea server is this from e.g. https://domain.name/USER")
+        quit()
+data = requests.get(f"{api_url}/users/{username}/repos").json()
 print(username)
 
 os.mkdir(username)
