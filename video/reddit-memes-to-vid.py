@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+#
+# python reddit-memes-to-vid.py <SUBREDDIT>
 import requests
 import os
 import sys
@@ -12,6 +14,10 @@ audio = "C:\\SGZ_Pro\\Hobbys\\Media\\music\\lukrembo - butter (royalty free vlog
 
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121201 icecat/17.0.1'}
 data = requests.get(f"https://www.reddit.com/r/{subreddit}.json?limit=400",headers=headers).json()
+
+if "message" and "error" in data:
+    print("Had trouble finding this subreddit. Try another one")
+    quit()
 
 name = 0
 format = ".png"
