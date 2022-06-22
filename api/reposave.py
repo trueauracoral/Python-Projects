@@ -62,10 +62,9 @@ Assets:
         choice = int(input("Download: "))
     except:
         print("Has to be an integer")
-    if choice == 0:
-        file_name = data[0]['name']+".tar.gz"
+    def extract_tars(file_name, url):
         with open(file_name,"wb") as f:
-            f.write(requests.get(data[0]['tarball_url']).content)
+            f.write(requests.get(url).content)
         print("Downloading Tar file...")
         my_tar = tarfile.open(file_name)
         print("Extracting Tar file...")
@@ -74,14 +73,23 @@ Assets:
         print("Finished Extraction...")
         os.remove(file_name)
         print("Removed tar file")
-    elif choice == 1:
-        file_name = data[0]['name']+".zip"
+    def extract_zips(file_name, url):
         print("Downloading Zip file...")
         with open(file_name,"wb") as f:
-            f.write(requests.get(data[0]['zipball_url']).content)
+            f.write(requests.get(url).content)
         print("Extracting Zip file...")
         with ZipFile(file_name,"r") as zip:
             zip.extractall()
         print("Finished Extraction...")
         os.remove(file_name)
         print("Removed zip file")
+    if choice == 0:
+        extract_tars(data[0]['name']+".tar.gz", data[0]['tarball_url'])
+    elif choice == 1:
+        extract_zips(data[0]['name']+".zip", data[0]['zipball_url'])
+    # Issue right now with this is it doesn't handle in case there are multiple assets. Future me problem :(
+    elif choice == 2:
+        if assets.split(" - ")[0].endswith(".zip"):
+            extract_zips(assets.split(" - ")[0]+".zip", assets.split(" - ")[1])
+        if assets.split(" - ")[0].endswith(".tar.gz"):
+            extract_tars(assets.split(" - ")[0]+".tar.gz", assets.split(" - ")[1])
