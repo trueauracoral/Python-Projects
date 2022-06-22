@@ -5,11 +5,13 @@ import requests
 import os
 import argparse
 from urllib.parse import urlparse
+import tarfile
+from zipfile import ZipFile
 
 parser = argparse.ArgumentParser(description='reposave.py Download stuff from git repos')
 parser.add_argument('-gh', '--github', type=str, metavar='USER', help='Download all of a user\'s repos from github')
 parser.add_argument('-gt', '--gitea', type=str, metavar='SERVER/USER', help='Download all of a user\'s repos from gitea')
-parser.add_argument('-r', '--releases', action="store_true", default=False, help='Copy the link to the pasted file')
+parser.add_argument('-r', '--releases', action="store_true", default=False, help='Fetch the newest release from github/gitea repo')
 args = parser.parse_args()
 
 if args.github:
@@ -60,5 +62,26 @@ Assets:
         choice = int(input("Download: "))
     except:
         print("Has to be an integer")
-    if choice == 1:
-        
+    if choice == 0:
+        file_name = data[0]['name']+".tar.gz"
+        with open(file_name,"wb") as f:
+            f.write(requests.get(data[0]['tarball_url']).content)
+        print("Downloading Tar file...")
+        my_tar = tarfile.open(file_name)
+        print("Extracting Tar file...")
+        my_tar.extractall(data[0]['name'])
+        my_tar.close()
+        print("Finished Extraction...")
+        os.remove(file_name)
+        print("Removed tar file")
+    elif choice == 1:
+        file_name = data[0]['name']+".zip"
+        print("Downloading Zip file...")
+        with open(file_name,"wb") as f:
+            f.write(requests.get(data[0]['zipball_url']).content)
+        print("Extracting Zip file...")
+        with ZipFile(file_name,"r") as zip:
+            zip.extractall()
+        print("Finished Extraction...")
+        os.remove(file_name)
+        print("Removed zip file")
