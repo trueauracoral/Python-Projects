@@ -27,8 +27,7 @@
 # the links for all your messages. You should also see a bunch of
 # other html files were downloaded. You could in your browser export
 # them as PDF or do whatever you want. It has who it was from, date
-# and content in plaintext. It doesn't present images because that
-# isn't possible it seems.
+# and content in plaintext.
 import json
 import urllib.parse
 import os.path
