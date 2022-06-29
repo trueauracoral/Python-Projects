@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# A script that will download to a selected directory a lot of pokemon
+# pixel sprites.
 import requests
 import re
 import sys
