@@ -11,6 +11,8 @@
 import requests
 import os
 import argparse
+import subprocess
+from requests.auth import HTTPBasicAuth
 
 def get_arguments():
 
@@ -27,11 +29,15 @@ def get_arguments():
 def main():
 
     args = get_arguments()
-    for i, repo in enumerate(os.listdir(str(args.directory))):
-        os.system(f"curl -X 'POST' -H 'accept:application/json' -H 'Content-Type:application/json' {args.site}/api/v1/orgs/{args.organization}/repos -d '{{\"name\":\"{repo}\"}}' -u '{args.username}:{args.password}'")
-        os.system(f"cd {repo} && git remote set-url origin https://codeberg.org/{args.organization}/{repo}/")
-        os.system(f"cd {repo} && git add .")
-        os.system(f"cd {repo} && git push")
+    for repo in os.listdir(str(args.directory)):
+        x = requests.post(f'{args.site}/api/v1/orgs/{args.organization}/repos', json={"name":repo}, auth=HTTPBasicAuth(args.username, args.password))
+        print(x.text)
+        #curl_command = f"curl -X 'POST' -H 'accept:application/json' -H 'Content-Type:application/json' {args.site}/api/v1/orgs/{args.organization}/repos -d '{{\"name\":\"{repo}\"}}' -u '{args.username}:{args.password}'"
+        #print(curl_command)
+        #os.system(str(curl_command))
+        os.system(f"cd {args.organization} && cd {repo} && git remote set-url origin https://codeberg.org/{args.organization}/{repo}/")
+        os.system(f"cd {args.organization} && cd {repo} && git add .")
+        os.system(f"cd {args.organization} && cd {repo} && git push --force")
     
 if __name__ == '__main__':
     main()
