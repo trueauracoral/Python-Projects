@@ -26,7 +26,6 @@ def get_arguments():
     parser.add_argument('-l', '--list', action="store_true", default=False, help='Copy the link to the pasted file')
     parser.add_argument('--no-title', action="store_true", default=False, help='Copy the link to the pasted file')
     parser.add_argument('-r', '--random', action="store_true", default=False, help='Copy the link to the pasted file')
-    # parser.add_argument('-c', '--copy', action="store_true", default=False, help='Copy the link to the pasted file')
  
     args = parser.parse_args()
  
