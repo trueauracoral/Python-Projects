@@ -13,6 +13,7 @@ emacs - {appdata}\\.emacs.d\\init.el
 mpv - {appdata}\\mpv\\mpv.conf
 qutebrowser - {appdata}\\qutebrowser\\config\\config.py
 lf - {localappdata}\\lf\\lfrc
+wezterm - C:\\SGZ_Pro\\z-Apps_Drivers\\wezterm\\wezterm.lua
 """
 
 git_repo = "C:\SGZ_Pro\Hobbys\coding-projects\Dots\\"
