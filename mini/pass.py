@@ -1,39 +1,44 @@
 #!/usr/bin/env python
-"""
-This is a script for me to generate passwords. I advise you to maybe make your own script for generating passwords for max security.
-"""
 import random
 import pyperclip
 import re
 import sys
+import argparse
 
-if len(sys.argv) == 1:
-    keys = ("abcdefghijklmnopqrxtuvwsyz" + "ABCDEFGHIJKLMNOPQRXTUV" + "1234567890" + "~!@#$%^&*[]{}()")
-    phrase = ("".join(random.sample(keys,16)))
+password_file = "drowsapp.org"
 
-    account = input("Account: ")
-    username = input("Username: ")
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='pass.py')
+    parser.add_argument('-f', '--find', type=str, metavar='NAME', help='Find password credentials')
+    parser.add_argument('-n', '--new', action="store_true", default=False, help='Create a new account credentials')
+    args = parser.parse_args()
+ 
+    return args
 
-    with open("drowsapp.org", 'a') as f:
-        f.write("\n* " + account)
-        f.write("\n- Username: " + username)
-        f.write("\n- Pass: " + phrase)
+def main():
+    args = parse_arguments()
+    if args.new:
+        keys = ("abcdefghijklmnopqrxtuvwsyz" + "ABCDEFGHIJKLMNOPQRXTUV" + "1234567890" + "~!@#$%^&*[]{}()")
+        phrase = ("".join(random.sample(keys,16)))
 
-    print(phrase + "\nDelete this now somehow")
-    pyperclip.copy(phrase)
+        account = input("Account: ")
+        username = input("Username: ")
 
-elif sys.argv[1] == "-f":
-    with open("drowsapp.org") as f:
-        passwords = f.read()
-    passwords = passwords.splitlines()
-    find = input("Which password do you need? ")
-    for line in passwords:
-        if find in line:
-            print("FOUND: "+line.replace("* ",""))
-            print(passwords[passwords.index(line)+1].replace("- ",""))
-            print(passwords[passwords.index(line)+2].replace("- ",""))
+        with open(password_file, 'a') as f:
+            f.write("\n* " + account)
+            f.write("\n- Username: " + username)
+            f.write("\n- Pass: " + phrase)
 
-    if find not in passwords:
-        print("ERROR: Could not find password you wanted.")
-else:
-    print("ERROR")
+        print(phrase + "\nDelete this now somehow")
+        pyperclip.copy(phrase)
+
+    if args.find:
+        with open(password_file) as f:
+            passwords = f.read()
+        headers = passwords.split("* ")
+        for line in headers:
+            if args.find in line.split(" ")[0].split("\n-")[0].lower():
+                print('\n'.join(line.replace("- ","").splitlines()))
+
+if __name__ == "__main__":
+    main()

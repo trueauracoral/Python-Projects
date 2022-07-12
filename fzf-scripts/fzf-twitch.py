@@ -3,6 +3,7 @@ import subprocess
 import os
 import platform
 import requests
+import sys
 
 player = "mpv"
 fzf = "fzf --reverse < FILE"
@@ -11,8 +12,8 @@ anthonywritescode
 theprimeagen
 rwxrob
 tsoding
-whitevault
 vimlark
+whitevault
 mortmort
 """
 
@@ -24,6 +25,9 @@ with open("streams.txt","w") as f:
             live_streams.append(f"{stream} (Currently LIVE)")
     f.write('\n'.join(live_streams))
 
+if live_streams == []:
+    print("None of your followed streams are lived currently :(")
+    sys.exit(1)
 choice = subprocess.getoutput(fzf.replace("FILE","streams.txt"))
 
 if choice != "":
