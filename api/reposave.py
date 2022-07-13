@@ -10,7 +10,6 @@ from zipfile import ZipFile
 
 parser = argparse.ArgumentParser(description='reposave.py Download stuff from git repos')
 parser.add_argument('-gh', '--github', type=str, metavar='USER', help='Download all of a user\'s repos from github')
-parser.add_argument('-gh', '--github', type=str, metavar='USER', help='Download all of a user\'s repos from github')
 parser.add_argument('-gt', '--gitea', type=str, metavar='SERVER/USER', help='Download all of a user\'s repos from gitea')
 parser.add_argument('-r', '--releases', action="store_true", default=False, help='Fetch the newest release from github/gitea repo')
 args = parser.parse_args()
