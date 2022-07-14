@@ -43,7 +43,6 @@ def main():
         for stream in streams.splitlines():
             if stream == "":
                 pass
-            # Very cool hack to not use twitch API
             elif 'isLiveBroadcast' in requests.get("https://www.twitch.tv/"+stream).content.decode('utf-8'):
                 live_streams.append(f"{stream} (Currently LIVE)")
             elif upcoming(stream) != "":
