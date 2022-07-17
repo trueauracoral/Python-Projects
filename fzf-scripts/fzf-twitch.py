@@ -54,7 +54,7 @@ def main():
             elif 'isLiveBroadcast' in requests.get("https://www.twitch.tv/"+stream).content.decode('utf-8'):
                 live_streams.append(live(stream))
             elif date != "":
-                upcoming_streams.append(f"{stream} The next stream is on {date}")
+                upcoming_streams.append(f"[X] {stream} The next stream is on {date}")
         if live_streams == []:
             live_streams.append("No live streams right now. Below are upcoming:")
         f.write('\n'.join(live_streams+["---"]+upcoming_streams))
@@ -63,7 +63,7 @@ def main():
     
     if choice != "":
         subprocess.Popen(f"{player} https://twitch.tv/{choice}")
-    elif "The next stream" in choice:
+    elif choice.startswith(("[X]", "---", "No live streams right now")):
         sys.exit(0)
     os.remove("streams.txt")
 if __name__ == "__main__":
