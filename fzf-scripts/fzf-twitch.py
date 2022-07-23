@@ -46,7 +46,7 @@ def live(channel):
 def main():
     live_streams = []
     upcoming_streams = []
-    with open("streams.txt","w") as f:
+    with open("streams.txt","w",encoding="utf-8") as f:
         for stream in streams.splitlines():
             date = upcoming(stream)
             if stream == "":

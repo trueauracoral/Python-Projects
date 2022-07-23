@@ -13,15 +13,16 @@ def parse_arguments():
     return parser.parse_args()
 
 def main():
+    args = parse_arguments()
     if not os.path.isfile(args.output):
         print("File not found!")
         sys.exit(1)
 
     print("---------------")
-    os.system(f'ffmpeg -ss {args.start} -t {args.end} -i "args.input" -filter_complex "[0:v] palettegen" palette.png')
+    os.system(f'ffmpeg -ss {args.start} -t {args.end} -i "{args.input}" -filter_complex "[0:v] palettegen" palette.png')
 
     print("---------------")
-    os.system(f'ffmpeg -ss {args.start} -t {args.end} -i "args.input" -i palette.png -filter_complex "[0:v] fps=10,scale=720:-1 [new];[new][1:v] paletteuse" ffmpeg-meme-gif-file.gif')
+    os.system(f'ffmpeg -ss {args.start} -t {args.end} -i "{args.input}" -i palette.png -filter_complex "[0:v] fps=10,scale=720:-1 [new];[new][1:v] paletteuse" ffmpeg-meme-gif-file.gif')
 
     print("---------------")
     if not args.text == "":

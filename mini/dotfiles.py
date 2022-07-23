@@ -14,6 +14,7 @@ mpv - {appdata}\\mpv\\mpv.conf
 qutebrowser - {appdata}\\qutebrowser\\config\\config.py
 lf - {localappdata}\\lf\\lfrc
 wezterm - C:\\SGZ_Pro\\z-Apps_Drivers\\wezterm\\wezterm.lua
+bash - C:\\Users\\Stanl\\.bashrc
 """
 
 git_repo = "C:\SGZ_Pro\Hobbys\coding-projects\Dots\\"
@@ -25,6 +26,8 @@ for config in configs.splitlines():
         config = config.split(" - ")
         oldpath = config[1]
         newpath = os.path.join(git_repo, config[0], os.path.basename(oldpath))
+        if not os.path.exists(os.path.dirname(newpath)):
+            os.mkdir(os.path.dirname(newpath))
         print("OLD: "+oldpath)
         print("NEW: "+newpath)
         shutil.copy(oldpath,newpath)
