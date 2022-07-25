@@ -22,7 +22,7 @@ def image_url(url):
 
 
 def main():
-    print(image_url("https://www.gocomics.com/random/"+COMIC)
+    print(image_url("https://www.gocomics.com/random/"+COMIC))
 
 if __name__ == "__main__":
     main()
