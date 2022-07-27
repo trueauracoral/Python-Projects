@@ -10,6 +10,8 @@ import os
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
+# To find more instances go to:
+# https://github.com/hnhx/librex/#instances
 LIBREX_INSTANCE = "https://search.davidovski.xyz/"
 TORRENT = "aria2c"
 PLAYER = "mpv"
