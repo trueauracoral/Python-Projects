@@ -6,10 +6,15 @@ import subprocess
 import argparse
 import tempfile
 import os
+import re
+import random
+import sys
 # This somehow fixes issues with urllib ssl errors (FOR ME)
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
+# Set this to False if you want LIBREX_INSTANCE to be used.
+RANDOM_INSTANCE = True
 # To find more instances go to:
 # https://github.com/hnhx/librex/#instances
 LIBREX_INSTANCE = "https://search.davidovski.xyz/"
@@ -28,10 +33,27 @@ def get_arguments():
     return parser.parse_args()
 
 
+def get_random_instance():
+    md = str(urllib.request.urlopen("https://raw.githubusercontent.com/hnhx/librex/main/README.md").read())
+    links = re.findall("\(.+?\)",md)[:-1]
+    working = []
+    for link in links:
+        link = link.replace(")","").replace("(","")
+        if not link.endswith(("onion/","i2p/")):
+            if urllib.request.urlopen(link).getcode() == 200:
+                working.append(link)
+    return random.choice(working)
+
+
 def api(search_text, search_type):
     search_type = str(search_type)
     search_text = ' '.join(search_text)
-    search_url = urllib.parse.urljoin(LIBREX_INSTANCE,f"/api.php?q={urllib.parse.quote(search_text)}&type={search_type}")
+    if RANDOM_INSTANCE == False:
+        instance = LIBREX_INSTANCE
+    elif RANDOM_INSTANCE == True:
+        instance = get_random_instance()
+        print(f"Using random instance: {instance}")
+    search_url = urllib.parse.urljoin(instance,f"/api.php?q={urllib.parse.quote(search_text)}&type={search_type}")
     # Use this line if urllib isn't working for you and you have
     # requests:
     #data = requests.get(search_url).json()
@@ -69,6 +91,9 @@ def fzf(search, type_, opener):
 
 def main():
     args = get_arguments()
+    if len(sys.argv) == 1:
+        print("No arguments were given. Read the help (-h/--help).")
+        sys.exit(1)
     if args.search:
         fzf(args.search, 0, BROWSER)
     elif args.image:
