@@ -72,7 +72,7 @@ def fzf(search, type_, opener):
             elif type_ == "1":
                 f.write(f'{i} {result["alt"]}{sep}{result["url"]}\n')
             elif type_ == "3":
-                f.write(f'{i} {result["size"]} [S:{result["leechers"]}, L:{result["seeders"]}] {result["name"]}\n')
+                f.write(f'{i} ({result["source"]}) {result["size"]} [S:{result["leechers"]}, L:{result["seeders"]}] {result["name"]}\n')
     with open(file, "r", encoding="utf-8") as f:
         text = '\n'.join(f.read().splitlines()[:-1])
 
