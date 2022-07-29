@@ -7,7 +7,8 @@ import sys
 from datetime import datetime, timezone
 import time
 
-player = "mpv"
+# Streamlink cuts out the add break. But you can just set this to "mpv".
+player = "streamlink --player=mpv --default-stream=best"
 fzf = "fzf --reverse < FILE"
 streams = f"""anthonywritescode
 theprimeagen
@@ -16,7 +17,7 @@ tsoding
 vimlark
 whitevault
 mortmort"""
-
+sep = " | "
 # I got this from streamweasels.com under network in the f12
 headers = {
     "Authorization": "Bearer oll661c5pnlw0txizn436sbqxuig6q",
@@ -30,7 +31,6 @@ def upcoming(channel):
     schedule = requests.get(url, headers=headers).json()
     if "error" not in schedule:
         date = datetime.strptime(schedule["data"]["segments"][0]["start_time"], "%Y-%m-%dT%H:%M:%SZ")
-        # Thank you Cringe, Doctor Tiberius Cringe
         date = date.replace(tzinfo=timezone.utc).astimezone(tz=None)
         abrev_tz = time.tzname[1]
         if " " in abrev_tz:
@@ -41,7 +41,7 @@ def upcoming(channel):
 def live(channel):
     info = requests.get(f"https://api.twitch.tv/helix/streams?user_login={channel}",headers=headers).json()
     info = info["data"][0]
-    return f'{info["user_name"]} | {info["game_name"]} | {info["title"][:50]} | {info["viewer_count"]}'
+    return f'{info["user_name"]}{sep}{info["game_name"]}{sep}{info["title"][:50]}{sep}{info["viewer_count"]}'
 
 def main():
     live_streams = []
@@ -58,11 +58,11 @@ def main():
         if live_streams == []:
             live_streams.append("No live streams right now. Below are upcoming:")
         f.write('\n'.join(live_streams+["---"]+upcoming_streams))
-    
+
     choice = subprocess.getoutput(fzf.replace("FILE","streams.txt"))
-    
+
     if choice != "":
-        subprocess.Popen(f"{player} https://twitch.tv/{choice}")
+        subprocess.Popen(f"{player} https://twitch.tv/{choice.split(sep)[0]}")
     elif choice.startswith(("[X]", "---", "No live streams right now")):
         sys.exit(0)
     os.remove("streams.txt")

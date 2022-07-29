@@ -20,7 +20,7 @@ def image_url(url):
     image = data[loc:loc+63]
     return image
 
-
+print(image_url)
 def main():
     print(image_url("https://www.gocomics.com/random/"+COMIC))
 
