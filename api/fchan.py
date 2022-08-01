@@ -20,7 +20,7 @@ def parse_arguments():
     parser.add_argument('-l', '--list', action="store_true", default=False, help='List boards')
     return parser.parse_args()
 
-def get_random_instance():
+def list_instances():
     data = requests.get("https://fchannel.org/instance-index.html").text
     links = re.findall("<a href=\".+?\">", data)
     working = []
@@ -28,7 +28,7 @@ def get_random_instance():
         link = link.replace("<a href=","").replace('"',"").replace(">","")
         if not link.endswith(".onion"):
             working.append(link)
-    return random.choice(working)
+    return working
 
 def content(stuff):
     com = html.unescape(stuff).replace("<br>","\n")
@@ -93,25 +93,31 @@ def main():
                 input(":")
             
     if args.thread:
-        if "/" in args.thread:
-            board = args.thread.split("/")[0]
-            thread = args.thread.split("/")[1]
-        else:
-            print("ERROR: Needs to be BOARD/THREAD")
+        instances = '\n'.join(list_instances())
+        result = urllib.parse.urlparse(args.thread)
+        isit = all([result.scheme, result.netloc])
+        if isit == False:
+            print("This is not a valid url.")
             sys.exit(1)
-        board_error(board)
-        data = requests.get(f"https://a.4cdn.org/{board}/thread/{thread}.json").json()['posts']
+        data = requests.get(args.thread, headers={"Accept": "application/ld+json"})
+        status = data.status_code
+        url = urllib.parse.urlparse(args.thread)
+        url = url.scheme+"://"+url.netloc
+        url = url[:-1] if url[-1] == '/' else url
+        if url not in list_instances():
+            print(f"""Couldn't get this thread try to get a thread from one of these instances
+{instances}""")
+            sys.exit(1)
+        data = data.json()["orderedItems"][0]
 
-        print(title(data[0]))
+        print(title(data))
 
-        if "com" in data[0]:
-            print(content(data[0]['com']))
-        image(data[0], board)
-        for i, reply in enumerate(data[1:6]):
-            if "name" and "com" in reply:
-                print(f"\n    {reply['name']} {reply['now']} No.{reply['no']}")
-                for thing in content(reply['com']).splitlines():
-                    print("     "+thing)
+        print(data['content'])
+        print(image(data["attachment"][0]))
+        for i, reply in enumerate(data["replies"]["orderedItems"]):
+            print(f"\n    {title(reply)}")
+            for thing in content(reply['content']).splitlines():
+                print("     "+thing)
 
 if __name__ == '__main__':
     main()

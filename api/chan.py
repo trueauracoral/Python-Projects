@@ -68,7 +68,7 @@ def main():
         else:
             num = 0
 
-        for thread in data[num]["threads"]:
+        for i, thread in enumerate(data[num]["threads"]):
             print("---")
             print(title(thread))
             if "com" in thread:
@@ -83,6 +83,10 @@ def main():
                     if "com" in reply:
                         for thing in content(reply['com']).splitlines():
                             print("     "+thing)
+            if i == 0:
+                input("Press ENTER for next post:")
+            else:
+                input(":")
     if args.thread:
         if "/" in args.thread:
             board = args.thread.split("/")[0]
