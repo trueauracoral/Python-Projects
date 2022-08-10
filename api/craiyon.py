@@ -6,7 +6,7 @@ from PIL import Image
 import os
 import subprocess
 
-VIEWER = "mpv"
+VIEWER = ["mpv", "--keep-open"]
 FORMAT = "jpeg"
 
 def main():
@@ -47,7 +47,11 @@ def main():
 
     filename = f'{prompt.lower().replace(" ","_")}.{FORMAT}'
     grid.save(filename, FORMAT.upper())
-    subprocess.Popen([VIEWER, filename])
+    OPEN = []
+    OPEN += VIEWER
+    OPEN.append(filename)
+    subprocess.Popen(OPEN)
 
 if __name__ == "__main__":
     main()
+
