@@ -20,7 +20,7 @@ mortmort"""
 sep = " | "
 # I got this from streamweasels.com under network in the f12
 headers = {
-    "Authorization": "Bearer oll661c5pnlw0txizn436sbqxuig6q",
+    "Authorization": "Bearer nvfyyod41ra9qrigamzun9esvpqx6x",
     "Client-Id": "os2kmdts5tvcojd34pguyzsn3eyn5q"
 }
 def upcoming(channel):

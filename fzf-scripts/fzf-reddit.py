@@ -7,6 +7,7 @@ import os
 import datetime
 
 SUBS = """r/archlinux
+r/dankmemes
 r/bash
 r/commandline
 r/emacs
@@ -42,7 +43,7 @@ def content(data, post):
         text = data["url"]+"\n"+html.unescape(data['selftext'])
     else:
         text = data["url"]
-                                              
+
     print(f"""Title: {data['title']}
 Author: {data['author_fullname']}
 Posted: {datetime.datetime.fromtimestamp(data['created_utc'])}
@@ -55,6 +56,6 @@ def main():
     post = fzf('\n'.join(stuff["names"]))
     data = stuff["data"]
     content(data, post)
-    
+
 if __name__ == "__main__":
     main()
