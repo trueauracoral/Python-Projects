@@ -6,8 +6,11 @@ import requests
 import sys
 from datetime import datetime, timezone
 import time
+import json
+import re
 
-# Streamlink cuts out the add break. But you can just set this to "mpv".
+# Streamlink cuts out the add break. But you can just set this to a
+# video player such as "mpv".
 player = "streamlink --player=mpv --default-stream=best"
 fzf = "fzf --reverse < FILE"
 streams = f"""anthonywritescode
@@ -18,10 +21,10 @@ vimlark
 whitevault
 mortmort"""
 sep = " | "
-# I got this from streamweasels.com under network in the f12
+auth = json.loads(re.findall("streamWeaselsVars = (.*)", requests.get("https://www.streamweasels.com/tools/convert-twitch-username-to-user-id/").text)[0])
 headers = {
-    "Authorization": "Bearer nvfyyod41ra9qrigamzun9esvpqx6x",
-    "Client-Id": "os2kmdts5tvcojd34pguyzsn3eyn5q"
+    "Authorization": f"Bearer {auth['token']}",
+    "Client-Id": auth["clientID"]
 }
 def upcoming(channel):
     date = ""
