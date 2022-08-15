@@ -4,9 +4,9 @@ import re
 import requests
 import subprocess
 import os
+from config import *
 
 CONFIG = "C:\\SGZ_Pro\\Z-Apps_drivers\\wezterm\\wezterm.lua"
-FZF = "fzf --reverse < FILE"
 
 def main():
     data = requests.get("https://raw.githubusercontent.com/wez/wezterm/main/docs/colorschemes/data.json").text
@@ -16,13 +16,13 @@ def main():
         f.write('\n'.join(schemes))
 
     choice = subprocess.getoutput(FZF.replace("FILE","schemes.txt"))
+    os.remove("schemes.txt")
 
     if choice != "":
         text = open(CONFIG, "r").read()
         with open(CONFIG, "w") as f:
             new = re.sub("[ \t]color_scheme = \"(.*)", f"\tcolor_scheme = \"{choice}\",", text)
             f.write(new)
-    os.remove("schemes.txt")
 
 if __name__ == "__main__":
     main()

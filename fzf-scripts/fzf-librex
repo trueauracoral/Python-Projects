@@ -9,19 +9,15 @@ import os
 import re
 import random
 import sys
+from config import *
 # This somehow fixes issues with urllib ssl errors (FOR ME)
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
-
 # Set this to False if you want LIBREX_INSTANCE to be used.
 RANDOM_INSTANCE = True
 # To find more instances go to:
 # https://github.com/hnhx/librex/#instances
 LIBREX_INSTANCE = "https://search.davidovski.xyz/"
-TORRENT = "aria2c"
-PLAYER = "mpv"
-BROWSER = "palemoon"
-IMAGE = "mpv"# You can change this to a normal image viewer
 
 def get_arguments():
     parser = argparse.ArgumentParser(description='fzf-librex')
@@ -39,7 +35,9 @@ def get_random_instance():
     working = []
     for link in links:
         link = link.replace(")","").replace("(","")
-        if not link.endswith(("onion/","i2p/")):
+        if link == "OFFICIAL INSTANCE":
+            pass
+        elif not link.endswith(("onion/","i2p/")):
             if urllib.request.urlopen(link).getcode() == 200:
                 working.append(link)
     return random.choice(working)

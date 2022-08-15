@@ -8,11 +8,11 @@ from datetime import datetime, timezone
 import time
 import json
 import re
+from config import *
 
 # Streamlink cuts out the add break. But you can just set this to a
 # video player such as "mpv".
 player = "streamlink --player=mpv --default-stream=best"
-fzf = "fzf --reverse < FILE"
 streams = f"""anthonywritescode
 theprimeagen
 rwxrob
@@ -62,12 +62,12 @@ def main():
             live_streams.append("No live streams right now. Below are upcoming:")
         f.write('\n'.join(live_streams+["---"]+upcoming_streams))
 
-    choice = subprocess.getoutput(fzf.replace("FILE","streams.txt"))
-
-    if choice != "":
-        subprocess.Popen(f"{player} https://twitch.tv/{choice.split(sep)[0]}")
-    elif choice.startswith(("[X]", "---", "No live streams right now")):
-        sys.exit(0)
+    choice = subprocess.getoutput(FZF.replace("FILE","streams.txt"))
     os.remove("streams.txt")
+
+    if choice.startswith(("[X]", "---", "No live streams right now")):
+        sys.exit(0)
+    elif choice != "":
+        subprocess.Popen(f"{player} https://twitch.tv/{choice.split(sep)[0]}")
 if __name__ == "__main__":
     main()

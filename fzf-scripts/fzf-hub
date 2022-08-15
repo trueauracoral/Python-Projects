@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+import os
+import subprocess
+import sys
+from config import *
+
+# Going to assume this script is with all the other fzf-scripts.
+SCRIPTS_DIR = os.path.dirname(sys.argv[0])
+SCRIPTS_NAMES = os.listdir(SCRIPTS_DIR)
+
+def main():
+    with open("scripts.txt", "w") as f:
+        f.write('\n'.join(SCRIPTS_NAMES))
+
+    choice = subprocess.getoutput(FZF.replace("FILE","scripts.txt"))
+    os.remove("scripts.txt")
+    if choice != "":
+        subprocess.Popen(["python", os.path.join(SCRIPTS_DIR, choice)])
+
+if __name__ == "__main__":
+    main()

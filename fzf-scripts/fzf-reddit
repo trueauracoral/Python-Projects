@@ -5,6 +5,7 @@ import tempfile
 import html
 import os
 import datetime
+from config import *
 
 SUBS = """r/archlinux
 r/dankmemes
