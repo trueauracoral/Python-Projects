@@ -31,17 +31,12 @@ def get_arguments():
 
 def get_random_instance():
     md = str(urllib.request.urlopen("https://raw.githubusercontent.com/hnhx/librex/main/README.md").read())
-    links = re.findall("\(.+?\)",md)[:-1]
+    links = re.findall("\[.+?\]\((.*?)\)", md)[:-1]
     working = []
     for link in links:
-        link = link.replace(")","").replace("(","")
-        if link == "OFFICIAL INSTANCE":
-            pass
-        elif not link.endswith(("onion/","i2p/")):
-            if urllib.request.urlopen(link).getcode() == 200:
-                working.append(link)
+        if not link.endswith(("onion/","i2p/")) and urllib.request.urlopen(link).getcode() == 200:
+            working.append(link)
     return random.choice(working)
-
 
 def api(search_text, search_type):
     search_type = str(search_type)
@@ -85,7 +80,7 @@ def fzf(search, type_, opener):
         num = int(choice.split(" ")[0])
         subprocess.Popen([opener, urllib.parse.unquote(data[num][feed[type_]])])
     os.remove(file)
-    
+
 
 def main():
     args = get_arguments()
