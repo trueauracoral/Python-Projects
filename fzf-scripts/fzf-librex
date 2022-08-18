@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import urllib.parse
-import urllib.request
 import json
 import subprocess
 import argparse
@@ -10,9 +9,7 @@ import re
 import random
 import sys
 from config import *
-# This somehow fixes issues with urllib ssl errors (FOR ME)
-import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
+import requests
 # Set this to False if you want LIBREX_INSTANCE to be used.
 RANDOM_INSTANCE = True
 # To find more instances go to:
@@ -30,11 +27,11 @@ def get_arguments():
 
 
 def get_random_instance():
-    md = str(urllib.request.urlopen("https://raw.githubusercontent.com/hnhx/librex/main/README.md").read())
-    links = re.findall("\[.+?\]\((.*?)\)", md)[:-1]
+    md = requests.get("https://raw.githubusercontent.com/hnhx/librex/main/README.md").text
+    links = re.findall("^| \[.+?\]\((.*?)\)", md)[1:][:-1]
     working = []
     for link in links:
-        if not link.endswith(("onion/","i2p/")) and urllib.request.urlopen(link).getcode() == 200:
+        if not link.endswith(("onion/","i2p/")) and requests.get(link).status_code == 200:
             working.append(link)
     return random.choice(working)
 
@@ -47,11 +44,8 @@ def api(search_text, search_type):
         instance = get_random_instance()
         print(f"Using random instance: {instance}")
     search_url = urllib.parse.urljoin(instance,f"/api.php?q={urllib.parse.quote(search_text)}&type={search_type}")
-    # Use this line if urllib isn't working for you and you have
-    # requests:
-    #data = requests.get(search_url).json()
-    return json.loads(urllib.request.urlopen(search_url).read())
-
+    data = requests.get(search_url).json()
+    return data
 
 def fzf(search, type_, opener):
     type_ = str(type_)
@@ -60,7 +54,9 @@ def fzf(search, type_, opener):
     sep = " | "
     with open(file,"a",encoding="utf-8") as f:
         for i, result in enumerate(data):
-            if type_ == "0" or type_ == "2":
+            if "special_response" in result:
+                pass
+            elif type_ == "0" or type_ == "2":
                 f.write(f'{i} {result["title"]}{sep}{result["url"]}\n')
             elif type_ == "1":
                 f.write(f'{i} {result["alt"]}{sep}{result["url"]}\n')
