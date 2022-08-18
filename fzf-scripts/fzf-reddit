@@ -6,8 +6,10 @@ import html
 import os
 import datetime
 from config import *
+import sys
 
-SUBS = """r/archlinux
+SUBS =\
+"""r/archlinux
 r/dankmemes
 r/bash
 r/commandline
@@ -29,10 +31,15 @@ def fzf(data):
         f.write(data)
     choice = subprocess.getoutput(f"fzf --reverse < {file}")
     os.remove(file)
+    if choice == "":
+        sys.exit(0)
     return choice
 
 def titles(sub):
     data = requests.get(f"https://reddit.com/{sub}.json",headers=HEADERS).json()
+    if "message" and "error" in data:
+        print("Could not find subreddit")
+        sys.exit(1)
     names = []
     for i, name in enumerate(data["data"]["children"]):
         names.append(f"{i}. {html.unescape(name['data']['title'])}")
@@ -52,7 +59,12 @@ Posted: {datetime.datetime.fromtimestamp(data['created_utc'])}
 {text}""")
 
 def main():
-    sub = fzf(SUBS)
+    if len(sys.argv) == 2:
+        sub = sys.argv[1]
+        if not sub.startswith("r/"):
+            sub = f"r/{sub}"
+    else:
+        sub = fzf(SUBS)
     stuff = titles(sub)
     post = fzf('\n'.join(stuff["names"]))
     data = stuff["data"]
