@@ -22,18 +22,21 @@ def get_arguments():
     parser.add_argument('-i', '--image', type=str, metavar='TEXT', help='Search for images', nargs='+')
     parser.add_argument('-t', '--torrent', type=str, metavar='TEXT', help='Search various torrent websites.', nargs='+')
     parser.add_argument('-v', '--video', type=str, metavar='TEXT', help='Search for videos', nargs='+')
-    #parser.add_argument('-c', '--copy', action="store_true", default=False, help='Copy the link to the pasted file')
+    parser.add_argument('-l', '--list', action="store_true", default=False, help='List librex instances.')
     return parser.parse_args()
 
-
-def get_random_instance():
+def list_instances():
     md = requests.get("https://raw.githubusercontent.com/hnhx/librex/main/README.md").text
     links = re.findall("^| \[.+?\]\((.*?)\)", md)[1:][:-1]
     working = []
     for link in links:
         if not link.endswith(("onion/","i2p/")) and requests.get(link).status_code == 200:
             working.append(link)
-    return random.choice(working)
+    return working
+    
+
+def get_random_instance():
+    return random.choice(list_instances())
 
 def api(search_text, search_type):
     search_type = str(search_type)
@@ -91,6 +94,8 @@ def main():
         fzf(args.video, 2, PLAYER)
     elif args.torrent:
         fzf(args.torrent, 3, TORRENT)
+    elif args.list:
+        print('\n'.join(list_instances()))
 
 if __name__ == "__main__":
     main()
