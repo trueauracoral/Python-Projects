@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+import subprocess
+import os
+import requests
+import sys
+import time
+import json
+import re
+import random
+from config import *
+
+def fzf(data):
+    file = tempfile.TemporaryFile().name
+    with open(file, "w", encoding="utf-8") as f:
+        f.write(data)
+    choice = subprocess.getoutput(FZF.replace("FILE", file))
+    os.remove(file)
+    if choice == "":
+        sys.exit(0)
+    return choice
+
+
+def list_instances():
+    return requests.get("https://simple-web.org/instances/simpleamazon").text.splitlines()
+
+
+def get_random_instance():
+    url_list = list_instances()
+    while len(url_list) > 0:
+        random_index = random.randint(0, len(url_list))-1
+        url = url_list.pop(random_index)
+        status_code = requests.get(f"https://{url}").status_code
+        if status_code == 200:
+            break
+    return url
+
+    
+if __name__ == "__main__":
+    get_random_instance()

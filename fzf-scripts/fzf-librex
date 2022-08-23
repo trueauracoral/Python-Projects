@@ -30,13 +30,20 @@ def list_instances():
     links = re.findall("^| \[.+?\]\((.*?)\)", md)[1:][:-1]
     working = []
     for link in links:
-        if not link.endswith(("onion/","i2p/")) and requests.get(link).status_code == 200:
+        if not link.endswith(("onion/","i2p/")):
             working.append(link)
     return working
     
 
 def get_random_instance():
-    return random.choice(list_instances())
+    url_list = list_instances()
+    while len(url_list) > 0:
+        random_index = random.randint(0, len(url_list))-1
+        url = url_list.pop(random_index)
+        status_code = requests.get(url).status_code
+        if status_code == 200:
+            break
+    return url
 
 def api(search_text, search_type):
     search_type = str(search_type)
