@@ -25,6 +25,7 @@ def get_arguments():
     parser.add_argument('-l', '--list', action="store_true", default=False, help='List librex instances.')
     return parser.parse_args()
 
+
 def list_instances():
     md = requests.get("https://raw.githubusercontent.com/hnhx/librex/main/README.md").text
     links = re.findall("^| \[.+?\]\((.*?)\)", md)[1:][:-1]
