@@ -4,6 +4,8 @@ import argparse
 import html
 import os
 import tempfile
+from datetime import datetime, timezone
+import time
 import re
 import sys
 import urllib.parse
@@ -18,6 +20,7 @@ def parse_arguments():
     parser.add_argument('-t', '--thread', type=str, metavar='BOARD/THREAD', help='Select a thread to view e.g. "g"')
     parser.add_argument('-p', '--page', type=int, metavar='NUMBER', help='Go to a certain page number in board.')
     parser.add_argument('-l', '--list', action="store_true", default=False, help='List boards')
+    parser.add_argument('-li', '--list-instances', action="store_true", default=False, help='List boards')
     return parser.parse_args()
 
 def list_instances():
@@ -50,7 +53,10 @@ def board_error(board):
         sys.exit(1)
 
 def title(stuff):
-    title = f"{stuff['published']} No. {stuff['id'].split('/')[-1]}"
+    date = datetime.strptime(stuff['published'], "%Y-%m-%dT%H:%M:%S.%fZ")
+    date = date.replace(tzinfo=timezone.utc).astimezone(tz=None)
+    date = date.strftime("%m/%d/%y(%a)%H:%M:%S")
+    title = f"{date} No. {stuff['id'].split('/')[-1]}"
     if "attributedTo" in stuff:
         title = f"{stuff['attributedTo']} {title}"
     else:
@@ -72,6 +78,8 @@ def main():
     if args.list:
         print(list_boards())
 
+    elif args.list_instances:
+        print(list_instances())
     elif args.board:
         board_error(args.board)
         url = urllib.parse.urljoin(INSTANCE, args.board+"/outbox")
