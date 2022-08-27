@@ -70,5 +70,4 @@ def main():
     elif choice != "":
         subprocess.Popen(f"{player} https://twitch.tv/{choice.split(sep)[0]}")
 if __name__ == "__main__":
-    print(headers)
-    #main()
+    main()
