@@ -2,13 +2,14 @@
 import requests
 import re
 import urllib.parse
+import datetime
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121201 icecat/17.0.1', "Content-Type": "text/html;charset=UTF-8"}
 
 def main():
     data = requests.get("https://www.pokemon.com/us/pokemon-news", headers=HEADERS).text
-    with open("index.html", "w") as f:
-        f.write(data)
+    #with open("index.html", "w") as f:
+        #f.write(data)
 
     print('''<rss version="2.0">
 <channel>
@@ -22,6 +23,7 @@ def main():
     descriptions = [x for x in descriptions if x]
     linkers = re.findall(f'<a href="(.*?)">', data)
     links = []
+    images = re.findall(f'<img src="/static-assets(.*?)"',data)[2:]
     for link in linkers:
         if 'rel="" ' in link:
             pass
@@ -31,12 +33,13 @@ def main():
             links.append(link)
     links = links[2:]
     
-    for (desc, title, date, link) in zip(descriptions, titles, dates, links):
+    for (desc, title, date, link, image) in zip(descriptions, titles, dates, links, images):
         print(f"""<item>
     <title>{title}</title>
     <link>{"https://pokemon.com/"+link}</link>
-    <pubdate>{date}</pubdate>
-    <description><![CDATA[{desc}]]></description>
+    <pubdate>{datetime.datetime.strptime(date, '%B %d, %Y').strftime('%a, %d %b %Y')}</pubdate>
+    <description><![CDATA[<img src="https://pokemon.com/static-assets/{image}" alt="{title}">
+{desc}]]></description>
 </item>""")
 
     print("""
