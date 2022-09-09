@@ -27,12 +27,18 @@ def get_arguments():
 
 
 def list_instances():
-    md = requests.get("https://raw.githubusercontent.com/hnhx/librex/main/README.md").text
-    links = re.findall("^| \[.+?\]\((.*?)\)", md)[1:][:-1]
+    # OLD METHOD
+    #md = requests.get("https://raw.githubusercontent.com/hnhx/librex/main/README.md").text
+    #links = re.findall("^| \[.+?\]\((.*?)\)", md)[1:][:-1]
+    #working = []
+    #for link in links:
+    #    if not link.endswith(("onion/","i2p/")):
+    #        working.append(link)
+    json_stuff = requests.get("https://raw.githubusercontent.com/hnhx/librex/main/instances.json").json()
     working = []
-    for link in links:
-        if not link.endswith(("onion/","i2p/")):
-            working.append(link)
+    for instance in json_stuff["instances"]:
+        if instance["clearnet"] != None:
+            working.append(instance["clearnet"])
     return working
     
 
