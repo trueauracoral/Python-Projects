@@ -6,7 +6,7 @@ import datetime
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121201 icecat/17.0.1', "Content-Type": "text/html;charset=UTF-8"}
 
-def main():
+def scrape():
     data = requests.get("https://www.pokemon.com/us/pokemon-news", headers=HEADERS).text
     #with open("index.html", "w") as f:
         #f.write(data)
@@ -42,9 +42,20 @@ def main():
 {desc}]]></description>
 </item>""")
 
+def api():
+    data = requests.get("https://www.pokemon.com/api/1/us/news/get-news.json").json()
+    for article in data:
+        print(f"""<item>
+    <title>{article['title']}</title>
+    <link>{"https://pokemon.com"+article['url']}</link>
+    <pubdate>{datetime.datetime.strptime(article['date'], '%B %d, %Y').strftime('%a, %d %b %Y')}</pubdate>
+    <description><![CDATA[<img src="https://pokemon.com{article['image']}" alt="{article['alt']}">
+{article['shortDescription']}]]></description>
+</item>""")
+
+if __name__ == "__main__":
+    api()
+
     print("""
 </channel>
 </rss>""")
-if __name__ == "__main__":
-    main()
-
