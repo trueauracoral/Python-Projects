@@ -11,12 +11,6 @@ def scrape():
     #with open("index.html", "w") as f:
         #f.write(data)
 
-    print('''<rss version="2.0">
-<channel>
-<title>Pokemon News</title>
-<link>https://www.pokemon.com/us/pokemon-news/</link>
-<description>RSS for Pokemon News articles</description>
-''')
     dates = re.findall('<p class="date">(.*?)</p>', data)
     titles = re.findall("<h3>(.*?)</h3>", data)[2:]
     descriptions = re.findall('<p>|<p class="hidden-mobile">(.*?)</p>', data)
@@ -32,7 +26,7 @@ def scrape():
         elif link.startswith(("/us/pokemon-news/","/us/strategy/")):
             links.append(link)
     links = links[2:]
-    
+
     for (desc, title, date, link, image) in zip(descriptions, titles, dates, links, images):
         print(f"""<item>
     <title>{title}</title>
@@ -54,6 +48,13 @@ def api():
 </item>""")
 
 if __name__ == "__main__":
+    print('''<rss version="2.0">
+<channel>
+<title>Pokemon News</title>
+<link>https://www.pokemon.com/us/pokemon-news/</link>
+<description>RSS for Pokemon News articles</description>
+''')
+
     api()
 
     print("""
