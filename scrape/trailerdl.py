@@ -4,7 +4,6 @@ import re
 import json
 from urllib.parse import urljoin, urlparse
 import sys
-import time
 import mimetypes
 
 def get_data(imdb_link):
@@ -24,10 +23,11 @@ def get_data(imdb_link):
         try:
             trailer_imdb_link = data["props"]["pageProps"]["aboveTheFoldData"]["primaryVideos"]["edges"][0]["node"]["playbackURLs"][0]["url"]
             title = data["props"]["pageProps"]["aboveTheFoldData"]["titleText"]["text"]
+            imdb_id = data["query"]["tconst"]
         except:
             sys.exit("Something went wrong... Couldn't find the trailer.")
         #print(data)
-        return {"link": trailer_imdb_link, "title": title}
+        return {"link": trailer_imdb_link, "title": title, "id": imdb_id}
     else:
         sys.exit(f"Could not connect to {imdb_link}")
 
@@ -35,8 +35,8 @@ def download(link):
     data = get_data(link)
     response = requests.get(data["link"], stream= True)
     extension = mimetypes.guess_all_extensions(response.headers['Content-Type'], strict=False)[0]
-    filename = data["title"]+extension
-    print(filename)
+    filename = f'{data["title"]} [{data["id"]}]{extension}'
+    print(f"[download] Destination: {filename}")
     with open(filename, 'wb') as f:
         total = response.headers.get('content-length')
         megabytes = f"{round(float(total) / 1024, 2)}MiB"
@@ -50,7 +50,7 @@ def download(link):
                 downloaded += len(data)
                 f.write(data)
                 done = int(50*downloaded/total)
-                sys.stdout.write('\r[{}{}]'.format('#' * done, '.' * (50-done))+f" of {megabytes}")
+                sys.stdout.write('\r[download] [{}{}]'.format('#' * done, '.' * (50-done))+f" of {megabytes}")
                 sys.stdout.flush()
     sys.stdout.write('\n')
  
