@@ -7,11 +7,25 @@ from urllib.parse import urljoin, urlparse
 import sys
 import mimetypes
 import time
+import argparse
+
+def get_arguments():
+ 
+    parser = argparse.ArgumentParser(description='IMDB trailer downloader')
+ 
+    parser.add_argument('link', type=str, metavar='URL', help='IMDB link')
+    #parser.add_argument('-r', '--random', action="store_true", default=False, help='Copy the link to the pasted file')
+ 
+    args = parser.parse_args()
+ 
+    return args
 
 def get_data(imdb_link):
     # Clean out ?ref_=nv_sr_srsg_0 nonsense if it's there
     imdb_link = urljoin(imdb_link, urlparse(imdb_link).path)
     # Found form over here: https://regex101.com/library/uO6fZ6
+    # somehow in the future I want to detect imdb id's and libremdb
+    # links
     pattern = re.compile("^(?:http:\/\/|https:\/\/)?(?:www\.)?(?:imdb.com\/title\/)?(tt[0-9]*)(.+?)")
     if not re.fullmatch(pattern, imdb_link):
         sys.exit("Invalid imdb link")
@@ -37,7 +51,11 @@ def download(link):
     data = get_data(link)
     response = requests.get(data["link"], stream= True)
     extension = mimetypes.guess_all_extensions(response.headers['Content-Type'], strict=False)[0]
-    filename = f'{data["title"]} [{data["id"]}]{extension}'
+    title = data["title"]
+    invalid = '<>:"/\|?*'
+    for char in invalid:
+        title = title.replace(char, '')
+    filename = f'{title} [{data["id"]}]{extension}'
     print(f"[download] Destination: {filename}")
     with open(filename, 'wb') as f:
         total = int(response.headers.get('content-length'))
@@ -58,4 +76,10 @@ def download(link):
     sys.stdout.write('\n')
  
 
-download("https://www.imdb.com/title/tt0168366/?ref_=fn_al_tt_1")
+def main():
+    args = get_arguments()
+    if args.link:
+        download(args.link)
+
+if __name__ == "__main__":
+    main()
