@@ -30,7 +30,7 @@ app = Flask(__name__)
 def home():
     data = api()
     if data == error_message:
-        return "Hello <i>test</i>"
+        return error_message
     text = ""
     for article in data:
         text = text + f"""
