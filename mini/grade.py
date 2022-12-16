@@ -15,20 +15,22 @@ def parse_arguments():
  
     return args
 
+def calculate(wrong, questions, args):
+    correct = questions - wrong
+    result = round((correct / questions) * 100, 2)
+    if not args.decimal:
+        result = round(result)
+    return result
+
 def main():
     args = parse_arguments()
     if args.questions:
-        questions = args.questions
-        wrong = args.wrong
-        correct = questions - wrong
-        result = round((correct / questions) * 100, 2)
-        if not args.decimal:
-            result = round(result)
-        print(f"{correct}/{questions} = {result}%")
+        print(f"{args.questions - args.wrong}/{args.questions} = {calculate(args.wrong, args.questions, args)}%")
         if args.chart:
             print("Wrong:\tGrade:")
-            for i in list(range(1, questions+1)):
-                print(f"{i}\t{round(((questions - i) / questions) * 100)}")
+            for i in list(range(1, args.questions+1)):
+                #print(f"{i}\t{round(((questions - i) / questions) * 100)}")
+                print(f"{i}\t{calculate(i, args.questions, args)}")
     else:
         sys.exit("Enter -q/-questions for the amount of questions. Please read the -h/--help.")
 
