@@ -27,6 +27,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='pass.py')
     parser.add_argument('-r', '--region', type=str, metavar='REGION', help='Select your region. Default: us')
     parser.add_argument('-s', '--series', action="store_true", default=False, help='Select a serie to download.')
+    parser.add_argument('-c', '--captions', action="store_true", default=False, help='Add Soft Subtitles/Captions to the video.')
     args = parser.parse_args()
  
     return args
@@ -63,6 +64,7 @@ def main():
             choice = int(choice)
         except:
             sys.exit(f"ERROR: Enter an integer between 1 and {count}")
+
         folder = os.path.join(os.getcwd(), data[choice-1]["channel_id_ext"])
         if not os.path.exists(folder):
             os.mkdir(folder)
@@ -70,12 +72,28 @@ def main():
             sel = data[choice-1]["media"]
             amount = len(sel)
             for episode in sel:
+                filename = f"{episode['episode']} - {episode['title']}.mp4"
                 print(f"Downloading episode {episode['episode']} out of {amount}")
-                os.system(f"cd {folder} && yt-dlp {episode['stream_url']} -o \"{episode['episode']} - {episode['title']}.%(ext)s\"")
+                os.system(f"cd {folder} && yt-dlp {episode['stream_url']} -o \"{filename}\"")
+                if args.captions:
+                    if REGION != "us":
+                        sys.exit("ERROR: Sorry, only captions for the us are supported.")
+                    for file in os.listdir(folder):
+                        if file.startswith(episode['episode']):
+                            newfile = file
+                    full = os.path.join(folder, newfile)
+                    capfull = os.path.join(folder, 'cap'+newfile)
+                    enfull = str(os.path.join(folder, "en.vtt"))
+                    print("Downloading Captions...")
+                    captions = requests.get(episode["captions"])
+                    with open(enfull, 'wb') as f:
+                        f.write(captions.content)
+                    os.rename(full, capfull)
+                    os.system(f"ffmpeg -i \"{capfull}\" -i {enfull} -c copy -c:s mov_text -metadata:s:s:0 language=eng \"{full}\"")
+                    os.remove(enfull)
+                    os.remove(capfull)
         else:
             sys.exit(f"ERROR: Enter an integer between 1 and {count}")
 
 if __name__ == "__main__":
     main()
-# SOFT subtitles to video
-#ffmpeg -i input.mp4 -i subtitle.en.srt -c copy -c:s mov_text -metadata:s:s:0 language=eng ouptut_english.mp4
