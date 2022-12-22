@@ -11,8 +11,6 @@ def get_arguments():
     args = parser.parse_args()
     return args
 
-channel = "mortmort"
-
 def check(r):
     if r.status_code not in [200, 302]:
         sys.exit("Could not connect")
@@ -47,7 +45,7 @@ def main():
             "Origin": "https://twitchemotes.com",
             "Connection": "keep-alive"
         }
-        location = requests.post("https://twitchemotes.com/search/channel", allow_redirects=False, headers=headers, data={"query": channel,         "source": "nav-bar"})
+        location = requests.post("https://twitchemotes.com/search/channel", allow_redirects=False, headers=headers, data={"query": args.channel, "source": "nav-bar"})
         check(location)
         location = location.headers["Location"]
 
