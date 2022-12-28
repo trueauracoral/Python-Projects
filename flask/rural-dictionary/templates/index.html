@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rural Dictionary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+  <body>
+    {% for comment in comments %}
+    <div class={{ defid }}>
+	<h2>{{ word }}</h2>
+	<p>{{ definition</p>
+	<p>by {{ author }} {{ date }}</p>
+    </div>
+    {% endfor %}
+  </body>
+</html>

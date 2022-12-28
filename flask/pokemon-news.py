@@ -6,7 +6,7 @@ import datetime
 import re
 import json
 
-error_message = 'Uh oh, could not connect to pokemon news api'
+error_message = 'Uh oh, could not connect to urban dictionary api'
 
 def api():
     data = requests.get("https://www.pokemon.com/api/1/us/news/get-news.json")
