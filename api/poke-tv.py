@@ -4,6 +4,7 @@ import os
 import argparse
 import json
 import sys
+import subprocess
 
 REGIONS = {
     'us': 'United States',
@@ -22,15 +23,24 @@ REGIONS = {
     'se': 'Sverige',
 }
 REGION = "us" #default
-
+PLAYER = "mpv"
+DOWNLOADER = "yt-dlp"
 def parse_arguments():
     parser = argparse.ArgumentParser(description='pass.py')
     parser.add_argument('-r', '--region', type=str, metavar='REGION', help='Select your region. Default: us')
     parser.add_argument('-s', '--series', action="store_true", default=False, help='Select a serie to download.')
+    parser.add_argument('-P', '--stuns', action="store_true", default=False, help='Select a stun/playlist to download.')
+    parser.add_argument('-m', '--movies', action="store_true", default=False, help='Select a movie to download.')
+    parser.add_argument('-S', '--specials', action="store_true", default=False, help='Select a special spin off to download.')
+    parser.add_argument('-j', '--junior', action="store_true", default=False, help='Select a babies nap time to download.')
+    parser.add_argument('-p', '--player', action="store_true", default=False, help='Select a babies nap time to download.')
     parser.add_argument('-c', '--captions', action="store_true", default=False, help='Add Soft Subtitles/Captions to the video.')
     args = parser.parse_args()
  
     return args
+
+def filter(data, key):
+    return [(channel) for channel in data if channel["category"] == key]
 
 def main():
     args = parse_arguments()
@@ -45,12 +55,10 @@ def main():
                 print(f"{key}: {value}")
             sys.exit(f"Could not find {args.region}")
 
-    with open("C:\\SGZ_Pro\\Hobbys\\Media\\pokemon\\anime\\us.json", "r", encoding="utf-8") as f:
-        data = json.loads(f.read())
-    #r = requests.get(f"https://raw.githubusercontent.com/seiya-dev/pokemon-tv/master/watch/data/{REGION}.json")
-    #if r.status_code != 200:
-    #    sys.exit("Uh, oh. Could not get data")
-    #data = r.json()
+    r = requests.get(f"https://raw.githubusercontent.com/seiya-dev/pokemon-tv/master/watch/data/{REGION}.json")
+    if r.status_code != 200:
+        sys.exit("Uh, oh. Could not get data")
+    data = r.json()
 
     # Series - Seasons of the pokemon anime
     # Stuns - "playlists" of episodes from the anime
@@ -59,9 +67,18 @@ def main():
     # Junior - Pokemon for babies nap time
 
     if args.series:
-        data = [(channel) for channel in data if channel["category"] == "Specials"]
-        for channel in data:
-            print(channel["channel_id"])
+        data = filter(data, "Series")
+    elif args.stuns:
+        data = filter(data, "Stuns")
+    elif args.movies:
+        data = filter(data, "Movies")
+    elif args.specials:
+        data = filter(data, "Specials")
+    elif args.junior:
+        data = filter(data, "Junior")
+    else:
+        sys.exit("Read the help (-h/--help), must select either a series, playlist/stun, movie, special, junior to download.")
+    
     count = 0
     for i, channel in enumerate(data):
         count += 1
@@ -80,11 +97,21 @@ def main():
         os.mkdir(folder)
     if choice in list(range(1, count+1)):
         sel = data[choice-1]["media"]
+        if data[choice-1]["category"] == "Movies":
+            filename = f"{data[choice-1]['media'][0]['title']}.mp4"
+        else:
+            filename = ""
         amount = len(sel)
+        count = 0
         for episode in sel:
-            filename = f"{episode['episode']} - {episode['title']}.mp4"
-            print(f"Downloading episode {episode['episode']} out of {amount}")
-            #os.system(f"cd {folder} && yt-dlp {episode['stream_url']} -o \"{filename}\"")
+            if args.player:
+                subprocess.Popen([PLAYER, episode['stream_url']])
+                sys.exit("Opened player")
+            count += 1
+            if filename != "":
+                filename = f"{count} - {episode['title']}.mp4"
+                print(f"Downloading episode {count} out of {amount}")
+            os.system(f"cd {folder} && {DOWNLOADER} {episode['stream_url']} -o \"{filename}\"")
             if args.captions:
                 if REGION != "us":
                     sys.exit("ERROR: Sorry, only captions for the us are supported.")
