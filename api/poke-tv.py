@@ -35,6 +35,8 @@ def parse_arguments():
     parser.add_argument('-j', '--junior', action="store_true", default=False, help='Select a babies nap time to download.')
     parser.add_argument('-p', '--player', action="store_true", default=False, help='Select a babies nap time to download.')
     parser.add_argument('-c', '--captions', action="store_true", default=False, help='Add Soft Subtitles/Captions to the video.')
+    #parser.add_argument('-e', '--episode', action="store_true", default=False, help='In the selected channel (Not movies), select an episode to download or play with -p')
+    parser.add_argument('-f', '--fzf', action="store_true", default=False, help='Select with fzf')
     args = parser.parse_args()
  
     return args

@@ -4,6 +4,7 @@ import re
 import sys
 import mimetypes
 import argparse 
+
 def get_arguments():
     parser = argparse.ArgumentParser(description='IMDB trailer downloader')
     parser.add_argument('-c', '--channel', type=str, metavar='CHANNEL', help='Twitch channel with emotes')
