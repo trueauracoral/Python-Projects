@@ -99,7 +99,7 @@ def main():
                 input("Press ENTER for next post:")
             else:
                 input(":")
-            
+
     if args.thread:
         instances = '\n'.join(list_instances())
         result = urllib.parse.urlparse(args.thread)
