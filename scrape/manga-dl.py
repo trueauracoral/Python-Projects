@@ -64,6 +64,13 @@ def make_pdf(urls):
     for file in files:
         os.remove(file)
 
+def fzf(data):
+    p = subprocess.run(COMMAND, input=data, capture_output=True, text=True)
+    if p.stdout == "":
+        sys.exit("Please select something.")
+    else:
+        return int(p.stdout.split("\n")[0].split(":")[0]) - 1
+
 def main():
     args = get_arguments()
     if args.volume:

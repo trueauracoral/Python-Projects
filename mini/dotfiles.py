@@ -8,24 +8,42 @@ def main():
     if platform.system() == "Windows":
         appdata = os.getenv('APPDATA')
         localappdata = os.getenv('LOCALAPPDATA')
-    configs = f"""
-alacritty - {appdata}\\alacritty\\alacritty.yml
-emacs - {appdata}\\.emacs.d\\init.el
-mpv - {appdata}\\mpv\\mpv.conf
-qutebrowser - {appdata}\\qutebrowser\\config\\config.py
-lf - {localappdata}\\lf\\lfrc
-wezterm - C:\\SGZ_Pro\\z-Apps_Drivers\\wezterm\\wezterm.lua
-bash - C:\\Users\\Stanl\\.bashrc
-"""
+    configs = [
+        {
+            "name": "alacritty",
+            "path": f"{appdata}\\alacritty\\alacritty.yml"
+        },
+        {
+            "name": "emacs",
+            "path": f"{appdata}\\.emacs.d\\init.el"
+        },
+        {
+            "name": "mpv",
+            "path": f"{appdata}\\mpv\\mpv.conf"
+        },
+        {
+            "name": "qutebrowser",
+            "path": f"{appdata}\\qutebrowser\\config\\config.py"
+        },
+        {
+            "name": "lf",
+            "path": f"{localappdata}\\lf\\lfrc"
+        },
+        {
+            "name": "wezterm",
+            "path": f"C:\\SGZ_Pro\\z-Apps_Drivers\\wezterm\\wezterm.lua"
+        },
+        {
+            "name": "bash",
+            "path": f"C:\\Users\\Stanl\\.bashrc"
+        }
+    ]
 
     git_repo = "C:\SGZ_Pro\Hobbys\coding-projects\Dots\\"
     worked = []
-    for config in configs.splitlines():
-        if config == "":
-            continue
-        config = config.split(" - ")
-        oldpath = config[1]
-        newpath = os.path.join(git_repo, config[0], os.path.basename(oldpath))
+    for config in configs:
+        oldpath = config["path"]
+        newpath = os.path.join(git_repo, config["name"], os.path.basename(oldpath))
         if not os.path.exists(os.path.dirname(newpath)):
             os.mkdir(os.path.dirname(newpath))
 
