@@ -67,6 +67,32 @@ def prompt(data, key=False, episode=False, fzf=False):
 def play():
     subprocess.Popen([PLAYER, episode['stream_url']])
     sys.exit("Opened player")
+
+def formatname(information):
+    return f"S{information['season'].zfill(2)}E{information['episode'].zfill(2)}"
+
+def captioner(episode, current=False):
+    if episode["captions"] == "":
+        sys.exit("Could not find captions file")
+    if current == True:
+        folder = os.getcwd()
+    for file in os.listdir(folder):
+        if file.startswith(formatname(episode)):
+            newfile = file
+    full = os.path.join(folder, newfile)
+    capfull = os.path.join(folder, 'cap'+newfile)
+    print(folder)
+    print(full)
+    print(capfull)
+    enfull = str(os.path.join(folder, "en.vtt"))
+    print("Downloading Captions...")
+    captions = requests.get(episode["captions"])
+    with open(enfull, 'wb') as f:
+        f.write(captions.content)
+    os.rename(full, capfull)
+    os.system(f"ffmpeg -i \"{capfull}\" -i {enfull} -c copy -c:s mov_text -metadata:s:s:0 language=eng \"{full}\"")
+    os.remove(enfull)
+    os.remove(capfull)
     
 def main():
     args = parse_arguments()
@@ -112,7 +138,8 @@ def main():
         if args.player:
             play(information['stream_url'])
         else:
-            os.system(f"{DOWNLOADER} {information['stream_url']} -o \"S{information['season'].zfill(2)}E{information['episode'].zfill(2)}.%(ext)s\"")
+            os.system(f"{DOWNLOADER} {information['stream_url']} -o \"{formatname(information)}.%(ext)s\"")
+            captioner(information, current=True)
         sys.exit("finished")
             
     if data[choice-1]["category"] == "Movies":
@@ -125,29 +152,14 @@ def main():
         if args.player:
             play(episode['stream_url'])
         count += 1
-        filename = f"{count} - {episode['title']}.mp4"
+        filename = formatname(episode)
         folder = os.path.join(os.getcwd(), data[choice-1]["channel_id_ext"])
         if not os.path.exists(folder):
             os.mkdir(folder)
         print(f"Downloading episode {count} out of {amount}")
         os.system(f"cd {folder} && {DOWNLOADER} {episode['stream_url']} -o \"{filename}\"")
         if args.captions:
-            if REGION != "us":
-                sys.exit("ERROR: Sorry, only captions for the us are supported.")
-            for file in os.listdir(folder):
-                if file.startswith(episode['episode']):
-                    newfile = file
-            full = os.path.join(folder, newfile)
-            capfull = os.path.join(folder, 'cap'+newfile)
-            enfull = str(os.path.join(folder, "en.vtt"))
-            print("Downloading Captions...")
-            captions = requests.get(episode["captions"])
-            with open(enfull, 'wb') as f:
-                f.write(captions.content)
-            os.rename(full, capfull)
-            os.system(f"ffmpeg -i \"{capfull}\" -i {enfull} -c copy -c:s mov_text -metadata:s:s:0 language=eng \"{full}\"")
-            os.remove(enfull)
-            os.remove(capfull)
+            captioner(episode)
 
 if __name__ == "__main__":
     main()
