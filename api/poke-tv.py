@@ -125,12 +125,11 @@ def main():
         if args.player:
             play(episode['stream_url'])
         count += 1
-        if filename == "":
-            filename = f"{count} - {episode['title']}.mp4"
-            folder = os.path.join(os.getcwd(), data[choice-1]["channel_id_ext"])
-            if not os.path.exists(folder):
-                os.mkdir(folder)
-            print(f"Downloading episode {count} out of {amount}")
+        filename = f"{count} - {episode['title']}.mp4"
+        folder = os.path.join(os.getcwd(), data[choice-1]["channel_id_ext"])
+        if not os.path.exists(folder):
+            os.mkdir(folder)
+        print(f"Downloading episode {count} out of {amount}")
         os.system(f"cd {folder} && {DOWNLOADER} {episode['stream_url']} -o \"{filename}\"")
         if args.captions:
             if REGION != "us":
