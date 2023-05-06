@@ -81,9 +81,6 @@ def captioner(episode, current=False):
             newfile = file
     full = os.path.join(folder, newfile)
     capfull = os.path.join(folder, 'cap'+newfile)
-    print(folder)
-    print(full)
-    print(capfull)
     enfull = str(os.path.join(folder, "en.vtt"))
     print("Downloading Captions...")
     captions = requests.get(episode["captions"])
