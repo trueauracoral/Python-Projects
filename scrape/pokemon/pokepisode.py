@@ -2,6 +2,19 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import argparse
+
+def parse_arguments():
+ 
+    parser = argparse.ArgumentParser(description='GOGOanime downloader')
+ 
+    #parser.add_argument('link', type=str, metavar='URL', help='IMDB link')
+    parser.add_argument('-g', '--gogoanime', action="store_true", default=False, help='Get gogoanime link')
+    parser.add_argument('-t', '--torrent', action="store_true", default=False, help='Get nyaa.si torrent link')
+ 
+    args = parser.parse_args()
+ 
+    return args
 
 def request(url, jsonify=False):
     r = requests.get(url)
@@ -50,15 +63,24 @@ def somestuffs():
     }
 
 def main():
-    official = tvmaze()
-    print(f"""Newest released episode is {official['number']} - {official['name']}""")
+    args = parse_arguments()
 
-    clear = gogoanime()
-    print(f"""GOGOanime has released episode {clear['number']}
+    if args.gogoanime:
+        print(gogoanime()["link"])
+    elif args.torrent:
+        print(somestuffs()["url"])
+    else:
+        official = tvmaze()
+        print(f"""Newest released episode is {official['number']} - {official['name']}""")
+
+        clear = gogoanime()
+        print(f"""
+GOGOanime has released episode {clear['number']}
 - LINK: {clear['link']}""")
 
-    tor = somestuffs()
-    print(f"""Tor has released episode {tor['number']}
+        tor = somestuffs()
+        print(f"""
+Tor has released episode {tor['number']}
 - LINK:\t\t{tor['url']}
 - Torrent:\t{tor['torrent']}""")
 

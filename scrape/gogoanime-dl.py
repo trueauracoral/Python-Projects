@@ -17,7 +17,7 @@ HEADERS = {
 }
 def get_arguments():
  
-    parser = argparse.ArgumentParser(description='IMDB trailer downloader')
+    parser = argparse.ArgumentParser(description='GOGOanime downloader')
  
     parser.add_argument('link', type=str, metavar='URL', help='IMDB link')
     #parser.add_argument('-r', '--random', action="store_true", default=False, help='Copy the link to the pasted file')
