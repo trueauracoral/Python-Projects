@@ -10,8 +10,11 @@ from urllib.parse import urlparse
 import os
 from http.cookiejar import LWPCookieJar
 requests.packages.urllib3.disable_warnings()
+import subprocess
 
 DOWNLOADER = "yt-dlp"
+PLAYER = "MPV"
+COMMAND = ['fzf', '--reverse']
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Linux; Android 7.0; 5060 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.83 Mobile Safari/537.36"
 }
@@ -19,8 +22,9 @@ def get_arguments():
  
     parser = argparse.ArgumentParser(description='GOGOanime downloader')
  
-    parser.add_argument('link', type=str, metavar='URL', help='IMDB link')
-    #parser.add_argument('-r', '--random', action="store_true", default=False, help='Copy the link to the pasted file')
+    parser.add_argument('-s', '--search', type=str, metavar='KEYWORD', help='Search Term')
+    parser.add_argument('-n', '--filename', type=str, metavar='FILENAME', help='File Naming Convention')
+    parser.add_argument('link', nargs="?", type=str, metavar='URL', help='GOGO link')
  
     args = parser.parse_args()
  
@@ -35,11 +39,72 @@ def fetch(url):
     else:
         return request.text
 
+def search(keyword):
+    data = fetch(f"https://ww5.gogoanimes.org/search?keyword={keyword}")
+
+    soup = BeautifulSoup(data, "html.parser")
+    # Grab all pages
+    pages = soup.find("ul", {"class": "pagination-list"})
+    # How to get href's
+    # https://stackoverflow.com/questions/5815747/beautifulsoup-getting-href
+    # How to make for loop to list
+    # https://www.youtube.com/watch?v=kNTveFsQVHY
+    pagination = [f"https://ww5.gogoanimes.org/{x['href']}" for x in pages.find_all(href=True)]
+    search_data = []
+    for page in pagination:
+        data = fetch(page)
+        soup = BeautifulSoup(data, "html.parser")
+        items = soup.find("ul", {"class": "items"}).find_all("div", {"class": "img"})
+        for num, img_data in enumerate(items):
+            metadata = img_data.find("a")
+            title = metadata['title']
+            link = metadata['href']
+            image = metadata.find("img")['src']
+            search_data.append({
+                "name": f"{num+1}: {title}",
+                "title": title,
+                "link": f"https://ww5.gogoanimes.org{link}",
+                "image": image,
+                "alias": link.split("/")[-1]
+            })
+    return search_data
+
+def episode_list(name):
+    #pagaste: https://github.com/justfoolingaround/animdl/blob/master/animdl/core/codebase/providers/gogoanime/__init__.py
+    page = fetch(f"https://gogoanime.cl/category/{name}")
+    soup = BeautifulSoup(page, 'html.parser')
+    id = soup.find("input", {"class": "movie_id"})['value'].zfill(2)
+
+    gogoanime = fetch(f"https://ajax.gogo-load.com/ajax/load-list-episode?ep_start=0&ep_end=10000000&id={id}&default_ep=0&alias={name}")
+    soup = BeautifulSoup(gogoanime, 'html.parser')
+    episodes = soup.find_all("li")
+    data = []
+    for episode in episodes:
+        number = int(episode.find('div', attrs={'class':'name'}).text.split(" ")[-1])
+        link = "https://gogoanime.cl"+episode.find('a')['href'][1:]
+        data.append({
+            "number": str(number),
+            "link": link
+        })
+    return data
+
+def fzf(data, key):
+    titles = '\n'.join([x[key] for x in data])
+    p = subprocess.run(COMMAND, input=titles, capture_output=True, text=True)
+    if p.stdout == "":
+        sys.exit("Please select something.")
+    else:
+        index = int(p.stdout.split("\n")[0].split(":")[0]) - 1
+        return data[index]
+
 def scrape(url):
+    print(url)
     data = fetch(url)
 
     soup = BeautifulSoup(data, "html.parser")
+    # I wish I could get season number or something
     title = soup.find("div", {"class": "title_name"}).h2.text[:-1]
+    episode = soup.find("input", {"class": "default_ep"})['value'].zfill(2)
     iframe = soup.find("iframe")['src']
     if urlparse(iframe).netloc == "ww.9anime2.com":
         return {"response": iframe, "title": title}
@@ -76,7 +141,11 @@ def scrape(url):
             session.cookies = LWPCookieJar()
             head = session.head(url)
             request = head.headers.get("Location", url)
-    return {"title": title, "response": request}
+    return {
+        "title": title,
+        "response": request,
+        "episode": episode
+    }
 
 def download(response, title):
     invalid = '<>:"/\|?*'
@@ -110,7 +179,13 @@ def main():
     args = get_arguments()
     if args.link:
         data = scrape(args.link)
-        download(data["response"], data["title"])
+        if args.filename:
+            title = args.filename % data
+        else:
+            title = data["title"]
+        download(data["response"], title)
+    elif args.search:
+        print(fzf(episode_list(fzf(search(args.search), "name")["alias"]), "number"))
 
 if __name__ == "__main__":
     main()
