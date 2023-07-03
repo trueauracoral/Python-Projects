@@ -6,6 +6,7 @@ shows = [
     "Pokemon",
     "Wednesday",
     "Oddballs",
+    "Sonic Prime",
 ]
 
 def request(url, jsonify=False):
