@@ -11,8 +11,8 @@ sky_surface = pygame.image.load('Sky.png').convert()
 ground_surface = pygame.image.load('Ground.png').convert()
 text_surface = test_font.render('MY GAME', False, 'Black')
 
-jaguar_surface = pygame.image.load('jaguar.png').convert_alpha()
-jaguar_rect = jaguar_surface.get_rect(bottomright = (600,300))
+#jaguar_surface = pygame.image.load('jaguar.png').convert_alpha()
+#jaguar_rect = jaguar_surface.get_rect(bottomright = (600,300))
 
 player_surf = pygame.image.load('sloth1.png').convert_alpha()
 player_rect = player_surf.get_rect(midbottom = (80, 300))
@@ -27,15 +27,24 @@ while True:
     screen.blit(ground_surface,(0, 300))
     screen.blit(text_surface,(300, 50))
     
-    jaguar_rect.x -= 4
-    if jaguar_rect.right <= 0: 
-        jaguar_rect.left = 800
-    screen.blit(jaguar_surface, jaguar_rect)
-    player_rect.left += 1
-    screen.blit(player_surf,player_rect)
-
-    if player_rect.colliderect(jaguar_rect):
-        print('collision')
+    #jaguar_rect.x -= 4
+    #if jaguar_rect.right <= 0: 
+    #    jaguar_rect.left = 800
+    #screen.blit(jaguar_surface, jaguar_rect)
+    
+    keys = pygame.key.get_pressed()
+    centerX, centerY = player_rect.center
+    rot = player_surf
+    angle = 0
+    if keys[pygame.K_d]:
+        angle -= 5
+        rot = pygame.transform.rotate(player_surf, angle)
+    if keys[pygame.K_a]:
+        angle += 5
+        player_surf = pygame.transform.rotate(player_surf, angle)
+    screen.blit(rot, player_surf.get_rect(center = (centerX, centerY)))
+    #if player_rect.colliderect(jaguar_rect):
+    #    print('collision')
 
     # draw all our elements
     # update everything
