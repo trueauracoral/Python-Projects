@@ -3,17 +3,18 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import argparse
+import sys
 
 def parse_arguments():
- 
-    parser = argparse.ArgumentParser(description='GOGOanime downloader')
- 
+
+    parser = argparse.ArgumentParser(description='Check to See when new Pokemon Episodes drop')
+
     #parser.add_argument('link', type=str, metavar='URL', help='IMDB link')
     parser.add_argument('-g', '--gogoanime', action="store_true", default=False, help='Get gogoanime link')
     parser.add_argument('-t', '--torrent', action="store_true", default=False, help='Get nyaa.si torrent link')
- 
+
     args = parser.parse_args()
- 
+
     return args
 
 def request(url, jsonify=False):
@@ -27,7 +28,7 @@ def request(url, jsonify=False):
         return r.json()
 
 def gogoanime():
-    gogoanime = request("https://ww5.gogoanimes.org/ajaxajax/load-list-episode?ep_start=0&ep_end=&id=0&default_ep=&alias=/category/pokemon-shinsaku-anime")
+    gogoanime = request("https://ajax.gogo-load.com/ajax/load-list-episode?ep_start=0&ep_end=21&id=13784&default_ep=0&alias=pokemon-shinsaku-anime")
     soup = BeautifulSoup(gogoanime, 'html.parser')
     newest = soup.find_all("li")[0]
     number = int(newest.find('div', attrs={'class':'name'}).text.split(" ")[-1])

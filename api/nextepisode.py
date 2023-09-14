@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 import requests
 
+# Shows I am getting ready to consooom
 shows = [
     "Velma",
     "Pokemon",
     "Wednesday",
     "Oddballs",
     "Sonic Prime",
+    "Cobra Kai",
+    "My Adventures with Superman"
 ]
 
 def request(url, jsonify=False):

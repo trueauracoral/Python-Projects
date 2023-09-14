@@ -5,13 +5,11 @@
 # https://www.pokemon.com/api/1/us/news/get-news.json
 import re
 import json
-import sys
 from datetime import datetime
+import requests
 
-sys.stdin.reconfigure(encoding="utf-8")
-
-input_data = sys.stdin.read()
-json_data = json.loads(input_data)
+URL = "https://www.pokemon.com/api/1/us/news/get-news.json"
+json_data = json.loads(requests.get(URL).text)
 
 items = []
 
@@ -30,7 +28,7 @@ for rel in json_data:
     "title": title,
     "id": id,
     "content_html": html,
-    "url": url,
+    "url": f"https://pokemon.com{url}",
     "date_published": date
   }
   items.append(item)
