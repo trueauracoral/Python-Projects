@@ -5,6 +5,9 @@ import json
 import argparse
 import sys
 
+# This changes almost every week
+GOGOANIME = "gogoanimehd.io"
+
 def parse_arguments():
 
     parser = argparse.ArgumentParser(description='Check to See when new Pokemon Episodes drop')
@@ -28,11 +31,11 @@ def request(url, jsonify=False):
         return r.json()
 
 def gogoanime():
-    gogoanime = request("https://ajax.gogo-load.com/ajax/load-list-episode?ep_start=0&ep_end=21&id=13784&default_ep=0&alias=pokemon-shinsaku-anime")
+    gogoanime = request("https://ajax.gogo-load.com/ajax/load-list-episode?ep_start=0&ep_end=100000000&id=13784&default_ep=0&alias=pokemon-shinsaku-anime")
     soup = BeautifulSoup(gogoanime, 'html.parser')
     newest = soup.find_all("li")[0]
     number = int(newest.find('div', attrs={'class':'name'}).text.split(" ")[-1])
-    link = "https://ww5.gogoanimes.org"+newest.find('a')['href'][1:]
+    link = f"https://{GOGOANIME}"+newest.find('a')['href'][1:]
     return {
         "link": link,
         "number": number
