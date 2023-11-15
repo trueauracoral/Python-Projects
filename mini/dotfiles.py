@@ -6,8 +6,13 @@ import shutil
 
 def main():
     if platform.system() == "Windows":
+        # Trying not to dox myself and make paths cleaner
+        # https://learn.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables
         appdata = os.getenv('APPDATA')
         localappdata = os.getenv('LOCALAPPDATA')
+        home = os.getenv('USERPROFILE')
+        print(home)
+
     configs = [
         {
             "name": "alacritty",
@@ -34,8 +39,12 @@ def main():
             "path": f"C:\\SGZ_Pro\\z-Apps_Drivers\\wezterm\\wezterm.lua"
         },
         {
+            "name": "neofetch",
+            "path": f"{home}\\.config\\neofetch\\config.conf"
+        },
+        {
             "name": "bash",
-            "path": f"C:\\Users\\Stanl\\.bashrc"
+            "path": f"{home}\\.bashrc"
         }
     ]
 
