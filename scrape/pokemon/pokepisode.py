@@ -1,10 +1,11 @@
 #!/usr/bin/env python
-
 import requests
 from bs4 import BeautifulSoup
 import json
 import argparse
 import sys
+from datetime import datetime
+import re
 
 # This changes almost every week
 GOGOANIME = "gogoanimehd.io"
@@ -42,6 +43,37 @@ def gogoanime():
         "number": number
     }
 
+def wikipedia():
+    data = request("https://en.wikipedia.org/w/index.php?title=Pok%C3%A9mon_Horizons:_The_Series&useskin=vector")
+    soup = BeautifulSoup(data, 'html.parser')
+    table = soup.find("table", {"class": "wikitable plainrowheaders wikiepisodetable"})
+    rows = table.find_all("tr")
+    current_date = datetime.now()
+    last_episode = {}
+    next_episode = {}
+
+    def title_format(title):
+        return re.findall('".*?"', title)[0]
+    for i, row in enumerate(rows):
+        columns = row.find_all("td")
+        if len(columns) > 1:
+            date_string = columns[6].text.strip().split("(")[-1].replace(")","")
+            episode_date = datetime.strptime(date_string, "%Y-%m-%d")
+            if episode_date <= current_date:
+                last_episode = {
+                    "number": columns[1].text.strip(),
+                    "title": title_format(columns[2].text.strip()),
+                    "date": date_string
+                }
+            else:
+                next_episode = {
+                    "number": columns[1].text.strip(),
+                    "title": title_format(columns[2].text.strip()),
+                    "date": date_string
+                }
+                break
+    return (last_episode, next_episode)
+
 def tvmaze():
     data = request(f"https://api.tvmaze.com/search/shows?q=pokemon", jsonify=True)
     data = request(data[0]["show"]["_links"]["self"]["href"], jsonify=True)
@@ -75,8 +107,13 @@ def main():
     elif args.torrent:
         print(somestuffs()["url"])
     else:
-        official = tvmaze()
-        print(f"""Newest released episode is {official['number']} - {official['name']}""")
+        # Not sure how tvmaze gets it's data from. Now on I will just
+        # scrape wikipedia
+        # official = tvmaze()
+        wiki = wikipedia()
+        released = wiki[0]
+        next_episode = wiki[1]
+        print(f"""Newest released episode is {released['number']} - {released['title']}""")
 
         clear = gogoanime()
         print(f"""
@@ -88,6 +125,8 @@ GOGOanime has released episode {clear['number']}
 Tor has released episode {tor['number']}
 - LINK:\t\t{tor['url']}
 - Torrent:\t{tor['torrent']}""")
+
+        print(f"""\nNext episode is {next_episode['number']} - {next_episode['title']} on {next_episode['date']}""")
 
 if __name__ == "__main__":
     main()
