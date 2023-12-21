@@ -8,7 +8,9 @@ from datetime import datetime
 import re
 
 # This changes almost every week
-GOGOANIME = "gogoanimehd.io"
+# Of the many problems in this code, this is the biggest. I must
+# scrape this crap
+GOGOANIME = "anitaku.to"
 
 def parse_arguments():
 
@@ -126,7 +128,10 @@ Tor has released episode {tor['number']}
 - LINK:\t\t{tor['url']}
 - Torrent:\t{tor['torrent']}""")
 
-        print(f"""\nNext episode is {next_episode['number']} - {next_episode['title']} on {next_episode['date']}""")
+        if len(wiki[1]) != 0:
+            print(f"""\nNext episode is {next_episode['number']} - {next_episode['title']} on {next_episode['date']}""")
+        else:
+            print("Not sure when the next episode is unfortunately. Check back soon!")
 
 if __name__ == "__main__":
     main()
