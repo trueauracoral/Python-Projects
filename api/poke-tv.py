@@ -38,7 +38,7 @@ def parse_arguments():
     parser.add_argument('-e', '--episode', action="store_true", default=False, help='In the selected channel (Not movies), select an episode to download or play with -p')
     #parser.add_argument('-f', '--fzf', action="store_true", default=False, help='Select with fzf')
     args = parser.parse_args()
- 
+
     return args
 
 def filter(data, key):
@@ -73,7 +73,8 @@ def formatname(information):
 
 def captioner(episode, current=False):
     if episode["captions"] == "":
-        sys.exit("Could not find captions file")
+        print("Could not find captions file")
+        return
     if current == True:
         folder = os.getcwd()
     for file in os.listdir(folder):
@@ -90,7 +91,7 @@ def captioner(episode, current=False):
     os.system(f"ffmpeg -i \"{capfull}\" -i {enfull} -c copy -c:s mov_text -metadata:s:s:0 language=eng \"{full}\"")
     os.remove(enfull)
     os.remove(capfull)
-    
+
 def main():
     args = parse_arguments()
     global REGION
@@ -138,7 +139,7 @@ def main():
             os.system(f"{DOWNLOADER} {information['stream_url']} -o \"{formatname(information)}.%(ext)s\"")
             captioner(information, current=True)
         sys.exit("finished")
-            
+
     if data[choice-1]["category"] == "Movies":
         filename = f"{data[choice]['media'][0]['title']}.%(ext)s"
     else:
