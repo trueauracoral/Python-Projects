@@ -12,7 +12,7 @@ def parse_arguments():
     parser.add_argument('-f', '--find', type=str, metavar='NAME', help='Find password credentials')
     parser.add_argument('-n', '--new', action="store_true", default=False, help='Create a new account credentials')
     args = parser.parse_args()
- 
+
     return args
 
 def main():
