@@ -35,7 +35,7 @@ def request(url, jsonify=False):
         return r.json()
 
 def gogoanime():
-    gogoanime = request("https://ajax.gogo-load.com/ajax/load-list-episode?ep_start=0&ep_end=100000000&id=13784&default_ep=0&alias=pokemon-shinsaku-anime")
+    gogoanime = request("https://ajax.gogocdn.net/ajax/load-list-episode?ep_start=0&ep_end=100000000&id=13784&default_ep=42&alias=pokemon-shinsaku-anime")
     soup = BeautifulSoup(gogoanime, 'html.parser')
     newest = soup.find_all("li")[0]
     number = int(newest.find('div', attrs={'class':'name'}).text.split(" ")[-1])
@@ -101,6 +101,21 @@ def somestuffs():
         "number": number
     }
 
+#https://www.geeksforgeeks.org/python-program-to-find-number-of-days-between-two-given-dates/
+def numOfDays(date1, date2):
+    if date2 > date1:
+        return (date2 - date1).days
+    else:
+        return (date1 - date2).days
+
+def uptodate(ep1, ep2):
+    ep1 = int(ep1)
+    ep2 = int(ep2)
+    if ep1 == ep2:
+        return "(Up to Date)"
+    else:
+        return "(Behind)"
+
 def main():
     args = parse_arguments()
 
@@ -119,17 +134,21 @@ def main():
 
         clear = gogoanime()
         print(f"""
-GOGOanime has released episode {clear['number']}
+GOGOanime has released episode {clear['number']} {uptodate(released['number'], clear['number'])}
 - LINK: {clear['link']}""")
 
         tor = somestuffs()
         print(f"""
-Tor has released episode {tor['number']}
+Tor has released episode {tor['number']} {uptodate(released['number'], clear['number'])}
 - LINK:\t\t{tor['url']}
 - Torrent:\t{tor['torrent']}""")
 
         if len(wiki[1]) != 0:
-            print(f"""\nNext episode is {next_episode['number']} - {next_episode['title']} on {next_episode['date']}""")
+            todaydate = datetime.today().date()
+            releasedate = datetime.strptime(next_episode['date'], "%Y-%m-%d").date()
+            inWaitDays = numOfDays(todaydate, releasedate)
+
+            print(f"""\nNext episode is {next_episode['number']} - {next_episode['title']} on {next_episode['date']} in {inWaitDays} days""")
         else:
             print("Not sure when the next episode is unfortunately. Check back soon!")
 
