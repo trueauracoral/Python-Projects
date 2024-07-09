@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="TitleLabel">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>20</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PokEpisode</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gogoLinkButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>80</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>GoGo</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="GoGoStatusLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>47</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TorLinkButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>110</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tor</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TorStatusLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>47</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuPokepisode">
+    <property name="title">
+     <string>Pokepisode</string>
+    </property>
+   </widget>
+   <addaction name="menuPokepisode"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

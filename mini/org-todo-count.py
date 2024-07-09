@@ -10,7 +10,7 @@ with open(TODO_file) as f:
     text = f.read()
 
 # Godly regex building the third temple with this one
-found = re.findall("\*.+?TODO .*",text)
+found = re.findall("\*\* TODO .*",text)
 
 formatted = ""
 for i in found:
